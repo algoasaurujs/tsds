@@ -31,7 +31,7 @@
         "singleQuote": true,
         "trailingComma": "es5"
     },
-    "name": "tsds",
+    "name": "@samavati/tsds",
     "author": "Ehsan Samavati",
     "module": "dist/tsds.esm.js",
     "size-limit": [
