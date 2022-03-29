@@ -1,103 +1,119 @@
-# TSDX User Guide
+# tsds
 
-Congrats! You just saved yourself hours of work by bootstrapping this project with TSDX. Let’s get you oriented with what’s here and how to use it.
+[Doc Website](https://samavati.github.io/tsds/)
 
-> This TSDX setup is meant for developing libraries (not apps!) that can be published to NPM. If you’re looking to build a Node app, you could use `ts-node-dev`, plain `ts-node`, or simple `tsc`.
+# ****Introduction****
 
-> If you’re new to TypeScript, checkout [this handy cheatsheet](https://devhints.io/typescript)
+A data structure is a way to store and organize data in order to facilitate access and modifications. No single data structure works well for all purposes, and so it is important to know the strengths and limitations of several of them.
 
-## Commands
+****Example:****
 
-TSDX scaffolds your new library inside `/src`.
+You may have used `Map` before, The `Map` object holds key-value pairs and remembers the original insertion order of the keys. Any value (both objects and primitive values) may be used as either a key or a value.
 
-To run TSDX, use:
+The `Map` is similar to `Object` But, The keys in `Map` are ordered in a simple, straightforward way: A `Map` object iterates entries, keys, and values in the order of entry insertion.
+
+The `Map` is builtin in javascript but, There are lots of other useful Data Structures that are not implemented in JavaScript or TypeScript. We attempt to implement them in this library.
+
+## ****Installation****
+
+To install and save in your `package.json`dependencies, run:
 
 ```bash
-npm start # or yarn start
+npm install @samavati/tsds
 ```
 
-This builds to `/dist` and runs the project in watch mode so any edits you save inside `src` causes a rebuild to `/dist`.
+## ****APIs****
 
-To do a one-off build, use `npm run build` or `yarn build`.
+### ****LinkedList****
 
-To run tests, use `npm test` or `yarn test`.
+A linked list is a data structure in which the objects are arranged in a linear order. Unlike an array, however, in which the linear order is determined by the array indices, the order in a linked list is determined by a pointer in each object.
 
-## Configuration
+****Usage****
 
-Code quality is set up for you with `prettier`, `husky`, and `lint-staged`. Adjust the respective fields in `package.json` accordingly.
+```tsx
+import { LinkedList } from '@samavati/tsds';
 
-### Jest
-
-Jest tests are set up to run with `npm test` or `yarn test`.
-
-### Bundle Analysis
-
-[`size-limit`](https://github.com/ai/size-limit) is set up to calculate the real cost of your library with `npm run size` and visualize the bundle with `npm run analyze`.
-
-#### Setup Files
-
-This is the folder structure we set up for you:
-
-```txt
-/src
-  index.tsx       # EDIT THIS
-/test
-  blah.test.tsx   # EDIT THIS
-.gitignore
-package.json
-README.md         # EDIT THIS
-tsconfig.json
+// instantiate new linked list
+const list = new LinkedList();
 ```
 
-### Rollup
+### **append**
 
-TSDX uses [Rollup](https://rollupjs.org) as a bundler and generates multiple rollup configs for various module formats and build settings. See [Optimizations](#optimizations) for details.
+Append new Node to the LinkedList
 
-### TypeScript
+```tsx
+const list = new LinkedList();
 
-`tsconfig.json` is set up to interpret `dom` and `esnext` types, as well as `react` for `jsx`. Adjust according to your needs.
-
-## Continuous Integration
-
-### GitHub Actions
-
-Two actions are added by default:
-
-- `main` which installs deps w/ cache, lints, tests, and builds on all pushes against a Node and OS matrix
-- `size` which comments cost comparison of your library on every pull request using [`size-limit`](https://github.com/ai/size-limit)
-
-## Optimizations
-
-Please see the main `tsdx` [optimizations docs](https://github.com/palmerhq/tsdx#optimizations). In particular, know that you can take advantage of development-only optimizations:
-
-```js
-// ./types/index.d.ts
-declare var __DEV__: boolean;
-
-// inside your code...
-if (__DEV__) {
-  console.log('foo');
-}
+*// append 'Hello' at the end of the list*
+list.append('Hello');
 ```
 
-You can also choose to install and use [invariant](https://github.com/palmerhq/tsdx#invariant) and [warning](https://github.com/palmerhq/tsdx#warning) functions.
+### **prepend**
 
-## Module Formats
+Appends new Node at the beginning of the LinkedList
 
-CJS, ESModules, and UMD module formats are supported.
+```tsx
+const list = new LinkedList();
 
-The appropriate paths are configured in `package.json` and `dist/index.js` accordingly. Please report if any issues are found.
+list.append('World');
+*// append 'Hello' at the beginning of the list*
+list.prepend('Hello');
+```
 
-## Named Exports
+### **delete**
 
-Per Palmer Group guidelines, [always use named exports.](https://github.com/palmerhq/typescript#exports) Code split inside your React app instead of your React library.
+Delete all occurrences of value
 
-## Including Styles
+```tsx
+const list = new LinkedList();
+list.append(1);
+list.append(2);
+list.append(3);
+list.append(3);
+list.append(4);
 
-There are many ways to ship styles, including with CSS-in-JS. TSDX has no opinion on this, configure how you like.
+list.delete(3);
+```
 
-For vanilla CSS, you can include it at the root directory and add it to the `files` section in your `package.json`, so that it can be imported separately by your users and run through their bundler's loader.
+### **insertAfter**
 
-## Publishing to NPM
+Add a node after a given node
 
-We recommend using [np](https://github.com/sindresorhus/np).
+```tsx
+const list = new LinkedList();
+list.append(1);
+list.append(2);
+list.append(4);
+
+list.insertAfter(3, 4);
+```
+
+### **find**
+
+Find first occurrence of the value
+
+Returns: `LinkedListNode` if there is a value otherwise `null`
+
+```tsx
+const list = new LinkedList();
+list.append(1);
+list.append(2);
+list.append(4);
+list.append(2);
+
+list.find(2);`
+```
+
+### **get**
+
+Returns Node at the specified index
+
+```tsx
+const list = new LinkedList();
+list.append(1);
+list.append(2);
+list.append(4);
+list.append(2);
+
+list.get(3);
+```
