@@ -2,4 +2,66 @@
 									<code class="language-sh hljs">
 npm install @samavati/tsds
 									</code>
-								</pre></div></section></header></article><article class="docs-article" id="section-3"><header class="docs-header"><h1 class="docs-heading">APIs</h1><section class="docs-intro"><p></p></section></header><section class="docs-section" id="LinkedList"><h2 class="section-heading">LinkedList</h2><p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p></section></article><footer class="footer"><div class="container text-center py-5"><small class="copyright">Template Copyright &copy; <a href="https://themes.3rdwavemedia.com/" target="_blank">3rd Wave Media</a></small><ul class="social-list list-unstyled pt-4 mb-0"><li class="list-inline-item"><a href="https://github.com/samavati/tsds" target="_blank"><i class="fab fa-github fa-fw"></i></a></li><li class="list-inline-item"><a href="https://www.linkedin.com/in/ehsan-samavati/" target="_blank"><i class="fab fa-linkedin-in fa-fw"></i></a></li></ul></div></footer></div></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script><script src="assets/js/highlight-custom.js"></script><script>hljs.initHighlighting()</script></body></html>
+								</pre></div></section></header></article><article class="docs-article" id="section-3"><header class="docs-header"><h1 class="docs-heading">APIs</h1><section class="docs-intro"><p></p></section></header><section class="docs-section" id="LinkedList"><h2 class="section-heading">LinkedList</h2><p>A linked list is a data structure in which the objects are arranged in a linear order. Unlike an array, however, in which the linear order is determined by the array indices, the order in a linked list is determined by a pointer in each object.</p><h3>Usage</h3><div class="docs-code-block"><pre class="rounded">
+								<code class="language-typescript hljs">
+import { LinkedList } from '@samavati/tsds';
+
+// instantiate new linked list
+const list = new LinkedList();
+								</code>
+							</pre></div><h4>append</h4><p>Append new Node to the LinkedList</p><div class="docs-code-block"><pre class="rounded">
+								<code class="language-typescript hljs">
+const list = new LinkedList();
+
+// append 'Hello' at the end of the list
+list.append('Hello');
+								</code>
+							</pre></div><h4>prepend</h4><p>Appends new Node at the beginning of the LinkedList</p><div class="docs-code-block"><pre class="rounded">
+								<code class="language-typescript hljs">
+const list = new LinkedList();
+
+list.append('World');
+// append 'Hello' at the beginning of the list
+list.prepend('Hello');
+								</code>
+							</pre></div><h4>delete</h4><p>Delete all occurrences of value</p><div class="docs-code-block"><pre class="rounded">
+								<code class="language-typescript hljs">
+const list = new LinkedList();
+list.append(1);
+list.append(2);
+list.append(3);
+list.append(3);
+list.append(4);
+
+list.delete(3);
+								</code>
+							</pre></div><h4>insertAfter</h4><p>Add a node after a given node</p><div class="docs-code-block"><pre class="rounded">
+								<code class="language-typescript hljs">
+const list = new LinkedList();
+list.append(1);
+list.append(2);
+list.append(4);
+
+list.insertAfter(3, 4);
+								</code>
+							</pre></div><h4>find</h4><p>Find first occurrence of the value</p><p>Returns: <code>LinkedListNode</code> if there is a value otherwise <code>null</code></p><div class="docs-code-block"><pre class="rounded">
+								<code class="language-typescript hljs">
+const list = new LinkedList();
+list.append(1);
+list.append(2);
+list.append(4);
+list.append(2);
+
+list.find(2);
+								</code>
+							</pre></div><h4>get</h4><p>Returns Node at the specified index</p><div class="docs-code-block"><pre class="rounded">
+								<code class="language-typescript hljs">
+const list = new LinkedList();
+list.append(1);
+list.append(2);
+list.append(4);
+list.append(2);
+
+list.get(3);
+								</code>
+							</pre></div></section></article><footer class="footer"><div class="container text-center py-5"><ul class="social-list list-unstyled pt-4 mb-0"><li class="list-inline-item"><a href="https://github.com/samavati/tsds" target="_blank"><i class="fab fa-github fa-fw"></i></a></li><li class="list-inline-item"><a href="https://www.linkedin.com/in/ehsan-samavati/" target="_blank"><i class="fab fa-linkedin-in fa-fw"></i></a></li></ul></div></footer></div></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script><script>hljs.initHighlighting()</script></body></html>
