@@ -33,6 +33,21 @@
     },
     "name": "@samavati/tsds",
     "author": "Ehsan Samavati",
+    "description": "TypeScript Data Structures that you need!",
+    "homepage": "https://samavati.github.io/tsds",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/samavati/tsds.git"
+    },
+    "keywords": [
+        "typescript",
+        "javascript",
+        "data-structure",
+        "linkedlist"
+    ],
+    "bugs": {
+        "url": "https://github.com/samavati/tsds/issues"
+    },
     "module": "dist/tsds.esm.js",
     "size-limit": [
         {
