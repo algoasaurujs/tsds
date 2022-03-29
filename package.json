@@ -18,7 +18,8 @@
         "prepare": "tsdx build",
         "size": "size-limit",
         "analyze": "size-limit --why",
-        "release": "standard-version"
+        "release": "standard-version",
+        "deploy": "gh-pages -d docs/dist"
     },
     "husky": {
         "hooks": {
@@ -67,5 +68,8 @@
         "tsdx": "^0.14.1",
         "tslib": "^2.3.1",
         "typescript": "^3.9.10"
+    },
+    "dependencies": {
+        "gh-pages": "^3.2.3"
     }
 }
