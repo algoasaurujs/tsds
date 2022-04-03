@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/samavati/tsds/compare/v1.2.1...v1.3.0) (2022-04-03)
+
+
+### Features
+
+* **LinkedList:** delete a node, clear, deleteFirst, includes, length, iterator added and delete value, insertAfter edited ([6677507](https://github.com/samavati/tsds/commit/6677507c1570e93f90cfd5fcce6f1f5ae073e1e3))
+
 ### [1.2.1](https://github.com/samavati/tsds/compare/v1.2.0...v1.2.1) (2022-03-29)
 
 ## [1.2.0](https://github.com/samavati/tsds/compare/v1.1.0...v1.2.0) (2022-03-29)
