@@ -1,67 +1,28 @@
-<!doctype html><html lang="en"><head><title>TypeScript Data Structures that you need!</title><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="You will find everything you need about @samavati/tsds on this page"><meta name="author" content="Ehsan Samavati"><link rel="shortcut icon" href="favicon.ico"><link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/vs2015.min.css" integrity="sha512-mtXspRdOWHCYp+f4c7CkWGYPPRAhq9X+xCvJMUBVAb6pqA4U8pxhT3RWT3LP3bKbiolYL2CkL1bSKZZO4eeTew==" crossorigin="anonymous" referrerpolicy="no-referrer"/><script defer="defer" src="main.js"></script><link href="main.css" rel="stylesheet"></head><body class="docs-page"><header class="header fixed-top"><div class="branding docs-branding"><div class="container-fluid position-relative py-2"><div class="docs-logo-wrapper"><button id="docs-sidebar-toggler" class="docs-sidebar-toggler docs-sidebar-visible me-2 d-xl-none" type="button"><span></span> <span></span> <span></span></button><div class="site-logo"><a class="navbar-brand" href="index.html"><img class="logo-icon me-2" src="assets/images/coderdocs-logo.svg" alt="logo"><span class="logo-text">Coder<span class="text-alt">Docs</span></span></a></div></div><div class="docs-top-utilities d-flex justify-content-end align-items-center"><div class="top-search-box d-none d-lg-flex"><form class="search-form"><input placeholder="Search the docs..." name="search" class="form-control search-input"> <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button></form></div><ul class="social-list list-inline mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex"><li class="list-inline-item"><a href="https://github.com/samavati/tsds" target="_blank"><i class="fab fa-github fa-fw"></i></a></li><li class="list-inline-item"><a href="https://www.linkedin.com/in/ehsan-samavati/" target="_blank"><i class="fab fa-linkedin-in fa-fw"></i></a></li></ul></div></div></div></header><div class="docs-wrapper"><div id="docs-sidebar" class="docs-sidebar"><div class="top-search-box d-lg-none p-3"><form class="search-form"><input placeholder="Search the docs..." name="search" class="form-control search-input"> <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button></form></div><nav id="docs-nav" class="docs-nav navbar"><ul class="section-items list-unstyled nav flex-column pb-3"><li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-1"><span class="theme-icon-holder me-2"><i class="fas fa-map-signs"></i></span>Introduction</a></li><li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-2"><span class="theme-icon-holder me-2"><i class="fas fa-arrow-down"></i></span>Installation</a></li><li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-3"><span class="theme-icon-holder me-2"><i class="fas fa-box"></i></span>APIs</a></li><li class="nav-item"><a class="nav-link scrollto" href="#LinkedList">LinkedList</a></li></ul></nav></div><div class="docs-content"><div class="container"><article class="docs-article" id="section-1"><header class="docs-header"><h1 class="docs-heading">Introduction</h1><section class="docs-intro"><p>A data structure is a way to store and organize data in order to facilitate access and modifications. No single data structure works well for all purposes, and so it is important to know the strengths and limitations of several of them.</p></section><h5>Example:</h5><p>You may have used <code>Map</code> before, The <code>Map</code> object holds key-value pairs and remembers the original insertion order of the keys. Any value (both objects and primitive values) may be used as either a key or a value.</p><p><code>Map</code> is similar to <code>Object</code> But, The keys in <code>Map</code> are ordered in a simple, straightforward way: A <code>Map</code> object iterates entries, keys, and values in the order of entry insertion.</p><p><code>Map</code> is builtin in javascript but, There are lots of other useful Data Structures that are not implemented in the JavaScript or TypeScript. We attempt to implement them in this library.</p></header></article><article class="docs-article" id="section-2"><header class="docs-header"><h1 class="docs-heading">Installation</h1><section class="docs-intro"><p>To install and save in your <code>package.json</code> dependencies, run:</p><div class="docs-code-block"><pre class="rounded">
+<!doctype html><html lang="en"><head><title>TSDS | TypeScript Data Structures that you need!</title><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="You will find everything you need about @samavati/tsds on this page"><meta name="author" content="Ehsan Samavati"><link rel="shortcut icon" href="favicon.ico"><link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/vs2015.min.css" integrity="sha512-mtXspRdOWHCYp+f4c7CkWGYPPRAhq9X+xCvJMUBVAb6pqA4U8pxhT3RWT3LP3bKbiolYL2CkL1bSKZZO4eeTew==" crossorigin="anonymous" referrerpolicy="no-referrer"/><script defer="defer" src="main.js"></script><link href="main.css" rel="stylesheet"></head><body class="docs-page"><header class="header fixed-top"><div class="branding docs-branding"><div class="container-fluid position-relative py-2"><div class="docs-logo-wrapper"><button id="docs-sidebar-toggler" class="docs-sidebar-toggler docs-sidebar-visible me-2 d-xl-none" type="button"><span></span> <span></span> <span></span></button><div class="site-logo"><a class="navbar-brand" href="index.html"><img class="logo-icon me-2" src="assets/images/coderdocs-logo.svg" alt="logo"><span class="logo-text">TSDS</span></a></div></div><div class="docs-top-utilities d-flex justify-content-end align-items-center"><ul class="social-list list-inline mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex"><li class="list-inline-item"><a href="https://github.com/samavati/tsds" target="_blank"><i class="fab fa-github fa-fw"></i></a></li><li class="list-inline-item"><a href="https://www.linkedin.com/in/ehsan-samavati/" target="_blank"><i class="fab fa-linkedin-in fa-fw"></i></a></li></ul></div></div></div></header><div class="docs-wrapper"><div id="docs-sidebar" class="docs-sidebar"><div class="top-search-box d-lg-none p-3"><form class="search-form"><input placeholder="Search the docs..." name="search" class="form-control search-input"> <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button></form></div><nav id="docs-nav" class="docs-nav navbar"><ul class="section-items list-unstyled nav flex-column pb-3"><li class="nav-item section-title"><a class="nav-link scrollto" href="#introduction"><span class="theme-icon-holder me-2"><i class="fas fa-map-signs"></i></span>Introduction</a></li><li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#installation"><span class="theme-icon-holder me-2"><i class="fas fa-arrow-down"></i></span>Installation</a></li><li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#apis"><span class="theme-icon-holder me-2"><i class="fas fa-box"></i></span>APIs</a></li><li class="nav-item"><a class="nav-link scrollto" href="#LinkedList">LinkedList</a></li></ul></nav></div><div class="docs-content"><div class="container"><article class="docs-article" id="introduction"><header class="docs-header"><h1 class="docs-heading">Introduction</h1><section class="docs-intro"><p>A data structure is a way to store and organize data in order to facilitate access and modifications. No single data structure works well for all purposes, and so it is important to know the strengths and limitations of several of them.</p></section><h5>Example:</h5><p>You may have used <code>Map</code> before, The <code>Map</code> object holds key-value pairs and remembers the original insertion order of the keys. Any value (both objects and primitive values) may be used as either a key or a value.</p><p><code>Map</code> is similar to <code>Object</code> But, The keys in <code>Map</code> are ordered in a simple, straightforward way: A <code>Map</code> object iterates entries, keys, and values in the order of entry insertion.</p><p><code>Map</code> is builtin in javascript but, There are lots of other useful Data Structures that are not implemented in the JavaScript or TypeScript. We attempt to implement them in this library.</p></header></article><article class="docs-article" id="installation"><header class="docs-header"><h1 class="docs-heading">Installation</h1><section class="docs-intro"><p>To install and save in your <code>package.json</code> dependencies, run:</p><div class="docs-code-block"><pre class="rounded">
 									<code class="language-sh hljs">
 npm install @samavati/tsds
 									</code>
-								</pre></div></section></header></article><article class="docs-article" id="section-3"><header class="docs-header"><h1 class="docs-heading">APIs</h1><section class="docs-intro"><p></p></section></header><section class="docs-section" id="LinkedList"><h2 class="section-heading">LinkedList</h2><p>A linked list is a data structure in which the objects are arranged in a linear order. Unlike an array, however, in which the linear order is determined by the array indices, the order in a linked list is determined by a pointer in each object.</p><h3>Usage</h3><div class="docs-code-block"><pre class="rounded">
+								</pre></div></section></header></article><article class="docs-article" id="apis"><header class="docs-header"><h1 class="docs-heading">APIs</h1><section class="docs-intro"><p></p></section></header><section class="docs-section" id="LinkedList"><h2 class="section-heading">LinkedList</h2><p>A linked list is a data structure in which the objects are arranged in a linear order. Unlike an array, however, in which the linear order is determined by the array indices, the order in a linked list is determined by a pointer in each object.</p><h3>Usage</h3><div class="docs-code-block"><pre class="rounded">
 								<code class="language-typescript hljs">
 import { LinkedList } from '@samavati/tsds';
 
-// instantiate new linked list
-const list = new LinkedList();
-								</code>
-							</pre></div><h4>append</h4><p>Append new Node to the LinkedList</p><div class="docs-code-block"><pre class="rounded">
-								<code class="language-typescript hljs">
+// instantiate new linked list without initial set-up
 const list = new LinkedList();
 
-// append 'Hello' at the end of the list
-list.append('Hello');
+// instantiate new linked list with initial values
+const list2 = new LinkedList([1, 2, 3, 4, 5]);
 								</code>
-							</pre></div><h4>prepend</h4><p>Appends new Node at the beginning of the LinkedList</p><div class="docs-code-block"><pre class="rounded">
+							</pre></div><p>The list supports iterator protocols allowing it to be used with the <code>for...of</code></p><div class="docs-code-block"><pre class="rounded">
 								<code class="language-typescript hljs">
-const list = new LinkedList();
+import { LinkedList } from '@samavati/tsds';
 
-list.append('World');
-// append 'Hello' at the beginning of the list
-list.prepend('Hello');
-								</code>
-							</pre></div><h4>delete</h4><p>Delete all occurrences of value</p><div class="docs-code-block"><pre class="rounded">
-								<code class="language-typescript hljs">
-const list = new LinkedList();
-list.append(1);
-list.append(2);
-list.append(3);
-list.append(3);
-list.append(4);
+const list = new LinkedList([1, 2, 3]);
 
-list.delete(3);
+for (let item of list) {
+	console.log(item)
+}
+// 1
+// 2
+// 3
 								</code>
-							</pre></div><h4>insertAfter</h4><p>Add a node after a given node</p><div class="docs-code-block"><pre class="rounded">
-								<code class="language-typescript hljs">
-const list = new LinkedList();
-list.append(1);
-list.append(2);
-list.append(4);
-
-list.insertAfter(3, 4);
-								</code>
-							</pre></div><h4>find</h4><p>Find first occurrence of the value</p><p>Returns: <code>LinkedListNode</code> if there is a value otherwise <code>null</code></p><div class="docs-code-block"><pre class="rounded">
-								<code class="language-typescript hljs">
-const list = new LinkedList();
-list.append(1);
-list.append(2);
-list.append(4);
-list.append(2);
-
-list.find(2);
-								</code>
-							</pre></div><h4>get</h4><p>Returns Node at the specified index</p><div class="docs-code-block"><pre class="rounded">
-								<code class="language-typescript hljs">
-const list = new LinkedList();
-list.append(1);
-list.append(2);
-list.append(4);
-list.append(2);
-
-list.get(3);
-								</code>
-							</pre></div></section></article><footer class="footer"><div class="container text-center py-5"><ul class="social-list list-unstyled pt-4 mb-0"><li class="list-inline-item"><a href="https://github.com/samavati/tsds" target="_blank"><i class="fab fa-github fa-fw"></i></a></li><li class="list-inline-item"><a href="https://www.linkedin.com/in/ehsan-samavati/" target="_blank"><i class="fab fa-linkedin-in fa-fw"></i></a></li></ul></div></footer></div></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script><script>hljs.initHighlighting()</script></body></html>
+							</pre></div><h4>Properties:</h4><div class="table-responsive my-4"><table class="table table-striped"><thead><tr><th scope="col">Property</th><th scope="col">Description</th></tr></thead><tbody><tr><th scope="row"><a href="linked-list.html#first">first</a></th><td>Gets the first node of the LinkedList&lt;T&gt;.</td></tr><tr><th scope="row"><a href="linked-list.html#last">last</a></th><td>Gets the last node of the LinkedList&lt;T&gt;.</td></tr><tr><th scope="row"><a href="linked-list.html#length">length</a></th><td>Gets the number of nodes actually contained in the LinkedList&lt;T&gt;.</td></tr></tbody></table></div><h4>Methods:</h4><div class="table-responsive my-4"><table class="table table-striped"><thead><tr><th scope="col">Method</th><th scope="col">Description</th></tr></thead><tbody><tr><th scope="row"><a href="linked-list.html#append">append</a></th><td>Adds a new node or value at the end of the LinkedList&lt;T&gt;.</td></tr><tr><th scope="row"><a href="linked-list.html#clear">clear</a></th><td>Removes all nodes from the LinkedList&lt;T&gt;.</td></tr><tr><th scope="row"><a href="linked-list.html#delete">delete</a></th><td>Removes the first occurrence of a node or value from the LinkedList&lt;T&gt;.</td></tr><tr><th scope="row"><a href="linked-list.html#deleteFirst">deleteFirst</a></th><td>Removes the node at the start of the LinkedList&lt;T&gt;.</td></tr><tr><th scope="row"><a href="linked-list.html#find">find</a></th><td>Finds the first node that contains the specified value.</td></tr><tr><th scope="row"><a href="linked-list.html#get">get</a></th><td>Returns Node at the specified index</td></tr><tr><th scope="row"><a href="linked-list.html#includes">includes</a></th><td>Determines whether a value is in the LinkedList&lt;T&gt;.</td></tr><tr><th scope="row"><a href="linked-list.html#insertAfter">insertAfter</a></th><td>Adds a new node or value after an existing node in the LinkedList&lt;T&gt;.</td></tr><tr><th scope="row"><a href="linked-list.html#prepend">prepend</a></th><td>Appends new Node at the beginning of the LinkedList&lt;T&gt;.</td></tr><tr><th scope="row"><a href="linked-list.html#toArray">toArray</a></th><td>Returns array of all values in LinkedList&lt;T&gt;.</td></tr></tbody></table></div></section></article><footer class="footer"><div class="container text-center py-5"><ul class="social-list list-unstyled pt-4 mb-0"><li class="list-inline-item"><a href="https://github.com/samavati/tsds" target="_blank"><i class="fab fa-github fa-fw"></i></a></li><li class="list-inline-item"><a href="https://www.linkedin.com/in/ehsan-samavati/" target="_blank"><i class="fab fa-linkedin-in fa-fw"></i></a></li></ul></div></footer></div></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script><script>hljs.highlightAll()</script></body></html>
