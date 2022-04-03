@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>TypeScript Data Structures that you need!</title>
+	<title>TSDS | TypeScript Data Structures that you need!</title>
 
 	<!-- Meta -->
 	<meta charset="utf-8">
@@ -35,19 +35,18 @@
 						<span></span>
 					</button>
 					<div class="site-logo"><a class="navbar-brand" href="index.html"><img class="logo-icon me-2"
-								src="assets/images/coderdocs-logo.svg" alt="logo"><span class="logo-text">Coder<span
-									class="text-alt">Docs</span></span></a></div>
+								src="assets/images/coderdocs-logo.svg" alt="logo"><span class="logo-text">TSDS</span></a></div>
 				</div>
 				<!--//docs-logo-wrapper-->
 				<div class="docs-top-utilities d-flex justify-content-end align-items-center">
-					<div class="top-search-box d-none d-lg-flex">
+					<!-- <div class="top-search-box d-none d-lg-flex">
 						<form class="search-form">
 							<input type="text" placeholder="Search the docs..." name="search"
 								class="form-control search-input">
 							<button type="submit" class="btn search-btn" value="Search"><i
 									class="fas fa-search"></i></button>
 						</form>
-					</div>
+					</div> -->
 
 					<ul class="social-list list-inline mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex">
 						<li class="list-inline-item"><a href="https://github.com/samavati/tsds" target="_blank"><i
@@ -75,13 +74,13 @@
 			</div>
 			<nav id="docs-nav" class="docs-nav navbar">
 				<ul class="section-items list-unstyled nav flex-column pb-3">
-					<li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-1"><span
+					<li class="nav-item section-title"><a class="nav-link scrollto" href="#introduction"><span
 								class="theme-icon-holder me-2"><i class="fas fa-map-signs"></i></span>Introduction</a>
 					</li>
-					<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-2"><span
+					<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#installation"><span
 								class="theme-icon-holder me-2"><i class="fas fa-arrow-down"></i></span>Installation</a>
 					</li>
-					<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-3"><span
+					<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#apis"><span
 								class="theme-icon-holder me-2"><i class="fas fa-box"></i></span>APIs</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#LinkedList">LinkedList</a></li>
 				</ul>
@@ -92,7 +91,7 @@
 		<!--//docs-sidebar-->
 		<div class="docs-content">
 			<div class="container">
-				<article class="docs-article" id="section-1">
+				<article class="docs-article" id="introduction">
 					<header class="docs-header">
 						<h1 class="docs-heading">Introduction
 						</h1>
@@ -124,7 +123,7 @@
 					</header>
 				</article>
 
-				<article class="docs-article" id="section-2">
+				<article class="docs-article" id="installation">
 					<header class="docs-header">
 						<h1 class="docs-heading">Installation</h1>
 						<section class="docs-intro">
@@ -143,7 +142,7 @@ npm install @samavati/tsds
 				<!--//docs-article-->
 
 
-				<article class="docs-article" id="section-3">
+				<article class="docs-article" id="apis">
 					<header class="docs-header">
 						<h1 class="docs-heading">APIs</h1>
 						<section class="docs-intro">
@@ -163,109 +162,112 @@ npm install @samavati/tsds
 								<code class="language-typescript hljs">
 import { LinkedList } from '@samavati/tsds';
 
-// instantiate new linked list
+// instantiate new linked list without initial set-up
 const list = new LinkedList();
+
+// instantiate new linked list with initial values
+const list2 = new LinkedList([1, 2, 3, 4, 5]);
 								</code>
 							</pre>
 						</div>
-
-						<h4>append</h4>
-						<p>Append new Node to the LinkedList</p>
-
+						<p>The list supports iterator protocols allowing it to be used with the <code>for...of</code></p>
 						<div class="docs-code-block">
 							<pre class="rounded">
 								<code class="language-typescript hljs">
-const list = new LinkedList();
+import { LinkedList } from '@samavati/tsds';
 
-// append 'Hello' at the end of the list
-list.append('Hello');
+const list = new LinkedList([1, 2, 3]);
+
+for (let item of list) {
+	console.log(item)
+}
+// 1
+// 2
+// 3
 								</code>
 							</pre>
 						</div>
-
-						<h4>prepend</h4>
-						<p>Appends new Node at the beginning of the LinkedList</p>
-
-						<div class="docs-code-block">
-							<pre class="rounded">
-								<code class="language-typescript hljs">
-const list = new LinkedList();
-
-list.append('World');
-// append 'Hello' at the beginning of the list
-list.prepend('Hello');
-								</code>
-							</pre>
+						<h4>Properties:</h4>
+						<div class="table-responsive my-4">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th scope="col">Property</th>
+										<th scope="col">Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row"><a href="linked-list.html#first">first</a></th>
+										<td>Gets the first node of the LinkedList&lt;T&gt;.</td>
+									</tr>
+									<tr>
+										<th scope="row"><a href="linked-list.html#last">last</a></th>
+										<td>Gets the last node of the LinkedList&lt;T&gt;.</td>
+									</tr>
+									<tr>
+										<th scope="row"><a href="linked-list.html#length">length</a></th>
+										<td>Gets the number of nodes actually contained in the LinkedList&lt;T&gt;.</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
+						<!--//table-responsive-->
 
-						<h4>delete</h4>
-						<p>Delete all occurrences of value</p>
-
-						<div class="docs-code-block">
-							<pre class="rounded">
-								<code class="language-typescript hljs">
-const list = new LinkedList();
-list.append(1);
-list.append(2);
-list.append(3);
-list.append(3);
-list.append(4);
-
-list.delete(3);
-								</code>
-							</pre>
+						<h4>Methods:</h4>
+						<div class="table-responsive my-4">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th scope="col">Method</th>
+										<th scope="col">Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row"><a href="linked-list.html#append">append</a></th>
+										<td>Adds a new node or value at the end of the LinkedList&lt;T&gt;.</td>
+									</tr>
+									<tr>
+										<th scope="row"><a href="linked-list.html#clear">clear</a></th>
+										<td>Removes all nodes from the LinkedList&lt;T&gt;.</td>
+									</tr>
+									<tr>
+										<th scope="row"><a href="linked-list.html#delete">delete</a></th>
+										<td>Removes the first occurrence of a node or value from the LinkedList&lt;T&gt;.</td>
+									</tr>
+									<tr>
+										<th scope="row"><a href="linked-list.html#deleteFirst">deleteFirst</a></th>
+										<td>Removes the node at the start of the LinkedList&lt;T&gt;.</td>
+									</tr>
+									<tr>
+										<th scope="row"><a href="linked-list.html#find">find</a></th>
+										<td>Finds the first node that contains the specified value.</td>
+									</tr>
+									<tr>
+										<th scope="row"><a href="linked-list.html#get">get</a></th>
+										<td>Returns Node at the specified index</td>
+									</tr>
+									<tr>
+										<th scope="row"><a href="linked-list.html#includes">includes</a></th>
+										<td>Determines whether a value is in the LinkedList&lt;T&gt;.</td>
+									</tr>
+									<tr>
+										<th scope="row"><a href="linked-list.html#insertAfter">insertAfter</a></th>
+										<td>Adds a new node or value after an existing node in the LinkedList&lt;T&gt;.</td>
+									</tr>
+									<tr>
+										<th scope="row"><a href="linked-list.html#prepend">prepend</a></th>
+										<td>Appends new Node at the beginning of the LinkedList&lt;T&gt;.</td>
+									</tr>
+									<tr>
+										<th scope="row"><a href="linked-list.html#toArray">toArray</a></th>
+										<td>Returns array of all values in LinkedList&lt;T&gt;.</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
-
-						<h4>insertAfter</h4>
-						<p>Add a node after a given node</p>
-
-						<div class="docs-code-block">
-							<pre class="rounded">
-								<code class="language-typescript hljs">
-const list = new LinkedList();
-list.append(1);
-list.append(2);
-list.append(4);
-
-list.insertAfter(3, 4);
-								</code>
-							</pre>
-						</div>
-
-						<h4>find</h4>
-						<p>Find first occurrence of the value</p>
-						<p>Returns: <code>LinkedListNode</code> if there is a value otherwise <code>null</code></p>
-
-						<div class="docs-code-block">
-							<pre class="rounded">
-								<code class="language-typescript hljs">
-const list = new LinkedList();
-list.append(1);
-list.append(2);
-list.append(4);
-list.append(2);
-
-list.find(2);
-								</code>
-							</pre>
-						</div>
-
-						<h4>get</h4>
-						<p>Returns Node at the specified index</p>
-
-						<div class="docs-code-block">
-							<pre class="rounded">
-								<code class="language-typescript hljs">
-const list = new LinkedList();
-list.append(1);
-list.append(2);
-list.append(4);
-list.append(2);
-
-list.get(3);
-								</code>
-							</pre>
-						</div>
+						<!--//table-responsive-->
 					</section>
 					<!--//section-->
 				</article>
@@ -290,7 +292,7 @@ list.get(3);
 	<!-- Page Specific JS -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
 	<script>
-		hljs.initHighlighting();
+		hljs.highlightAll();
 	</script>
 </body>
 

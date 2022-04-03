@@ -77,7 +77,7 @@ export class LinkedList<T = any> {
     }
 
     /**
-     * Append new Node to the LinkedList
+     * Adds a new node or value at the end of the LinkedList&lt;T&gt;.
      * @param value value of the new node
      */
     append(value: T): void {
@@ -188,7 +188,7 @@ export class LinkedList<T = any> {
     }
 
     /**
-     * Find first occurrence of the value
+     * Finds the first node that contains the specified value.
      * @param value value of the node we want to find
      * @returns _LinkedListNode_ if there is a value otherwise _null_
      */
@@ -288,7 +288,7 @@ export class LinkedList<T = any> {
     }
 
     /**
-     * Appends new Node at the beginning of the LinkedList
+     * Appends new Node at the beginning of the LinkedList<T>.
      * @param value value of the new node
      */
     prepend(value: T): void {
@@ -304,7 +304,7 @@ export class LinkedList<T = any> {
     }
 
     /**
-     * Returns array of all values in LinkedList
+     * Returns array of all values in LinkedList<T>.
      * @returns array of values
      */
     toArray(): T[] {

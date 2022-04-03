@@ -1,6 +1,25 @@
-# tsds
+# TSDS
+
+TypeScript Data Structures that you need!
 
 [Doc Website](https://samavati.github.io/tsds/)
+
+- [LinkedList<T>]()
+    - [Properties]()
+        - [first]()
+        - [last]()
+        - [length]()
+    - [Methods]()
+        - [append]()
+        - [clear]()
+        - [delete]()
+        - [deleteFirst]()
+        - [find]()
+        - [get]()
+        - [includes]()
+        - [insertAfter]()
+        - [prepend]()
+        - [toArray]()
 
 # ****Introduction****
 
@@ -24,96 +43,347 @@ npm install @samavati/tsds
 
 ## ****APIs****
 
-### ****LinkedList****
+## ****LinkedList<T>****
 
 A linked list is a data structure in which the objects are arranged in a linear order. Unlike an array, however, in which the linear order is determined by the array indices, the order in a linked list is determined by a pointer in each object.
 
-****Usage****
+**Usage**
 
 ```tsx
 import { LinkedList } from '@samavati/tsds';
 
-// instantiate new linked list
+// instantiate new linked list without initial set-up
 const list = new LinkedList();
+
+// instantiate new linked list with initial values
+const list2 = new LinkedList([1, 2, 3, 4, 5]);
 ```
+
+The list supports iterator protocols allowing it to be used with the `for...of`
+
+```tsx
+import { LinkedList } from '@samavati/tsds';
+
+const list = new LinkedList([1, 2, 3]);
+
+for (let item of list) {
+	console.log(item)
+}
+// 1
+// 2
+// 3
+```
+
+### **Properties**
+
+### **first**
+
+**Definition**
+
+Gets the first node of the LinkedList<T>.
+
+**Property Value**
+
+LinkedListNode<T>
+
+The first LinkedListNode<T> of the LinkedList<T>.
+
+**Example**
+
+```tsx
+const list = new LinkedList<number>([1, 2, 3, 4]);
+
+list.first // => LinkListNode(1)
+```
+
+**Remarks**
+
+If the LinkedList<T> is empty, the First and Last properties contain null.
+
+Retrieving the value of this property is an O(1) operation.
+
+### **last**
+
+**Definition**
+
+Gets the last node of the LinkedList<T>.
+
+**Property Value**
+
+LinkedListNode<T>
+
+The last LinkedListNode<T> of the LinkedList<T>.
+
+**Example**
+
+```tsx
+const list = new LinkedList<number>([1, 2, 3, 4]);
+
+list.last // => LinkListNode(4)
+```
+
+**Remarks**
+
+If the LinkedList<T> is empty, the First and Last properties contain null.
+
+Retrieving the value of this property is an O(1) operation.
+
+### **length**
+
+**Definition**
+
+Gets the number of nodes actually contained in the LinkedList<T>.
+
+**Property Value**
+
+number
+
+**Example**
+
+```tsx
+const list = new LinkedList<number>([1, 2, 3, 4]);
+
+list.length // => 4
+```
+
+**Remarks**
+
+Retrieving the value of this property is an O(1) operation.
+
+### **Methods**
 
 ### **append**
 
-Append new Node to the LinkedList
+**Definition**
+
+Adds a new node or value at the end of the LinkedList<T>.
+
+**Parameters**
+
+**value `T`:** The new value to add at the end of the LinkedList<T>.
+
+**Example**
 
 ```tsx
-const list = new LinkedList();
+const list = new LinkedList<number>([1, 2, 3, 4]);
 
-*// append 'Hello' at the end of the list*
-list.append('Hello');
+list.length // => 4
+list.append(5)
+list.length // => 5
+list.last // => LinkListNode(5)
 ```
 
-### **prepend**
+**Remarks**
 
-Appends new Node at the beginning of the LinkedList
+This method is an O(1) operation.
+
+### **clear**
+
+**Definition**
+
+Removes all nodes from the LinkedList<T>.
+
+**Example**
 
 ```tsx
-const list = new LinkedList();
+const list = new LinkedList<number>([1, 2, 3, 4]);
 
-list.append('World');
-*// append 'Hello' at the beginning of the list*
-list.prepend('Hello');
+list.length // => 4
+list.clear();
+list.length // => 0
 ```
 
 ### **delete**
 
-Delete all occurrences of value
+**Definition**
+
+Removes the first occurrence of a node or value from the LinkedList<T>.
+
+**Example**
 
 ```tsx
-const list = new LinkedList();
-list.append(1);
-list.append(2);
-list.append(3);
-list.append(3);
-list.append(4);
+const list = new LinkedList<number>([1, 2, 3, 4]);
 
-list.delete(3);
+list.length // => 4
+list.delete(4)
+list.length // => 3
+list.last // => LinkListNode(3)
 ```
 
-### **insertAfter**
+**Remarks**
 
-Add a node after a given node
+This method is an O(n) operation.
+
+### **deleteFirst**
+
+**Definition**
+
+Removes the node at the start of the LinkedList<T>.
+
+**Example**
 
 ```tsx
-const list = new LinkedList();
-list.append(1);
-list.append(2);
-list.append(4);
+const list = new LinkedList<number>([1, 2, 3, 4]);
 
-list.insertAfter(3, 4);
+list.length // => 4
+list.deleteFirst();
+list.length // => 3
+list.first // => LinkListNode(2)
 ```
+
+**Remarks**
+
+This method is an O(1) operation.
 
 ### **find**
 
-Find first occurrence of the value
+**Definition**
 
-Returns: `LinkedListNode` if there is a value otherwise `null`
+Finds the first node that contains the specified value.
+
+**Parameters**
+
+**value `T`:** The value to locate in the LinkedList<T>.
+
+**Returns**
+
+The first LinkedListNode<T> that contains the specified value, if found; otherwise, null.
+
+**Example**
 
 ```tsx
-const list = new LinkedList();
-list.append(1);
-list.append(2);
-list.append(4);
-list.append(2);
+const list = new LinkedList<number>([1, 2, 3, 4]);
 
-list.find(2);`
+const item = list.find(2)
+
+const nullItem = list.find(10) // => null
 ```
+
+**Remarks**
+
+This method is an O(n) operation.
 
 ### **get**
 
+**Definition**
+
 Returns Node at the specified index
 
-```tsx
-const list = new LinkedList();
-list.append(1);
-list.append(2);
-list.append(4);
-list.append(2);
+**Parameters**
 
-list.get(3);
+**index `number`:** index of the Node starts, from 0
+
+**Returns**
+
+LinkedListNode<T> of the specified index, if index is less than length; otherwise, null.
+
+**Example**
+
+```tsx
+const list = new LinkedList<number>([1, 2, 3, 4]);
+
+const item = list.get(2)
+
+const nullItem = list.get(10) // => null
 ```
+
+**Remarks**
+
+This method is an O(n) operation.
+
+### **includes**
+
+**Definition**
+
+Determines whether a value is in the LinkedList<T>.
+
+**Parameters**
+
+**value `T`:** The value to locate in the LinkedList<T>.
+
+**Returns**
+
+`boolean`
+
+true if value is found in the LinkedList<T>; otherwise, false.
+
+**Example**
+
+```tsx
+const list = new LinkedList<number>([1, 2, 3, 4]);
+
+list.includes(2) // => true
+list.includes(10) // => false
+```
+
+**Remarks**
+
+This method is an O(n) operation.
+
+### **insertAfter**
+
+**Definition**
+
+Adds a new node or value after an existing node in the LinkedList<T>.
+
+**Example**
+
+```tsx
+const list = new LinkedList<number>([1, 2, 3, 4]);
+
+const item = list.get(2);
+if (item) {
+	list.insertAfter(item, 'hello');
+
+	const world = new LinkedListNode('world');
+	list.insertAfter(item, world);
+}
+```
+
+**Remarks**
+
+This method is an O(1) operation.
+
+### **prepend**
+
+**Definition**
+
+Adds a new node or value at the start of the LinkedList<T>.
+
+**Parameters**
+
+**value `T`:** The new value to add at the start of the LinkedList<T>.
+
+**Example**
+
+```tsx
+const list = new LinkedList<number>([1, 2, 3, 4]);
+
+list.length // => 4
+list.prepend(0)
+list.length // => 5
+list.first // => LinkListNode(0)
+```
+
+**Remarks**
+
+This method is an O(1) operation.
+
+### **toArray**
+
+**Definition**
+
+Returns the entire LinkedList<T> to a compatible one-dimensional Array
+
+**Example**
+
+```tsx
+const list = new LinkedList<number>([1, 2, 3, 4]);
+
+list.prepend(0)
+list.toArray() // => [0, 1, 2, 3, 4]
+```
+
+**Remarks**
+
+This method is an O(n) operation.
