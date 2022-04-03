@@ -1,3 +1,7 @@
 import { LinkedList } from './LinkedList';
+import { LinkedListNode } from './LinkedListNode';
 
-export { LinkedList };
+export {
+    LinkedList,
+    LinkedListNode
+};
