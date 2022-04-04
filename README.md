@@ -4,23 +4,6 @@ TypeScript Data Structures that you need!
 
 [Doc Website](https://samavati.github.io/tsds/)
 
-- [LinkedList<T>]()
-    - [Properties]()
-        - [first]()
-        - [last]()
-        - [length]()
-    - [Methods]()
-        - [append]()
-        - [clear]()
-        - [delete]()
-        - [deleteFirst]()
-        - [find]()
-        - [get]()
-        - [includes]()
-        - [insertAfter]()
-        - [prepend]()
-        - [toArray]()
-
 # ****Introduction****
 
 A data structure is a way to store and organize data in order to facilitate access and modifications. No single data structure works well for all purposes, and so it is important to know the strengths and limitations of several of them.
@@ -33,6 +16,26 @@ The `Map` is similar to `Object` But, The keys in `Map` are ordered in a si
 
 The `Map` is builtin in javascript but, There are lots of other useful Data Structures that are not implemented in JavaScript or TypeScript. We attempt to implement them in this library.
 
+## Table of Contents
+
+- [Installation](#installation)
+- [APIs](#apis)
+    - [LinkedList<T>](#linkedlist<T>)
+        - [Properties](#properties)
+            - [first](#first)
+            - [last](#last)
+            - [length](#length)
+        - [Methods](#methods)
+            - [append](#append)
+            - [clear](#clear)
+            - [delete](#delete)
+            - [deleteFirst](#deletefirst)
+            - [find](#find)
+            - [get](#get)
+            - [includes](#includes)
+            - [insertAfter](#insertafter)
+            - [prepend](#prepend)
+            - [toArray](#toarray)
 ## ****Installation****
 
 To install and save in your `package.json`dependencies, run:
@@ -387,3 +390,23 @@ list.toArray() // => [0, 1, 2, 3, 4]
 **Remarks**
 
 This method is an O(n) operation.
+
+## Built With
+
+* [tsdx](https://tsdx.io/) - Zero-config CLI for TypeScript package development
+
+## Contributing
+
+Please do not hesitate to contact me and contribute on this project.
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/samavati/tsds/tags). 
+
+## Authors
+
+* [Ehsan Samavati](https://github.com/samavati)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/samavati/tsds/blob/main/LICENSE) file for details
