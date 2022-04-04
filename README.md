@@ -23,21 +23,32 @@ The `Map` is builtin in javascript but, There are lots of other useful Data Str
 - [Installation](#installation)
 - [APIs](#apis)
     - [LinkedList<T>](#linkedlist<T>)
-        - [Properties](#properties)
-            - [first](#first)
-            - [last](#last)
-            - [length](#length)
-        - [Methods](#methods)
-            - [append](#append)
-            - [clear](#clear)
-            - [delete](#delete)
-            - [deleteFirst](#deletefirst)
-            - [find](#find)
-            - [get](#get)
-            - [includes](#includes)
-            - [insertAfter](#insertafter)
-            - [prepend](#prepend)
-            - [toArray](#toarray)
+        - [LinkedList.Properties](#properties)
+            - [LinkedList.first](#first)
+            - [LinkedList.last](#last)
+            - [LinkedList.length](#length)
+        - [LinkedList.Methods](#methods)
+            - [LinkedList.append](#append)
+            - [LinkedList.clear](#clear)
+            - [LinkedList.delete](#delete)
+            - [LinkedList.deleteFirst](#deletefirst)
+            - [LinkedList.find](#find)
+            - [LinkedList.get](#get)
+            - [LinkedList.includes](#includes)
+            - [LinkedList.insertAfter](#insertafter)
+            - [LinkedList.prepend](#prepend)
+            - [LinkedList.toArray](#toarray)
+    - [Stack<T>](#stack<T>)
+        - [Stack.Properties](#properties)
+            - [Stack.length](#length)
+        - [Stack.Methods](#methods)
+            - [Stack.clear](#clear)
+            - [Stack.includes](#includes)
+            - [Stack.peek](#peek)
+            - [Stack.pop](#pop)
+            - [Stack.push](#push)
+            - [Stack.get](#get)
+            - [Stack.toArray](#toarray)
 ## ****Installation****
 
 To install and save in your `package.json`dependencies, run:
@@ -79,9 +90,9 @@ for (let item of list) {
 // 3
 ```
 
-### **Properties**
+### **LinkedList.Properties**
 
-### **first**
+### **LinkedList.first**
 
 **Definition**
 
@@ -107,7 +118,7 @@ If the LinkedList<T> is empty, the First and Last properties contain null.
 
 Retrieving the value of this property is an O(1) operation.
 
-### **last**
+### **LinkedList.last**
 
 **Definition**
 
@@ -133,7 +144,7 @@ If the LinkedList<T> is empty, the First and Last properties contain null.
 
 Retrieving the value of this property is an O(1) operation.
 
-### **length**
+### **LinkedList.length**
 
 **Definition**
 
@@ -155,9 +166,9 @@ list.length // => 4
 
 Retrieving the value of this property is an O(1) operation.
 
-### **Methods**
+### **LinkedList.Methods**
 
-### **append**
+### **LinkedList.append**
 
 **Definition**
 
@@ -182,7 +193,7 @@ list.last // => LinkListNode(5)
 
 This method is an O(1) operation.
 
-### **clear**
+### **LinkedList.clear**
 
 **Definition**
 
@@ -198,7 +209,7 @@ list.clear();
 list.length // => 0
 ```
 
-### **delete**
+### **LinkedList.delete**
 
 **Definition**
 
@@ -219,7 +230,7 @@ list.last // => LinkListNode(3)
 
 This method is an O(n) operation.
 
-### **deleteFirst**
+### **LinkedList.deleteFirst**
 
 **Definition**
 
@@ -240,7 +251,7 @@ list.first // => LinkListNode(2)
 
 This method is an O(1) operation.
 
-### **find**
+### **LinkedList.find**
 
 **Definition**
 
@@ -268,7 +279,7 @@ const nullItem = list.find(10) // => null
 
 This method is an O(n) operation.
 
-### **get**
+### **LinkedList.get**
 
 **Definition**
 
@@ -296,7 +307,7 @@ const nullItem = list.get(10) // => null
 
 This method is an O(n) operation.
 
-### **includes**
+### **LinkedList.includes**
 
 **Definition**
 
@@ -325,7 +336,7 @@ list.includes(10) // => false
 
 This method is an O(n) operation.
 
-### **insertAfter**
+### **LinkedList.insertAfter**
 
 **Definition**
 
@@ -349,7 +360,7 @@ if (item) {
 
 This method is an O(1) operation.
 
-### **prepend**
+### **LinkedList.prepend**
 
 **Definition**
 
@@ -374,7 +385,7 @@ list.first // => LinkListNode(0)
 
 This method is an O(1) operation.
 
-### **toArray**
+### **LinkedList.toArray**
 
 **Definition**
 
@@ -387,6 +398,228 @@ const list = new LinkedList<number>([1, 2, 3, 4]);
 
 list.prepend(0)
 list.toArray() // => [0, 1, 2, 3, 4]
+```
+
+**Remarks**
+
+This method is an O(n) operation.
+
+## ****Stack<T>****
+
+A stack is an abstract data type that serves as a collection of elements, with two main principal operations:
+• Push, which adds an element to the collection, and
+• Pop, which removes the most recently added element that was not yet removed.
+The order in which elements come off a stack gives rise to its alternative name, LIFO (last in, first out). Additionally, a peek operation may give access to the top without modifying the stack.
+
+**Usage**
+
+```tsx
+import { Stack } from '@samavati/tsds';
+
+// instantiate new Stack
+const stack = new Stack();
+```
+
+The stack supports iterator protocols allowing it to be used with the `for...of`
+
+```tsx
+import { Stack } from '@samavati/tsds';
+
+stack.push(1);
+stack.push(2);
+stack.push(3);
+
+for (const item of stack) {
+	console.log(item)
+}
+
+// 3
+// 2
+// 1
+```
+
+### **Stack.Properties**
+
+### **Stack.length**
+
+**Definition**
+
+Gets the number of elements contained in the Stack.
+
+**Property Value**
+
+`number`
+
+**Example**
+
+```tsx
+const stack = new Stack<number>();
+
+stack.push(1);
+stack.push(2);
+stack.push(3);
+
+stack.length *// => 3*
+```
+
+**Remarks**
+
+Retrieving the value of this property is an O(1) operation.
+
+### **Stack.Methods**
+
+### **Stack.clear**
+
+**Definition**
+
+Removes all objects from the Stack.
+
+**Example**
+
+```tsx
+const stack = new Stack<number>();
+
+stack.push(1);
+stack.push(2);
+stack.push(3);
+
+stack.length *// => 3*
+stack.clear()
+stack.length *// => 0*
+```
+
+### **Stack.includes**
+
+**Definition**
+
+Determines whether an element is in the Stack.
+
+**Parameters**
+
+**item `T`**The object to locate in the Stack.
+
+**Returns**
+
+`boolean`
+
+true if item is found in the Stack; otherwise, false.
+
+**Example**
+
+```tsx
+const stack = new Stack<number>();
+
+stack.push(1);
+stack.push(2);
+stack.push(3);
+
+stack.includes(2) *// => true*
+stack.includes(10) *// => false*
+```
+
+**Remarks**
+
+This method is an O(n) operation.
+
+### **Stack.peek**
+
+**Definition**
+
+Returns the object at the top of the Stack without removing it.
+
+**Returns**
+
+`T`
+
+The object at the top of the Stack.
+
+**Example**
+
+```tsx
+const stack = new Stack<number>();
+
+stack.push(1);
+stack.push(2);
+stack.push(3);
+
+stack.peek() *// => 3*
+```
+
+**Remarks**
+
+This method is an O(1) operation.
+
+### **Stack.pop**
+
+**Definition**
+
+Removes and returns the object at the top of the Stack.
+
+**Returns**
+
+`T`
+
+The object at the top of the Stack.
+
+**Example**
+
+```tsx
+const stack = new Stack<number>();
+
+stack.push(1);
+stack.push(2);
+stack.push(3);
+
+stack.pop() *// => 3*
+stack.length *// => 2*
+```
+
+**Remarks**
+
+This method is an O(1) operation.
+
+### **Stack.push**
+
+**Definition**
+
+Inserts an object at the top of the Stack.
+
+**Parameters**
+
+**value `T`:** The object to push onto the Stack.
+
+**Example**
+
+```tsx
+const stack = new Stack<number>();
+
+stack.push(1);
+stack.push(2);
+stack.push(3);
+
+stack.length *// => 3*
+```
+
+**Remarks**
+
+This method is an O(1) operation.
+
+### **Stack.toArray**
+
+**Definition**
+
+Returns the entire Stack<T> to a compatible one-dimensional Array
+
+**Example**
+
+```tsx
+const stack = new Stack<number>();
+
+stack.push(1);
+stack.push(2);
+stack.push(3);
+
+stack.toArray() *// => [3, 2, 1]*
 ```
 
 **Remarks**

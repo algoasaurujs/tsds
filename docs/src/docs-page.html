@@ -35,7 +35,8 @@
 						<span></span>
 					</button>
 					<div class="site-logo"><a class="navbar-brand" href="index.html"><img class="logo-icon me-2"
-								src="assets/images/coderdocs-logo.svg" alt="logo"><span class="logo-text">TSDS</span></a></div>
+								src="assets/images/coderdocs-logo.svg" alt="logo"><span
+								class="logo-text">TSDS</span></a></div>
 				</div>
 				<!--//docs-logo-wrapper-->
 				<div class="docs-top-utilities d-flex justify-content-end align-items-center">
@@ -83,6 +84,7 @@
 					<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#apis"><span
 								class="theme-icon-holder me-2"><i class="fas fa-box"></i></span>APIs</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#LinkedList">LinkedList</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#Stack">Stack</a></li>
 				</ul>
 
 			</nav>
@@ -170,7 +172,8 @@ const list2 = new LinkedList([1, 2, 3, 4, 5]);
 								</code>
 							</pre>
 						</div>
-						<p>The list supports iterator protocols allowing it to be used with the <code>for...of</code></p>
+						<p>The list supports iterator protocols allowing it to be used with the <code>for...of</code>
+						</p>
 						<div class="docs-code-block">
 							<pre class="rounded">
 								<code class="language-typescript hljs">
@@ -234,7 +237,8 @@ for (let item of list) {
 									</tr>
 									<tr>
 										<th scope="row"><a href="linked-list.html#delete">delete</a></th>
-										<td>Removes the first occurrence of a node or value from the LinkedList&lt;T&gt;.</td>
+										<td>Removes the first occurrence of a node or value from the
+											LinkedList&lt;T&gt;.</td>
 									</tr>
 									<tr>
 										<th scope="row"><a href="linked-list.html#deleteFirst">deleteFirst</a></th>
@@ -254,7 +258,8 @@ for (let item of list) {
 									</tr>
 									<tr>
 										<th scope="row"><a href="linked-list.html#insertAfter">insertAfter</a></th>
-										<td>Adds a new node or value after an existing node in the LinkedList&lt;T&gt;.</td>
+										<td>Adds a new node or value after an existing node in the LinkedList&lt;T&gt;.
+										</td>
 									</tr>
 									<tr>
 										<th scope="row"><a href="linked-list.html#prepend">prepend</a></th>
@@ -263,6 +268,116 @@ for (let item of list) {
 									<tr>
 										<th scope="row"><a href="linked-list.html#toArray">toArray</a></th>
 										<td>Returns array of all values in LinkedList&lt;T&gt;.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<!--//table-responsive-->
+					</section>
+					<!--//section-->
+
+					<section class="docs-section" id="Stack">
+						<h2 class="section-heading">Stack</h2>
+						<p>A stack is an abstract data type that serves as a collection of elements, with two main
+							principal operations:</p>
+						<ul>
+							<li>
+								<string>Push</string>, which adds an element to the collection, and
+							</li>
+							<li>
+								<string>Pop</string>, which removes the most recently added element that was not yet
+								removed.
+							</li>
+						</ul>
+						<p>The order in which elements come off a stack gives rise to its alternative name, LIFO (last
+							in, first out). Additionally, a peek operation may give access to the top without modifying
+							the stack.
+							</p>
+						<h3>Usage</h3>
+						<div class="docs-code-block">
+							<pre class="rounded">
+								<code class="language-typescript hljs">
+import { Stack } from '@samavati/tsds';
+
+// instantiate new Stack
+const stack = new Stack();
+
+								</code>
+							</pre>
+						</div>
+						<p>The stack supports iterator protocols allowing it to be used with the <code>for...of</code>
+						</p>
+						<div class="docs-code-block">
+							<pre class="rounded">
+								<code class="language-typescript hljs">
+import { Stack } from '@samavati/tsds';
+
+stack.push(1);
+stack.push(2);
+stack.push(3);
+
+for (const item of stack) {
+  console.log(item)
+}
+
+// 3
+// 2
+// 1
+								</code>
+							</pre>
+						</div>
+						<h4>Properties:</h4>
+						<div class="table-responsive my-4">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th scope="col">Property</th>
+										<th scope="col">Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row"><a href="stack.html#length">length</a></th>
+										<td>Gets the number of elements contained in the Stack<T>.</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<!--//table-responsive-->
+
+						<h4>Methods:</h4>
+						<div class="table-responsive my-4">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th scope="col">Method</th>
+										<th scope="col">Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row"><a href="stack.html#clear">clear</a></th>
+										<td>Removes all objects from the Stack<T>.</td>
+									</tr>
+									<tr>
+										<th scope="row"><a href="stack.html#includes">includes</a></th>
+										<td>Determines whether an element is in the Stack<T>.</td>
+									</tr>
+									<tr>
+										<th scope="row"><a href="stack.html#peek">peek</a></th>
+										<td>Returns the object at the top of the Stack<T> without removing it.</td>
+									</tr>
+									<tr>
+										<th scope="row"><a href="stack.html#pop">pop</a></th>
+										<td>Removes and returns the object at the top of the Stack<T>.</td>
+									</tr>
+									<tr>
+										<th scope="row"><a href="stack.html#push">push</a></th>
+										<td>Inserts an object at the top of the Stack<T>.</td>
+									</tr>
+									<tr>
+										<th scope="row"><a href="stack.html#toArray">toArray</a></th>
+										<td>Returns a new array containing copies of the elements of the Stack<T>.</td>
 									</tr>
 								</tbody>
 							</table>

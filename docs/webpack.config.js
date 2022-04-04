@@ -58,6 +58,10 @@ module.exports = {
       filename: 'linked-list.html',
       template: 'src/linked-list.html'
     }),
+    new HtmlWebpackPlugin({
+      filename: 'stack.html',
+      template: 'src/stack.html'
+    }),
     new CopyPlugin({
       patterns: [
         { from: "src/assets/images", to: "assets/images" },

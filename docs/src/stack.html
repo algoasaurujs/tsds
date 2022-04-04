@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Stack | TSDS</title>
+
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<meta name="description" content="You will find everything you need about @samavati/tsds on this page">
+	<meta name="author" content="Ehsan Samavati">
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/vs2015.min.css"
+		integrity="sha512-mtXspRdOWHCYp+f4c7CkWGYPPRAhq9X+xCvJMUBVAb6pqA4U8pxhT3RWT3LP3bKbiolYL2CkL1bSKZZO4eeTew=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body class="docs-page">
+	<header class="header fixed-top">
+		<div class="branding docs-branding">
+			<div class="container-fluid position-relative py-2">
+				<div class="docs-logo-wrapper">
+					<button id="docs-sidebar-toggler" class="docs-sidebar-toggler docs-sidebar-visible me-2 d-xl-none"
+						type="button">
+						<span></span>
+						<span></span>
+						<span></span>
+					</button>
+					<div class="site-logo"><a class="navbar-brand" href="index.html"><img class="logo-icon me-2"
+								src="assets/images/coderdocs-logo.svg" alt="logo"><span
+								class="logo-text">TSDS</span></a></div>
+				</div>
+				<!--//docs-logo-wrapper-->
+				<div class="docs-top-utilities d-flex justify-content-end align-items-center">
+					<!-- <div class="top-search-box d-none d-lg-flex">
+						<form class="search-form">
+							<input type="text" placeholder="Search the docs..." name="search"
+								class="form-control search-input">
+							<button type="submit" class="btn search-btn" value="Search"><i
+									class="fas fa-search"></i></button>
+						</form>
+					</div> -->
+
+					<ul class="social-list list-inline mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex">
+						<li class="list-inline-item"><a href="https://github.com/samavati/tsds" target="_blank"><i
+									class="fab fa-github fa-fw"></i></a></li>
+						<li class="list-inline-item"><a href="https://www.linkedin.com/in/ehsan-samavati/"
+								target="_blank"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
+					</ul>
+				</div>
+				<!--//docs-top-utilities-->
+			</div>
+			<!--//container-->
+		</div>
+		<!--//branding-->
+	</header>
+	<!--//header-->
+
+
+	<div class="docs-wrapper">
+		<div id="docs-sidebar" class="docs-sidebar">
+			<div class="top-search-box d-lg-none p-3">
+				<form class="search-form">
+					<input type="text" placeholder="Search the docs..." name="search" class="form-control search-input">
+					<button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
+				</form>
+			</div>
+			<nav id="docs-nav" class="docs-nav navbar">
+				<ul class="section-items list-unstyled nav flex-column pb-3">
+					<li class="nav-item section-title"><a class="nav-link" href="./docs-page.html"><span
+								class="theme-icon-holder me-2"><i class="fas fa-chevron-left"></i></span>Back to
+							Docs</a>
+					</li>
+					<li class="nav-item section-title"><a class="nav-link scrollto" href="#properties"><span
+								class="theme-icon-holder me-2"><i class="fas fa-cube"></i></span>Properties</a>
+					</li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#length">length</a></li>
+					<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#methods"><span
+								class="theme-icon-holder me-2"><i class="fas fa-cogs"></i></span>Methods</a>
+					</li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#clear">clear</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#includes">includes</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#peek">peek</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#pop">pop</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#push">push</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#toArray">toArray</a></li>
+				</ul>
+
+			</nav>
+			<!--//docs-nav-->
+		</div>
+		<!--//docs-sidebar-->
+		<div class="docs-content">
+			<div class="container">
+				<article class="docs-article" id="LinkedList">
+					<header class="docs-header">
+						<h1 class="docs-heading">Stack&lt;T&gt;</h1>
+						<section class="docs-intro">
+							<p>A stack is an abstract data type that serves as a collection of elements, with two main
+								principal operations:</p>
+							<ul>
+								<li>
+									<string>Push</string>, which adds an element to the collection, and
+								</li>
+								<li>
+									<string>Pop</string>, which removes the most recently added element that was not yet
+									removed.
+								</li>
+							</ul>
+							<p>The order in which elements come off a stack gives rise to its alternative name, LIFO
+								(last
+								in, first out). Additionally, a peek operation may give access to the top without
+								modifying
+								the stack.
+							</p>
+							<h3>Usage</h3>
+							<div class="docs-code-block">
+								<pre class="rounded">
+									<code class="language-typescript hljs">
+import { Stack } from '@samavati/tsds';
+
+// instantiate new Stack
+const stack = new Stack();
+	
+									</code>
+								</pre>
+							</div>
+							<p>The stack supports iterator protocols allowing it to be used with the
+								<code>for...of</code>
+							</p>
+							<div class="docs-code-block">
+								<pre class="rounded">
+									<code class="language-typescript hljs">
+import { Stack } from '@samavati/tsds';
+
+stack.push(1);
+stack.push(2);
+stack.push(3);
+
+for (const item of stack) {
+	console.log(item)
+}
+
+// 3
+// 2
+// 1
+									</code>
+								</pre>
+							</div>
+						</section>
+					</header>
+				</article>
+				<article class="docs-article" id="properties">
+					<header class="docs-header">
+						<h2>Properties</h2>
+						<section class="docs-intro">
+							<p></p>
+						</section>
+						<!--//docs-intro-->
+					</header>
+
+					<section class="docs-section" id="length">
+						<h3>length</h3>
+						<h5>Definition</h5>
+						<p>Gets the number of elements contained in the Stack<T>.</p>
+						<h5>Property Value</h5>
+						<p><code>number</code></p>
+						<h5>Example</h5>
+						<div class="docs-code-block">
+							<pre class="rounded">
+									<code class="language-typescript hljs">
+const stack = new Stack&lt;number&gt;();
+
+stack.push(1);
+stack.push(2);
+stack.push(3);
+
+stack.length // => 3
+									</code>
+								</pre>
+						</div>
+						<h5>Remarks</h5>
+						<p>Retrieving the value of this property is an O(1) operation.</p>
+					</section>
+					<!--//section-->
+				</article>
+				<!--//docs-article-->
+
+				<article class="docs-article" id="methods">
+					<header class="docs-header">
+						<h2>Methods</h2>
+						<section class="docs-intro">
+							<p></p>
+						</section>
+						<!--//docs-intro-->
+					</header>
+
+					<section class="docs-section" id="clear">
+						<h3>clear</h3>
+						<h5>Definition</h5>
+						<p>Removes all objects from the Stack<T>.</p>
+						<h5>Example</h5>
+						<div class="docs-code-block">
+							<pre class="rounded">
+									<code class="language-typescript hljs">
+const stack = new Stack&lt;number&gt;();
+
+stack.push(1);
+stack.push(2);
+stack.push(3);
+
+stack.length // => 3
+stack.clear()
+stack.length // => 0
+									</code>
+								</pre>
+						</div>
+					</section>
+
+					<section class="docs-section" id="includes">
+						<h3>includes</h3>
+						<h5>Definition</h5>
+						<p>Determines whether an element is in the Stack<T>.</p>
+						<h5>Parameters</h5>
+						<dl>
+							<dt>item <code>T</code></dt>
+							<dd>The object to locate in the Stack<T>. </dd>
+						</dl>
+						<h5>Returns</h5>
+						<p><code>boolean</code></p>
+						<p>true if item is found in the Stack<T>; otherwise, false.</p>
+						<h5>Example</h5>
+						<div class="docs-code-block">
+							<pre class="rounded">
+									<code class="language-typescript hljs">
+const stack = new Stack&lt;number&gt;();
+
+stack.push(1);
+stack.push(2);
+stack.push(3);
+
+stack.includes(2) // => true
+stack.includes(10) // => false
+									</code>
+								</pre>
+						</div>
+						<h5>Remarks</h5>
+						<p>This method is an O(n) operation.</p>
+					</section>
+
+					<section class="docs-section" id="peek">
+						<h3>peek</h3>
+						<h5>Definition</h5>
+						<p>Returns the object at the top of the Stack<T> without removing it.</p>
+						<h5>Returns</h5>
+						<p><code>T</code></p>
+						<p>The object at the top of the Stack<T>.</p>
+						<h5>Example</h5>
+						<div class="docs-code-block">
+							<pre class="rounded">
+									<code class="language-typescript hljs">
+const stack = new Stack&lt;number&gt;();
+
+stack.push(1);
+stack.push(2);
+stack.push(3);
+
+stack.peek() // => 3
+									</code>
+								</pre>
+						</div>
+						<h5>Remarks</h5>
+						<p>This method is an O(1) operation.</p>
+					</section>
+
+					<section class="docs-section" id="pop">
+						<h3>pop</h3>
+						<h5>Definition</h5>
+						<p>Removes and returns the object at the top of the Stack<T>.</p>
+						<h5>Returns</h5>
+						<p><code>T</code></p>
+						<p>The object at the top of the Stack<T>.</p>
+						<h5>Example</h5>
+						<div class="docs-code-block">
+							<pre class="rounded">
+									<code class="language-typescript hljs">
+const stack = new Stack&lt;number&gt;();
+
+stack.push(1);
+stack.push(2);
+stack.push(3);
+
+stack.pop() // => 3
+stack.length // => 2
+									</code>
+								</pre>
+						</div>
+						<h5>Remarks</h5>
+						<p>This method is an O(1) operation.</p>
+					</section>
+
+					<section class="docs-section" id="push">
+						<h3>push</h3>
+						<h5>Definition</h5>
+						<p>Inserts an object at the top of the Stack<T>.</p>
+						<h5>Parameters</h5>
+						<dl>
+							<dt>value <code>T</code></dt>
+							<dd>The object to push onto the Stack<T>.</dd>
+						</dl>
+						<h5>Example</h5>
+						<div class="docs-code-block">
+							<pre class="rounded">
+									<code class="language-typescript hljs">
+const stack = new Stack&lt;number&gt;();
+
+stack.push(1);
+stack.push(2);
+stack.push(3);
+
+stack.length // => 3
+									</code>
+								</pre>
+						</div>
+						<h5>Remarks</h5>
+						<p>This method is an O(1) operation.</p>
+					</section>
+
+					<section class="docs-section" id="toArray">
+						<h3>toArray</h3>
+						<h5>Definition</h5>
+						<p>Returns the entire Stack&lt;T&gt; to a compatible one-dimensional Array</p>
+						<h5>Example</h5>
+						<div class="docs-code-block">
+							<pre class="rounded">
+									<code class="language-typescript hljs">
+const stack = new Stack&lt;number&gt;();
+
+stack.push(1);
+stack.push(2);
+stack.push(3);
+
+stack.toArray() // => [3, 2, 1]
+									</code>
+								</pre>
+						</div>
+						<h5>Remarks</h5>
+						<p>This method is an O(n) operation.</p>
+					</section>
+
+					<!--//section-->
+				</article>
+				<!--//docs-article-->
+
+				<footer class="footer">
+					<div class="container text-center py-5">
+						<ul class="social-list list-unstyled pt-4 mb-0">
+							<li class="list-inline-item"><a href="https://github.com/samavati/tsds" target="_blank"><i
+										class="fab fa-github fa-fw"></i></a></li>
+							<li class="list-inline-item"><a href="https://www.linkedin.com/in/ehsan-samavati/"
+									target="_blank"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
+						</ul>
+						<!--//social-list-->
+					</div>
+				</footer>
+			</div>
+		</div>
+	</div>
+	<!--//docs-wrapper-->
+
+	<!-- Page Specific JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+	<script>
+		hljs.highlightAll();
+	</script>
+</body>
+
+</html>
