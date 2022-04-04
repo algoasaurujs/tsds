@@ -2,6 +2,8 @@
 
 TypeScript Data Structures that you need!
 
+![NPM](https://img.shields.io/npm/l/@samavati/tsds) ![npm (scoped)](https://img.shields.io/npm/v/@samavati/tsds) ![GitHub](https://img.shields.io/github/license/samavati/tsds)
+
 [Doc Website](https://samavati.github.io/tsds/)
 
 # ****Introduction****
