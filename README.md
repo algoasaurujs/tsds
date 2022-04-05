@@ -1,9 +1,10 @@
 <p align="center">
-  <img src="https://github.com/samavati/tsds/blob/main/docs/src/assets/images/tsds-logo.png" />
+  <img height="50" src="https://github.com/samavati/tsds/blob/main/docs/src/assets/images/tsds-logo.png" />
 </p>
+
 # <p align="center">TSDS</p>
 
-TypeScript Data Structures that you need!
+<p align="center">TypeScript Data Structures that you need!</p>
 
 ![NPM](https://img.shields.io/npm/l/@samavati/tsds) ![npm (scoped)](https://img.shields.io/npm/v/@samavati/tsds) ![npm bundle size (scoped)](https://img.shields.io/bundlephobia/minzip/@samavati/tsds)
 
