@@ -1,6 +1,6 @@
-<!-- <p align="center">
-  <img src="http://some_place.com/image.png" />
-</p> -->
+<p align="center">
+  <img src="https://github.com/samavati/tsds/blob/main/docs/src/assets/images/tsds-logo.png" />
+</p>
 # <p align="center">TSDS</p>
 
 TypeScript Data Structures that you need!
