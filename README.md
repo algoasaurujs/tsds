@@ -1,4 +1,7 @@
-# TSDS
+<!-- <p align="center">
+  <img src="http://some_place.com/image.png" />
+</p> -->
+# <p align="center">TSDS</p>
 
 TypeScript Data Structures that you need!
 
