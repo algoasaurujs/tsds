@@ -4,13 +4,13 @@ describe('Stack', () => {
 
     it('stack instantiated successfully', () => {
         const stack = new Stack();
-        expect(stack.size).toBe(0);
+        expect(stack.length).toBe(0);
     });
 
     it('can inserts an object', () => {
         const stack = new Stack();
         stack.push('Hello');
-        expect(stack.size).toBe(1);
+        expect(stack.length).toBe(1);
     });
 
     it('peek works', () => {
@@ -18,7 +18,7 @@ describe('Stack', () => {
         stack.push('Hello');
         const object = stack.peek();
         expect(object).toBe('Hello');
-        expect(stack.size).toBe(1);
+        expect(stack.length).toBe(1);
     });
 
     it('can remove and return the object', () => {
@@ -26,7 +26,7 @@ describe('Stack', () => {
         stack.push('Hello');
         const object = stack.pop();
         expect(object).toBe('Hello');
-        expect(stack.size).toBe(0);
+        expect(stack.length).toBe(0);
     });
 
     it('can find if object exist', () => {
@@ -49,7 +49,16 @@ describe('Stack', () => {
         stack.push(3);
         stack.push(4);
         stack.clear();
-        expect(stack.size).toBe(0);
+        expect(stack.length).toBe(0);
+    });
+
+    it('can export in an array', () => {
+        const stack = new Stack();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        expect(stack.toArray()).toEqual([4, 3, 2, 1]);
     });
 
 });
