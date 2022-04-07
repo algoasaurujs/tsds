@@ -61,4 +61,17 @@ describe('Stack', () => {
         expect(stack.toArray()).toEqual([4, 3, 2, 1]);
     });
 
+    it('can iterate', () => {
+        const stack = new Stack();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        const array = [];
+        for (const object of stack) {
+            array.push(object);
+        }
+        expect(array).toEqual([4, 3, 2, 1]);
+    });
+
 });

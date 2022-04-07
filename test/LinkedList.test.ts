@@ -157,4 +157,14 @@ describe('LinkedList', () => {
     expect(list2.length).toEqual(1);
   });
 
+  it('can iterate', () => {
+    const list = new LinkedList<any>([1, 2, 3, 4, 5]);
+
+    const array = [];
+    for (const object of list) {
+        array.push(object);
+    }
+    expect(array).toEqual([1, 2, 3, 4, 5]);
+});
+
 });
