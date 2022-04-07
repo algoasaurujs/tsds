@@ -26,33 +26,42 @@ The `Map` is builtin in javascript but, There are lots of other useful Data Str
 
 - [Installation](#installation)
 - [APIs](#apis)
-    - [LinkedList<T>](#linkedlist<T>)
-        - [LinkedList.Properties](#linkedlist.properties)
-            - [LinkedList.first](#linkedlist.first)
-            - [LinkedList.last](#linkedlist.last)
-            - [LinkedList.length](#linkedlist.length)
-        - [LinkedList.Methods](#linkedlist.methods)
-            - [LinkedList.append](#linkedlist.append)
-            - [LinkedList.clear](#linkedlist.clear)
-            - [LinkedList.delete](#linkedlist.delete)
-            - [LinkedList.deleteFirst](#linkedlist.deletefirst)
-            - [LinkedList.find](#linkedlist.find)
-            - [LinkedList.get](#linkedlist.get)
-            - [LinkedList.includes](#linkedlist.includes)
-            - [LinkedList.insertAfter](#linkedlist.insertafter)
-            - [LinkedList.prepend](#linkedlist.prepend)
-            - [LinkedList.toArray](#linkedlist.toarray)
-    - [Stack<T>](#stack<T>)
-        - [Stack.Properties](#stack.properties)
-            - [Stack.length](#stack.length)
-        - [Stack.Methods](#stack.methods)
-            - [Stack.clear](#stack.clear)
-            - [Stack.includes](#stack.includes)
-            - [Stack.peek](#stack.peek)
-            - [Stack.pop](#stack.pop)
-            - [Stack.push](#stack.push)
-            - [Stack.get](#stack.get)
-            - [Stack.toArray](#stack.toarray)
+    - [LinkedList<T>](#linkedlist)
+        - [LinkedList.Properties](#linkedlistproperties)
+            - [LinkedList.first](#linkedlistfirst)
+            - [LinkedList.last](#linkedlistlast)
+            - [LinkedList.length](#linkedlistlength)
+        - [LinkedList.Methods](#linkedlistmethods)
+            - [LinkedList.append](#linkedlistappend)
+            - [LinkedList.clear](#linkedlistclear)
+            - [LinkedList.delete](#linkedlistdelete)
+            - [LinkedList.deleteFirst](#linkedlistdeletefirst)
+            - [LinkedList.find](#linkedlistfind)
+            - [LinkedList.get](#linkedlistget)
+            - [LinkedList.includes](#linkedlistincludes)
+            - [LinkedList.insertAfter](#linkedlistinsertafter)
+            - [LinkedList.prepend](#linkedlistprepend)
+            - [LinkedList.toArray](#linkedlisttoarray)
+    - [Stack<T>](#stack)
+        - [Stack.Properties](#stackproperties)
+            - [Stack.length](#stacklength)
+        - [Stack.Methods](#stackmethods)
+            - [Stack.clear](#stackclear)
+            - [Stack.includes](#stackincludes)
+            - [Stack.peek](#stackpeek)
+            - [Stack.pop](#stackpop)
+            - [Stack.push](#stackpush)
+            - [Stack.toArray](#stacktoarray)
+    - [Queue<T>](#queue)
+        - [Queue.Properties](#queueproperties)
+            - [Queue.length](#queuelength)
+        - [Queue.Methods](#queuemethods)
+            - [Queue.clear](#queueclear)
+            - [Queue.includes](#queueincludes)
+            - [Queue.dequeue](#queuedequeue)
+            - [Queue.enqueue](#queueenqueue)
+            - [Queue.peek](#queuepeek)
+            - [Queue.toArray](#queuetoarray)
 ## ****Installation****
 
 To install and save in your `package.json`dependencies, run:
@@ -429,6 +438,8 @@ The stack supports iterator protocols allowing it to be used with the `for...of
 ```tsx
 import { Stack } from '@samavati/tsds';
 
+const stack = new Stack();
+
 stack.push(1);
 stack.push(2);
 stack.push(3);
@@ -463,7 +474,7 @@ stack.push(1);
 stack.push(2);
 stack.push(3);
 
-stack.length *// => 3*
+stack.length // => 3
 ```
 
 **Remarks**
@@ -487,9 +498,9 @@ stack.push(1);
 stack.push(2);
 stack.push(3);
 
-stack.length *// => 3*
+stack.length // => 3
 stack.clear()
-stack.length *// => 0*
+stack.length // => 0
 ```
 
 ### **Stack.includes**
@@ -517,8 +528,8 @@ stack.push(1);
 stack.push(2);
 stack.push(3);
 
-stack.includes(2) *// => true*
-stack.includes(10) *// => false*
+stack.includes(2) // => true
+stack.includes(10) // => false
 ```
 
 **Remarks**
@@ -546,7 +557,7 @@ stack.push(1);
 stack.push(2);
 stack.push(3);
 
-stack.peek() *// => 3*
+stack.peek() // => 3
 ```
 
 **Remarks**
@@ -574,8 +585,8 @@ stack.push(1);
 stack.push(2);
 stack.push(3);
 
-stack.pop() *// => 3*
-stack.length *// => 2*
+stack.pop() // => 3
+stack.length // => 2
 ```
 
 **Remarks**
@@ -601,7 +612,7 @@ stack.push(1);
 stack.push(2);
 stack.push(3);
 
-stack.length *// => 3*
+stack.length // => 3
 ```
 
 **Remarks**
@@ -623,13 +634,235 @@ stack.push(1);
 stack.push(2);
 stack.push(3);
 
-stack.toArray() *// => [3, 2, 1]*
+stack.toArray() // => [3, 2, 1]
+```
+
+**Remarks**
+
+This method is an O(n) operation.
+## ****Queue<T>****
+
+**first-in-first-out (FIFO) data structure**
+
+A  **queue**  is a collection of entities that are maintained in a sequence and can be modified by the addition of entities at one end of the sequence and the removal of entities from the other end of the sequence. By convention, the end of the sequence at which elements are added is called the back, tail, or rear of the queue, and the end at which elements are removed is called the head or front of the queue
+
+The operation of adding an element to the rear of the queue is known as  _enqueue_, and the operation of removing an element from the front is known as  _dequeue_
+
+**Usage**
+
+```tsx
+import { Queue } from  '@samavati/tsds';
+
+// instantiate new Queue
+
+const queue = new Queue();
+```
+
+The queue supports iterator protocols allowing it to be used with the `for...of`
+
+```tsx
+import { Queue } from  '@samavati/tsds';
+
+const queue = new Queue();
+
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(3);
+
+for (const  item  of  queue) {
+console.log(item)
+}
+// 1
+// 2
+// 3
+```
+### **Queue.Properties**
+
+### **Queue.length**
+
+**Definition**
+
+Gets the number of elements contained in the Queue.
+
+**Property Value**
+
+`number`
+
+**Example**
+
+```tsx
+const queue = new Queue<number>();
+
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(3);
+
+queue.length // => 3
+```
+
+**Remarks**
+
+Retrieving the value of this property is an O(1) operation.
+
+### **Queue.Methods**
+
+### **Queue.clear**
+
+**Definition**
+
+Removes all objects from the Queue.
+
+**Example**
+
+```tsx
+const queue = new Queue<number>();
+
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(3);
+
+queue.length // => 3
+queue.clear()
+queue.length // => 0
+```
+
+### **Queue.includes**
+
+**Definition**
+
+Determines whether an element is in the Queue.
+
+**Parameters**
+
+**item `T`**The object to locate in the Queue.
+
+**Returns**
+
+`boolean`
+
+true if item is found in the Queue; otherwise, false.
+
+**Example**
+
+```tsx
+const queue = new Queue<number>();
+
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(3);
+
+queue.includes(2) // => true
+queue.includes(10) // => false
 ```
 
 **Remarks**
 
 This method is an O(n) operation.
 
+### **Queue.dequeue**
+
+**Definition**
+
+Removes and returns the object at the beginning of the Queue
+
+**Returns**
+
+`T`
+
+The object at the beginning of the Queue.
+
+**Example**
+
+```tsx
+const queue = new Queue<number>();
+
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(3);
+
+queue.dequeue() // => 3
+queue.length // => 2
+```
+
+**Remarks**
+
+This method is an O(1) operation.
+
+### **Queue.enqueue**
+
+**Definition**
+
+Inserts an object at the end of the Queue.
+
+**Parameters**
+
+**value `T`:** The object to add to the Queue.
+
+**Example**
+
+```tsx
+const queue = new Queue<number>();
+
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(3);
+
+queue.length // => 3
+```
+
+**Remarks**
+
+This method is an O(1) operation.
+
+### **Queue.peek**
+
+**Definition**
+
+Returns the object at the beginning of the Stack without removing it.
+
+**Returns**
+
+`T`
+
+The object at the beginning of the Queue.
+
+**Example**
+
+```tsx
+const queue = new Queue<number>();
+
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(3);
+
+queue.peek() // => 3
+```
+
+**Remarks**
+
+This method is an O(1) operation.
+
+### **Queue.toArray**
+
+**Definition**
+
+Returns the entire Queue<T> to a compatible one-dimensional Array
+
+**Example**
+
+```tsx
+const queue = new Queue<number>();
+
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(3);
+
+queue.toArray() // => [3, 2, 1]
+```
+
+**Remarks**
+
+This method is an O(n) operation.
 ## Built With
 
 * [tsdx](https://tsdx.io/) - Zero-config CLI for TypeScript package development
