@@ -21,6 +21,16 @@
 		integrity="sha512-mtXspRdOWHCYp+f4c7CkWGYPPRAhq9X+xCvJMUBVAb6pqA4U8pxhT3RWT3LP3bKbiolYL2CkL1bSKZZO4eeTew=="
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZLTQL7PXV5"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-ZLTQL7PXV5');
+	</script>
+
 </head>
 
 <body class="docs-page">
@@ -366,7 +376,8 @@ for (const item of stack) {
 									</tr>
 									<tr>
 										<th scope="row"><a href="stack.html#peek">peek</a></th>
-										<td>Returns the object at the top of the Stack&lt;T&gt; without removing it.</td>
+										<td>Returns the object at the top of the Stack&lt;T&gt; without removing it.
+										</td>
 									</tr>
 									<tr>
 										<th scope="row"><a href="stack.html#pop">pop</a></th>
@@ -378,7 +389,8 @@ for (const item of stack) {
 									</tr>
 									<tr>
 										<th scope="row"><a href="stack.html#toArray">toArray</a></th>
-										<td>Returns a new array containing copies of the elements of the Stack&lt;T&gt;.</td>
+										<td>Returns a new array containing copies of the elements of the Stack&lt;T&gt;.
+										</td>
 									</tr>
 								</tbody>
 							</table>
@@ -481,11 +493,13 @@ for (const item of queue) {
 									</tr>
 									<tr>
 										<th scope="row"><a href="queue.html#peek">peek</a></th>
-										<td>Returns the object at the beginning of the Queue&lt;T&gt; without removing it.</td>
+										<td>Returns the object at the beginning of the Queue&lt;T&gt; without removing
+											it.</td>
 									</tr>
 									<tr>
 										<th scope="row"><a href="queue.html#toArray">toArray</a></th>
-										<td>Returns a new array containing copies of the elements of the Queue&lt;T&gt;.</td>
+										<td>Returns a new array containing copies of the elements of the Queue&lt;T&gt;.
+										</td>
 									</tr>
 								</tbody>
 							</table>
