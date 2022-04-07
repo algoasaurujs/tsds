@@ -22,7 +22,7 @@ for (const item of stack) {
 // 2
 // 1
 									</code>
-								</pre></div></section></header></article><article class="docs-article" id="properties"><header class="docs-header"><h2>Properties</h2><section class="docs-intro"><p></p></section></header><section class="docs-section" id="length"><h3>length</h3><h5>Definition</h5><p>Gets the number of elements contained in the Stack<t>.</t></p><h5>Property Value</h5><p><code>number</code></p><h5>Example</h5><div class="docs-code-block"><pre class="rounded">
+								</pre></div></section></header></article><article class="docs-article" id="properties"><header class="docs-header"><h2>Properties</h2><section class="docs-intro"><p></p></section></header><section class="docs-section" id="length"><h3>length</h3><h5>Definition</h5><p>Gets the number of elements contained in the Stack&lt;T&gt;.</p><h5>Property Value</h5><p><code>number</code></p><h5>Example</h5><div class="docs-code-block"><pre class="rounded">
 									<code class="language-typescript hljs">
 const stack = new Stack&lt;number&gt;();
 
@@ -32,7 +32,7 @@ stack.push(3);
 
 stack.length // => 3
 									</code>
-								</pre></div><h5>Remarks</h5><p>Retrieving the value of this property is an O(1) operation.</p></section></article><article class="docs-article" id="methods"><header class="docs-header"><h2>Methods</h2><section class="docs-intro"><p></p></section></header><section class="docs-section" id="clear"><h3>clear</h3><h5>Definition</h5><p>Removes all objects from the Stack<t>.</t></p><h5>Example</h5><div class="docs-code-block"><pre class="rounded">
+								</pre></div><h5>Remarks</h5><p>Retrieving the value of this property is an O(1) operation.</p></section></article><article class="docs-article" id="methods"><header class="docs-header"><h2>Methods</h2><section class="docs-intro"><p></p></section></header><section class="docs-section" id="clear"><h3>clear</h3><h5>Definition</h5><p>Removes all objects from the Stack&lt;T&gt;.</p><h5>Example</h5><div class="docs-code-block"><pre class="rounded">
 									<code class="language-typescript hljs">
 const stack = new Stack&lt;number&gt;();
 
@@ -44,7 +44,7 @@ stack.length // => 3
 stack.clear()
 stack.length // => 0
 									</code>
-								</pre></div></section><section class="docs-section" id="includes"><h3>includes</h3><h5>Definition</h5><p>Determines whether an element is in the Stack<t>.</t></p><h5>Parameters</h5><dl><dt>item <code>T</code></dt><dd>The object to locate in the Stack<t>.</t></dd></dl><h5>Returns</h5><p><code>boolean</code></p><p>true if item is found in the Stack<t>; otherwise, false.</t></p><h5>Example</h5><div class="docs-code-block"><pre class="rounded">
+								</pre></div></section><section class="docs-section" id="includes"><h3>includes</h3><h5>Definition</h5><p>Determines whether an element is in the Stack&lt;T&gt;.</p><h5>Parameters</h5><dl><dt>item <code>T</code></dt><dd>The object to locate in the Stack&lt;T&gt;.</dd></dl><h5>Returns</h5><p><code>boolean</code></p><p>true if item is found in the Stack&lt;T&gt;; otherwise, false.</p><h5>Example</h5><div class="docs-code-block"><pre class="rounded">
 									<code class="language-typescript hljs">
 const stack = new Stack&lt;number&gt;();
 
@@ -55,7 +55,7 @@ stack.push(3);
 stack.includes(2) // => true
 stack.includes(10) // => false
 									</code>
-								</pre></div><h5>Remarks</h5><p>This method is an O(n) operation.</p></section><section class="docs-section" id="peek"><h3>peek</h3><h5>Definition</h5><p>Returns the object at the top of the Stack<t>without removing it.</t></p><h5>Returns</h5><p><code>T</code></p><p>The object at the top of the Stack<t>.</t></p><h5>Example</h5><div class="docs-code-block"><pre class="rounded">
+								</pre></div><h5>Remarks</h5><p>This method is an O(n) operation.</p></section><section class="docs-section" id="peek"><h3>peek</h3><h5>Definition</h5><p>Returns the object at the top of the Stack&lt;T&gt; without removing it.</p><h5>Returns</h5><p><code>T</code></p><p>The object at the top of the Stack&lt;T&gt;.</p><h5>Example</h5><div class="docs-code-block"><pre class="rounded">
 									<code class="language-typescript hljs">
 const stack = new Stack&lt;number&gt;();
 
@@ -65,7 +65,7 @@ stack.push(3);
 
 stack.peek() // => 3
 									</code>
-								</pre></div><h5>Remarks</h5><p>This method is an O(1) operation.</p></section><section class="docs-section" id="pop"><h3>pop</h3><h5>Definition</h5><p>Removes and returns the object at the top of the Stack<t>.</t></p><h5>Returns</h5><p><code>T</code></p><p>The object at the top of the Stack<t>.</t></p><h5>Example</h5><div class="docs-code-block"><pre class="rounded">
+								</pre></div><h5>Remarks</h5><p>This method is an O(1) operation.</p></section><section class="docs-section" id="pop"><h3>pop</h3><h5>Definition</h5><p>Removes and returns the object at the top of the Stack&lt;T&gt;.</p><h5>Returns</h5><p><code>T</code></p><p>The object at the top of the Stack&lt;T&gt;.</p><h5>Example</h5><div class="docs-code-block"><pre class="rounded">
 									<code class="language-typescript hljs">
 const stack = new Stack&lt;number&gt;();
 
@@ -76,7 +76,7 @@ stack.push(3);
 stack.pop() // => 3
 stack.length // => 2
 									</code>
-								</pre></div><h5>Remarks</h5><p>This method is an O(1) operation.</p></section><section class="docs-section" id="push"><h3>push</h3><h5>Definition</h5><p>Inserts an object at the top of the Stack<t>.</t></p><h5>Parameters</h5><dl><dt>value <code>T</code></dt><dd>The object to push onto the Stack<t>.</t></dd></dl><h5>Example</h5><div class="docs-code-block"><pre class="rounded">
+								</pre></div><h5>Remarks</h5><p>This method is an O(1) operation.</p></section><section class="docs-section" id="push"><h3>push</h3><h5>Definition</h5><p>Inserts an object at the top of the Stack&lt;T&gt;.</p><h5>Parameters</h5><dl><dt>value <code>T</code></dt><dd>The object to push onto the Stack&lt;T&gt;.</dd></dl><h5>Example</h5><div class="docs-code-block"><pre class="rounded">
 									<code class="language-typescript hljs">
 const stack = new Stack&lt;number&gt;();
 
