@@ -62,6 +62,10 @@ module.exports = {
       filename: 'stack.html',
       template: 'src/stack.html'
     }),
+    new HtmlWebpackPlugin({
+      filename: 'queue.html',
+      template: 'src/queue.html'
+    }),
     new CopyPlugin({
       patterns: [
         { from: "src/assets/images", to: "assets/images" },
