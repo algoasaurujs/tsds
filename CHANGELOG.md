@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/samavati/tsds/compare/v1.4.0...v1.5.0) (2022-04-07)
+
+
+### Features
+
+* **Queue:** queue doc build ([627c8e6](https://github.com/samavati/tsds/commit/627c8e6622ef212636c8c22b0996d1a0d6c56318))
+* **Queue:** Queue object added ([d212032](https://github.com/samavati/tsds/commit/d212032cc8ba95cf9c6dd3e0b38d21f33fd92198))
+
 ## [1.4.0](https://github.com/samavati/tsds/compare/v1.3.0...v1.4.0) (2022-04-04)
 
 
