@@ -15,7 +15,7 @@ const PATHS = {
 module.exports = {
   mode: 'development',
   entry: './src/assets/js/docs.js',
-  devtool: 'inline-source-map',
+  // devtool: 'inline-source-map',
   optimization: {
     minimize: true,
     minimizer: [new CssMinimizerPlugin(), new TerserPlugin(), new HtmlMinimizerPlugin()],
@@ -69,6 +69,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         { from: "src/assets/images", to: "assets/images" },
+        { from: "src/favicon.ico", to: "favicon.ico" },
       ],
     }),
   ],
