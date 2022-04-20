@@ -138,10 +138,15 @@ export class LinkedList<T = any> {
                 if (currentNode.next.isEqual(value)) {
                     currentNode.next = currentNode.next.next;
                     this._length--;
-                    return;
+                    break;
                 } else {
                     currentNode = currentNode.next;
                 }
+            }
+
+            // check if we should update this._tail
+            if (this._tail?.isEqual(value)) {
+                this._tail = currentNode;
             }
 
         } else {
@@ -162,6 +167,10 @@ export class LinkedList<T = any> {
             while (currentNode.next) {
                 // Deleting the node by delete it's reference in previous node
                 if (currentNode.next.value === value) {
+                    // check if we should update this._tail
+                    if (this._tail?.isEqual(currentNode.next)) {
+                        this._tail = currentNode.next.next;
+                    }
                     currentNode.next = currentNode.next.next;
                     this._length--;
                     return true
@@ -170,7 +179,7 @@ export class LinkedList<T = any> {
                 }
             }
 
-            return false
+            return false;
         }
     }
 
