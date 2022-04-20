@@ -60,6 +60,9 @@ describe('LinkedList', () => {
     expect(list.length).toEqual(4);
 
     list.delete(5);
+    if (list.last) {
+      expect(list.last.value).toEqual(4)
+    }
     expect(list.toArray()).toEqual([2, 3, 4]);
     expect(list.length).toEqual(3);
 
@@ -88,6 +91,7 @@ describe('LinkedList', () => {
 
     if (list.first) {
       list.delete(list.first);
+      expect(list.first.value).toEqual(2);
       expect(list.toArray()).toEqual([2, 3, 4, 5]);
       expect(list.length).toEqual(4);
     }
@@ -99,11 +103,21 @@ describe('LinkedList', () => {
       expect(list.length).toEqual(3);
     }
 
+    if (list.last) {
+      list.delete(list.last);
+      expect(list.last.value).toEqual(3);
+      expect(list.toArray()).toEqual([2, 3]);
+      expect(list.length).toEqual(2);
+    }
+
   });
 
   it('can delete first node from LinkedList', () => {
     const list = new LinkedList([1, 2, 3, 4, 5]);
     list.deleteFirst();
+    if (list.first) {
+      expect(list.first.value).toEqual(2);
+    }
     expect(list.toArray()).toEqual([2, 3, 4, 5])
     expect(list.length).toEqual(4)
   });
@@ -162,9 +176,9 @@ describe('LinkedList', () => {
 
     const array = [];
     for (const object of list) {
-        array.push(object);
+      array.push(object);
     }
     expect(array).toEqual([1, 2, 3, 4, 5]);
-});
+  });
 
 });
