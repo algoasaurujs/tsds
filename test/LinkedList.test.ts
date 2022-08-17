@@ -1,7 +1,6 @@
 import { LinkedList, LinkedListNode } from '../src';
 
 describe('LinkedList', () => {
-
   it('LinkedList instantiate successfully', () => {
     const list = new LinkedList();
     expect(list.length).toBe(0);
@@ -61,7 +60,7 @@ describe('LinkedList', () => {
 
     list.delete(5);
     if (list.last) {
-      expect(list.last.value).toEqual(4)
+      expect(list.last.value).toEqual(4);
     }
     expect(list.toArray()).toEqual([2, 3, 4]);
     expect(list.length).toEqual(3);
@@ -76,14 +75,13 @@ describe('LinkedList', () => {
 
     const node1 = list.get(2);
     if (node1) {
-      expect(node1.value).toEqual(3)
+      expect(node1.value).toEqual(3);
     }
 
     const node2 = list.get(4);
     if (node2) {
-      expect(node2.value).toEqual(5)
+      expect(node2.value).toEqual(5);
     }
-
   });
 
   it('can delete Node from LinkedList', () => {
@@ -109,7 +107,6 @@ describe('LinkedList', () => {
       expect(list.toArray()).toEqual([2, 3]);
       expect(list.length).toEqual(2);
     }
-
   });
 
   it('can delete first node from LinkedList', () => {
@@ -118,8 +115,8 @@ describe('LinkedList', () => {
     if (list.first) {
       expect(list.first.value).toEqual(2);
     }
-    expect(list.toArray()).toEqual([2, 3, 4, 5])
-    expect(list.length).toEqual(4)
+    expect(list.toArray()).toEqual([2, 3, 4, 5]);
+    expect(list.length).toEqual(4);
   });
 
   it('can search node in LinkedList', () => {
@@ -132,7 +129,6 @@ describe('LinkedList', () => {
     }
 
     expect(nullItem).toBeNull();
-
   });
 
   it('can determine if item exist or not', () => {
@@ -140,7 +136,6 @@ describe('LinkedList', () => {
 
     expect(list.includes(2)).toEqual(true);
     expect(list.includes(12)).toEqual(false);
-
   });
 
   it('can insert after a given node', () => {
@@ -172,13 +167,12 @@ describe('LinkedList', () => {
   });
 
   it('can iterate', () => {
-    const list = new LinkedList<any>([1, 2, 3, 4, 5]);
+    const list = new LinkedList<number>([1, 2, 3, 4, 5]);
 
-    const array = [];
+    const array: number[] = [];
     for (const object of list) {
       array.push(object);
     }
     expect(array).toEqual([1, 2, 3, 4, 5]);
   });
-
 });
