@@ -9,5 +9,5 @@ export {
   DoublyLinkedList,
   DoublyLinkedListNode,
   Stack,
-  Queue
+  Queue,
 };

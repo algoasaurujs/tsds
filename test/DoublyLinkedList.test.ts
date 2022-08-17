@@ -1,7 +1,7 @@
 import { DoublyLinkedList, DoublyLinkedListNode } from '../src';
 
 const reverseArray = (list: DoublyLinkedList) => {
-  const nodes = [];
+  const nodes: any[] = [];
 
   let currentNode = list.last;
 
@@ -11,10 +11,9 @@ const reverseArray = (list: DoublyLinkedList) => {
   }
 
   return nodes;
-}
+};
 
 describe('DoublyLinkedList', () => {
-
   it('DoublyLinkedList instantiate successfully', () => {
     const list = new DoublyLinkedList();
     expect(list.length).toBe(0);
@@ -89,14 +88,13 @@ describe('DoublyLinkedList', () => {
 
     const node1 = list.get(2);
     if (node1) {
-      expect(node1.value).toEqual(3)
+      expect(node1.value).toEqual(3);
     }
 
     const node2 = list.get(4);
     if (node2) {
-      expect(node2.value).toEqual(5)
+      expect(node2.value).toEqual(5);
     }
-
   });
 
   it('can delete Node from DoublyLinkedList', () => {
@@ -116,15 +114,14 @@ describe('DoublyLinkedList', () => {
       expect(reverseArray(list)).toEqual([2, 3, 5].reverse());
       expect(list.length).toEqual(3);
     }
-
   });
 
   it('can delete first node from DoublyLinkedList', () => {
     const list = new DoublyLinkedList([1, 2, 3, 4, 5]);
     list.deleteFirst();
-    expect(list.toArray()).toEqual([2, 3, 4, 5])
+    expect(list.toArray()).toEqual([2, 3, 4, 5]);
     expect(reverseArray(list)).toEqual([2, 3, 4, 5].reverse());
-    expect(list.length).toEqual(4)
+    expect(list.length).toEqual(4);
   });
 
   it('can search node in DoublyLinkedList', () => {
@@ -137,7 +134,6 @@ describe('DoublyLinkedList', () => {
     }
 
     expect(nullItem).toBeNull();
-
   });
 
   it('can determine if item exist or not', () => {
@@ -145,7 +141,6 @@ describe('DoublyLinkedList', () => {
 
     expect(list.includes(2)).toEqual(true);
     expect(list.includes(12)).toEqual(false);
-
   });
 
   it('can insert after a given node', () => {
@@ -161,7 +156,9 @@ describe('DoublyLinkedList', () => {
       const world = new DoublyLinkedListNode('world');
       list.insertAfter(item, world);
       expect(list.toArray()).toEqual([1, 2, 3, 'world', 'hello', 4, 5]);
-      expect(reverseArray(list)).toEqual([1, 2, 3, 'world', 'hello', 4, 5].reverse());
+      expect(reverseArray(list)).toEqual(
+        [1, 2, 3, 'world', 'hello', 4, 5].reverse()
+      );
       expect(list.length).toEqual(7);
     }
   });
@@ -179,7 +176,9 @@ describe('DoublyLinkedList', () => {
       const world = new DoublyLinkedListNode('world');
       list.insertBefore(item, world);
       expect(list.toArray()).toEqual([1, 2, 'hello', 'world', 3, 4, 5]);
-      expect(reverseArray(list)).toEqual([1, 2, 'hello', 'world', 3, 4, 5].reverse());
+      expect(reverseArray(list)).toEqual(
+        [1, 2, 'hello', 'world', 3, 4, 5].reverse()
+      );
       expect(list.length).toEqual(7);
     }
   });
@@ -198,13 +197,12 @@ describe('DoublyLinkedList', () => {
   });
 
   it('can iterate', () => {
-    const list = new DoublyLinkedList<any>([1, 2, 3, 4, 5]);
+    const list = new DoublyLinkedList<number>([1, 2, 3, 4, 5]);
 
-    const array = [];
+    const array: number[] = [];
     for (const object of list) {
       array.push(object);
     }
     expect(array).toEqual([1, 2, 3, 4, 5]);
   });
-
 });

@@ -163,20 +163,20 @@ export class LinkedList<T = any> {
       // if value is between head and tail
       let currentNode = this._head;
 
-            while (currentNode.next) {
-                // Deleting the node by delete it's reference in previous node
-                if (currentNode.next.value === value) {
-                    // check if we should update this._tail
-                    if (this._tail?.isEqual(currentNode.next)) {
-                        this._tail = currentNode;
-                    }
-                    currentNode.next = currentNode.next.next;
-                    this._length--;
-                    return true
-                } else {
-                    currentNode = currentNode.next;
-                }
-            }
+      while (currentNode.next) {
+        // Deleting the node by delete it's reference in previous node
+        if (currentNode.next.value === value) {
+          // check if we should update this._tail
+          if (this._tail?.isEqual(currentNode.next)) {
+            this._tail = currentNode;
+          }
+          currentNode.next = currentNode.next.next;
+          this._length--;
+          return true;
+        } else {
+          currentNode = currentNode.next;
+        }
+      }
 
       return false;
     }
