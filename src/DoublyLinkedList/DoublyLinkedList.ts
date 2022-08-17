@@ -1,20 +1,20 @@
-import { LinkedListNode } from './LinkedListNode';
+import { DoublyLinkedListNode } from './DoublyLinkedListNode';
 
 /**
  * A linear collection of data elements whose order is not given by their physical placement in memory.
  * Instead, each element points to the next.
  * It is a data structure consisting of a collection of nodes which together represent a sequence. 
  */
-export class LinkedList<T = any> {
+export class DoublyLinkedList<T = any> {
     /**
      * First element of the list
      */
-    private _head: null | LinkedListNode<T> = null;
+    private _head: null | DoublyLinkedListNode<T> = null;
 
     /**
      * Last element of the list
      */
-    private _tail: null | LinkedListNode<T> = null;
+    private _tail: null | DoublyLinkedListNode<T> = null;
 
     /**
      * Node count in the list
@@ -51,26 +51,26 @@ export class LinkedList<T = any> {
         return this.iterator();
     }
 
-    private isLinkedListNode(x: any): x is LinkedListNode {
-        return x instanceof LinkedListNode;
+    private isLinkedListNode(x: any): x is DoublyLinkedListNode {
+        return x instanceof DoublyLinkedListNode;
     }
 
     /**
-     * Gets the first node of the LinkedList<T>.
+     * Gets the first node of the DoublyLinkedList<T>.
      */
     get first() {
         return this._head;
     }
 
     /**
-     * Gets the last node of the LinkedList<T>.
+     * Gets the last node of the DoublyLinkedList<T>.
      */
     get last() {
         return this._tail;
     }
 
     /**
-     * Gets the number of nodes actually contained in the LinkedList<T>.
+     * Gets the number of nodes actually contained in the DoublyLinkedList<T>.
      */
     get length() {
         return this._length;
@@ -81,22 +81,23 @@ export class LinkedList<T = any> {
      * @param value value of the new node
      */
     append(value: T): void {
-        const newNode = new LinkedListNode<T>(value, null, this._id);
+        const newNode = new DoublyLinkedListNode<T>(value, null, null, this._id);
 
         if (!this._head) {
             this._head = newNode;
         }
 
         if (this._tail) {
+            newNode.prev = this._tail;
             this._tail.next = newNode;
         }
 
         this._tail = newNode;
-        this._length++
+        this._length++;
     }
 
     /**
-     * Removes all nodes from the LinkedList<T>.
+     * Removes all nodes from the DoublyLinkedList<T>.
      */
     clear() {
         this._head = null;
@@ -105,28 +106,27 @@ export class LinkedList<T = any> {
     }
 
     /**
-     * Removes the first occurrence of a node or value from the LinkedList<T>.
-     * @param value The LinkedListNode<T> to remove from the LinkedList<T>.
+     * Removes the first occurrence of a node or value from the DoublyLinkedList<T>.
+     * @param value The DoublyLinkedListNode<T> to remove from the DoublyLinkedList<T>.
      */
-    delete(node: LinkedListNode<T>): void
+    delete(node: DoublyLinkedListNode<T>): void
     /**
-     * Removes the first occurrence of the specified value from the LinkedList<T>.
-     * @param value The value to remove from the LinkedList<T>.
-     * @returns _true_ if the element containing value is successfully removed; otherwise, _false_. This method also returns _false_ if value was not found in the original LinkedList<T>.
+     * Removes the first occurrence of the specified value from the DoublyLinkedList<T>.
+     * @param value The value to remove from the DoublyLinkedList<T>.
+     * @returns _true_ if the element containing value is successfully removed; otherwise, _false_. This method also returns _false_ if value was not found in the original DoublyLinkedList<T>.
      */
     delete(value: T): boolean
-    delete(value: T | LinkedListNode<T>): void | boolean {
+    delete(value: T | DoublyLinkedListNode<T>): void | boolean {
 
         if (this.isLinkedListNode(value)) {
 
             if (!this._head || !value || value.listId !== this._id) {
-                throw new Error("InvalidOperationException: node is not in the current LinkedList<T>.");
+                throw new Error("InvalidOperationException: node is not in the current DoublyLinkedList<T>.");
             }
 
             // if head is the node that should delete
             if (this._head.isEqual(value)) {
-                this._head = this._head.next;
-                this._length--;
+                this.deleteFirst();
                 return;
             }
 
@@ -136,6 +136,9 @@ export class LinkedList<T = any> {
             while (currentNode.next) {
                 // Deleting the node by delete it's reference in previous node
                 if (currentNode.next.isEqual(value)) {
+                    if (currentNode.next.next) {
+                        currentNode.next.next.prev = currentNode;
+                    }
                     currentNode.next = currentNode.next.next;
                     this._length--;
                     break;
@@ -156,8 +159,7 @@ export class LinkedList<T = any> {
 
             // if head is the node that should delete
             if (this._head.value === value) {
-                this._head = this._head.next;
-                this._length--;
+                this.deleteFirst();
                 return true;
             }
 
@@ -167,6 +169,9 @@ export class LinkedList<T = any> {
             while (currentNode.next) {
                 // Deleting the node by delete it's reference in previous node
                 if (currentNode.next.value === value) {
+                    if (currentNode.next.next) {
+                        currentNode.next.next.prev = currentNode;
+                    }
                     // check if we should update this._tail
                     if (this._tail?.isEqual(currentNode.next)) {
                         this._tail = currentNode;
@@ -179,20 +184,37 @@ export class LinkedList<T = any> {
                 }
             }
 
-            return false;
+            return false
         }
     }
 
     /**
-     * Removes the node at the start of the LinkedList<T>.
+     * Removes the node at the start of the DoublyLinkedList<T>.
      */
     deleteFirst(): void {
 
         if (!this._head) {
-            throw new Error("The LinkedList<T> is empty.");
+            throw new Error("The DoublyLinkedList<T> is empty.");
+        }
+
+        if (this._head.next) {
+            this._head.next.prev = null;
         }
 
         this._head = this._head.next;
+        this._length--;
+    }
+
+    /**
+     * Removes the node at the end of the DoublyLinkedList<T>.
+     */
+    deleteLast(): void {
+
+        if (!this._tail) {
+            throw new Error("The DoublyLinkedList<T> is empty.");
+        }
+
+        this._tail = this._tail.prev;
         this._length--;
     }
 
@@ -201,12 +223,12 @@ export class LinkedList<T = any> {
      * @param value value of the node we want to find
      * @returns _LinkedListNode_ if there is a value otherwise _null_
      */
-    find(value: T): LinkedListNode<T> | null {
+    find(value: T): DoublyLinkedListNode<T> | null {
         if (!this._head) {
             return null;
         }
 
-        let currentNode: null | LinkedListNode<T> = this._head;
+        let currentNode: null | DoublyLinkedListNode<T> = this._head;
         while (currentNode) {
             if (currentNode.value === value) {
                 return currentNode;
@@ -222,13 +244,13 @@ export class LinkedList<T = any> {
      * @param index index of the Node _starts from 0_
      * @returns LinkedListNode or _null_
      */
-    get(index: number): LinkedListNode<T> | null {
+    get(index: number): DoublyLinkedListNode<T> | null {
 
         if (!this._head || index < 0) {
             return null;
         }
 
-        let currentNode: null | LinkedListNode<T> = this._head;
+        let currentNode: null | DoublyLinkedListNode<T> = this._head;
         for (let i = 0; i < index; i++) {
             if (!currentNode) {
                 return null
@@ -240,9 +262,9 @@ export class LinkedList<T = any> {
     }
 
     /**
-     * Determines whether a value is in the LinkedList<T>.
-     * @param value The value to locate in the LinkedList<T>.
-     * @returns {Boolean} _true_ if value is found in the LinkedList<T>; otherwise, _false_.
+     * Determines whether a value is in the DoublyLinkedList<T>.
+     * @param value The value to locate in the DoublyLinkedList<T>.
+     * @returns {Boolean} _true_ if value is found in the DoublyLinkedList<T>; otherwise, _false_.
      */
     includes(value: T): boolean {
 
@@ -250,7 +272,7 @@ export class LinkedList<T = any> {
             return false;
         }
 
-        let currentNode: null | LinkedListNode<T> = this._head;
+        let currentNode: null | DoublyLinkedListNode<T> = this._head;
         while (currentNode) {
             if (currentNode.value === value) {
                 return true;
@@ -263,33 +285,40 @@ export class LinkedList<T = any> {
     }
 
     /**
-     * Adds a new node or value after an existing node in the LinkedList<T>.
-     * @param node The LinkedListNode<T> after which to insert _newNode_.
-     * @param newNode The new **LinkedListNode<T>** or **value** to add to the LinkedList<T>.
+     * Adds a new node or value after an existing node in the DoublyLinkedList<T>.
+     * @param node The DoublyLinkedListNode<T> after which to insert _newNode_.
+     * @param newNode The new **DoublyLinkedListNode<T>** or **value** to add to the DoublyLinkedList<T>.
      */
-    insertAfter(node: LinkedListNode<T>, newNode: T): void
-    insertAfter(node: LinkedListNode<T>, newNode: LinkedListNode<T>): void
-    insertAfter(node: LinkedListNode<T>, newNode: LinkedListNode<T> | T): void {
+    insertAfter(node: DoublyLinkedListNode<T>, newNode: T): void
+    insertAfter(node: DoublyLinkedListNode<T>, newNode: DoublyLinkedListNode<T>): void
+    insertAfter(node: DoublyLinkedListNode<T>, newNode: DoublyLinkedListNode<T> | T): void {
 
         if (!node || !newNode) {
             throw new Error("ArgumentNullException");
         }
 
         if (node.listId !== this._id) {
-            throw new Error("node is not in the current LinkedList.");
+            throw new Error("node is not in the current DoublyLinkedList.");
         }
 
         if (this.isLinkedListNode(newNode)) {
 
             if (newNode.listId !== undefined) {
-                throw new Error("newNode belongs to another LinkedList.");
+                throw new Error("newNode belongs to another DoublyLinkedList.");
             }
 
             newNode.listId = this._id;
             newNode.next = node.next;
+            newNode.prev = node;
+            if (node.next) {
+                node.next.prev = newNode;
+            }
             node.next = newNode;
         } else {
-            const newNodeObject = new LinkedListNode<T>(newNode, node.next, this._id);
+            const newNodeObject = new DoublyLinkedListNode<T>(newNode, node.next, node, this._id);
+            if (node.next) {
+                node.next.prev = newNodeObject;
+            }
             node.next = newNodeObject;
         }
 
@@ -297,12 +326,56 @@ export class LinkedList<T = any> {
     }
 
     /**
-     * Appends new Node at the beginning of the LinkedList<T>.
+     * Adds a new node or value before an existing node in the DoublyLinkedList<T>.
+     * @param node The DoublyLinkedListNode<T> before which to insert _newNode_.
+     * @param newNode The new **DoublyLinkedListNode<T>** or **value** to add to the DoublyLinkedList<T>.
+     */
+    insertBefore(node: DoublyLinkedListNode<T>, newNode: T): void
+    insertBefore(node: DoublyLinkedListNode<T>, newNode: DoublyLinkedListNode<T>): void
+    insertBefore(node: DoublyLinkedListNode<T>, newNode: DoublyLinkedListNode<T> | T): void {
+
+        if (!node || !newNode) {
+            throw new Error("ArgumentNullException");
+        }
+
+        if (node.listId !== this._id) {
+            throw new Error("node is not in the current DoublyLinkedList.");
+        }
+
+        if (this.isLinkedListNode(newNode)) {
+
+            if (newNode.listId !== undefined) {
+                throw new Error("newNode belongs to another DoublyLinkedList.");
+            }
+
+            newNode.listId = this._id;
+            newNode.next = node;
+            newNode.prev = node.prev;
+            if (node.prev) {
+                node.prev.next = newNode;
+            }
+            node.prev = newNode;
+        } else {
+            const newNodeObject = new DoublyLinkedListNode<T>(newNode, node, node.prev, this._id);
+            if (node.prev) {
+                node.prev.next = newNodeObject;
+            }
+            node.prev = newNodeObject;
+        }
+
+        this._length++
+    }
+
+    /**
+     * Appends new Node at the beginning of the DoublyLinkedList<T>.
      * @param value value of the new node
      */
     prepend(value: T): void {
 
-        const newNode = new LinkedListNode<T>(value, this._head, this._id);
+        const newNode = new DoublyLinkedListNode<T>(value, this._head, null, this._id);
+        if (this._head) {
+            this._head.prev = newNode;
+        }
         this._head = newNode;
 
         if (!this._tail) {
@@ -313,7 +386,7 @@ export class LinkedList<T = any> {
     }
 
     /**
-     * Returns array of all values in LinkedList<T>.
+     * Returns array of all values in DoublyLinkedList<T>.
      * @returns array of values
      */
     toArray(): T[] {
