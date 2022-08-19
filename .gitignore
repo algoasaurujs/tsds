@@ -2,5 +2,9 @@
 .DS_Store
 node_modules
 /dist
+dist
 /coverage
+temp
+package-lock.json
+yarn.lock
 .vscode
