@@ -5,13 +5,13 @@ import {
 } from '../../types/AnnotatedBlock.interface';
 
 const comparator = (a: AnnotatedParam, b: AnnotatedParam) => {
-    if (a.name < b.name) {
-        return -1;
-      }
-      if (a.name > b.name) {
-        return 1;
-      }
-      return 0;
+  if (a.name < b.name) {
+    return -1;
+  }
+  if (a.name > b.name) {
+    return 1;
+  }
+  return 0;
 };
 
 export const renderMethod = (
@@ -41,10 +41,19 @@ export const renderMethod = (
         EOL;
     });
   }
+  if (block?.returns) {
+    result = result + '**Returns**' + EOL + EOL;
+    result = result + '`' + block.returns.type + '`' + EOL + EOL;
+    if (block.returns.content) {
+      result = result + block.returns.content + EOL + EOL;
+    }
+  }
+
   if (block?.example) {
     result = result + '**Example**' + EOL + EOL;
     result = result + block?.example + EOL + EOL;
   }
+
   if (block.remarks) {
     result = result + '**Remarks**' + EOL + EOL;
     result = result + block.remarks + EOL + EOL;
