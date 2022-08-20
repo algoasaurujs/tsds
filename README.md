@@ -108,17 +108,14 @@ for (let item of list) {
 ### **LinkedList.first**
 
 **Definition**
-
 Gets the first node of the LinkedList<T>.
 
 **Property Value**
-
 LinkedListNode<T>
 
 The first LinkedListNode<T> of the LinkedList<T>.
 
 **Example**
-
 ```tsx
 const list = new LinkedList<number>([1, 2, 3, 4]);
 
@@ -126,7 +123,6 @@ list.first // => LinkListNode(1)
 ```
 
 **Remarks**
-
 If the LinkedList<T> is empty, the First and Last properties contain null.
 
 Retrieving the value of this property is an O(1) operation.
