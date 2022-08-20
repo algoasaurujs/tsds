@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/samavati/tsds/compare/v1.6.0...v1.7.0) (2022-08-20)
+
+
+### Features
+
+* :fire: deno files added ([96bc41e](https://github.com/samavati/tsds/commit/96bc41e5c7bfc59620229b28241f68585beaac67))
+* **scripts:** deno make script added ([7e39185](https://github.com/samavati/tsds/commit/7e3918541e0469eedef9a06851376aaf23e7d02c))
+
 ## [1.6.0](https://github.com/samavati/tsds/compare/v1.5.1...v1.6.0) (2022-08-20)
 
 
