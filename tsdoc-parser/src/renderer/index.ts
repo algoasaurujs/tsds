@@ -2,9 +2,13 @@ import fs from 'fs';
 import path from 'path';
 import * as _ from 'lodash';
 import { EOL } from 'os';
+import markdownTable from 'markdown-table';
 import { renderProperty } from './renderBlock/renderProperty';
 import { renderMethod } from './renderBlock/renderMethod';
-import { AnnotatedBlock } from '../types/AnnotatedBlock.interface';
+import {
+  AnnotatedBlock,
+  AnnotatedTypeParam,
+} from '../types/AnnotatedBlock.interface';
 
 function comparator(a: any, b: any) {
   if (a?.name < b?.name) {
@@ -16,19 +20,34 @@ function comparator(a: any, b: any) {
   return 0;
 }
 
+const renderTypeParams = (params?: AnnotatedTypeParam[]) => {
+  if (!params) {
+    return '';
+  }
+  return '<' + params.map(p => p.name).join(', ') + '>';
+};
+
 export const render = (input: AnnotatedBlock[]) => {
   try {
+    const groupByOverload = _.groupBy(input, 'overload');
     let content = '';
 
     const PARENT = _.find(input, 'isClass');
     //   Render summary section
-    content = content + '## ****' + PARENT?.name + '<T>****' + EOL + EOL;
+    content =
+      content +
+      '## ****' +
+      PARENT?.name +
+      renderTypeParams(PARENT?.typeParams) +
+      '****' +
+      EOL +
+      EOL;
     content = content + PARENT?.summary + EOL + EOL;
     content = content + '**Usage**' + EOL + EOL;
     content = content + PARENT?.example + EOL + EOL;
 
     // Render properties section
-    const PROPERTIES = input
+    const PROPERTIES = groupByOverload['null']
       .filter(value => value.isProperty && !value.isPrivate)
       .sort(comparator);
 
@@ -40,7 +59,7 @@ export const render = (input: AnnotatedBlock[]) => {
     }
 
     // Render methods section
-    const METHODS = input
+    const METHODS = groupByOverload['null']
       .filter(value => value.isMethod && !value.isPrivate)
       .sort(comparator);
 
@@ -50,11 +69,32 @@ export const render = (input: AnnotatedBlock[]) => {
 
     for (const method of METHODS) {
       content = content + renderMethod(method, PARENT?.name as string);
+      // render overload
+      const overloads = groupByOverload[method.name as string];
+      if (overloads) {
+        content =
+          content +
+          markdownTable([
+            ['Variant', 'Definition'],
+            ...overloads.map(o => {
+              return [
+                `(${o.params
+                  ?.map(p => p.name + ': ' + p.type)
+                  .join(', ')}) => ${o.returns?.type}`,
+                o.summary || '',
+              ];
+            }),
+          ]);
+      }
     }
 
     fs.writeFileSync(
-      path.join(__dirname, '../../temp/md/modules', PARENT?.name as string + '.md'),
-      content,
+      path.join(
+        __dirname,
+        '../../temp/md/modules',
+        (PARENT?.name as string) + '.md'
+      ),
+      content
     );
   } catch (error) {
     console.error(error);

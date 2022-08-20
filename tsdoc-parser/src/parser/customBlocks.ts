@@ -35,6 +35,11 @@ const typeBlock: tsdoc.TSDocTagDefinition = new tsdoc.TSDocTagDefinition({
   syntaxKind: tsdoc.TSDocTagSyntaxKind.BlockTag,
 });
 
+const overloadBlock: tsdoc.TSDocTagDefinition = new tsdoc.TSDocTagDefinition({
+  tagName: '@overload',
+  syntaxKind: tsdoc.TSDocTagSyntaxKind.BlockTag,
+});
+
 export const customBlocks = [
   classBlock,
   memberofBlock,
@@ -43,4 +48,5 @@ export const customBlocks = [
   privateBlock,
   propertyBlock,
   typeBlock,
+  overloadBlock
 ];

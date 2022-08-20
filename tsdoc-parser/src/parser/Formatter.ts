@@ -63,6 +63,7 @@ export class Formatter {
         Formatter.renderForWeb(
           Formatter.renderDocNode(this.comment.remarksBlock.content)
         ),
+      overload: null,
     };
 
     this.comment.customBlocks.forEach(block => {
@@ -95,6 +96,11 @@ export class Formatter {
       }
       if (block.blockTag.tagName === '@type') {
         obj['type'] = Formatter.renderForWeb(
+          Formatter.renderDocNode(block.content)
+        );
+      }
+      if (block.blockTag.tagName === '@overload') {
+        obj['overload'] = Formatter.renderForWeb(
           Formatter.renderDocNode(block.content)
         );
       }

@@ -9,7 +9,7 @@ export interface AnnotatedReturns {
   content: string;
 }
 
-export interface AnnotatedTypeParam{
+export interface AnnotatedTypeParam {
   name: string;
   content: string;
 }
@@ -20,6 +20,7 @@ export interface AnnotatedBlock {
   typeParams?: AnnotatedTypeParam[];
   params?: AnnotatedParam[];
   returns?: AnnotatedReturns;
+  overload: string | null;
   name?: string;
   memberof?: string;
   isMethod?: boolean;
