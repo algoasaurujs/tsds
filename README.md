@@ -228,6 +228,11 @@ list.length // => 0
 
 Removes the first occurrence of a node or value from the LinkedList<T>.
 
+| Variant                           | Definition                                                                    |
+| --------------------------------- | ----------------------------------------------------------------------------- |
+| (node: LinkedListNode<T>) => void | Removes the first occurrence of a node from the `LinkedList<T>`.              |
+| (value: T) => Boolean             | Removes the first occurrence of the specified value from the `LinkedList<T>`. |
+
 **Example**
 
 ```tsx
