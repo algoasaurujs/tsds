@@ -4,31 +4,49 @@ import { LinkedListNode } from './LinkedListNode';
  * A linear collection of data elements whose order is not given by their physical placement in memory.
  * Instead, each element points to the next.
  * It is a data structure consisting of a collection of nodes which together represent a sequence.
+ * @typeParam T - Specifies the type of elements in the LinkedList.
+ * @example
+ * ```typescript
+ * import { LinkedList } from '@samavati/tsds';
+ *
+ * // instantiate new linked list without initial set-up
+ * const list = new LinkedList();
+ *
+ * // instantiate new linked list with initial values
+ * const list2 = new LinkedList([1, 2, 3, 4, 5]);
+ * ```
+ * @name LinkedList
+ * @class
  */
 export class LinkedList<T = any> {
   /**
    * First element of the list
+   * @private
    */
   private _head: null | LinkedListNode<T> = null;
 
   /**
    * Last element of the list
+   * @private
    */
   private _tail: null | LinkedListNode<T> = null;
 
   /**
    * Node count in the list
+   * @private
    */
   private _length: number = 0;
 
   /**
    * LinkedList Identifier
+   * @private
    */
   private _id = Symbol();
 
   /**
    * Create new LinkedList instance
-   * @param initialValue initial value of LinkedList, Array of any value (Optional)
+   * @param {Array<T>} initialValue initial value of LinkedList, Array of any value (Optional)
+   * @constructor
    */
   constructor(private initialValue?: T[]) {
     if (this.initialValue) {
@@ -56,29 +74,82 @@ export class LinkedList<T = any> {
   }
 
   /**
-   * Gets the first node of the LinkedList<T>.
+   * Gets the first node of the `LinkedList<T>`.
+   * @example
+   * ```typescript
+   * const list = new LinkedList<number>([1, 2, 3, 4]);
+   *
+   * list.first // => LinkListNode(1)
+   * ```
+   * @returns {LinkedListNode<T>} The first `LinkedListNode<T>` of the `LinkedList<T>`
+   * @remarks
+   * If the `LinkedList<T>` is empty, the _first_ and _last_ properties contain `null`.
+   * Retrieving the value of this property is an **O(1)** operation.
+   * @name first
+   * @memberof LinkedList
+   * @property
    */
   get first() {
     return this._head;
   }
 
   /**
-   * Gets the last node of the LinkedList<T>.
+   * Gets the last node of the `LinkedList<T>`.
+   * @example
+   * ```typescript
+   * const list = new LinkedList<number>([1, 2, 3, 4]);
+   *
+   * list.last // => LinkListNode(4)
+   * ```
+   * @returns {LinkedListNode<T>} The last `LinkedListNode<T>` of the `LinkedList<T>`.
+   * @remarks
+   * If the `LinkedList<T>` is empty, the _first_ and _last_ properties contain `null`.
+   *
+   * Retrieving the value of this property is an **O(1)** operation.
+   * @name last
+   * @memberof LinkedList
+   * @property
    */
   get last() {
     return this._tail;
   }
 
   /**
-   * Gets the number of nodes actually contained in the LinkedList<T>.
+   * Gets the number of nodes actually contained in the `LinkedList<T>`.
+   * @example
+   * ```typescript
+   * const list = new LinkedList<number>([1, 2, 3, 4]);
+   *
+   * list.length // => 4
+   * ```
+   * @returns {Number} number of nodes in the `LinkedList<T>`.
+   * @remarks
+   * Retrieving the value of this property is an **O(1)** operation.
+   * @name length
+   * @memberof LinkedList
+   * @property
    */
   get length() {
     return this._length;
   }
 
   /**
-   * Adds a new node or value at the end of the LinkedList&lt;T&gt;.
-   * @param value value of the new node
+   * Adds a new node or value at the end of the `LinkedList<T>`.
+   * @param {T} value value of the new node.
+   * @returns {void}
+   * @example
+   * ```typescript
+   * const list = new LinkedList<number>([1, 2, 3, 4]);
+   *
+   * list.length // => 4
+   * list.append(5)
+   * list.length // => 5
+   * list.last // => LinkListNode(5)
+   * ```
+   * @remarks This method is an **O(1)** operation.
+   * @name append
+   * @memberof LinkedList
+   * @method
    */
   append(value: T): void {
     const newNode = new LinkedListNode<T>(value, null, this._id);
@@ -96,7 +167,19 @@ export class LinkedList<T = any> {
   }
 
   /**
-   * Removes all nodes from the LinkedList<T>.
+   * Removes all nodes from the `LinkedList<T>`.
+   * @returns {void}
+   * @example
+   * ```typescript
+   * const list = new LinkedList<number>([1, 2, 3, 4]);
+   *
+   * list.length // => 4
+   * list.clear();
+   * list.length // => 0
+   * ```
+   * @name clear
+   * @memberof LinkedList
+   * @method
    */
   clear() {
     this._head = null;
@@ -105,16 +188,28 @@ export class LinkedList<T = any> {
   }
 
   /**
-   * Removes the first occurrence of a node or value from the LinkedList<T>.
-   * @param value The LinkedListNode<T> to remove from the LinkedList<T>.
+   * Removes the first occurrence of a node from the `LinkedList<T>`.
+   * @param {LinkedListNode<T>} node The `LinkedListNode<T>` to remove from the LinkedList<T>`.
+   * @returns {void}
+   * @throws {InvalidOperationException}
+   * node is not in the current `LinkedList<T>`.
+   * @overload delete
+   * @method
    */
   delete(node: LinkedListNode<T>): void;
   /**
-   * Removes the first occurrence of the specified value from the LinkedList<T>.
-   * @param value The value to remove from the LinkedList<T>.
-   * @returns _true_ if the element containing value is successfully removed; otherwise, _false_. This method also returns _false_ if value was not found in the original LinkedList<T>.
+   * Removes the first occurrence of the specified value from the `LinkedList<T>`.
+   * @param {T} value The value to remove from the `LinkedList<T>`.
+   * @returns {Boolean} `true` if the element containing value is successfully removed; otherwise, `false`. This method also returns `false` if value was not found in the original `LinkedList<T>`.
+   * @overload delete
+   * @method
    */
   delete(value: T): boolean;
+  /**
+   * Removes the first occurrence of a node or value from the `LinkedList<T>`.
+   * @name delete
+   * @method
+   */
   delete(value: T | LinkedListNode<T>): void | boolean {
     if (this.isLinkedListNode(value)) {
       if (!this._head || !value || value.listId !== this._id) {
