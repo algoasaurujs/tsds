@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/samavati/tsds/compare/v1.5.1...v1.6.0) (2022-08-20)
+
+
+### Features
+
+* **tsDocs-parser:** :fire: tsdocs parser added to translate tsdocs to .md and .json ([5f83220](https://github.com/samavati/tsds/commit/5f8322046d32b4753b522c12cd8f5932b78932fa))
+* **tsDocs-parser:** create table in md for ocerloades ([d2b10e1](https://github.com/samavati/tsds/commit/d2b10e17a3e0fd900f016a1dbf992fe2133974f9))
+
+
+### Bug Fixes
+
+* **lint:** linting errors fixed ([7cfa7d0](https://github.com/samavati/tsds/commit/7cfa7d091aab7ff6a6ea4fc48ccfbf744dc62eac))
+* **tsDocs-parser:** missing returns section of methods renderer added ([980adb9](https://github.com/samavati/tsds/commit/980adb9a0309cfd8ad60a1c725ba6f799e0cd2af))
+
 ### [1.5.1](https://github.com/samavati/tsds/compare/v1.5.0...v1.5.1) (2022-04-20)
 
 
