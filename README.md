@@ -108,11 +108,9 @@ for (let item of list) {
 ### **LinkedList.first**
 
 **Definition**
-
 Gets the first node of the LinkedList<T>.
 
 **Property Value**
-
 LinkedListNode<T>
 
 The first LinkedListNode<T> of the LinkedList<T>.
@@ -126,7 +124,6 @@ list.first // => LinkListNode(1)
 ```
 
 **Remarks**
-
 If the LinkedList<T> is empty, the First and Last properties contain null.
 
 Retrieving the value of this property is an O(1) operation.
@@ -227,6 +224,11 @@ list.length // => 0
 **Definition**
 
 Removes the first occurrence of a node or value from the LinkedList<T>.
+
+| Variant                           | Definition                                                                    |
+| --------------------------------- | ----------------------------------------------------------------------------- |
+| (node: LinkedListNode<T>) => void | Removes the first occurrence of a node from the `LinkedList<T>`.              |
+| (value: T) => Boolean             | Removes the first occurrence of the specified value from the `LinkedList<T>`. |
 
 **Example**
 
