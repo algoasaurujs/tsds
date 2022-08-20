@@ -5,11 +5,37 @@ class Node<T = any> {
 /**
  * Represents a variable size last-in-first-out (LIFO) collection of instances of the same specified type.
  *
- * T: Specifies the type of elements in the stack.
+ * A stack is an abstract data type that serves as a collection of elements, with two main principal operations:
+ * - Push, which adds an element to the collection, and
+ * - Pop, which removes the most recently added element that was not yet removed.
+ *
+ * The order in which elements come off a stack gives rise to its alternative name, LIFO (last in, first out). Additionally, a peek operation may give access to the top without modifying the stack.
+ *
+ * @typeParam T - Specifies the type of elements in the stack.
+ * @example
+ * ```typescript
+ * import { Stack } from '@samavati/tsds';
+ * // instantiate new Stack
+ * const stack = new Stack();
+ * ```
+ * @name Stack
+ * @class
  */
 export class Stack<T = any> {
+  /**
+   * first element in the Stack
+   * @private
+   */
   private _first: null | Node<T> = null;
+  /**
+   * last element in the Stack
+   * @private
+   */
   private _last: null | Node<T> = null;
+  /**
+   * size of the Stack
+   * @private
+   */
   private _size: number = 0;
 
   *iterator(): IterableIterator<T> {
@@ -27,6 +53,21 @@ export class Stack<T = any> {
 
   /**
    * Gets the number of elements contained in the **Stack<T>**.
+   * @example
+   * ```typescript
+   * const stack = new Stack<number>();
+   *
+   * stack.push(1);
+   * stack.push(2);
+   * stack.push(3);
+   *
+   * stack.length // => 3
+   * ```
+   * @remarks Retrieving the value of this property is an O(1) operation.
+   * @returns {Number} length of Stack<T>
+   * @memberof Stack
+   * @name length
+   * @property
    */
   get length(): number {
     return this._size;
@@ -34,6 +75,21 @@ export class Stack<T = any> {
 
   /**
    * Removes all objects from the Stack<T>.
+   * @example
+   * ```typescript
+   * const stack = new Stack<number>();
+   *
+   * stack.push(1);
+   * stack.push(2);
+   * stack.push(3);
+   *
+   * stack.length // => 3
+   * stack.clear()
+   * stack.length // => 0
+   * ```
+   * @name clear
+   * @memberof Stack
+   * @method
    */
   clear() {
     this._first = null;
@@ -43,8 +99,23 @@ export class Stack<T = any> {
 
   /**
    * Determines whether an element is in the Stack<T>.
-   * @param item The object to locate in the Stack<T>.
+   * @param {T} item The object to locate in the Stack<T>.
    * @returns {Boolean} true if item is found in the Stack<T>; otherwise, false.
+   * @example
+   * ```typescript
+   * const stack = new Stack<number>();
+   *
+   * stack.push(1);
+   * stack.push(2);
+   * stack.push(3);
+   *
+   * stack.includes(2) // => true
+   * stack.includes(10) // => false
+   * ```
+   * @remarks This method is an O(n) operation.
+   * @name includes
+   * @memberof Stack
+   * @method
    */
   includes(item: T): boolean {
     if (!this._first) {
@@ -64,7 +135,21 @@ export class Stack<T = any> {
 
   /**
    * Returns the object at the top of the Stack<T> without removing it.
-   * @returns The object at the top of the Stack<T>.
+   * @returns {T} The object at the top of the Stack<T>.
+   * @example
+   * ```typescript
+   * const stack = new Stack<number>();
+   *
+   * stack.push(1);
+   * stack.push(2);
+   * stack.push(3);
+   *
+   * stack.peek() // => 3
+   * ```
+   * @remarks This method is an O(1) operation.
+   * @name peek
+   * @memberof Stack
+   * @method
    */
   peek(): T {
     if (this._first) {
@@ -76,7 +161,22 @@ export class Stack<T = any> {
 
   /**
    * Removes and returns the object at the top of the Stack<T>.
-   * @returns The object removed from the top of the Stack<T>.
+   * @returns {T} The object removed from the top of the Stack<T>.
+   * @example
+   * ```typescript
+   * const stack = new Stack<number>();
+   *
+   * stack.push(1);
+   * stack.push(2);
+   * stack.push(3);
+   *
+   * stack.pop() // => 3
+   * stack.length // => 2
+   * ```
+   * @remarks This method is an O(1) operation.
+   * @name pop
+   * @memberof Stack
+   * @method
    */
   pop(): T {
     if (!this._first) {
@@ -95,7 +195,21 @@ export class Stack<T = any> {
 
   /**
    * Inserts an object at the top of the Stack<T>.
-   * @param value The object to push onto the Stack<T>
+   * @param {T} value The object to push onto the Stack<T>
+   * @example
+   * ```typescript
+   * const stack = new Stack<number>();
+   *
+   * stack.push(1);
+   * stack.push(2);
+   * stack.push(3);
+   *
+   * stack.length // => 3
+   * ```
+   * @remarks This method is an O(1) operation.
+   * @name push
+   * @memberof Stack
+   * @method
    */
   push(value: T) {
     const newNode = new Node<T>(value);
@@ -113,7 +227,21 @@ export class Stack<T = any> {
 
   /**
    * Returns a new array containing copies of the elements of the Stack<T>.
-   * @returns A new array containing copies of the elements of the Stack<T>.
+   * @returns {Array<T>} A new array containing copies of the elements of the Stack<T>.
+   * @example
+   * ```typescript
+   * const stack = new Stack<number>();
+   *
+   * stack.push(1);
+   * stack.push(2);
+   * stack.push(3);
+   *
+   * stack.toArray() // => [3, 2, 1]
+   * ```
+   * @remarks This method is an O(n) operation.
+   * @name toArray
+   * @memberof Stack
+   * @method
    */
   toArray(): T[] {
     const nodes = [];

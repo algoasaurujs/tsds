@@ -78,7 +78,7 @@ A linked list is a data structure in which the objects are arranged in a linear 
 
 **Usage**
 
-```tsx
+```typescript
 import { LinkedList } from '@samavati/tsds';
 
 // instantiate new linked list without initial set-up
@@ -90,7 +90,7 @@ const list2 = new LinkedList([1, 2, 3, 4, 5]);
 
 The list supports iterator protocols allowing it to be used with the `for...of`
 
-```tsx
+```typescript
 import { LinkedList } from '@samavati/tsds';
 
 const list = new LinkedList([1, 2, 3]);
@@ -116,7 +116,8 @@ LinkedListNode<T>
 The first LinkedListNode<T> of the LinkedList<T>.
 
 **Example**
-```tsx
+
+```typescript
 const list = new LinkedList<number>([1, 2, 3, 4]);
 
 list.first // => LinkListNode(1)
@@ -141,7 +142,7 @@ The last LinkedListNode<T> of the LinkedList<T>.
 
 **Example**
 
-```tsx
+```typescript
 const list = new LinkedList<number>([1, 2, 3, 4]);
 
 list.last // => LinkListNode(4)
@@ -165,7 +166,7 @@ number
 
 **Example**
 
-```tsx
+```typescript
 const list = new LinkedList<number>([1, 2, 3, 4]);
 
 list.length // => 4
@@ -189,7 +190,7 @@ Adds a new node or value at the end of the LinkedList<T>.
 
 **Example**
 
-```tsx
+```typescript
 const list = new LinkedList<number>([1, 2, 3, 4]);
 
 list.length // => 4
@@ -210,7 +211,7 @@ Removes all nodes from the LinkedList<T>.
 
 **Example**
 
-```tsx
+```typescript
 const list = new LinkedList<number>([1, 2, 3, 4]);
 
 list.length // => 4
@@ -231,7 +232,7 @@ Removes the first occurrence of a node or value from the LinkedList<T>.
 
 **Example**
 
-```tsx
+```typescript
 const list = new LinkedList<number>([1, 2, 3, 4]);
 
 list.length // => 4
@@ -252,7 +253,7 @@ Removes the node at the start of the LinkedList<T>.
 
 **Example**
 
-```tsx
+```typescript
 const list = new LinkedList<number>([1, 2, 3, 4]);
 
 list.length // => 4
@@ -281,7 +282,7 @@ The first LinkedListNode<T> that contains the specified value, if found; otherwi
 
 **Example**
 
-```tsx
+```typescript
 const list = new LinkedList<number>([1, 2, 3, 4]);
 
 const item = list.find(2)
@@ -309,7 +310,7 @@ LinkedListNode<T> of the specified index, if index is less than length; otherwis
 
 **Example**
 
-```tsx
+```typescript
 const list = new LinkedList<number>([1, 2, 3, 4]);
 
 const item = list.get(2)
@@ -339,7 +340,7 @@ true if value is found in the LinkedList<T>; otherwise, false.
 
 **Example**
 
-```tsx
+```typescript
 const list = new LinkedList<number>([1, 2, 3, 4]);
 
 list.includes(2) // => true
@@ -358,7 +359,7 @@ Adds a new node or value after an existing node in the LinkedList<T>.
 
 **Example**
 
-```tsx
+```typescript
 const list = new LinkedList<number>([1, 2, 3, 4]);
 
 const item = list.get(2);
@@ -386,7 +387,7 @@ Adds a new node or value at the start of the LinkedList<T>.
 
 **Example**
 
-```tsx
+```typescript
 const list = new LinkedList<number>([1, 2, 3, 4]);
 
 list.length // => 4
@@ -407,7 +408,7 @@ Returns the entire LinkedList<T> to a compatible one-dimensional Array
 
 **Example**
 
-```tsx
+```typescript
 const list = new LinkedList<number>([1, 2, 3, 4]);
 
 list.prepend(0)
@@ -427,7 +428,7 @@ The order in which elements come off a stack gives rise to its alternative name,
 
 **Usage**
 
-```tsx
+```typescript
 import { Stack } from '@samavati/tsds';
 
 // instantiate new Stack
@@ -436,7 +437,7 @@ const stack = new Stack();
 
 The stack supports iterator protocols allowing it to be used with the `for...of`
 
-```tsx
+```typescript
 import { Stack } from '@samavati/tsds';
 
 const stack = new Stack();
@@ -468,7 +469,7 @@ Gets the number of elements contained in the Stack.
 
 **Example**
 
-```tsx
+```typescript
 const stack = new Stack<number>();
 
 stack.push(1);
@@ -492,7 +493,7 @@ Removes all objects from the Stack.
 
 **Example**
 
-```tsx
+```typescript
 const stack = new Stack<number>();
 
 stack.push(1);
@@ -522,7 +523,7 @@ true if item is found in the Stack; otherwise, false.
 
 **Example**
 
-```tsx
+```typescript
 const stack = new Stack<number>();
 
 stack.push(1);
@@ -551,7 +552,7 @@ The object at the top of the Stack.
 
 **Example**
 
-```tsx
+```typescript
 const stack = new Stack<number>();
 
 stack.push(1);
@@ -579,7 +580,7 @@ The object at the top of the Stack.
 
 **Example**
 
-```tsx
+```typescript
 const stack = new Stack<number>();
 
 stack.push(1);
@@ -606,7 +607,7 @@ Inserts an object at the top of the Stack.
 
 **Example**
 
-```tsx
+```typescript
 const stack = new Stack<number>();
 
 stack.push(1);
@@ -628,7 +629,7 @@ Returns the entire Stack<T> to a compatible one-dimensional Array
 
 **Example**
 
-```tsx
+```typescript
 const stack = new Stack<number>();
 
 stack.push(1);
@@ -651,7 +652,7 @@ The operation of adding an element to the rear of the queue is known as  _enqueu
 
 **Usage**
 
-```tsx
+```typescript
 import { Queue } from  '@samavati/tsds';
 
 // instantiate new Queue
@@ -661,7 +662,7 @@ const queue = new Queue();
 
 The queue supports iterator protocols allowing it to be used with the `for...of`
 
-```tsx
+```typescript
 import { Queue } from  '@samavati/tsds';
 
 const queue = new Queue();
@@ -691,7 +692,7 @@ Gets the number of elements contained in the Queue.
 
 **Example**
 
-```tsx
+```typescript
 const queue = new Queue<number>();
 
 queue.enqueue(1);
@@ -715,7 +716,7 @@ Removes all objects from the Queue.
 
 **Example**
 
-```tsx
+```typescript
 const queue = new Queue<number>();
 
 queue.enqueue(1);
@@ -745,7 +746,7 @@ true if item is found in the Queue; otherwise, false.
 
 **Example**
 
-```tsx
+```typescript
 const queue = new Queue<number>();
 
 queue.enqueue(1);
@@ -774,7 +775,7 @@ The object at the beginning of the Queue.
 
 **Example**
 
-```tsx
+```typescript
 const queue = new Queue<number>();
 
 queue.enqueue(1);
@@ -801,7 +802,7 @@ Inserts an object at the end of the Queue.
 
 **Example**
 
-```tsx
+```typescript
 const queue = new Queue<number>();
 
 queue.enqueue(1);
@@ -829,7 +830,7 @@ The object at the beginning of the Queue.
 
 **Example**
 
-```tsx
+```typescript
 const queue = new Queue<number>();
 
 queue.enqueue(1);
@@ -851,7 +852,7 @@ Returns the entire Queue<T> to a compatible one-dimensional Array
 
 **Example**
 
-```tsx
+```typescript
 const queue = new Queue<number>();
 
 queue.enqueue(1);
