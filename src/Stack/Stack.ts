@@ -244,7 +244,7 @@ export class Stack<T = any> {
    * @method
    */
   toArray(): T[] {
-    const nodes = [];
+    const nodes: T[] = [];
 
     let currentNode = this._first;
 

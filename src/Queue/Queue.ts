@@ -129,7 +129,7 @@ export class Queue<T = any> {
    * Returns the Queue<T> elements in a new array.
    */
   toArray(): T[] {
-    const nodes = [];
+    const nodes: T[] = [];
 
     let currentNode = this._first;
 

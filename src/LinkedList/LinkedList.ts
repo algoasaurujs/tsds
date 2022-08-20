@@ -405,7 +405,7 @@ export class LinkedList<T = any> {
    * @returns array of values
    */
   toArray(): T[] {
-    const nodes = [];
+    const nodes: T[] = [];
 
     let currentNode = this._head;
 
