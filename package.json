@@ -20,6 +20,7 @@
         "prepare": "tsdx build",
         "size": "size-limit",
         "analyze": "size-limit --why",
+        "make-deno": "cd ./scripts && npm run make-deno",
         "release": "standard-version",
         "deploy": "gh-pages -d docs/dist"
     },
