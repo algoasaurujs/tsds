@@ -81,27 +81,27 @@ try {
   fs.writeFileSync(path.join(outPath, 'README.md'), '');
   fs.appendFileSync(
     path.join(outPath, 'README.md'),
-    fs.readFileSync(path.join(assetsFolder, 'README_HEAD.md')) + EOL
+    fs.readFileSync(path.join(assetsFolder, 'README_HEAD.md')) + EOL + EOL
   );
   fs.appendFileSync(
     path.join(outPath, 'README.md'),
-    fs.readFileSync(path.join(tempMDFolderPath, 'TABLE_OF_CONTENT.md')) + EOL
+    fs.readFileSync(path.join(tempMDFolderPath, 'TABLE_OF_CONTENT.md')) + EOL + EOL
   );
   fs.appendFileSync(
     path.join(outPath, 'README.md'),
-    fs.readFileSync(path.join(assetsFolder, 'README_INSTALLATION.md')) + EOL
+    fs.readFileSync(path.join(assetsFolder, 'README_INSTALLATION.md')) + EOL + EOL
   );
 
   for (const file of filesSortedByBasename) {
     fs.appendFileSync(
       path.join(outPath, 'README.md'),
-      fs.readFileSync(path.join(tempMDFolderPath,'modules', path.basename(file).replace('.ts', '.md'))) + EOL
+      fs.readFileSync(path.join(tempMDFolderPath,'modules', path.basename(file).replace('.ts', '.md'))) + EOL + EOL
     );
   }
 
   fs.appendFileSync(
     path.join(outPath, 'README.md'),
-    fs.readFileSync(path.join(assetsFolder, 'README_FOOTER.md')) + EOL
+    fs.readFileSync(path.join(assetsFolder, 'README_FOOTER.md')) + EOL + EOL
   );
 } catch (error) {
   console.error(error);
