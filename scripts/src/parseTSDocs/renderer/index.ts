@@ -111,7 +111,7 @@ export const render = (input: AnnotatedBlock[]) => {
         indent +
         `- [${PARENT?.name}.${
           property.name
-        }](#${lowerParent}.${property.name?.toLowerCase()})` +
+        }](#${lowerParent}${property.name?.toLowerCase()})` +
         EOL;
     }
   }
@@ -132,7 +132,7 @@ export const render = (input: AnnotatedBlock[]) => {
         indent +
         `- [${PARENT?.name}.${
           method.name
-        }](#${lowerParent}.${method.name?.toLowerCase()})` +
+        }](#${lowerParent}${method.name?.toLowerCase()})` +
         EOL;
     }
   }
