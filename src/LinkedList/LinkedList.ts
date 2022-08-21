@@ -456,12 +456,16 @@ export class LinkedList<T = any> {
     }
 
     if (node.listId !== this._id) {
-      throw new Error('InvalidOperationException: node is not in the current LinkedList.');
+      throw new Error(
+        'InvalidOperationException: node is not in the current LinkedList.'
+      );
     }
 
     if (this.isLinkedListNode(newNode)) {
       if (newNode.listId !== undefined) {
-        throw new Error('InvalidOperationException: newNode belongs to another LinkedList.');
+        throw new Error(
+          'InvalidOperationException: newNode belongs to another LinkedList.'
+        );
       }
 
       newNode.listId = this._id;
