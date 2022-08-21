@@ -95,7 +95,7 @@ try {
   for (const file of filesSortedByBasename) {
     fs.appendFileSync(
       path.join(outPath, 'README.md'),
-      fs.readFileSync(path.join(tempMDFolderPath,'modules', path.basename(file).replace('.ts', '.md'))) + EOL + EOL
+      fs.readFileSync(path.join(tempMDFolderPath,'modules', path.basename(file).replace('.ts', '.md'))) + EOL
     );
   }
 
