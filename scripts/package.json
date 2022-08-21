@@ -6,6 +6,7 @@
   "scripts": {
     "make-deno": "rm -rf ./dist && tsc && node ./dist/makeDeno/index.js",
     "parse-tsdocs": "rm -rf ./dist && tsc && node ./dist/parseTSDocs/index.js",
+    "prep-push": "tsc && node ./dist/prepPush/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ehsan Samavati",
