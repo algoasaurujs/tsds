@@ -1,0 +1,35 @@
+{
+  "$schema": "https://x.nest.land/eggs@0.3.10/src/schema.json",
+  "name": "tsds",
+  "entry": "./deno/index.ts",
+  "description": "Future TypeScript Data Structure",
+  "homepage": "https://samavati.github.io/tsds/",
+  "version": "1.7.2",
+  "releaseType": null,
+  "unstable": true,
+  "unlisted": false,
+  "files": [
+    "./deno/*/**",
+    "./README.md"
+  ],
+  "ignore": [
+    ".github",
+    ".vscode",
+    "./dist",
+    "./docs",
+    "./node_modules",
+    "scripts",
+    "./src",
+    "./test",
+    "./tsdoc-parser",
+    ".gitignore",
+    ".npmignore",
+    "package.json",
+    "package-lock.json",
+    "tsconfig.json"
+  ],
+  "checkFormat": false,
+  "checkTests": false,
+  "checkInstallation": false,
+  "check": true
+}
