@@ -41,7 +41,7 @@ export class Formatter {
 
     return {
       type: typeSection.slice(1, -1),
-      content: content.replace(new RegExp('{.*} '), ''),
+      content: content.trim().replace(new RegExp('{.*}'), ''),
     };
   }
 
