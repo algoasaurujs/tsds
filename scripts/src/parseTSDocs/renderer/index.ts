@@ -81,7 +81,7 @@ export const render = (input: AnnotatedBlock[]) => {
               o.summary || '',
             ];
           }),
-        ]);
+        ]) + EOL + EOL;
     }
   }
 
