@@ -99,7 +99,7 @@ Gets the first node of the `LinkedList<T>`.
 
 `LinkedListNode<T>`
 
-The first `LinkedListNode<T>` of the `LinkedList<T>`
+ The first `LinkedListNode<T>` of the `LinkedList<T>`
 
 **Example**
 
@@ -124,7 +124,7 @@ Gets the last node of the `LinkedList<T>`.
 
 `LinkedListNode<T>`
 
-The last `LinkedListNode<T>` of the `LinkedList<T>`.
+ The last `LinkedListNode<T>` of the `LinkedList<T>`.
 
 **Example**
 
@@ -150,7 +150,7 @@ Gets the number of nodes actually contained in the `LinkedList<T>`.
 
 `Number`
 
-number of nodes in the `LinkedList<T>`.
+ number of nodes in the `LinkedList<T>`.
 
 **Example**
 
@@ -180,8 +180,6 @@ Adds a new node or value at the end of the `LinkedList<T>`.
 
 `void`
 
-{void}
-
 **Example**
 
 ```typescript
@@ -206,8 +204,6 @@ Removes all nodes from the `LinkedList<T>`.
 **Returns**
 
 `void`
-
-{void}
 
 **Example**
 
@@ -255,8 +251,6 @@ Removes the node at the start of the `LinkedList<T>`.
 
 `void`
 
-{void}
-
 **Example**
 
 ```typescript
@@ -286,7 +280,7 @@ Finds the first node that contains the specified value.
 
 `LinkedListNode`
 
-`LinkedListNode` if there is a value otherwise `null`
+ `LinkedListNode` if there is a value otherwise `null`
 
 **Example**
 
@@ -316,7 +310,7 @@ Returns Node at the specified _index_
 
 `LinkedListNode | null`
 
-`LinkedListNode` of the specified index, if index is less than length; otherwise, `null`.
+ `LinkedListNode` of the specified index, if index is less than length; otherwise, `null`.
 
 **Example**
 
@@ -346,7 +340,7 @@ Determines whether a value is in the `LinkedList<T>`.
 
 `Boolean`
 
-`true` if value is found in the `LinkedList<T>`; otherwise, `false`.
+ `true` if value is found in the `LinkedList<T>`; otherwise, `false`.
 
 **Example**
 
@@ -404,8 +398,6 @@ Appends new Node at the beginning of the `LinkedList<T>`.
 
 `void`
 
-{void}
-
 **Example**
 
 ```typescript
@@ -431,7 +423,7 @@ Returns array of all values in `LinkedList<T>`.
 
 `Array<T>`
 
-Returns the entire `LinkedList` to a compatible one-dimensional Array
+ Returns the entire `LinkedList` to a compatible one-dimensional Array
 
 **Example**
 
@@ -477,7 +469,7 @@ Gets the number of elements contained in the `Queue<T>`.
 
 `Number`
 
-length of Queue<T>
+ length of Queue<T>
 
 **Example**
 
@@ -527,7 +519,7 @@ Removes and returns the object at the beginning of the `Queue<T>`.
 
 `T`
 
-The object that is removed from the beginning of the `Queue<T>`.
+ The object that is removed from the beginning of the `Queue<T>`.
 
 **Example**
 
@@ -586,7 +578,7 @@ Determines whether an element is in the `Queue<T>`.
 
 `Boolean`
 
-`true` if item is found in the `Queue<T>`; otherwise, `false`.
+ `true` if item is found in the `Queue<T>`; otherwise, `false`.
 
 **Example**
 
@@ -615,7 +607,7 @@ Returns the object at the beginning of the `Queue<T>` without removing it.
 
 `T`
 
-The object at the beginning of the `Queue<T>`.
+ The object at the beginning of the `Queue<T>`.
 
 **Example**
 
@@ -643,7 +635,7 @@ Returns the `Queue<T>` elements in a new array.
 
 `Array<T>`
 
-A new array containing copies of the elements of the `Queue<T>`.
+ A new array containing copies of the elements of the `Queue<T>`.
 
 **Example**
 
@@ -692,7 +684,7 @@ Gets the number of elements contained in the `Stack<T>`.
 
 `Number`
 
-length of Stack<T>
+ length of Stack<T>
 
 **Example**
 
@@ -746,7 +738,7 @@ Determines whether an element is in the Stack<T>.
 
 `Boolean`
 
-true if item is found in the Stack<T>; otherwise, false.
+ true if item is found in the Stack<T>; otherwise, false.
 
 **Example**
 
@@ -775,7 +767,7 @@ Returns the object at the top of the Stack<T> without removing it.
 
 `T`
 
-The object at the top of the Stack<T>.
+ The object at the top of the Stack<T>.
 
 **Example**
 
@@ -803,7 +795,7 @@ Removes and returns the object at the top of the Stack<T>.
 
 `T`
 
-The object removed from the top of the Stack<T>.
+ The object removed from the top of the Stack<T>.
 
 **Example**
 
@@ -858,7 +850,7 @@ Returns a new array containing copies of the elements of the Stack<T>.
 
 `Array<T>`
 
-A new array containing copies of the elements of the Stack<T>.
+ A new array containing copies of the elements of the Stack<T>.
 
 **Example**
 
