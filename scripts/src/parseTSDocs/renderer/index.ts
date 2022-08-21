@@ -31,6 +31,11 @@ export const render = (input: AnnotatedBlock[]) => {
   let tableOfContent = '';
 
   const PARENT = _.find(input, 'isClass');
+
+  if (!PARENT?.name) {
+    throw new Error("Parent classes should have @name");
+  }
+  
   const PARENT_IN_DOC = PARENT?.name + renderTypeParams(PARENT?.typeParams);
   //   Render summary section
   content = content + '## ****' + PARENT_IN_DOC + '****' + EOL + EOL;

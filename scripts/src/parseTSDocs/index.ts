@@ -10,17 +10,18 @@ const tempFolderPath = path.join(__dirname, '../../temp/parseTSDocs');
 const tempMDFolderPath = path.join(__dirname, '../../temp/parseTSDocs/md');
 const tempJsonFolderPath = path.join(__dirname, '../../temp/parseTSDocs/json');
 const assetsFolder = path.join(__dirname, '../../src/parseTSDocs/assets');
+// path to output final README.md file
 const outPath = path.join(__dirname, '../../out/parseTSDocs');
 
 try {
-  // Delete temp folder to start the script
+  // Delete temp and out folder to start the script
   if (fs.existsSync(tempFolderPath)) {
     fs.rmSync(tempFolderPath, { recursive: true, force: true });
   }
   if (fs.existsSync(outPath)) {
     fs.rmSync(outPath, { recursive: true, force: true });
   }
-  // Prepare temp folders
+  // Prepare temp and out folders
   fs.mkdirSync(path.join(tempMDFolderPath, 'modules'), { recursive: true });
   fs.mkdirSync(tempJsonFolderPath, { recursive: true });
   fs.mkdirSync(outPath, { recursive: true });

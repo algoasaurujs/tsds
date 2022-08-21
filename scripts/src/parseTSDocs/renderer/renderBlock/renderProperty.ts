@@ -7,6 +7,9 @@ export const renderProperty = (
 ): string => {
   let result = '';
 
+  if (!block.name) {
+    throw new Error("Properties should have @name");
+  }
   result = result + '### **' + parentName + '.' + block.name + '**' + EOL + EOL;
   if (block.summary) {
     result = result + '**Definition**' + EOL + EOL;

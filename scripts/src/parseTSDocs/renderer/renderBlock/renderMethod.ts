@@ -20,6 +20,10 @@ export const renderMethod = (
 ): string => {
   let result = '';
 
+  if (!block.name) {
+    throw new Error("Methods should have @name");
+  }
+
   result = result + '### **' + parentName + '.' + block.name + '**' + EOL + EOL;
 
   if (block.summary) {
