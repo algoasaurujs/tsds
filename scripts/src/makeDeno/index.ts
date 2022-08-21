@@ -6,7 +6,7 @@ const srcFolder = path.join(__dirname, '../../src');
 const denoFolderPath = path.join(__dirname, '../../deno');
 
 if (fs.existsSync(denoFolderPath)) {
-    fs.rmSync(path.join(__dirname, '../../deno'), { recursive: true, force: true });
+    fs.rmSync(denoFolderPath, { recursive: true, force: true });
 }
 
 copySync(srcFolder, denoFolderPath);
