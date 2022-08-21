@@ -6,6 +6,8 @@ class Node<T = any> {
  * Represents a first-in, first-out collection of objects.
  *
  * T: Specifies the type of elements in the queue.
+ * @name Queue
+ * @class
  */
 export class Queue<T = any> {
   /**

@@ -207,6 +207,16 @@ export class LinkedList<T = any> {
   delete(value: T): boolean;
   /**
    * Removes the first occurrence of a node or value from the `LinkedList<T>`.
+   * @example
+   * ```typescript
+   * const list = new LinkedList<number>([1, 2, 3, 4]);
+   *
+   * list.length // => 4
+   * list.delete(4)
+   * list.length // => 3
+   * list.last // => LinkListNode(3)
+   * ```
+   * @remarks This method is an **O(n)** operation.
    * @name delete
    * @method
    */
@@ -278,7 +288,21 @@ export class LinkedList<T = any> {
   }
 
   /**
-   * Removes the node at the start of the LinkedList<T>.
+   * Removes the node at the start of the `LinkedList<T>`.
+   * @returns {void}
+   * @example
+   * ```typescript
+   * const list = new LinkedList<number>([1, 2, 3, 4]);
+   *
+   * list.length // => 4
+   * list.deleteFirst();
+   * list.length // => 3
+   * list.first // => LinkListNode(2)
+   * ```
+   * @remarks This method is an **O(1)** operation.
+   * @name deleteFirst
+   * @memberof LinkedList
+   * @method
    */
   deleteFirst(): void {
     if (!this._head) {
@@ -291,8 +315,20 @@ export class LinkedList<T = any> {
 
   /**
    * Finds the first node that contains the specified value.
-   * @param value value of the node we want to find
-   * @returns _LinkedListNode_ if there is a value otherwise _null_
+   * @param {T} value value of the node we want to find
+   * @returns {LinkedListNode} `LinkedListNode` if there is a value otherwise `null`
+   * @example
+   * ```typescript
+   * const list = new LinkedList<number>([1, 2, 3, 4]);
+   *
+   * const item = list.find(2)
+   *
+   * const nullItem = list.find(10) // => null
+   * ```
+   * @remarks This method is an **O(n)** operation.
+   * @name find
+   * @memberof LinkedList
+   * @method
    */
   find(value: T): LinkedListNode<T> | null {
     if (!this._head) {
@@ -311,12 +347,24 @@ export class LinkedList<T = any> {
   }
 
   /**
-   * Returns Node at the specified index
-   * @param index index of the Node _starts from 0_
-   * @returns LinkedListNode or _null_
+   * Returns Node at the specified _index_
+   * @param {Number} index index of the Node **starts from 0**
+   * @returns {LinkedListNode | null} `LinkedListNode` of the specified index, if index is less than length; otherwise, `null`.
+   * @example
+   * ```typescript
+   * const list = new LinkedList<number>([1, 2, 3, 4]);
+   *
+   * const item = list.get(2)
+   *
+   * const nullItem = list.get(10) // => null
+   * ```
+   * @remarks This method is an **O(n)** operation.
+   * @name get
+   * @memberof LinkedList
+   * @method
    */
   get(index: number): LinkedListNode<T> | null {
-    if (!this._head || index < 0) {
+    if (!this._head || index < 0 || index >= this.length) {
       return null;
     }
 
@@ -332,9 +380,20 @@ export class LinkedList<T = any> {
   }
 
   /**
-   * Determines whether a value is in the LinkedList<T>.
-   * @param value The value to locate in the LinkedList<T>.
-   * @returns {Boolean} _true_ if value is found in the LinkedList<T>; otherwise, _false_.
+   * Determines whether a value is in the `LinkedList<T>`.
+   * @param {T} value The value to locate in the `LinkedList<T>`.
+   * @returns {Boolean} `true` if value is found in the `LinkedList<T>`; otherwise, `false`.
+   * @example
+   * ```typescript
+   * const list = new LinkedList<number>([1, 2, 3, 4]);
+   *
+   * list.includes(2) // => true
+   * list.includes(10) // => false
+   * ```
+   * @remarks This method is an **O(n)** operation.
+   * @name includes
+   * @memberof LinkedList
+   * @method
    */
   includes(value: T): boolean {
     if (!this._head) {
@@ -354,24 +413,55 @@ export class LinkedList<T = any> {
   }
 
   /**
-   * Adds a new node or value after an existing node in the LinkedList<T>.
-   * @param node The LinkedListNode<T> after which to insert _newNode_.
-   * @param newNode The new **LinkedListNode<T>** or **value** to add to the LinkedList<T>.
+   * Adds a new _value_ after an existing _node_ in the LinkedList<T>.
+   * @param {LinkedListNode<T>} node The `LinkedListNode<T>` after which to insert `newNode`.
+   * @param {T} newNode The new `value` to add to the `LinkedList<T>`.
+   * @returns {void}
+   * @overload insertAfter
    */
   insertAfter(node: LinkedListNode<T>, newNode: T): void;
+  /**
+   * Adds a new _node_ or after an existing _node_ in the LinkedList<T>.
+   * @param {LinkedListNode<T>} node The `LinkedListNode<T>` after which to insert `newNode`.
+   * @param {LinkedListNode<T>} newNode The new `LinkedListNode<T>` or `value` to add to the `LinkedList<T>`.
+   * @returns {void}
+   * @overload insertAfter
+   */
   insertAfter(node: LinkedListNode<T>, newNode: LinkedListNode<T>): void;
+  /**
+   * Adds a new _node_ or _value_ after an existing _node_ in the `LinkedList<T>`.
+   * @example
+   * ```typescript
+   * const list = new LinkedList<number>([1, 2, 3, 4]);
+   *
+   * const item = list.get(2);
+   * if (item) {
+   * 	list.insertAfter(item, 'hello');
+   *
+   * 	const world = new LinkedListNode('world');
+   * 	list.insertAfter(item, world);
+   * }
+   * ```
+   * @throws {ArgumentNullException}
+   * When the provided _node_ or _newNode_ is `null`.
+   * @throws {InvalidOperationException}
+   * When the _node_ is not in the current `LinkedList<T>` or _newNode_ belongs to another `LinkedList<T>`.
+   * @remarks This method is an **O(1)** operation.
+   * @name insertAfter
+   * @method
+   */
   insertAfter(node: LinkedListNode<T>, newNode: LinkedListNode<T> | T): void {
     if (!node || !newNode) {
       throw new Error('ArgumentNullException');
     }
 
     if (node.listId !== this._id) {
-      throw new Error('node is not in the current LinkedList.');
+      throw new Error('InvalidOperationException: node is not in the current LinkedList.');
     }
 
     if (this.isLinkedListNode(newNode)) {
       if (newNode.listId !== undefined) {
-        throw new Error('newNode belongs to another LinkedList.');
+        throw new Error('InvalidOperationException: newNode belongs to another LinkedList.');
       }
 
       newNode.listId = this._id;
@@ -386,8 +476,22 @@ export class LinkedList<T = any> {
   }
 
   /**
-   * Appends new Node at the beginning of the LinkedList<T>.
-   * @param value value of the new node
+   * Appends new Node at the beginning of the `LinkedList<T>`.
+   * @param {T} value value of the new node
+   * @returns {void}
+   * @example
+   * ```typescript
+   * const list = new LinkedList<number>([1, 2, 3, 4]);
+   *
+   * list.length // => 4
+   * list.prepend(0)
+   * list.length // => 5
+   * list.first // => LinkListNode(0)
+   * ```
+   * @remarks This method is an **O(1)** operation.
+   * @name prepend
+   * @memberof LinkedList
+   * @method
    */
   prepend(value: T): void {
     const newNode = new LinkedListNode<T>(value, this._head, this._id);
@@ -401,8 +505,19 @@ export class LinkedList<T = any> {
   }
 
   /**
-   * Returns array of all values in LinkedList<T>.
-   * @returns array of values
+   * Returns array of all values in `LinkedList<T>`.
+   * @returns {Array<T>} Returns the entire `LinkedList` to a compatible one-dimensional Array
+   * @example
+   * ```typescript
+   * const list = new LinkedList<number>([1, 2, 3, 4]);
+   *
+   * list.prepend(0)
+   * list.toArray() // => [0, 1, 2, 3, 4]
+   * ```
+   * @remarks This method is an **O(n)** operation.
+   * @name toArray
+   * @memberof LinkedList
+   * @method
    */
   toArray(): T[] {
     const nodes: T[] = [];
