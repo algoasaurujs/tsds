@@ -2,8 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import { copySync } from 'fs-extra';
 
-const srcFolder = path.join(__dirname, '../../src');
-const denoFolderPath = path.join(__dirname, '../../deno');
+const srcFolder = path.join(__dirname, '../../../src');
+const denoFolderPath = path.join(__dirname, '../../../deno');
 
 if (fs.existsSync(denoFolderPath)) {
     fs.rmSync(denoFolderPath, { recursive: true, force: true });
