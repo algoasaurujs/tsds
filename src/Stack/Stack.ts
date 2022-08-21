@@ -52,7 +52,7 @@ export class Stack<T = any> {
   }
 
   /**
-   * Gets the number of elements contained in the **Stack<T>**.
+   * Gets the number of elements contained in the `Stack<T>`.
    * @example
    * ```typescript
    * const stack = new Stack<number>();
@@ -63,7 +63,7 @@ export class Stack<T = any> {
    *
    * stack.length // => 3
    * ```
-   * @remarks Retrieving the value of this property is an O(1) operation.
+   * @remarks Retrieving the value of this property is an **O(1)** operation.
    * @returns {Number} length of Stack<T>
    * @memberof Stack
    * @name length
