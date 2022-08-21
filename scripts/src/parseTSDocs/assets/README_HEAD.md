@@ -1,5 +1,5 @@
 <p align="center">
-  <img height="50" src="https://github.com/samavati/tsds/blob/main/docs/src/assets/images/tsds-logo.png" />
+  <img height="50" src="https://raw.githubusercontent.com/samavati/tsds/main/docs/src/assets/images/tsds-logo.png" />
 </p>
 
 # <p align="center">TSDS</p>
