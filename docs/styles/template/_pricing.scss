@@ -1,0 +1,213 @@
+/*-------------------------
+   Pricing
+-------------------------*/
+.pricing-table {
+    background-color: var(--color-white);
+    padding: 40px;
+    border-radius: 30px;
+    position: relative;
+    margin-bottom: 30px;
+    transition: var(--transition);
+    @media #{$lg-layout} {
+        padding: 40px 15px;
+    }
+    @media #{$large-mobile} {
+        padding: 40px 30px;
+    }
+    .pricing-header {
+        text-align: center;
+        .title {
+            color: var(--color-primary);
+            font-weight: 400;
+            font-size: 40px;
+            margin-bottom: 8px;
+            letter-spacing: -0.045em;
+            transition: var(--transition);
+            @media #{$smlg-device} {
+                font-size: 36px;
+            }
+            @media #{$large-mobile} {
+                font-size: 30px;
+            }
+        }
+        .subtitle {
+            font-size: 14px;
+            color: var(--color-text-dark);
+            transition: var(--transition);
+            margin-bottom: 20px;
+        }
+        .price-wrap {
+            border-top: 1px solid rgba(227, 230, 233, 1);
+            padding-top: 50px;
+            margin-bottom: 30px;
+            font-family: var(--font-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            .amount {
+                font-size: 64px;
+                line-height: 1;
+                color: var(--color-text-dark);
+                font-weight: 500;
+                letter-spacing: -0.045em;
+                transition: var(--transition);
+                @media #{$smlg-device} {
+                    font-size: 50px;
+                }
+                @media #{$large-mobile} {
+                    font-size: 40px;
+                }
+            }
+            .duration {
+                font-size: 14px;
+                font-weight: 500;
+                color: var(--color-gray-2);
+                margin-left: 8px;
+                transition: var(--transition);
+            }
+            .monthly-pricing {
+                display: none;
+            }
+        }
+    }
+    .pricing-body {
+        margin-top: 30px;
+        li {
+            padding: 12px 0;
+            color: var(--color-gray-2);
+            padding-left: 34px;
+            position: relative;
+            transition: var(--transition);
+            svg {
+                position: absolute;
+                top: 14px;
+                left: 0;
+            }
+        }
+    }
+    .star-icon {
+        height: 48px;
+        width: 48px;
+        line-height: 48px;
+        text-align: center;
+        color: var(--color-primary);
+        background-color: var(--color-accent1);
+        border-radius: 50%;
+        position: absolute;
+        top: 8px;
+        right: 10px;
+    }
+    &:hover, &.active {
+        background-color: var(--color-primary);
+        .pricing-header {
+            .title {
+                color: var(--color-white);
+            }
+            .subtitle {
+                color: var(--color-white);
+            }
+            .price-wrap {
+                border-color: rgba(227, 230, 233, .2);
+                .amount {
+                    color: var(--color-white);
+                }
+                .duration {
+                    color: var(--color-white);
+                }
+            }
+            .axil-btn {
+                background-color: var(--color-white);
+                border-color: var(--color-white);
+                color: var(--color-dark);
+                &:hover {
+                    background-color: var(--color-accent1);
+                    border-color: var(--color-accent1);
+                    color: var(--color-white);
+                }
+            }
+        }
+        .pricing-body {
+            li {
+                color: var(--color-white);
+            }
+        }
+    }
+    &.pricing-borderd {
+        border: var(--border-light);
+    }
+}
+
+.pricing-billing-duration {
+    text-align: center;
+    ul {
+        list-style: none;
+        padding: 5px;
+        margin-bottom: 60px;
+        border-bottom: none;
+        display: inline-flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+        background-color: var(--color-white);
+        border: 1px solid #E3E6E9;
+        border-radius: 110px;
+        .nav-item {
+            margin-right: 10px;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+        .nav-link {
+            color: var(--color-text-dark);
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: -0.025em;
+            font-family: var(--font-primary);
+            background-color: transparent;
+            border: none;
+            border-radius: 60px;
+            padding: 14px 30px;
+            &.active {
+                background-color: var(--color-primary);
+                color: var(--color-white);
+            }
+            @media #{$large-mobile} {
+                font-size: 15px;
+                padding: 12px 25px;
+            }
+        }
+        .billed-check-box {
+            display: flex;
+            align-items: center;
+            input {
+                height: 0;
+                width: 0;
+                visibility: hidden;
+            }
+            label {
+                cursor: pointer;
+                width: 56px;
+                height: 24px;
+                background-color: var(--color-primary);
+                border-radius: 12px;
+                position: relative;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 4px;
+                    left: 4px;
+                    width: 16px;
+                    height: 16px;
+                    background-color: var(--color-white);
+                    border-radius: 50%;
+                    transition: var(--transition);
+                }
+            }
+            input:checked + label:after {
+                left: calc(100% - 4px);
+                transform: translateX(-100%);
+            }
+        }
+    }
+}

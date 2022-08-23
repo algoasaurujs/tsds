@@ -1,0 +1,97 @@
+/*-------------------------
+    Contact
+-------------------------*/
+.office-location {
+    margin-bottom: 30px;
+    .thumbnail {
+        margin-bottom: 30px;
+        img {
+            width: 100%;
+        }
+    }
+    .content {
+        .title {
+            color: var(--color-white);
+            margin-bottom: 20px;
+        }
+        p {
+            color: var(--color-gray-2);
+            width: 70%;
+        }
+    }
+}
+
+.contact-info {
+    background-color: var(--color-dark);
+    border-radius: 14px;
+    padding: 60px 50px;
+    box-shadow: 0 9px 18px 0 rgba(0,0,0,.25);
+    .title {
+        color: var(--color-white);
+        margin-bottom: 20px;
+    }
+    p {
+        color: var(--color-gray-2);
+        width: 80%;
+    }
+    .phone-number {
+        font-size: 48px;
+        color: var(--color-accent2);
+        margin-bottom: 0;
+        @media #{$smlg-device} {
+            font-size: 42px;
+        }
+        @media #{$md-layout} {
+            font-size: 34px;
+        }
+        @media #{$sm-layout} {
+            font-size: 30px;
+        }
+        a {
+            &:hover {
+                color: var(--color-white);
+            }
+        }
+    }
+}
+
+.contact-address {
+    .section-heading {
+        margin-bottom: 180px;
+        @media #{$md-layout} {
+            margin-bottom: 80px;
+        }
+        .title {
+            width: 100%;
+        }
+    }
+    .address {
+        margin-bottom: 40px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        .title {
+            color: var(--color-white);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        p {
+            font-family: var(--font-primary);
+            font-weight: 500;
+            font-size: 24px;
+            color: var(--color-gray-2);
+            width: 50%;
+            margin-bottom: 0;
+            @media #{$md-layout} {
+                font-size: 18px;
+                width: 80%;
+            }
+            a {
+                color: var(--color-gray-2);
+                &:hover {
+                    color: var(--color-white);
+                }
+            }
+        }
+    }
+}

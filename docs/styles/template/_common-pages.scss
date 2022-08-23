@@ -1,0 +1,185 @@
+/*-------------------------
+    404 Error
+-------------------------*/
+.onepage-screen-area {
+    position: relative;
+    z-index: 1;
+    background: var(--gradient-primary);
+    min-height: 500px;
+    height: 100vh;
+    padding: 150px 0;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    @media #{$laptop-device} {
+        padding: 150px 0 50px;
+    }
+    @media #{$smlg-device} {
+        padding: 150px 0 50px;
+    }
+    @media #{$md-layout} {
+        height: 100%;
+        padding: 200px 0 100px;
+        text-align: center;
+    }
+    @media #{$sm-layout} {
+        padding: 150px 0 100px;
+    }
+    .content {
+        .title {
+            font-size: 80px;
+            margin-bottom: 40px;
+            @media #{$laptop-device} {
+                font-size: 70px;
+            }
+            @media #{$smlg-device} {
+                font-size: 60px;
+            }
+            @media #{$md-layout} {
+                font-size: 50px;
+            }
+            @media #{$sm-layout} {
+                font-size: 40px;
+            }
+        }
+        .axil-btn {
+            padding: 22px 80px;
+            @media #{$md-layout} {
+                padding: 18px 50px;
+            }
+        }
+        .countdown {
+            display: flex;
+            align-items: center;
+            margin-top: 60px;
+            margin-bottom: 40px;
+            .countdown-section {
+                flex: 1;
+                text-align: center;
+                position: relative;
+                &::after {
+                    content: "";
+                    height: 80px;
+                    width: 1px;
+                    background-color: var(--color-light);
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    transform: translateY(-50%);
+                }
+                &:last-child {
+                    &::after {
+                        display: none;
+                    }
+                }
+                .countdown-number {
+                    font-size: 80px;
+                    font-weight: 700;
+                    color: var(--color-rose);
+                    font-family: var(--font-primary);
+                    line-height: 1;
+                    margin-bottom: 10px;
+                    @media #{$laptop-device} {
+                        font-size: 70px;
+                    }
+                    @media #{$smlg-device} {
+                        font-size: 60px;
+                    }
+                    @media #{$sm-layout} {
+                        font-size: 50px;
+                    }
+                    @media #{$large-mobile} {
+                        font-size: 30px;
+                    }
+                }
+                .countdown-unit {
+                    font-size: 18px;
+                    display: block;
+                    @media #{$large-mobile} {
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+    .thumbnail {
+        margin-right: -90px;
+        @media #{$md-layout} {
+            margin-right: 0;
+        }
+    }
+    .shape-group-8  {
+        .shape-3 {
+            top: auto;
+            bottom: -80px;
+        }
+    }
+    &.coming-soon-area {
+        margin-top: 0;
+        padding: 50px 0;
+        @media #{$smlg-device} {
+            height: 100%;
+            text-align: center;
+        }
+        .site-logo {
+            margin-bottom: 100px;
+            @media #{$laptop-device} {
+                margin-bottom: 50px;
+            }
+            @media #{$smlg-device} {
+                margin-bottom: 50px;
+            }
+            .logo-dark {
+                display: none;
+            }
+        }
+        .thumbnail {
+           @media #{$laptop-device} {
+               margin-right: 0;
+           }
+           @media #{$smlg-device} {
+               display: none;
+           }
+        }
+        .shape-group-8  {
+            .shape-3 {
+                bottom: auto;
+                top: 25px;
+            }
+        }
+    } 
+}
+
+/*-------------------------
+    Privacy Policy
+-------------------------*/
+.privacy-policy-area {
+    .section-title {
+        margin-bottom: 60px;
+        .title {
+            border-bottom: 3px solid var(--color-primary);
+            padding-bottom: 15px;
+        }
+    }
+    h4 {
+        margin-bottom: 20px;
+    }
+    p {
+        line-height: 1.7;
+    }
+    ul {
+        padding-left: 20px;
+        margin-bottom: 40px;
+        li {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            line-height: 28px;
+            transition: all 0.3s ease-in-out;
+            &:hover {
+                color: var(--color-primary);
+            }
+        }
+    }
+}
+
+

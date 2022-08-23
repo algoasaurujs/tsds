@@ -1,0 +1,91 @@
+/*-------------------------
+    Reset Styels
+-------------------------*/
+a {
+    display: inline-block;
+    text-decoration: none;
+    transition: var(--transition);
+}
+span {
+    display: inline-block;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+ul.list-style, 
+ol.list-style {
+    margin: -10px 0;
+    li {
+        margin: 10px 0;
+        &::marker {
+            color: var(--color-primary);
+        }
+    }
+}
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: 0;
+}
+
+// Grid
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+    .container {
+        max-width: 100%;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+    >[class*="col"] {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    &.g-0 {
+        margin-left: 0;
+        margin-right: 0;
+        >[class*="col"] {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    .row-35 {
+        margin-left: -35px;
+        margin-right: -35px;
+        >[class*="col"] {
+            padding-left: 35px;
+            padding-right: 35px;
+        }
+    }
+    .row-40 {
+        margin-left: -40px;
+        margin-right: -40px;
+        >[class*="col"] {
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+    }
+    .row-45 {
+        margin-left: -45px;
+        margin-right: -45px;
+        >[class*="col"] {
+            padding-left: 45px;
+            padding-right: 45px;
+        }
+    }
+}

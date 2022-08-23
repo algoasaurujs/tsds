@@ -1,0 +1,178 @@
+/*-------------------------
+   Testimonial
+-------------------------*/
+
+.testimonial-grid {
+    padding: 50px 0 30px;
+    border-top: 2px solid transparent;
+    transition: var(--transition);
+    @media #{$sm-layout} {
+        padding: 30px 0;
+
+    }
+    .social-media {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--color-rose);
+        font-family: var(--font-primary);
+        letter-spacing: -0.025em;
+        margin-bottom: 30px;
+    }
+    p {
+        font-size: 24px;
+        line-height: 1.2;
+        color: var(--color-text-dark);
+        font-family: var(--font-primary);
+        letter-spacing: -0.025em;
+        @media #{$sm-layout} {
+            font-size: 18px;
+        }
+    }
+    .author-info {
+        display: flex;
+        align-items: center;
+        .thumb {
+            img {
+                border-radius: 50%;
+            }
+        }
+        .content {
+            flex: 1;
+            margin-left: 20px;
+            span {
+                display: block;
+            }
+            .name {
+                font-weight: 500;
+                color: var(--color-text-dark);
+                letter-spacing: -0.04em;
+                margin-bottom: 3px;
+            }
+            .designation {
+                font-size: 14px;
+                color: var(--color-gray-2);
+                letter-spacing: -0.025em;
+            }
+        }
+    }
+    &:hover, &.active {
+        border-top-color: var(--color-primary);
+    }
+    &.testimonial-light {
+        p {
+            color: var(--color-white);
+        }
+        .author-info {
+            .content {
+                .name {
+                    color: var(--color-white);
+                }
+            }
+        }
+    }
+}
+
+.customer-review-area {
+    .section-heading {
+        .title {
+            font-size: 50px;
+            margin-bottom: 40px;
+            @media #{$smlg-device} {
+                font-size: 46px;
+            }
+            @media #{$md-layout} {
+                font-size: 38px;
+            }
+        }
+    }
+    .review-site-logo {
+        text-align: right;
+        img {
+            @media #{$md-layout} {
+                width: 80%;
+            }
+        }
+        @media #{$md-layout} {
+            text-align: left;
+            margin-bottom: 5px;
+        }
+    }
+}
+
+
+.followers-list {
+    display: flex;
+    align-items: center;
+    margin: 90px -50px -15px;
+    @media #{$md-layout} {
+        margin: 90px -15px -15px;
+    }
+    @media #{$sm-layout} {
+        margin: 50px -15px -15px;
+    }
+
+    li {
+        margin: 0 50px;
+        margin-bottom: 15px;
+        @media #{$md-layout} {
+            margin: 0 15px;
+        }
+        a {
+            i, .icon {
+                height: 67px;
+                width: 67px;
+                line-height: 67px;
+                text-align: center;
+                color: var(--color-white);
+                border-radius: 100%;
+                margin-right: 25px;
+                @media #{$md-layout} {
+                    margin-right: 10px;
+                    height: 50px;
+                    width: 50px;
+                    line-height: 50px;
+                }
+            }
+            
+            span {
+                color: #000248;
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 26px;
+                font-family: var(--font-primary);
+                @media #{$md-layout} {
+                    font-size: 18px;
+                }
+                @media #{$sm-layout} {
+                   margin-top: 10px;
+                }
+            }
+        }
+        &.dribble {
+            a {
+                i, .icon {
+                    background-color: #EA4C89;
+                    box-shadow: 0 10px 37px -5px rgba(234, 76, 137, .5);
+                }
+            }
+        }
+        &.behance {
+            a {
+                i, .icon {
+                    
+                    background-color: #0067FF;
+                    box-shadow: 0 10px 37px -5px rgba(0, 103, 255, 0.5)
+                }
+            }
+        }
+        &.linkedin {
+            a {
+                i, .icon {
+                    
+                    background-color: #0177AC;
+                    box-shadow: 0 10px 37px -5px rgba(1, 119, 172, 0.5)
+                }
+            }
+        }
+    }
+}

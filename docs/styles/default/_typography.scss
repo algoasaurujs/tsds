@@ -1,0 +1,163 @@
+/*-------------------------
+    Typography
+-------------------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+body {
+    font-family: var(--font-secondary);    
+    font-size: var(--font-body-2);
+    line-height: var(--line-height-b1);
+    color: var(--color-body);
+    font-weight: 400;
+    height: 100%;
+    vertical-align: baseline;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+address,
+p,
+pre,
+blockquote,
+table,
+hr {
+    margin: 0 0 30px 0;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+    color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-primary);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    color: var(--color-text-dark);
+}
+
+
+h1,
+.h1 {
+    font-size: var(--h1);
+    line-height: 1.2;
+    @media #{$laptop-device} {
+        font-size: 68px;
+    }
+    @media #{$smlg-device} {
+        font-size: 68px;
+    }
+    @media #{$sm-layout} {
+        font-size: 48px;
+    }
+}
+
+h2,
+.h2 {
+    font-size: var(--h2);
+    line-height: 1.2;
+    @media #{$laptop-device} {
+        font-size: 56px;
+    }
+    @media #{$smlg-device} {
+        font-size: 56px;
+    }
+    @media #{$sm-layout} {
+        font-size: 38px;
+    }
+    @media #{$small-mobile} {
+        font-size: 34px;
+    }
+}
+
+h3,
+.h3 {
+    font-size: var(--h3);
+    line-height: 1.2;
+    @media #{$laptop-device} {
+        font-size: 40px;
+    }
+    @media #{$smlg-device} {
+        font-size: 36px;
+    }
+    @media #{$sm-layout} {
+        font-size: 32px;
+    }
+}
+
+h4,
+.h4 {
+    font-size: var(--h4);
+    line-height: 1.2;
+    @media #{$md-layout} {
+        font-size: 26px;
+    }
+    @media #{$sm-layout} {
+        font-size: 20px;
+    }
+}
+
+h5,
+.h5 {
+    font-size: var(--h5);
+    line-height: 1.4;
+    @media #{$sm-layout} {
+        font-size: 20px;
+    }
+}
+
+h6,
+.h6 {
+    font-size: var(--h6);
+    line-height: 1.2;
+    @media #{$sm-layout} {
+        font-size: 18px;
+    }
+}
+
+
+p {
+    font-size: var(--font-body-2);
+    line-height: var(--line-height-b1);
+    margin: 0 0 40px 0;
+}
+
+.body-font1 {
+    font-size: var(--font-body-1);
+    line-height: var(--line-height-b1);
+}
+.body-font2 {
+    font-size: var(--font-body-2);
+    line-height: var(--line-height-b1);
+}
+.body-font3 {
+    font-size: var(--font-body-3);
+    line-height: var(--line-height-b3);
+}
+.body-font4 {
+    font-size: var(--font-body-4);
+    line-height: var(--line-height-b3);
+}

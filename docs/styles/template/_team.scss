@@ -1,0 +1,106 @@
+/*-------------------------
+    Team
+-------------------------*/
+.team-grid {
+    text-align: center;
+    margin-bottom: 80px;
+    .thumbnail {
+        margin-bottom: 30px;
+        display: inline-block;
+        max-width: 128px;
+        a {
+            position: relative;
+            &:after {
+                content: "";
+                height: 100%;
+                width: 100%;
+                border: 8px dashed var(--color-rose);
+                border-radius: 50%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                transform: rotate(90deg);
+                visibility: hidden;
+                opacity: 0;
+                transition: var(--transition);
+
+            }
+            img {
+                border-radius: 50%;
+            }
+        }
+    }
+    .content {
+        .title {
+            color: var(--color-white);
+            margin-bottom: 10px;
+        }
+        .designation {
+            display: block;
+            color: var(--color-gray-2);
+        }
+    }
+    &:hover, &.active {
+        .thumbnail {
+            a {
+               &:after {
+                    visibility: visible;
+                    opacity: 1;
+                    transform: rotate(0deg);
+               }
+            }
+        }
+    }
+}
+
+.team-details-content {
+    padding-right: 50px;
+    margin-bottom: 30px;
+    @media #{$sm-layout} {
+       padding-right: 0;
+    }
+
+    .subtitle {
+        display: block;
+        color: var(--color-primary);
+        border-bottom: 3px solid;
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 26px;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        @media #{$sm-layout} {
+           font-size: 18px;
+        }
+        br {
+            display: none;
+        }
+    }
+    .social-share {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: -10px;
+        li {
+            margin: 10px;
+            a {
+                font-size: 20px;
+                color: var(--color-gray-2);
+                &:hover {
+                    color: var(--color-primary);
+                }
+            }
+        }
+    }
+    p {
+        font-size: 20px;
+        margin-top: 40px;
+        line-height: 1.7;
+    }
+}
+
+.team-details-thumb {
+    img {
+        border-radius: 10px;
+    }
+}

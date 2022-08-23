@@ -1,0 +1,68 @@
+/*-------------------------
+   Counter Up
+-------------------------*/
+.counterup-progress {
+    background: transparent;
+    border: 1px solid;
+    border-image-source: linear-gradient(0deg, #27272E 64.45%, rgba(74, 75, 86, 0.72) 100%);
+    text-align: center;
+    padding: 70px 20px 60px;
+    border-radius: 30px;
+    transition: var(--transition);
+    margin-bottom: 30px;
+    @media #{$sm-layout} {
+        padding: 40px 20px;
+    } 
+    @media #{$large-mobile} {
+        padding: 30px 10px;
+        
+    }
+    .icon {
+        margin-bottom: 20px;
+    }
+    .count-number {
+       font-weight: 500;
+       color: var(--color-primary);
+       font-family: var(--font-primary);
+       margin-bottom: 10px;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       @media #{$sm-layout} {
+        letter-spacing: 0;
+       }
+    }
+    .title {
+        color: var(--color-white);
+    }
+    &:hover, &.active {
+        background: var(--gradient-dark);
+    }
+    &.counterup-style-2 {
+        background: var(--gradient-primary);
+        border: none;
+        .icon {
+            .light-icon {
+                display: none;
+            }
+        }
+        .title {
+            color: var(--color-body);
+        }
+        &:hover, &.active {
+            background-color: var(--color-light);
+        }
+    }
+}
+
+
+.expert-counterup-area {
+    .section-heading {
+        p {
+            width: 100%;
+        }
+        .axil-btn {
+            width: 240px;
+        }
+    }
+}

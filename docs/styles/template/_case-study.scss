@@ -1,0 +1,101 @@
+/*-------------------------
+   Case Study
+-------------------------*/
+.case-study-featured {
+    margin-bottom: 60px;
+    .section-heading {
+        .title {
+            letter-spacing: -0.045em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            padding-bottom: 5px;
+            @media #{$large-mobile} {
+                -webkit-line-clamp: 2;
+            }
+        }
+        p {
+            width: 100%;
+            font-size: 16px;
+        }
+    }
+}
+
+.case-study-counterup {
+    display: flex;
+    align-items: center;
+    .single-counterup {
+        margin-right: 60px;
+        padding-right: 60px;
+        border-right: 1px solid var(--color-ghost);
+        &:last-child {
+            margin-right: 0;
+            padding-right: 0;
+            border-right: none;
+        }
+        @media #{$smlg-device} {
+            margin-right: 40px;
+            padding-right: 40px;
+        } 
+        @media #{$large-mobile} {
+            margin-right: 30px;
+            padding-right: 30px;
+        }
+    }
+    .count-number {
+        color: var(--color-rose);
+        letter-spacing: -0.045em;
+        margin-bottom: 0;
+        padding: 0 6px;
+        display: flex;
+        align-items: center;
+        @media #{$laptop-device} {
+            padding: 0 2px;
+        }
+        @media #{$smlg-device} {
+            padding: 0;
+        }
+        span {
+            vertical-align: middle;
+            &.symbol {
+                // margin-left: -6px;  
+            }
+        }
+    }
+}
+
+.case-study-featured-thumb {
+    text-align: right;
+    @media #{$md-layout} {
+        text-align: left;
+        margin-bottom: 30px;
+    }
+    img {
+        display: inline-block;
+    }
+}
+
+.case-study-page-area {
+    .case-study-featured-thumb {
+        margin-bottom: 150px;
+        @media #{$md-layout} {
+            margin-bottom: 60px;
+        }
+    }
+}
+
+.case-study-solution {
+    position: relative;
+    z-index: 1;
+    .section-heading {
+        p {
+            width: 100%;
+        }
+    }
+}
+
+// .odometer.odometer-auto-theme, .odometer.odometer-theme-default {
+//     font-family: var(--font-primary);
+// }

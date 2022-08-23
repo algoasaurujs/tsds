@@ -1,0 +1,73 @@
+/*-------------------------
+    Process
+-------------------------*/
+.process-work {
+    display: flex;
+    align-items: center;
+    margin-bottom: 80px;
+    @media #{$sm-layout} {
+        display: block;
+        margin-bottom: 50px;
+    }
+    .thumbnail {
+        background-color: var(--color-white);
+        border-radius: 30px;
+        text-align: center;
+        @media #{$md-layout} {
+           width: 300px;
+        }
+        @media #{$sm-layout} {
+           width: 100%;
+           margin-bottom: 30px;
+        }
+
+    }
+    .content {
+        flex: 1;
+        margin-left: 60px;
+        @media #{$sm-layout} {
+            margin-left: 0;
+        }
+        .subtitle {
+            font-size: 20px;
+            color: var(--color-rose);
+            font-weight: 700;
+            font-family: var(--font-primary);
+            margin-bottom: 20px;
+            @media #{$sm-layout} {
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+        }
+        .title {
+            font-size: 40px;
+            @media #{$sm-layout} {
+                font-size: 32px;
+            }
+        }
+        p {
+            color: #737387;
+            width: 60%;
+            margin-bottom: 0;
+            @media #{$smlg-device} {
+                width: 100%;
+            }
+        }
+    }
+    &.content-reverse {
+        flex-direction: row-reverse;
+        .content {
+            margin: 0 60px 0 0;
+            padding-left: 300px;
+            @media #{$smlg-device} {
+                padding-left: 0;
+            }
+            @media #{$sm-layout} {
+                margin: 0;
+            }
+            p {
+                width: 100%;
+            }
+        }
+    }
+}

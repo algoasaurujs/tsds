@@ -1,0 +1,31 @@
+[
+
+    {
+        "id": 1,
+        "thumb": "/images/others/process-1.png",
+        "subtitle": "Step One",
+        "title": "Discover",
+        "paragraph": "Donec metus lorem, vulputate at sapien sit amet, auctor iaculis lorem. In vel hendrerit nisi. Vestibulum eget risus velit. Aliquam tristique libero at dui sodales, et placerat orci lobortis. Maecenas ipsum neque, elementum id dignissim et, imperdiet vitae mauris."
+    },
+    {
+        "id": 2,
+        "thumb": "/images/others/process-2.png",
+        "subtitle": "Step Two",
+        "title": "Prototype",
+        "paragraph": "Donec metus lorem, vulputate at sapien sit amet, auctor iaculis lorem. In vel hendrerit nisi. Vestibulum eget risus velit. Aliquam tristique libero at dui sodales, et placerat orci lobortis. Maecenas ipsum neque, elementum id dignissim et, imperdiet vitae mauris."
+    },
+    {
+        "id": 3,
+        "thumb": "/images/others/process-3.png",
+        "subtitle": "Step Three",
+        "title": "Test",
+        "paragraph": "Donec metus lorem, vulputate at sapien sit amet, auctor iaculis lorem. In vel hendrerit nisi. Vestibulum eget risus velit. Aliquam tristique libero at dui sodales, et placerat orci lobortis. Maecenas ipsum neque, elementum id dignissim et, imperdiet vitae mauris."
+    },
+    {
+        "id": 4,
+        "thumb": "/images/others/process-4.png",
+        "subtitle": "Step four",
+        "title": "Build",
+        "paragraph": "Donec metus lorem, vulputate at sapien sit amet, auctor iaculis lorem. In vel hendrerit nisi. Vestibulum eget risus velit. Aliquam tristique libero at dui sodales, et placerat orci lobortis. Maecenas ipsum neque, elementum id dignissim et, imperdiet vitae mauris."
+    }
+]
