@@ -8,12 +8,6 @@ import { LinkedListNode } from './LinkedListNode';
  * @example
  * ```typescript
  * import { LinkedList } from '@samavati/tsds';
- *
- * // instantiate new linked list without initial set-up
- * const list = new LinkedList();
- *
- * // instantiate new linked list with initial values
- * const list2 = new LinkedList([1, 2, 3, 4, 5]);
  * ```
  * @name LinkedList
  * @class
@@ -45,7 +39,23 @@ export class LinkedList<T = any> {
 
   /**
    * Create new LinkedList instance
-   * @param {Array<T>} initialValue initial value of LinkedList, Array of any value (Optional)
+   *  * // instantiate new linked list without initial set-up
+   * const list = new LinkedList();
+   *
+   * // instantiate new linked list with initial values
+   * const list2 = new LinkedList([1, 2, 3, 4, 5]);
+   * @constructor
+   */
+  constructor();
+  /**
+   * Create new LinkedList instance
+   * @param {Array<T>} initialValue initial value of LinkedList.
+   * @constructor
+   */
+  constructor(initialValue: T[]);
+  /**
+   *
+   * @param initialValue
    * @constructor
    */
   constructor(private initialValue?: T[]) {
