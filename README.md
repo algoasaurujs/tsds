@@ -79,12 +79,6 @@ It is a data structure consisting of a collection of nodes which together repres
 
 ```typescript
 import { LinkedList } from '@samavati/tsds';
-
-// instantiate new linked list without initial set-up
-const list = new LinkedList();
-
-// instantiate new linked list with initial values
-const list2 = new LinkedList([1, 2, 3, 4, 5]);
 ```
 
 ### **LinkedList.Properties**
