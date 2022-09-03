@@ -1,3 +1,4 @@
+import { AbstractCollection } from '../AbstractCollection';
 import { LinkedListNode } from './LinkedListNode';
 
 /**
@@ -12,7 +13,7 @@ import { LinkedListNode } from './LinkedListNode';
  * @name LinkedList
  * @class
  */
-export class LinkedList<T = any> {
+export class LinkedList<T = any> extends AbstractCollection<T> {
   /**
    * First element of the list
    * @private
@@ -59,6 +60,7 @@ export class LinkedList<T = any> {
    * @constructor
    */
   constructor(private initialValue?: T[]) {
+    super();
     if (this.initialValue) {
       for (const data of this.initialValue) {
         this.append(data);
@@ -533,16 +535,16 @@ export class LinkedList<T = any> {
    * @memberof LinkedList
    * @method
    */
-  toArray(): T[] {
-    const nodes: T[] = [];
+  // toArray(): T[] {
+  //   const nodes: T[] = [];
 
-    let currentNode = this._head;
+  //   let currentNode = this._head;
 
-    while (currentNode) {
-      nodes.push(currentNode.value);
-      currentNode = currentNode.next;
-    }
+  //   while (currentNode) {
+  //     nodes.push(currentNode.value);
+  //     currentNode = currentNode.next;
+  //   }
 
-    return nodes;
-  }
+  //   return nodes;
+  // }
 }
