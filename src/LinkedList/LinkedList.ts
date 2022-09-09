@@ -193,7 +193,7 @@ export class LinkedList<T = any> {
    * list.last // => LinkListNode(3)
    * ```
    * @throws {InvalidOperationException} node is not in the current `LinkedList<T>`.
-   * 
+   *
    * @remarks This method is an **O(n)** operation.
    */
   delete(node: LinkedListNode<T>): void;
