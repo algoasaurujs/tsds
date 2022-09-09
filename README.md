@@ -22,44 +22,59 @@ The `Map` is similar to `Object` But, The keys in `Map` are ordered in a si
 
 The `Map` is builtin in javascript but, There are lots of other useful Data Structures that are not implemented in JavaScript or TypeScript. We attempt to implement them in this library.
 
-- [APIs](#apis)
-  - [LinkedList<T>](#linkedlist)
-    - [LinkedList.Properties](#linkedlistproperties)
-      - [LinkedList.first](#linkedlistfirst)
-      - [LinkedList.last](#linkedlistlast)
-      - [LinkedList.length](#linkedlistlength)
-    - [LinkedList.Methods](#linkedlistmethods)
-      - [LinkedList.append](#linkedlistappend)
-      - [LinkedList.clear](#linkedlistclear)
-      - [LinkedList.delete](#linkedlistdelete)
-      - [LinkedList.deleteFirst](#linkedlistdeletefirst)
-      - [LinkedList.find](#linkedlistfind)
-      - [LinkedList.get](#linkedlistget)
-      - [LinkedList.includes](#linkedlistincludes)
-      - [LinkedList.insertAfter](#linkedlistinsertafter)
-      - [LinkedList.prepend](#linkedlistprepend)
-      - [LinkedList.toArray](#linkedlisttoarray)
-  - [Queue<T>](#queue)
-    - [Queue.Properties](#queueproperties)
-      - [Queue.length](#queuelength)
-    - [Queue.Methods](#queuemethods)
-      - [Queue.clear](#queueclear)
-      - [Queue.dequeue](#queuedequeue)
-      - [Queue.enqueue](#queueenqueue)
-      - [Queue.includes](#queueincludes)
-      - [Queue.peek](#queuepeek)
-      - [Queue.toArray](#queuetoarray)
-  - [Stack<T>](#stack)
-    - [Stack.Properties](#stackproperties)
-      - [Stack.length](#stacklength)
-    - [Stack.Methods](#stackmethods)
-      - [Stack.clear](#stackclear)
-      - [Stack.includes](#stackincludes)
-      - [Stack.peek](#stackpeek)
-      - [Stack.pop](#stackpop)
-      - [Stack.push](#stackpush)
-      - [Stack.toArray](#stacktoarray)
-
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [APIs](#apis)    
+    - [LinkedList](#linkedlist)
+        - [LinkedList.Properties](#linkedlistproperties)
+            - [LinkedList.first](#linkedlistfirst)
+            - [LinkedList.last](#linkedlistlast)
+            - [LinkedList.length](#linkedlistlength)
+        - [LinkedList.Methods](#linkedlistmethods)
+            - [LinkedList.[iterator]](#linkedlist[iterator])
+            - [LinkedList.append](#linkedlistappend)
+            - [LinkedList.clear](#linkedlistclear)
+            - [LinkedList.delete](#linkedlistdelete)
+            - [LinkedList.deleteFirst](#linkedlistdeletefirst)
+            - [LinkedList.find](#linkedlistfind)
+            - [LinkedList.get](#linkedlistget)
+            - [LinkedList.includes](#linkedlistincludes)
+            - [LinkedList.insertAfter](#linkedlistinsertafter)
+            - [LinkedList.isLinkedListNode](#linkedlistislinkedlistnode)
+            - [LinkedList.iterator](#linkedlistiterator)
+            - [LinkedList.prepend](#linkedlistprepend)
+            - [LinkedList.toArray](#linkedlisttoarray)
+    - [LinkedListNode](#linkedlistnode)
+        - [LinkedListNode.Methods](#linkedlistnodemethods)
+            - [LinkedListNode.isEqual](#linkedlistnodeisequal)
+    - [Queue](#queue)
+        - [Queue.Properties](#queueproperties)
+            - [Queue.length](#queuelength)
+        - [Queue.Methods](#queuemethods)
+            - [Queue.[iterator]](#queue[iterator])
+            - [Queue.clear](#queueclear)
+            - [Queue.dequeue](#queuedequeue)
+            - [Queue.enqueue](#queueenqueue)
+            - [Queue.includes](#queueincludes)
+            - [Queue.iterator](#queueiterator)
+            - [Queue.peek](#queuepeek)
+            - [Queue.toArray](#queuetoarray)
+    - [Stack](#stack)
+        - [Stack.Properties](#stackproperties)
+            - [Stack.length](#stacklength)
+        - [Stack.Methods](#stackmethods)
+            - [Stack.[iterator]](#stack[iterator])
+            - [Stack.clear](#stackclear)
+            - [Stack.includes](#stackincludes)
+            - [Stack.iterator](#stackiterator)
+            - [Stack.peek](#stackpeek)
+            - [Stack.pop](#stackpop)
+            - [Stack.push](#stackpush)
+            - [Stack.toArray](#stacktoarray)
+- [Contributing](#contributing)
+- [Versioning](#versioning)
+- [Authors](#authors)
+- [License](#license)
 
 ## ****Installation****
 
@@ -69,7 +84,7 @@ To install and save in your `package.json`dependencies, run:
 npm install @samavati/tsds
 ```
 
-## ****LinkedList<T>****
+## ****LinkedList****
 
 A linear collection of data elements whose order is not given by their physical placement in memory.
 Instead, each element points to the next.
@@ -91,9 +106,7 @@ Gets the first node of the `LinkedList<T>`.
 
 **Property Value**
 
-`LinkedListNode<T>`
-
- The first `LinkedListNode<T>` of the `LinkedList<T>`
+`null | LinkedListNode<T>`
 
 **Example**
 
@@ -116,9 +129,7 @@ Gets the last node of the `LinkedList<T>`.
 
 **Property Value**
 
-`LinkedListNode<T>`
-
- The last `LinkedListNode<T>` of the `LinkedList<T>`.
+`null | LinkedListNode<T>`
 
 **Example**
 
@@ -142,9 +153,7 @@ Gets the number of nodes actually contained in the `LinkedList<T>`.
 
 **Property Value**
 
-`Number`
-
- number of nodes in the `LinkedList<T>`.
+`number`
 
 **Example**
 
@@ -160,6 +169,8 @@ Retrieving the value of this property is an **O(1)** operation.
 
 ### **LinkedList.Methods**
 
+### **LinkedList.[iterator]**
+
 ### **LinkedList.append**
 
 **Definition**
@@ -168,11 +179,7 @@ Adds a new node or value at the end of the `LinkedList<T>`.
 
 **Parameters**
 
-**value`T`:** value of the new node.
-
-**Returns**
-
-`void`
+**value`T`**: value of the new node.
 
 **Example**
 
@@ -195,10 +202,6 @@ This method is an **O(1)** operation.
 
 Removes all nodes from the `LinkedList<T>`.
 
-**Returns**
-
-`void`
-
 **Example**
 
 ```typescript
@@ -213,12 +216,12 @@ list.length // => 0
 
 **Overloads**
 
-| Variant                                            | Definition                                                                    |
-| -------------------------------------------------- | ----------------------------------------------------------------------------- |
-| [delete(nodeLinkedListNode<T>): void](#-221114123) | Removes the first occurrence of a node from the `LinkedList<T>`.              |
-| [delete(valueT): boolean](#118069081)              | Removes the first occurrence of the specified value from the `LinkedList<T>`. |
+| Variant                                              | Definition                                                                    |
+| ---------------------------------------------------- | ----------------------------------------------------------------------------- |
+| [delete(node: LinkedListNode<T>): void](#1425238619) | Removes the first occurrence of a node from the `LinkedList<T>`.              |
+| [delete(value: T): boolean](#-1089209997)            | Removes the first occurrence of the specified value from the `LinkedList<T>`. |
 
-#### <a name="-221114123"></a>delete(nodeLinkedListNode<T>): void
+#### <a name="1425238619"></a>delete(node: LinkedListNode<T>): void
 
 **Definition**
 
@@ -242,7 +245,7 @@ list.last // => LinkListNode(3)
 
 This method is an **O(n)** operation.
 
-#### <a name="118069081"></a>delete(valueT): boolean
+#### <a name="-1089209997"></a>delete(value: T): boolean
 
 **Definition**
 
@@ -273,37 +276,11 @@ list.last // => LinkListNode(3)
 
 This method is an **O(n)** operation.
 
-**Definition**
-
-Removes the first occurrence of a node from the `LinkedList<T>`.
-
-**Parameters**
-
-**node`LinkedListNode<T>`**: The `LinkedListNode<T>` to remove from the LinkedList<T>`.
-@example
-```typescript
-const list = new LinkedList<number>([1, 2, 3, 4]);
-
-list.length // => 4
-list.delete(4)
-list.length // => 3
-list.last // => LinkListNode(3)
-```
-@throws {InvalidOperationException} node is not in the current `LinkedList<T>`.
-
-**Remarks**
-
-This method is an **O(n)** operation.
-
 ### **LinkedList.deleteFirst**
 
 **Definition**
 
 Removes the node at the start of the `LinkedList<T>`.
-
-**Returns**
-
-`void`
 
 **Example**
 
@@ -328,13 +305,13 @@ Finds the first node that contains the specified value.
 
 **Parameters**
 
-**value`T`:** value of the node we want to find
+**value`T`**: value of the node we want to find
 
 **Returns**
 
-`LinkedListNode`
+`null | LinkedListNode<T>`
 
- `LinkedListNode` if there is a value otherwise `null`
+`LinkedListNode` if there is a value otherwise `null`
 
 **Example**
 
@@ -358,13 +335,13 @@ Returns Node at the specified _index_
 
 **Parameters**
 
-**index`Number`:** index of the Node **starts from 0**
+**index`number`**: index of the Node **starts from 0**
 
 **Returns**
 
-`LinkedListNode | null`
+`null | LinkedListNode<T>`
 
- `LinkedListNode` of the specified index, if index is less than length; otherwise, `null`.
+`LinkedListNode` of the specified index, if index is less than length; otherwise, `null`.
 
 **Example**
 
@@ -388,13 +365,13 @@ Determines whether a value is in the `LinkedList<T>`.
 
 **Parameters**
 
-**value`T`:** The value to locate in the `LinkedList<T>`.
+**value`T`**: The value to locate in the `LinkedList<T>`.
 
 **Returns**
 
-`Boolean`
+`boolean`
 
- `true` if value is found in the `LinkedList<T>`; otherwise, `false`.
+`true` if value is found in the `LinkedList<T>`; otherwise, `false`.
 
 **Example**
 
@@ -411,32 +388,44 @@ This method is an **O(n)** operation.
 
 ### **LinkedList.insertAfter**
 
+**Overloads**
+
+| Variant                                                                               | Definition                                                          |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| [insertAfter(node: LinkedListNode<T>, newNode: T): void](#1906757379)                 | Adds a new _value_ after an existing _node_ in the LinkedList<T>.   |
+| [insertAfter(node: LinkedListNode<T>, newNode: LinkedListNode<T>): void](#1865363786) | Adds a new _node_ or after an existing _node_ in the LinkedList<T>. |
+
+#### <a name="1906757379"></a>insertAfter(node: LinkedListNode<T>, newNode: T): void
+
 **Definition**
 
-Adds a new _node_ or _value_ after an existing _node_ in the `LinkedList<T>`.
+Adds a new _value_ after an existing _node_ in the LinkedList<T>.
 
-**Example**
+**Parameters**
 
-```typescript
-const list = new LinkedList<number>([1, 2, 3, 4]);
+**node`LinkedListNode<T>`**: The `LinkedListNode<T>` after which to insert `newNode`.
 
-const item = list.get(2);
-if (item) {
-	list.insertAfter(item, 'hello');
+**newNode`T`**: The new `value` to add to the `LinkedList<T>`.
 
-	const world = new LinkedListNode('world');
-	list.insertAfter(item, world);
-}
-```
+#### <a name="1865363786"></a>insertAfter(node: LinkedListNode<T>, newNode: LinkedListNode<T>): void
 
-**Remarks**
+**Definition**
 
-This method is an **O(1)** operation.
+Adds a new _node_ or after an existing _node_ in the LinkedList<T>.
 
-| Variant                                                       | Definition                                                          |
-| ------------------------------------------------------------- | ------------------------------------------------------------------- |
-| (node: LinkedListNode<T>, newNode: T) => void                 | Adds a new _value_ after an existing _node_ in the LinkedList<T>.   |
-| (node: LinkedListNode<T>, newNode: LinkedListNode<T>) => void | Adds a new _node_ or after an existing _node_ in the LinkedList<T>. |
+**Parameters**
+
+**node`LinkedListNode<T>`**: The `LinkedListNode<T>` after which to insert `newNode`.
+
+**newNode`LinkedListNode<T>`**: The new `LinkedListNode<T>` or `value` to add to the `LinkedList<T>`.
+
+### **LinkedList.isLinkedListNode**
+
+**Parameters**
+
+**x`any`**: 
+
+### **LinkedList.iterator**
 
 ### **LinkedList.prepend**
 
@@ -446,11 +435,7 @@ Appends new Node at the beginning of the `LinkedList<T>`.
 
 **Parameters**
 
-**value`T`:** value of the new node
-
-**Returns**
-
-`void`
+**value`T`**: value of the new node
 
 **Example**
 
@@ -475,9 +460,9 @@ Returns array of all values in `LinkedList<T>`.
 
 **Returns**
 
-`Array<T>`
+`T[]`
 
- Returns the entire `LinkedList` to a compatible one-dimensional Array
+Returns the entire `LinkedList` to a compatible one-dimensional Array
 
 **Example**
 
@@ -492,8 +477,17 @@ list.toArray() // => [0, 1, 2, 3, 4]
 
 This method is an **O(n)** operation.
 
+## ****LinkedListNode****
 
-## ****Queue<T>****
+### **LinkedListNode.Methods**
+
+### **LinkedListNode.isEqual**
+
+**Parameters**
+
+**node`LinkedListNode<any>`**: 
+
+## ****Queue****
 
 Represents a first-in, first-out collection of objects.
 
@@ -521,9 +515,7 @@ Gets the number of elements contained in the `Queue<T>`.
 
 **Property Value**
 
-`Number`
-
- length of Queue<T>
+`number`
 
 **Example**
 
@@ -542,6 +534,8 @@ queue.length // => 3
 Retrieving the value of this property is an O(1) operation.
 
 ### **Queue.Methods**
+
+### **Queue.[iterator]**
 
 ### **Queue.clear**
 
@@ -573,7 +567,7 @@ Removes and returns the object at the beginning of the `Queue<T>`.
 
 `T`
 
- The object that is removed from the beginning of the `Queue<T>`.
+The object that is removed from the beginning of the `Queue<T>`.
 
 **Example**
 
@@ -600,7 +594,7 @@ Adds an object to the end of the `Queue<T>`.
 
 **Parameters**
 
-**value`T`:** The object to add to the `Queue<T>`
+**value`T`**: The object to add to the `Queue<T>`
 
 **Example**
 
@@ -626,13 +620,13 @@ Determines whether an element is in the `Queue<T>`.
 
 **Parameters**
 
-**item`T`:** The object to locate in the `Queue<T>`.
+**item`T`**: The object to locate in the `Queue<T>`.
 
 **Returns**
 
-`Boolean`
+`boolean`
 
- `true` if item is found in the `Queue<T>`; otherwise, `false`.
+`true` if item is found in the `Queue<T>`; otherwise, `false`.
 
 **Example**
 
@@ -651,6 +645,8 @@ queue.includes(10) // => false
 
 This method is an **O(n)** operation.
 
+### **Queue.iterator**
+
 ### **Queue.peek**
 
 **Definition**
@@ -661,7 +657,7 @@ Returns the object at the beginning of the `Queue<T>` without removing it.
 
 `T`
 
- The object at the beginning of the `Queue<T>`.
+The object at the beginning of the `Queue<T>`.
 
 **Example**
 
@@ -687,9 +683,9 @@ Returns the `Queue<T>` elements in a new array.
 
 **Returns**
 
-`Array<T>`
+`T[]`
 
- A new array containing copies of the elements of the `Queue<T>`.
+A new array containing copies of the elements of the `Queue<T>`.
 
 **Example**
 
@@ -707,8 +703,7 @@ queue.toArray() // => [3, 2, 1]
 
 This method is an **O(n)** operation.
 
-
-## ****Stack<T>****
+## ****Stack****
 
 Represents a variable size last-in-first-out (LIFO) collection of instances of the same specified type.
 
@@ -736,9 +731,7 @@ Gets the number of elements contained in the `Stack<T>`.
 
 **Property Value**
 
-`Number`
-
- length of Stack<T>
+`number`
 
 **Example**
 
@@ -757,6 +750,8 @@ stack.length // => 3
 Retrieving the value of this property is an **O(1)** operation.
 
 ### **Stack.Methods**
+
+### **Stack.[iterator]**
 
 ### **Stack.clear**
 
@@ -786,13 +781,13 @@ Determines whether an element is in the Stack<T>.
 
 **Parameters**
 
-**item`T`:** The object to locate in the Stack<T>.
+**item`T`**: The object to locate in the Stack<T>.
 
 **Returns**
 
-`Boolean`
+`boolean`
 
- true if item is found in the Stack<T>; otherwise, false.
+true if item is found in the Stack<T>; otherwise, false.
 
 **Example**
 
@@ -811,6 +806,8 @@ stack.includes(10) // => false
 
 This method is an O(n) operation.
 
+### **Stack.iterator**
+
 ### **Stack.peek**
 
 **Definition**
@@ -821,7 +818,7 @@ Returns the object at the top of the Stack<T> without removing it.
 
 `T`
 
- The object at the top of the Stack<T>.
+The object at the top of the Stack<T>.
 
 **Example**
 
@@ -849,7 +846,7 @@ Removes and returns the object at the top of the Stack<T>.
 
 `T`
 
- The object removed from the top of the Stack<T>.
+The object removed from the top of the Stack<T>.
 
 **Example**
 
@@ -876,7 +873,7 @@ Inserts an object at the top of the Stack<T>.
 
 **Parameters**
 
-**value`T`:** The object to push onto the Stack<T>
+**value`T`**: The object to push onto the Stack<T>
 
 **Example**
 
@@ -902,9 +899,9 @@ Returns a new array containing copies of the elements of the Stack<T>.
 
 **Returns**
 
-`Array<T>`
+`T[]`
 
- A new array containing copies of the elements of the Stack<T>.
+A new array containing copies of the elements of the Stack<T>.
 
 **Example**
 
@@ -921,7 +918,6 @@ stack.toArray() // => [3, 2, 1]
 **Remarks**
 
 This method is an O(n) operation.
-
 
 ## Built With
 
@@ -942,4 +938,3 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/samavati/tsds/blob/main/LICENSE) file for details
-
