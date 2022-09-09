@@ -211,9 +211,52 @@ list.length // => 0
 
 ### **LinkedList.delete**
 
+**Overloads**
+
+| Variant                                            | Definition                                                                    |
+| -------------------------------------------------- | ----------------------------------------------------------------------------- |
+| [delete(nodeLinkedListNode<T>): void](#-221114123) | Removes the first occurrence of a node from the `LinkedList<T>`.              |
+| [delete(valueT): boolean](#118069081)              | Removes the first occurrence of the specified value from the `LinkedList<T>`. |
+
+#### <a name="-221114123"></a>delete(nodeLinkedListNode<T>): void
+
 **Definition**
 
-Removes the first occurrence of a node or value from the `LinkedList<T>`.
+Removes the first occurrence of a node from the `LinkedList<T>`.
+
+**Parameters**
+
+**node`LinkedListNode<T>`**: The `LinkedListNode<T>` to remove from the LinkedList<T>`.
+@example
+```typescript
+const list = new LinkedList<number>([1, 2, 3, 4]);
+
+list.length // => 4
+list.delete(4)
+list.length // => 3
+list.last // => LinkListNode(3)
+```
+@throws {InvalidOperationException} node is not in the current `LinkedList<T>`.
+
+**Remarks**
+
+This method is an **O(n)** operation.
+
+#### <a name="118069081"></a>delete(valueT): boolean
+
+**Definition**
+
+Removes the first occurrence of the specified value from the `LinkedList<T>`.
+
+**Parameters**
+
+**value`T`**: The value to remove from the `LinkedList<T>`.
+
+**Returns**
+
+`boolean`
+
+`true` if the element containing value is successfully removed; otherwise, `false`. This method also returns `false` if value was not found in the original `LinkedList<T>`.
 
 **Example**
 
@@ -230,10 +273,27 @@ list.last // => LinkListNode(3)
 
 This method is an **O(n)** operation.
 
-| Variant                           | Definition                                                                    |
-| --------------------------------- | ----------------------------------------------------------------------------- |
-| (node: LinkedListNode<T>) => void | Removes the first occurrence of a node from the `LinkedList<T>`.              |
-| (value: T) => Boolean             | Removes the first occurrence of the specified value from the `LinkedList<T>`. |
+**Definition**
+
+Removes the first occurrence of a node from the `LinkedList<T>`.
+
+**Parameters**
+
+**node`LinkedListNode<T>`**: The `LinkedListNode<T>` to remove from the LinkedList<T>`.
+@example
+```typescript
+const list = new LinkedList<number>([1, 2, 3, 4]);
+
+list.length // => 4
+list.delete(4)
+list.length // => 3
+list.last // => LinkListNode(3)
+```
+@throws {InvalidOperationException} node is not in the current `LinkedList<T>`.
+
+**Remarks**
+
+This method is an **O(n)** operation.
 
 ### **LinkedList.deleteFirst**
 
