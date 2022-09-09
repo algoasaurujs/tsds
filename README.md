@@ -40,7 +40,6 @@ The `Map` is builtin in javascript but, There are lots of other useful Data Str
             - [LinkedList.get](#linkedlistget)
             - [LinkedList.includes](#linkedlistincludes)
             - [LinkedList.insertAfter](#linkedlistinsertafter)
-            - [LinkedList.isLinkedListNode](#linkedlistislinkedlistnode)
             - [LinkedList.iterator](#linkedlistiterator)
             - [LinkedList.prepend](#linkedlistprepend)
             - [LinkedList.toArray](#linkedlisttoarray)
@@ -421,11 +420,25 @@ Adds a new _node_ or after an existing _node_ in the LinkedList<T>.
 
 ### **LinkedList.isLinkedListNode**
 
+**Definition**
+
+Checks if argument is `LinkedListNode` or not
+
 **Parameters**
 
-**x`any`**: 
+**x`any`**: an argument to check if it is `LinkedListNode`
+
+**Returns**
+
+`x is LinkedListNode<any>`
+
+if argument is `LinkedListNode` or not
 
 ### **LinkedList.iterator**
+
+**Definition**
+
+
 
 ### **LinkedList.prepend**
 

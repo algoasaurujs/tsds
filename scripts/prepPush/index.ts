@@ -2,7 +2,7 @@ import { execSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 
-const projectRootPath = path.join(__dirname, '../../../');
+const projectRootPath = path.join(__dirname, '../../');
 const scriptsRootPath = path.join(projectRootPath, 'scripts');
 const denoRootPath = path.join(projectRootPath, 'deno');
 const generatedMDPath = path.join(scriptsRootPath, './out/parseTSDocs');
