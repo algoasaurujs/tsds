@@ -57,6 +57,9 @@ export class LinkedList<T = any> {
     }
   }
 
+  /**
+   * @internal
+   */
   *iterator(): IterableIterator<T> {
     let currentItem = this._head;
 
@@ -70,6 +73,12 @@ export class LinkedList<T = any> {
     return this.iterator();
   }
 
+  /**
+   * Checks if argument is `LinkedListNode` or not
+   * @param x an argument to check if it is `LinkedListNode`
+   * @returns if argument is `LinkedListNode` or not
+   * @internal
+   */
   private isLinkedListNode(x: any): x is LinkedListNode {
     return x instanceof LinkedListNode;
   }
@@ -174,14 +183,34 @@ export class LinkedList<T = any> {
   /**
    * Removes the first occurrence of a node from the `LinkedList<T>`.
    * @param node The `LinkedListNode<T>` to remove from the LinkedList<T>`.
-   * @throws {InvalidOperationException}
-   * node is not in the current `LinkedList<T>`.
+   * @example
+   * ```typescript
+   * const list = new LinkedList<number>([1, 2, 3, 4]);
+   *
+   * list.length // => 4
+   * list.delete(4)
+   * list.length // => 3
+   * list.last // => LinkListNode(3)
+   * ```
+   * @throws {InvalidOperationException} node is not in the current `LinkedList<T>`.
+   * 
+   * @remarks This method is an **O(n)** operation.
    */
   delete(node: LinkedListNode<T>): void;
   /**
    * Removes the first occurrence of the specified value from the `LinkedList<T>`.
    * @param value The value to remove from the `LinkedList<T>`.
    * @returns `true` if the element containing value is successfully removed; otherwise, `false`. This method also returns `false` if value was not found in the original `LinkedList<T>`.
+   * @example
+   * ```typescript
+   * const list = new LinkedList<number>([1, 2, 3, 4]);
+   *
+   * list.length // => 4
+   * list.delete(4)
+   * list.length // => 3
+   * list.last // => LinkListNode(3)
+   * ```
+   * @remarks This method is an **O(n)** operation.
    */
   delete(value: T): boolean;
   /**
