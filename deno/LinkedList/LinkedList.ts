@@ -11,31 +11,29 @@ import { LinkedListNode } from './LinkedListNode.ts';
  * // @ts-ignore
 import { LinkedList } from '@samavati/tsds.ts';
  * ```
- * @name LinkedList
- * @class
  */
 export class LinkedList<T = any> {
   /**
    * First element of the list
-   * @private
+   * @internal
    */
   private _head: null | LinkedListNode<T> = null;
 
   /**
    * Last element of the list
-   * @private
+   * @internal
    */
   private _tail: null | LinkedListNode<T> = null;
 
   /**
    * Node count in the list
-   * @private
+   * @internal
    */
   private _length: number = 0;
 
   /**
    * LinkedList Identifier
-   * @private
+   * @internal
    */
   private _id = Symbol();
 
@@ -46,20 +44,13 @@ export class LinkedList<T = any> {
    *
    * // instantiate new linked list with initial values
    * const list2 = new LinkedList([1, 2, 3, 4, 5]);
-   * @constructor
    */
   constructor();
   /**
    * Create new LinkedList instance
-   * @param {Array<T>} initialValue initial value of LinkedList.
-   * @constructor
+   * @param initialValue initial value of LinkedList.
    */
   constructor(initialValue: T[]);
-  /**
-   *
-   * @param initialValue
-   * @constructor
-   */
   constructor(private initialValue?: T[]) {
     if (this.initialValue) {
       for (const data of this.initialValue) {
@@ -93,13 +84,10 @@ export class LinkedList<T = any> {
    *
    * list.first // => LinkListNode(1)
    * ```
-   * @returns {LinkedListNode<T>} The first `LinkedListNode<T>` of the `LinkedList<T>`
+   * @returns The first `LinkedListNode<T>` of the `LinkedList<T>`
    * @remarks
    * If the `LinkedList<T>` is empty, the _first_ and _last_ properties contain `null`.
    * Retrieving the value of this property is an **O(1)** operation.
-   * @name first
-   * @memberof LinkedList
-   * @property
    */
   get first() {
     return this._head;
@@ -113,14 +101,11 @@ export class LinkedList<T = any> {
    *
    * list.last // => LinkListNode(4)
    * ```
-   * @returns {LinkedListNode<T>} The last `LinkedListNode<T>` of the `LinkedList<T>`.
+   * @returns The last `LinkedListNode<T>` of the `LinkedList<T>`.
    * @remarks
    * If the `LinkedList<T>` is empty, the _first_ and _last_ properties contain `null`.
    *
    * Retrieving the value of this property is an **O(1)** operation.
-   * @name last
-   * @memberof LinkedList
-   * @property
    */
   get last() {
     return this._tail;
@@ -134,12 +119,9 @@ export class LinkedList<T = any> {
    *
    * list.length // => 4
    * ```
-   * @returns {Number} number of nodes in the `LinkedList<T>`.
+   * @returns number of nodes in the `LinkedList<T>`.
    * @remarks
    * Retrieving the value of this property is an **O(1)** operation.
-   * @name length
-   * @memberof LinkedList
-   * @property
    */
   get length() {
     return this._length;
@@ -147,8 +129,7 @@ export class LinkedList<T = any> {
 
   /**
    * Adds a new node or value at the end of the `LinkedList<T>`.
-   * @param {T} value value of the new node.
-   * @returns {void}
+   * @param value value of the new node.
    * @example
    * ```typescript
    * const list = new LinkedList<number>([1, 2, 3, 4]);
@@ -159,9 +140,6 @@ export class LinkedList<T = any> {
    * list.last // => LinkListNode(5)
    * ```
    * @remarks This method is an **O(1)** operation.
-   * @name append
-   * @memberof LinkedList
-   * @method
    */
   append(value: T): void {
     const newNode = new LinkedListNode<T>(value, null, this._id);
@@ -180,7 +158,6 @@ export class LinkedList<T = any> {
 
   /**
    * Removes all nodes from the `LinkedList<T>`.
-   * @returns {void}
    * @example
    * ```typescript
    * const list = new LinkedList<number>([1, 2, 3, 4]);
@@ -189,9 +166,6 @@ export class LinkedList<T = any> {
    * list.clear();
    * list.length // => 0
    * ```
-   * @name clear
-   * @memberof LinkedList
-   * @method
    */
   clear() {
     this._head = null;
@@ -201,20 +175,15 @@ export class LinkedList<T = any> {
 
   /**
    * Removes the first occurrence of a node from the `LinkedList<T>`.
-   * @param {LinkedListNode<T>} node The `LinkedListNode<T>` to remove from the LinkedList<T>`.
-   * @returns {void}
+   * @param node The `LinkedListNode<T>` to remove from the LinkedList<T>`.
    * @throws {InvalidOperationException}
    * node is not in the current `LinkedList<T>`.
-   * @overload delete
-   * @method
    */
   delete(node: LinkedListNode<T>): void;
   /**
    * Removes the first occurrence of the specified value from the `LinkedList<T>`.
-   * @param {T} value The value to remove from the `LinkedList<T>`.
-   * @returns {Boolean} `true` if the element containing value is successfully removed; otherwise, `false`. This method also returns `false` if value was not found in the original `LinkedList<T>`.
-   * @overload delete
-   * @method
+   * @param value The value to remove from the `LinkedList<T>`.
+   * @returns `true` if the element containing value is successfully removed; otherwise, `false`. This method also returns `false` if value was not found in the original `LinkedList<T>`.
    */
   delete(value: T): boolean;
   /**
@@ -229,8 +198,6 @@ export class LinkedList<T = any> {
    * list.last // => LinkListNode(3)
    * ```
    * @remarks This method is an **O(n)** operation.
-   * @name delete
-   * @method
    */
   delete(value: T | LinkedListNode<T>): void | boolean {
     if (this.isLinkedListNode(value)) {
@@ -301,7 +268,6 @@ export class LinkedList<T = any> {
 
   /**
    * Removes the node at the start of the `LinkedList<T>`.
-   * @returns {void}
    * @example
    * ```typescript
    * const list = new LinkedList<number>([1, 2, 3, 4]);
@@ -312,9 +278,6 @@ export class LinkedList<T = any> {
    * list.first // => LinkListNode(2)
    * ```
    * @remarks This method is an **O(1)** operation.
-   * @name deleteFirst
-   * @memberof LinkedList
-   * @method
    */
   deleteFirst(): void {
     if (!this._head) {
@@ -327,8 +290,8 @@ export class LinkedList<T = any> {
 
   /**
    * Finds the first node that contains the specified value.
-   * @param {T} value value of the node we want to find
-   * @returns {LinkedListNode} `LinkedListNode` if there is a value otherwise `null`
+   * @param value value of the node we want to find
+   * @returns `LinkedListNode` if there is a value otherwise `null`
    * @example
    * ```typescript
    * const list = new LinkedList<number>([1, 2, 3, 4]);
@@ -338,9 +301,6 @@ export class LinkedList<T = any> {
    * const nullItem = list.find(10) // => null
    * ```
    * @remarks This method is an **O(n)** operation.
-   * @name find
-   * @memberof LinkedList
-   * @method
    */
   find(value: T): LinkedListNode<T> | null {
     if (!this._head) {
@@ -360,8 +320,8 @@ export class LinkedList<T = any> {
 
   /**
    * Returns Node at the specified _index_
-   * @param {Number} index index of the Node **starts from 0**
-   * @returns {LinkedListNode | null} `LinkedListNode` of the specified index, if index is less than length; otherwise, `null`.
+   * @param index index of the Node **starts from 0**
+   * @returns `LinkedListNode` of the specified index, if index is less than length; otherwise, `null`.
    * @example
    * ```typescript
    * const list = new LinkedList<number>([1, 2, 3, 4]);
@@ -371,9 +331,6 @@ export class LinkedList<T = any> {
    * const nullItem = list.get(10) // => null
    * ```
    * @remarks This method is an **O(n)** operation.
-   * @name get
-   * @memberof LinkedList
-   * @method
    */
   get(index: number): LinkedListNode<T> | null {
     if (!this._head || index < 0 || index >= this.length) {
@@ -393,8 +350,8 @@ export class LinkedList<T = any> {
 
   /**
    * Determines whether a value is in the `LinkedList<T>`.
-   * @param {T} value The value to locate in the `LinkedList<T>`.
-   * @returns {Boolean} `true` if value is found in the `LinkedList<T>`; otherwise, `false`.
+   * @param value The value to locate in the `LinkedList<T>`.
+   * @returns `true` if value is found in the `LinkedList<T>`; otherwise, `false`.
    * @example
    * ```typescript
    * const list = new LinkedList<number>([1, 2, 3, 4]);
@@ -403,9 +360,6 @@ export class LinkedList<T = any> {
    * list.includes(10) // => false
    * ```
    * @remarks This method is an **O(n)** operation.
-   * @name includes
-   * @memberof LinkedList
-   * @method
    */
   includes(value: T): boolean {
     if (!this._head) {
@@ -426,18 +380,14 @@ export class LinkedList<T = any> {
 
   /**
    * Adds a new _value_ after an existing _node_ in the LinkedList<T>.
-   * @param {LinkedListNode<T>} node The `LinkedListNode<T>` after which to insert `newNode`.
-   * @param {T} newNode The new `value` to add to the `LinkedList<T>`.
-   * @returns {void}
-   * @overload insertAfter
+   * @param node The `LinkedListNode<T>` after which to insert `newNode`.
+   * @param newNode The new `value` to add to the `LinkedList<T>`.
    */
   insertAfter(node: LinkedListNode<T>, newNode: T): void;
   /**
    * Adds a new _node_ or after an existing _node_ in the LinkedList<T>.
-   * @param {LinkedListNode<T>} node The `LinkedListNode<T>` after which to insert `newNode`.
-   * @param {LinkedListNode<T>} newNode The new `LinkedListNode<T>` or `value` to add to the `LinkedList<T>`.
-   * @returns {void}
-   * @overload insertAfter
+   * @param node The `LinkedListNode<T>` after which to insert `newNode`.
+   * @param newNode The new `LinkedListNode<T>` or `value` to add to the `LinkedList<T>`.
    */
   insertAfter(node: LinkedListNode<T>, newNode: LinkedListNode<T>): void;
   /**
@@ -459,8 +409,6 @@ export class LinkedList<T = any> {
    * @throws {InvalidOperationException}
    * When the _node_ is not in the current `LinkedList<T>` or _newNode_ belongs to another `LinkedList<T>`.
    * @remarks This method is an **O(1)** operation.
-   * @name insertAfter
-   * @method
    */
   insertAfter(node: LinkedListNode<T>, newNode: LinkedListNode<T> | T): void {
     if (!node || !newNode) {
@@ -493,8 +441,7 @@ export class LinkedList<T = any> {
 
   /**
    * Appends new Node at the beginning of the `LinkedList<T>`.
-   * @param {T} value value of the new node
-   * @returns {void}
+   * @param value value of the new node
    * @example
    * ```typescript
    * const list = new LinkedList<number>([1, 2, 3, 4]);
@@ -505,9 +452,6 @@ export class LinkedList<T = any> {
    * list.first // => LinkListNode(0)
    * ```
    * @remarks This method is an **O(1)** operation.
-   * @name prepend
-   * @memberof LinkedList
-   * @method
    */
   prepend(value: T): void {
     const newNode = new LinkedListNode<T>(value, this._head, this._id);
@@ -522,7 +466,7 @@ export class LinkedList<T = any> {
 
   /**
    * Returns array of all values in `LinkedList<T>`.
-   * @returns {Array<T>} Returns the entire `LinkedList` to a compatible one-dimensional Array
+   * @returns Returns the entire `LinkedList` to a compatible one-dimensional Array
    * @example
    * ```typescript
    * const list = new LinkedList<number>([1, 2, 3, 4]);
@@ -531,9 +475,6 @@ export class LinkedList<T = any> {
    * list.toArray() // => [0, 1, 2, 3, 4]
    * ```
    * @remarks This method is an **O(n)** operation.
-   * @name toArray
-   * @memberof LinkedList
-   * @method
    */
   toArray(): T[] {
     const nodes: T[] = [];
