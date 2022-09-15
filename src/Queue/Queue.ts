@@ -1,5 +1,7 @@
+import { AbstractCollection } from "../AbstractCollection";
+
 class Node<T = any> {
-  constructor(public value: T, public next: null | Node<T> = null) {}
+  constructor(public value: T, public next: null | Node<T> = null) { }
 }
 
 /**
@@ -18,10 +20,8 @@ class Node<T = any> {
  *
  * const queue = new Queue();
  * ```
- * @name Queue
- * @class
  */
-export class Queue<T = any> {
+export class Queue<T = any> extends AbstractCollection<T> {
   /**
    * First element of the Queue
    * @private
@@ -47,10 +47,6 @@ export class Queue<T = any> {
     }
   }
 
-  [Symbol.iterator]() {
-    return this.iterator();
-  }
-
   /**
    * Gets the number of elements contained in the `Queue<T>`.
    * @example
@@ -64,10 +60,6 @@ export class Queue<T = any> {
    * queue.length // => 3
    * ```
    * @remarks Retrieving the value of this property is an O(1) operation.
-   * @returns {Number} length of Queue<T>
-   * @memberof Queue
-   * @name length
-   * @property
    */
   get length(): number {
     return this._length;
@@ -87,9 +79,6 @@ export class Queue<T = any> {
    * queue.clear()
    * queue.length // => 0
    * ```
-   * @name clear
-   * @memberof Queue
-   * @method
    */
   clear(): void {
     this._first = null;
@@ -98,44 +87,8 @@ export class Queue<T = any> {
   }
 
   /**
-   * Determines whether an element is in the `Queue<T>`.
-   * @param {T} item The object to locate in the `Queue<T>`.
-   * @returns {Boolean} `true` if item is found in the `Queue<T>`; otherwise, `false`.
-   * @example
-   * ```typescript
-   * const queue = new Queue<number>();
-   *
-   * queue.enqueue(1);
-   * queue.enqueue(2);
-   * queue.enqueue(3);
-   *
-   * queue.includes(2) // => true
-   * queue.includes(10) // => false
-   * ```
-   * @remarks This method is an **O(n)** operation.
-   * @name includes
-   * @memberof Queue
-   * @method
-   */
-  includes(item: T): boolean {
-    if (!this._first) {
-      return false;
-    }
-
-    let currentNode: null | Node<T> = this._first;
-    while (currentNode) {
-      if (currentNode.value === item) {
-        return true;
-      }
-      currentNode = currentNode.next;
-    }
-
-    return false;
-  }
-
-  /**
    * Removes and returns the object at the beginning of the `Queue<T>`.
-   * @returns {T} The object that is removed from the beginning of the `Queue<T>`.
+   * @returns The object that is removed from the beginning of the `Queue<T>`.
    * @example
    * ```typescript
    * const queue = new Queue<number>();
@@ -148,9 +101,6 @@ export class Queue<T = any> {
    * queue.length // => 2
    * ```
    * @remarks This method is an **O(1)** operation.
-   * @name dequeue
-   * @memberof Queue
-   * @method
    */
   dequeue(): T {
     // get from beginning
@@ -173,7 +123,7 @@ export class Queue<T = any> {
 
   /**
    * Adds an object to the end of the `Queue<T>`.
-   * @param {T} value The object to add to the `Queue<T>`
+   * @param value The object to add to the `Queue<T>`
    * @example
    * ```typescript
    * const queue = new Queue<number>();
@@ -185,9 +135,6 @@ export class Queue<T = any> {
    * queue.length // => 3
    * ```
    * @remarks This method is an **O(1)** operation.
-   * @name enqueue
-   * @memberof Queue
-   * @method
    */
   enqueue(value: T): void {
     // Add to the end
@@ -205,7 +152,7 @@ export class Queue<T = any> {
 
   /**
    * Returns the object at the beginning of the `Queue<T>` without removing it.
-   * @returns {T} The object at the beginning of the `Queue<T>`.
+   * @returns The object at the beginning of the `Queue<T>`.
    * @example
    * ```typescript
    * const queue = new Queue<number>();
@@ -217,9 +164,6 @@ export class Queue<T = any> {
    * queue.peek() // => 3
    * ```
    * @remarks This method is an **O(1)** operation.
-   * @name peek
-   * @memberof Queue
-   * @method
    */
   peek(): T {
     // get from beginning
@@ -228,36 +172,5 @@ export class Queue<T = any> {
     }
 
     return this._first.value;
-  }
-
-  /**
-   * Returns the `Queue<T>` elements in a new array.
-   * @returns {Array<T>} A new array containing copies of the elements of the `Queue<T>`.
-   * @example
-   * ```typescript
-   * const queue = new Queue<number>();
-   *
-   * queue.enqueue(1);
-   * queue.enqueue(2);
-   * queue.enqueue(3);
-   *
-   * queue.toArray() // => [3, 2, 1]
-   * ```
-   * @remarks This method is an **O(n)** operation.
-   * @name toArray
-   * @memberof Queue
-   * @method
-   */
-  toArray(): T[] {
-    const nodes: T[] = [];
-
-    let currentNode = this._first;
-
-    while (currentNode) {
-      nodes.push(currentNode.value);
-      currentNode = currentNode.next;
-    }
-
-    return nodes;
   }
 }

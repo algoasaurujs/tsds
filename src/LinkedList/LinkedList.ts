@@ -378,36 +378,6 @@ export class LinkedList<T = any> extends AbstractCollection<T> {
   }
 
   /**
-   * Determines whether a value is in the `LinkedList<T>`.
-   * @param value The value to locate in the `LinkedList<T>`.
-   * @returns `true` if value is found in the `LinkedList<T>`; otherwise, `false`.
-   * @example
-   * ```typescript
-   * const list = new LinkedList<number>([1, 2, 3, 4]);
-   *
-   * list.includes(2) // => true
-   * list.includes(10) // => false
-   * ```
-   * @remarks This method is an **O(n)** operation.
-   */
-  includes(value: T): boolean {
-    if (!this._head) {
-      return false;
-    }
-
-    let currentNode: null | LinkedListNode<T> = this._head;
-    while (currentNode) {
-      if (currentNode.value === value) {
-        return true;
-      } else {
-        currentNode = currentNode.next;
-      }
-    }
-
-    return false;
-  }
-
-  /**
    * Adds a new _value_ after an existing _node_ in the LinkedList<T>.
    * @param node The `LinkedListNode<T>` after which to insert `newNode`.
    * @param newNode The new `value` to add to the `LinkedList<T>`.
@@ -492,29 +462,4 @@ export class LinkedList<T = any> extends AbstractCollection<T> {
 
     this._length++;
   }
-
-  /**
-   * Returns array of all values in `LinkedList<T>`.
-   * @returns Returns the entire `LinkedList` to a compatible one-dimensional Array
-   * @example
-   * ```typescript
-   * const list = new LinkedList<number>([1, 2, 3, 4]);
-   *
-   * list.prepend(0)
-   * list.toArray() // => [0, 1, 2, 3, 4]
-   * ```
-   * @remarks This method is an **O(n)** operation.
-   */
-  // toArray(): T[] {
-  //   const nodes: T[] = [];
-
-  //   let currentNode = this._head;
-
-  //   while (currentNode) {
-  //     nodes.push(currentNode.value);
-  //     currentNode = currentNode.next;
-  //   }
-
-  //   return nodes;
-  // }
 }
