@@ -25,6 +25,29 @@ The `Map` is builtin in javascript but, There are lots of other useful Data Str
 - [Introduction](#introduction)
 - [Installation](#installation)
 - [APIs](#apis)    
+    - [DoublyLinkedList](#doublylinkedlist)
+        - [DoublyLinkedList.Properties](#doublylinkedlistproperties)
+            - [DoublyLinkedList.first](#doublylinkedlistfirst)
+            - [DoublyLinkedList.last](#doublylinkedlistlast)
+            - [DoublyLinkedList.length](#doublylinkedlistlength)
+        - [DoublyLinkedList.Methods](#doublylinkedlistmethods)
+            - [DoublyLinkedList.[iterator]](#doublylinkedlist[iterator])
+            - [DoublyLinkedList.append](#doublylinkedlistappend)
+            - [DoublyLinkedList.clear](#doublylinkedlistclear)
+            - [DoublyLinkedList.delete](#doublylinkedlistdelete)
+            - [DoublyLinkedList.deleteFirst](#doublylinkedlistdeletefirst)
+            - [DoublyLinkedList.deleteLast](#doublylinkedlistdeletelast)
+            - [DoublyLinkedList.find](#doublylinkedlistfind)
+            - [DoublyLinkedList.get](#doublylinkedlistget)
+            - [DoublyLinkedList.includes](#doublylinkedlistincludes)
+            - [DoublyLinkedList.insertAfter](#doublylinkedlistinsertafter)
+            - [DoublyLinkedList.insertBefore](#doublylinkedlistinsertbefore)
+            - [DoublyLinkedList.iterator](#doublylinkedlistiterator)
+            - [DoublyLinkedList.prepend](#doublylinkedlistprepend)
+            - [DoublyLinkedList.toArray](#doublylinkedlisttoarray)
+    - [DoublyLinkedListNode](#doublylinkedlistnode)
+        - [DoublyLinkedListNode.Methods](#doublylinkedlistnodemethods)
+            - [DoublyLinkedListNode.isEqual](#doublylinkedlistnodeisequal)
     - [LinkedList](#linkedlist)
         - [LinkedList.Properties](#linkedlistproperties)
             - [LinkedList.first](#linkedlistfirst)
@@ -85,6 +108,257 @@ To install and save in your `package.json`dependencies, run:
 ```bash
 npm install @samavati/tsds
 ```
+
+## ****DoublyLinkedList****
+
+A linear collection of data elements whose order is not given by their physical placement in memory.
+Instead, each element points to the next.
+It is a data structure consisting of a collection of nodes which together represent a sequence.
+
+### **DoublyLinkedList.Properties**
+
+### **DoublyLinkedList.first**
+
+**Definition**
+
+Gets the first node of the DoublyLinkedList<T>.
+
+**Property Value**
+
+`null | DoublyLinkedListNode<T>`
+
+### **DoublyLinkedList.last**
+
+**Definition**
+
+Gets the last node of the DoublyLinkedList<T>.
+
+**Property Value**
+
+`null | DoublyLinkedListNode<T>`
+
+### **DoublyLinkedList.length**
+
+**Definition**
+
+Gets the number of nodes actually contained in the DoublyLinkedList<T>.
+
+**Property Value**
+
+`number`
+
+### **DoublyLinkedList.Methods**
+
+### **DoublyLinkedList.[iterator]**
+
+### **DoublyLinkedList.append**
+
+**Definition**
+
+Adds a new node or value at the end of the LinkedList&lt;T&gt;.
+
+**Parameters**
+
+**value`T`**: value of the new node
+
+### **DoublyLinkedList.clear**
+
+**Definition**
+
+Removes all nodes from the DoublyLinkedList<T>.
+
+### **DoublyLinkedList.delete**
+
+**Overloads**
+
+| Variant                                                   | Definition                                                                        |
+| --------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| [delete(node: DoublyLinkedListNode<T>): void](#200977312) | Removes the first occurrence of a node or value from the DoublyLinkedList<T>.     |
+| [delete(value: T): boolean](#-1089209997)                 | Removes the first occurrence of the specified value from the DoublyLinkedList<T>. |
+
+#### <a name="200977312"></a>delete(node: DoublyLinkedListNode<T>): void
+
+**Definition**
+
+Removes the first occurrence of a node or value from the DoublyLinkedList<T>.
+
+**Parameters**
+
+**node`DoublyLinkedListNode<T>`**: 
+
+#### <a name="-1089209997"></a>delete(value: T): boolean
+
+**Definition**
+
+Removes the first occurrence of the specified value from the DoublyLinkedList<T>.
+
+**Parameters**
+
+**value`T`**: The value to remove from the DoublyLinkedList<T>.
+
+**Returns**
+
+`boolean`
+
+_true_ if the element containing value is successfully removed; otherwise, _false_. This method also returns _false_ if value was not found in the original DoublyLinkedList<T>.
+
+### **DoublyLinkedList.deleteFirst**
+
+**Definition**
+
+Removes the node at the start of the DoublyLinkedList<T>.
+
+### **DoublyLinkedList.deleteLast**
+
+**Definition**
+
+Removes the node at the end of the DoublyLinkedList<T>.
+
+### **DoublyLinkedList.find**
+
+**Definition**
+
+Finds the first node that contains the specified value.
+
+**Parameters**
+
+**value`T`**: value of the node we want to find
+
+**Returns**
+
+`null | DoublyLinkedListNode<T>`
+
+_LinkedListNode_ if there is a value otherwise _null_
+
+### **DoublyLinkedList.get**
+
+**Definition**
+
+Returns Node at the specified index
+
+**Parameters**
+
+**index`number`**: index of the Node _starts from 0_
+
+**Returns**
+
+`null | DoublyLinkedListNode<T>`
+
+LinkedListNode or _null_
+
+### **DoublyLinkedList.includes**
+
+**Definition**
+
+Determines whether a value is in the DoublyLinkedList<T>.
+
+**Parameters**
+
+**value`T`**: The value to locate in the DoublyLinkedList<T>.
+
+**Returns**
+
+`boolean`
+
+_true_ if value is found in the DoublyLinkedList<T>; otherwise, _false_.
+
+### **DoublyLinkedList.insertAfter**
+
+**Overloads**
+
+| Variant                                                                                          | Definition                                                                  |
+| ------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- |
+| [insertAfter(node: DoublyLinkedListNode<T>, newNode: T): void](#1141517000)                      | Adds a new node or value after an existing node in the DoublyLinkedList<T>. |
+| [insertAfter(node: DoublyLinkedListNode<T>, newNode: DoublyLinkedListNode<T>): void](#310594900) |                                                                             |
+
+#### <a name="1141517000"></a>insertAfter(node: DoublyLinkedListNode<T>, newNode: T): void
+
+**Definition**
+
+Adds a new node or value after an existing node in the DoublyLinkedList<T>.
+
+**Parameters**
+
+**node`DoublyLinkedListNode<T>`**: The DoublyLinkedListNode<T> after which to insert _newNode_.
+
+**newNode`T`**: The new **DoublyLinkedListNode<T>** or **value** to add to the DoublyLinkedList<T>.
+
+#### <a name="310594900"></a>insertAfter(node: DoublyLinkedListNode<T>, newNode: DoublyLinkedListNode<T>): void
+
+**Parameters**
+
+**node`DoublyLinkedListNode<T>`**: 
+
+**newNode`DoublyLinkedListNode<T>`**: 
+
+### **DoublyLinkedList.insertBefore**
+
+**Overloads**
+
+| Variant                                                                                             | Definition                                                                   |
+| --------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| [insertBefore(node: DoublyLinkedListNode<T>, newNode: T): void](#1115686515)                        | Adds a new node or value before an existing node in the DoublyLinkedList<T>. |
+| [insertBefore(node: DoublyLinkedListNode<T>, newNode: DoublyLinkedListNode<T>): void](#-1737210177) |                                                                              |
+
+#### <a name="1115686515"></a>insertBefore(node: DoublyLinkedListNode<T>, newNode: T): void
+
+**Definition**
+
+Adds a new node or value before an existing node in the DoublyLinkedList<T>.
+
+**Parameters**
+
+**node`DoublyLinkedListNode<T>`**: The DoublyLinkedListNode<T> before which to insert _newNode_.
+
+**newNode`T`**: The new **DoublyLinkedListNode<T>** or **value** to add to the DoublyLinkedList<T>.
+
+#### <a name="-1737210177"></a>insertBefore(node: DoublyLinkedListNode<T>, newNode: DoublyLinkedListNode<T>): void
+
+**Parameters**
+
+**node`DoublyLinkedListNode<T>`**: 
+
+**newNode`DoublyLinkedListNode<T>`**: 
+
+### **DoublyLinkedList.isLinkedListNode**
+
+**Parameters**
+
+**x`any`**: 
+
+### **DoublyLinkedList.iterator**
+
+### **DoublyLinkedList.prepend**
+
+**Definition**
+
+Appends new Node at the beginning of the DoublyLinkedList<T>.
+
+**Parameters**
+
+**value`T`**: value of the new node
+
+### **DoublyLinkedList.toArray**
+
+**Definition**
+
+Returns array of all values in DoublyLinkedList<T>.
+
+**Returns**
+
+`T[]`
+
+array of values
+
+## ****DoublyLinkedListNode****
+
+### **DoublyLinkedListNode.Methods**
+
+### **DoublyLinkedListNode.isEqual**
+
+**Parameters**
+
+**node`DoublyLinkedListNode<any>`**: 
 
 ## ****LinkedList****
 
