@@ -1,6 +1,5 @@
-class Node<T = any> {
-  constructor(public value: T, public next: null | Node<T> = null) {}
-}
+import { AbstractCollection } from '../AbstractCollection';
+import { StackNode } from './StackNode';
 
 /**
  * Represents a variable size last-in-first-out (LIFO) collection of instances of the same specified type.
@@ -18,23 +17,21 @@ class Node<T = any> {
  * // instantiate new Stack
  * const stack = new Stack();
  * ```
- * @name Stack
- * @class
  */
-export class Stack<T = any> {
+export class Stack<T = any> extends AbstractCollection<T> {
   /**
    * first element in the Stack
-   * @private
+   * @internal
    */
-  private _first: null | Node<T> = null;
+  private _first: null | StackNode<T> = null;
   /**
    * last element in the Stack
-   * @private
+   * @internal
    */
-  private _last: null | Node<T> = null;
+  private _last: null | StackNode<T> = null;
   /**
    * size of the Stack
-   * @private
+   * @internal
    */
   private _size: number = 0;
 
@@ -45,10 +42,6 @@ export class Stack<T = any> {
       yield currentItem.value;
       currentItem = currentItem.next;
     }
-  }
-
-  [Symbol.iterator]() {
-    return this.iterator();
   }
 
   /**
@@ -64,10 +57,6 @@ export class Stack<T = any> {
    * stack.length // => 3
    * ```
    * @remarks Retrieving the value of this property is an **O(1)** operation.
-   * @returns {Number} length of Stack<T>
-   * @memberof Stack
-   * @name length
-   * @property
    */
   get length(): number {
     return this._size;
@@ -87,9 +76,6 @@ export class Stack<T = any> {
    * stack.clear()
    * stack.length // => 0
    * ```
-   * @name clear
-   * @memberof Stack
-   * @method
    */
   clear() {
     this._first = null;
@@ -98,44 +84,8 @@ export class Stack<T = any> {
   }
 
   /**
-   * Determines whether an element is in the Stack<T>.
-   * @param {T} item The object to locate in the Stack<T>.
-   * @returns {Boolean} true if item is found in the Stack<T>; otherwise, false.
-   * @example
-   * ```typescript
-   * const stack = new Stack<number>();
-   *
-   * stack.push(1);
-   * stack.push(2);
-   * stack.push(3);
-   *
-   * stack.includes(2) // => true
-   * stack.includes(10) // => false
-   * ```
-   * @remarks This method is an O(n) operation.
-   * @name includes
-   * @memberof Stack
-   * @method
-   */
-  includes(item: T): boolean {
-    if (!this._first) {
-      return false;
-    }
-
-    let currentNode: null | Node<T> = this._first;
-    while (currentNode) {
-      if (currentNode.value === item) {
-        return true;
-      }
-      currentNode = currentNode.next;
-    }
-
-    return false;
-  }
-
-  /**
    * Returns the object at the top of the Stack<T> without removing it.
-   * @returns {T} The object at the top of the Stack<T>.
+   * @returns The object at the top of the Stack<T>.
    * @example
    * ```typescript
    * const stack = new Stack<number>();
@@ -147,9 +97,6 @@ export class Stack<T = any> {
    * stack.peek() // => 3
    * ```
    * @remarks This method is an O(1) operation.
-   * @name peek
-   * @memberof Stack
-   * @method
    */
   peek(): T {
     if (this._first) {
@@ -161,7 +108,7 @@ export class Stack<T = any> {
 
   /**
    * Removes and returns the object at the top of the Stack<T>.
-   * @returns {T} The object removed from the top of the Stack<T>.
+   * @returns The object removed from the top of the Stack<T>.
    * @example
    * ```typescript
    * const stack = new Stack<number>();
@@ -174,9 +121,6 @@ export class Stack<T = any> {
    * stack.length // => 2
    * ```
    * @remarks This method is an O(1) operation.
-   * @name pop
-   * @memberof Stack
-   * @method
    */
   pop(): T {
     if (!this._first) {
@@ -195,7 +139,7 @@ export class Stack<T = any> {
 
   /**
    * Inserts an object at the top of the Stack<T>.
-   * @param {T} value The object to push onto the Stack<T>
+   * @param value The object to push onto the Stack<T>
    * @example
    * ```typescript
    * const stack = new Stack<number>();
@@ -207,12 +151,9 @@ export class Stack<T = any> {
    * stack.length // => 3
    * ```
    * @remarks This method is an O(1) operation.
-   * @name push
-   * @memberof Stack
-   * @method
    */
   push(value: T) {
-    const newNode = new Node<T>(value);
+    const newNode = new StackNode<T>(value);
 
     if (!this._first) {
       this._first = newNode;
@@ -223,36 +164,5 @@ export class Stack<T = any> {
     }
 
     this._size++;
-  }
-
-  /**
-   * Returns a new array containing copies of the elements of the Stack<T>.
-   * @returns {Array<T>} A new array containing copies of the elements of the Stack<T>.
-   * @example
-   * ```typescript
-   * const stack = new Stack<number>();
-   *
-   * stack.push(1);
-   * stack.push(2);
-   * stack.push(3);
-   *
-   * stack.toArray() // => [3, 2, 1]
-   * ```
-   * @remarks This method is an O(n) operation.
-   * @name toArray
-   * @memberof Stack
-   * @method
-   */
-  toArray(): T[] {
-    const nodes: T[] = [];
-
-    let currentNode = this._first;
-
-    while (currentNode) {
-      nodes.push(currentNode.value);
-      currentNode = currentNode.next;
-    }
-
-    return nodes;
   }
 }
