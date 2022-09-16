@@ -1,8 +1,5 @@
 import { AbstractCollection } from "../AbstractCollection";
-
-class Node<T = any> {
-  constructor(public value: T, public next: null | Node<T> = null) { }
-}
+import { QueueNode } from "./QueueNode";
 
 /**
  * Represents a first-in, first-out collection of objects.
@@ -24,17 +21,17 @@ class Node<T = any> {
 export class Queue<T = any> extends AbstractCollection<T> {
   /**
    * First element of the Queue
-   * @private
+   * @internal
    */
-  private _first: null | Node<T> = null;
+  private _first: null | QueueNode<T> = null;
   /**
    * Last element of the Queue
-   * @private
+   * @internal
    */
-  private _last: null | Node<T> = null;
+  private _last: null | QueueNode<T> = null;
   /**
    * Node count in the Queue
-   * @private
+   * @internal
    */
   private _length = 0;
 
@@ -138,7 +135,7 @@ export class Queue<T = any> extends AbstractCollection<T> {
    */
   enqueue(value: T): void {
     // Add to the end
-    const newNode = new Node<T>(value);
+    const newNode = new QueueNode<T>(value);
     if (!this._last) {
       this._first = newNode;
       this._last = newNode;

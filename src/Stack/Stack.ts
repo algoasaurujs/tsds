@@ -1,8 +1,5 @@
 import { AbstractCollection } from "../AbstractCollection";
-
-class Node<T = any> {
-  constructor(public value: T, public next: null | Node<T> = null) { }
-}
+import { StackNode } from "./StackNode";
 
 /**
  * Represents a variable size last-in-first-out (LIFO) collection of instances of the same specified type.
@@ -20,23 +17,21 @@ class Node<T = any> {
  * // instantiate new Stack
  * const stack = new Stack();
  * ```
- * @name Stack
- * @class
  */
 export class Stack<T = any> extends AbstractCollection<T> {
   /**
    * first element in the Stack
-   * @private
+   * @internal
    */
-  private _first: null | Node<T> = null;
+  private _first: null | StackNode<T> = null;
   /**
    * last element in the Stack
-   * @private
+   * @internal
    */
-  private _last: null | Node<T> = null;
+  private _last: null | StackNode<T> = null;
   /**
    * size of the Stack
-   * @private
+   * @internal
    */
   private _size: number = 0;
 
@@ -62,10 +57,6 @@ export class Stack<T = any> extends AbstractCollection<T> {
    * stack.length // => 3
    * ```
    * @remarks Retrieving the value of this property is an **O(1)** operation.
-   * @returns {Number} length of Stack<T>
-   * @memberof Stack
-   * @name length
-   * @property
    */
   get length(): number {
     return this._size;
@@ -85,9 +76,6 @@ export class Stack<T = any> extends AbstractCollection<T> {
    * stack.clear()
    * stack.length // => 0
    * ```
-   * @name clear
-   * @memberof Stack
-   * @method
    */
   clear() {
     this._first = null;
@@ -165,7 +153,7 @@ export class Stack<T = any> extends AbstractCollection<T> {
    * @remarks This method is an O(1) operation.
    */
   push(value: T) {
-    const newNode = new Node<T>(value);
+    const newNode = new StackNode<T>(value);
 
     if (!this._first) {
       this._first = newNode;

@@ -71,10 +71,6 @@ export class LinkedList<T = any> extends AbstractCollection<T> {
     }
   }
 
-  [Symbol.iterator]() {
-    return this.iterator();
-  }
-
   /**
    * Checks if argument is `LinkedListNode` or not
    * @param x an argument to check if it is `LinkedListNode`

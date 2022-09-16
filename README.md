@@ -40,6 +40,7 @@ The `Map` is builtin in javascript but, There are lots of other useful Data Str
             - [LinkedList.get](#linkedlistget)
             - [LinkedList.includes](#linkedlistincludes)
             - [LinkedList.insertAfter](#linkedlistinsertafter)
+            - [LinkedList.isEmpty](#linkedlistisempty)
             - [LinkedList.iterator](#linkedlistiterator)
             - [LinkedList.prepend](#linkedlistprepend)
             - [LinkedList.toArray](#linkedlisttoarray)
@@ -55,6 +56,7 @@ The `Map` is builtin in javascript but, There are lots of other useful Data Str
             - [Queue.dequeue](#queuedequeue)
             - [Queue.enqueue](#queueenqueue)
             - [Queue.includes](#queueincludes)
+            - [Queue.isEmpty](#queueisempty)
             - [Queue.iterator](#queueiterator)
             - [Queue.peek](#queuepeek)
             - [Queue.toArray](#queuetoarray)
@@ -65,6 +67,7 @@ The `Map` is builtin in javascript but, There are lots of other useful Data Str
             - [Stack.[iterator]](#stack[iterator])
             - [Stack.clear](#stackclear)
             - [Stack.includes](#stackincludes)
+            - [Stack.isEmpty](#stackisempty)
             - [Stack.iterator](#stackiterator)
             - [Stack.peek](#stackpeek)
             - [Stack.pop](#stackpop)
@@ -169,6 +172,19 @@ Retrieving the value of this property is an **O(1)** operation.
 ### **LinkedList.Methods**
 
 ### **LinkedList.[iterator]**
+
+**Definition**
+
+Returns an iterator over the elements contained in this collection.
+With iterator protocols you are allowed it to be used with the `for...of`
+
+**Example**
+
+```typescript
+for (const item of collection) {
+	// You have access to the item
+}
+```
 
 ### **LinkedList.append**
 
@@ -360,30 +376,12 @@ This method is an **O(n)** operation.
 
 **Definition**
 
-Determines whether a value is in the `LinkedList<T>`.
+This implementation iterates over the elements in the collection,
+checking each element in turn for equality with the specified element.
 
 **Parameters**
 
-**value`T`**: The value to locate in the `LinkedList<T>`.
-
-**Returns**
-
-`boolean`
-
-`true` if value is found in the `LinkedList<T>`; otherwise, `false`.
-
-**Example**
-
-```typescript
-const list = new LinkedList<number>([1, 2, 3, 4]);
-
-list.includes(2) // => true
-list.includes(10) // => false
-```
-
-**Remarks**
-
-This method is an **O(n)** operation.
+**o`T`**: 
 
 ### **LinkedList.insertAfter**
 
@@ -417,6 +415,12 @@ Adds a new _node_ or after an existing _node_ in the LinkedList<T>.
 **node`LinkedListNode<T>`**: The `LinkedListNode<T>` after which to insert `newNode`.
 
 **newNode`LinkedListNode<T>`**: The new `LinkedListNode<T>` or `value` to add to the `LinkedList<T>`.
+
+### **LinkedList.isEmpty**
+
+**Definition**
+
+This implementation returns `length === 0`.
 
 ### **LinkedList.isLinkedListNode**
 
@@ -469,26 +473,15 @@ This method is an **O(1)** operation.
 
 **Definition**
 
-Returns array of all values in `LinkedList<T>`.
-
-**Returns**
-
-`T[]`
-
-Returns the entire `LinkedList` to a compatible one-dimensional Array
-
-**Example**
-
-```typescript
-const list = new LinkedList<number>([1, 2, 3, 4]);
-
-list.prepend(0)
-list.toArray() // => [0, 1, 2, 3, 4]
-```
-
-**Remarks**
-
-This method is an **O(n)** operation.
+This implementation returns an array containing all the elements
+returned by this collection's iterator, in the same order, stored in
+consecutive elements of the array, starting with index `0`.
+The length of the returned array is equal to the number of elements
+returned by the iterator, even if the size of this collection changes
+during iteration, as might happen if the collection permits
+concurrent modification during iteration. The `length` property is
+called only as an optimization hint; the correct result is returned
+even if the iterator returns a different number of elements.
 
 ## ****LinkedListNode****
 
@@ -549,6 +542,19 @@ Retrieving the value of this property is an O(1) operation.
 ### **Queue.Methods**
 
 ### **Queue.[iterator]**
+
+**Definition**
+
+Returns an iterator over the elements contained in this collection.
+With iterator protocols you are allowed it to be used with the `for...of`
+
+**Example**
+
+```typescript
+for (const item of collection) {
+	// You have access to the item
+}
+```
 
 ### **Queue.clear**
 
@@ -629,34 +635,18 @@ This method is an **O(1)** operation.
 
 **Definition**
 
-Determines whether an element is in the `Queue<T>`.
+This implementation iterates over the elements in the collection,
+checking each element in turn for equality with the specified element.
 
 **Parameters**
 
-**item`T`**: The object to locate in the `Queue<T>`.
+**o`T`**: 
 
-**Returns**
+### **Queue.isEmpty**
 
-`boolean`
+**Definition**
 
-`true` if item is found in the `Queue<T>`; otherwise, `false`.
-
-**Example**
-
-```typescript
-const queue = new Queue<number>();
-
-queue.enqueue(1);
-queue.enqueue(2);
-queue.enqueue(3);
-
-queue.includes(2) // => true
-queue.includes(10) // => false
-```
-
-**Remarks**
-
-This method is an **O(n)** operation.
+This implementation returns `length === 0`.
 
 ### **Queue.iterator**
 
@@ -692,29 +682,15 @@ This method is an **O(1)** operation.
 
 **Definition**
 
-Returns the `Queue<T>` elements in a new array.
-
-**Returns**
-
-`T[]`
-
-A new array containing copies of the elements of the `Queue<T>`.
-
-**Example**
-
-```typescript
-const queue = new Queue<number>();
-
-queue.enqueue(1);
-queue.enqueue(2);
-queue.enqueue(3);
-
-queue.toArray() // => [3, 2, 1]
-```
-
-**Remarks**
-
-This method is an **O(n)** operation.
+This implementation returns an array containing all the elements
+returned by this collection's iterator, in the same order, stored in
+consecutive elements of the array, starting with index `0`.
+The length of the returned array is equal to the number of elements
+returned by the iterator, even if the size of this collection changes
+during iteration, as might happen if the collection permits
+concurrent modification during iteration. The `length` property is
+called only as an optimization hint; the correct result is returned
+even if the iterator returns a different number of elements.
 
 ## ****Stack****
 
@@ -766,6 +742,19 @@ Retrieving the value of this property is an **O(1)** operation.
 
 ### **Stack.[iterator]**
 
+**Definition**
+
+Returns an iterator over the elements contained in this collection.
+With iterator protocols you are allowed it to be used with the `for...of`
+
+**Example**
+
+```typescript
+for (const item of collection) {
+	// You have access to the item
+}
+```
+
 ### **Stack.clear**
 
 **Definition**
@@ -790,34 +779,18 @@ stack.length // => 0
 
 **Definition**
 
-Determines whether an element is in the Stack<T>.
+This implementation iterates over the elements in the collection,
+checking each element in turn for equality with the specified element.
 
 **Parameters**
 
-**item`T`**: The object to locate in the Stack<T>.
+**o`T`**: 
 
-**Returns**
+### **Stack.isEmpty**
 
-`boolean`
+**Definition**
 
-true if item is found in the Stack<T>; otherwise, false.
-
-**Example**
-
-```typescript
-const stack = new Stack<number>();
-
-stack.push(1);
-stack.push(2);
-stack.push(3);
-
-stack.includes(2) // => true
-stack.includes(10) // => false
-```
-
-**Remarks**
-
-This method is an O(n) operation.
+This implementation returns `length === 0`.
 
 ### **Stack.iterator**
 
@@ -908,29 +881,15 @@ This method is an O(1) operation.
 
 **Definition**
 
-Returns a new array containing copies of the elements of the Stack<T>.
-
-**Returns**
-
-`T[]`
-
-A new array containing copies of the elements of the Stack<T>.
-
-**Example**
-
-```typescript
-const stack = new Stack<number>();
-
-stack.push(1);
-stack.push(2);
-stack.push(3);
-
-stack.toArray() // => [3, 2, 1]
-```
-
-**Remarks**
-
-This method is an O(n) operation.
+This implementation returns an array containing all the elements
+returned by this collection's iterator, in the same order, stored in
+consecutive elements of the array, starting with index `0`.
+The length of the returned array is equal to the number of elements
+returned by the iterator, even if the size of this collection changes
+during iteration, as might happen if the collection permits
+concurrent modification during iteration. The `length` property is
+called only as an optimization hint; the correct result is returned
+even if the iterator returns a different number of elements.
 
 ## Built With
 
