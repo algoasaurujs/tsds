@@ -1,7 +1,7 @@
-import { LinkedList, LinkedListNode } from './LinkedList';
+import { LinkedList, LinkedListNode } from './LinkedList/index';
 import { DoublyLinkedList, DoublyLinkedListNode } from './DoublyLinkedList';
-import { Stack } from './Stack';
-import { Queue } from './Queue';
+import { Stack } from './Stack/index';
+import { Queue } from './Queue/index';
 
 export {
   LinkedList,

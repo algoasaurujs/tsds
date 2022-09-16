@@ -1,5 +1,5 @@
-import { AbstractCollection } from '../AbstractCollection';
-import { LinkedListNode } from './LinkedListNode';
+// @ts-ignore
+import { LinkedListNode } from './LinkedListNode.ts';
 
 /**
  * A linear collection of data elements whose order is not given by their physical placement in memory.
@@ -8,10 +8,11 @@ import { LinkedListNode } from './LinkedListNode';
  * @typeParam T - Specifies the type of elements in the LinkedList.
  * @example
  * ```typescript
- * import { LinkedList } from '@samavati/tsds';
+ * // @ts-ignore
+import { LinkedList } from '@samavati/tsds.ts';
  * ```
  */
-export class LinkedList<T = any> extends AbstractCollection<T> {
+export class LinkedList<T = any> {
   /**
    * First element of the list
    * @internal
@@ -51,7 +52,6 @@ export class LinkedList<T = any> extends AbstractCollection<T> {
    */
   constructor(initialValue: T[]);
   constructor(private initialValue?: T[]) {
-    super();
     if (this.initialValue) {
       for (const data of this.initialValue) {
         this.append(data);
@@ -59,9 +59,6 @@ export class LinkedList<T = any> extends AbstractCollection<T> {
     }
   }
 
-  /**
-   * @internal
-   */
   *iterator(): IterableIterator<T> {
     let currentItem = this._head;
 
@@ -71,12 +68,10 @@ export class LinkedList<T = any> extends AbstractCollection<T> {
     }
   }
 
-  /**
-   * Checks if argument is `LinkedListNode` or not
-   * @param x an argument to check if it is `LinkedListNode`
-   * @returns if argument is `LinkedListNode` or not
-   * @internal
-   */
+  [Symbol.iterator]() {
+    return this.iterator();
+  }
+
   private isLinkedListNode(x: any): x is LinkedListNode {
     return x instanceof LinkedListNode;
   }
@@ -181,34 +176,14 @@ export class LinkedList<T = any> extends AbstractCollection<T> {
   /**
    * Removes the first occurrence of a node from the `LinkedList<T>`.
    * @param node The `LinkedListNode<T>` to remove from the LinkedList<T>`.
-   * @example
-   * ```typescript
-   * const list = new LinkedList<number>([1, 2, 3, 4]);
-   *
-   * list.length // => 4
-   * list.delete(4)
-   * list.length // => 3
-   * list.last // => LinkListNode(3)
-   * ```
-   * @throws {InvalidOperationException} node is not in the current `LinkedList<T>`.
-   *
-   * @remarks This method is an **O(n)** operation.
+   * @throws {InvalidOperationException}
+   * node is not in the current `LinkedList<T>`.
    */
   delete(node: LinkedListNode<T>): void;
   /**
    * Removes the first occurrence of the specified value from the `LinkedList<T>`.
    * @param value The value to remove from the `LinkedList<T>`.
    * @returns `true` if the element containing value is successfully removed; otherwise, `false`. This method also returns `false` if value was not found in the original `LinkedList<T>`.
-   * @example
-   * ```typescript
-   * const list = new LinkedList<number>([1, 2, 3, 4]);
-   *
-   * list.length // => 4
-   * list.delete(4)
-   * list.length // => 3
-   * list.last // => LinkListNode(3)
-   * ```
-   * @remarks This method is an **O(n)** operation.
    */
   delete(value: T): boolean;
   /**
@@ -277,7 +252,7 @@ export class LinkedList<T = any> extends AbstractCollection<T> {
         if (currentNode.next.value === value) {
           // check if we should update this._tail
           if (this._tail?.isEqual(currentNode.next)) {
-            this._tail = currentNode;
+            this._tail = currentNode.next.next;
           }
           currentNode.next = currentNode.next.next;
           this._length--;
@@ -374,6 +349,36 @@ export class LinkedList<T = any> extends AbstractCollection<T> {
   }
 
   /**
+   * Determines whether a value is in the `LinkedList<T>`.
+   * @param value The value to locate in the `LinkedList<T>`.
+   * @returns `true` if value is found in the `LinkedList<T>`; otherwise, `false`.
+   * @example
+   * ```typescript
+   * const list = new LinkedList<number>([1, 2, 3, 4]);
+   *
+   * list.includes(2) // => true
+   * list.includes(10) // => false
+   * ```
+   * @remarks This method is an **O(n)** operation.
+   */
+  includes(value: T): boolean {
+    if (!this._head) {
+      return false;
+    }
+
+    let currentNode: null | LinkedListNode<T> = this._head;
+    while (currentNode) {
+      if (currentNode.value === value) {
+        return true;
+      } else {
+        currentNode = currentNode.next;
+      }
+    }
+
+    return false;
+  }
+
+  /**
    * Adds a new _value_ after an existing _node_ in the LinkedList<T>.
    * @param node The `LinkedListNode<T>` after which to insert `newNode`.
    * @param newNode The new `value` to add to the `LinkedList<T>`.
@@ -457,5 +462,30 @@ export class LinkedList<T = any> extends AbstractCollection<T> {
     }
 
     this._length++;
+  }
+
+  /**
+   * Returns array of all values in `LinkedList<T>`.
+   * @returns Returns the entire `LinkedList` to a compatible one-dimensional Array
+   * @example
+   * ```typescript
+   * const list = new LinkedList<number>([1, 2, 3, 4]);
+   *
+   * list.prepend(0)
+   * list.toArray() // => [0, 1, 2, 3, 4]
+   * ```
+   * @remarks This method is an **O(n)** operation.
+   */
+  toArray(): T[] {
+    const nodes: T[] = [];
+
+    let currentNode = this._head;
+
+    while (currentNode) {
+      nodes.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+
+    return nodes;
   }
 }
