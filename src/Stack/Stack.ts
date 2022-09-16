@@ -1,5 +1,5 @@
-import { AbstractCollection } from "../AbstractCollection";
-import { StackNode } from "./StackNode";
+import { AbstractCollection } from '../AbstractCollection';
+import { StackNode } from './StackNode';
 
 /**
  * Represents a variable size last-in-first-out (LIFO) collection of instances of the same specified type.
@@ -165,5 +165,4 @@ export class Stack<T = any> extends AbstractCollection<T> {
 
     this._size++;
   }
-
 }

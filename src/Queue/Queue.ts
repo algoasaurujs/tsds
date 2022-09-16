@@ -1,5 +1,5 @@
-import { AbstractCollection } from "../AbstractCollection";
-import { QueueNode } from "./QueueNode";
+import { AbstractCollection } from '../AbstractCollection';
+import { QueueNode } from './QueueNode';
 
 /**
  * Represents a first-in, first-out collection of objects.
