@@ -1,3 +1,4 @@
+import { AbstractCollection } from '../AbstractCollection';
 import { DoublyLinkedListNode } from './DoublyLinkedListNode';
 
 /**
@@ -5,32 +6,47 @@ import { DoublyLinkedListNode } from './DoublyLinkedListNode';
  * Instead, each element points to the next.
  * It is a data structure consisting of a collection of nodes which together represent a sequence.
  */
-export class DoublyLinkedList<T = any> {
+export class DoublyLinkedList<T = any> extends AbstractCollection<T> {
   /**
    * First element of the list
+   * @internal
    */
   private _head: null | DoublyLinkedListNode<T> = null;
 
   /**
    * Last element of the list
+   * @internal
    */
   private _tail: null | DoublyLinkedListNode<T> = null;
 
   /**
    * Node count in the list
+   * @internal
    */
   private _length: number = 0;
 
   /**
    * LinkedList Identifier
+   * @internal
    */
   private _id = Symbol();
 
   /**
    * Create new LinkedList instance
-   * @param initialValue initial value of LinkedList, Array of any value (Optional)
+   *  * // instantiate new linked list without initial set-up
+   * const list = new LinkedList();
+   *
+   * // instantiate new linked list with initial values
+   * const list2 = new LinkedList([1, 2, 3, 4, 5]);
    */
+  constructor();
+  /**
+   * Create new LinkedList instance
+   * @param initialValue initial value of LinkedList.
+   */
+  constructor(initialValue: T[]);
   constructor(private initialValue?: T[]) {
+    super();
     if (this.initialValue) {
       for (const data of this.initialValue) {
         this.append(data);
@@ -47,10 +63,12 @@ export class DoublyLinkedList<T = any> {
     }
   }
 
-  [Symbol.iterator]() {
-    return this.iterator();
-  }
-
+  /**
+   * Checks if `x` is a LinkedListNode or not.
+   * @param x 
+   * @returns `true` if `x` is LinkedListNode; otherwise `false`.
+   * @internal
+   */
   private isLinkedListNode(x: any): x is DoublyLinkedListNode {
     return x instanceof DoublyLinkedListNode;
   }
@@ -258,28 +276,6 @@ export class DoublyLinkedList<T = any> {
   }
 
   /**
-   * Determines whether a value is in the DoublyLinkedList<T>.
-   * @param value The value to locate in the DoublyLinkedList<T>.
-   * @returns {Boolean} _true_ if value is found in the DoublyLinkedList<T>; otherwise, _false_.
-   */
-  includes(value: T): boolean {
-    if (!this._head) {
-      return false;
-    }
-
-    let currentNode: null | DoublyLinkedListNode<T> = this._head;
-    while (currentNode) {
-      if (currentNode.value === value) {
-        return true;
-      } else {
-        currentNode = currentNode.next;
-      }
-    }
-
-    return false;
-  }
-
-  /**
    * Adds a new node or value after an existing node in the DoublyLinkedList<T>.
    * @param node The DoublyLinkedListNode<T> after which to insert _newNode_.
    * @param newNode The new **DoublyLinkedListNode<T>** or **value** to add to the DoublyLinkedList<T>.
@@ -400,22 +396,5 @@ export class DoublyLinkedList<T = any> {
     }
 
     this._length++;
-  }
-
-  /**
-   * Returns array of all values in DoublyLinkedList<T>.
-   * @returns array of values
-   */
-  toArray(): T[] {
-    const nodes = [];
-
-    let currentNode = this._head;
-
-    while (currentNode) {
-      nodes.push(currentNode.value);
-      currentNode = currentNode.next;
-    }
-
-    return nodes;
   }
 }
