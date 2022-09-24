@@ -1,76 +1,20 @@
-import { AbstractCollection } from '../AbstractCollection';
+import { AbstractSequentialList } from '../SequentialList/AbstractSequentialList';
 import { LinkedListNode } from './LinkedListNode';
 
 /**
  * A linear collection of data elements whose order is not given by their physical placement in memory.
  * Instead, each element points to the next.
  * It is a data structure consisting of a collection of nodes which together represent a sequence.
- * @typeParam T - Specifies the type of elements in the LinkedList.
+ * @typeParam ValueType - Specifies the type of elements in the LinkedList.
  * @example
  * ```typescript
  * import { LinkedList } from '@samavati/tsds';
  * ```
  */
-export class LinkedList<T = any> extends AbstractCollection<T> {
-  /**
-   * First element of the list
-   * @internal
-   */
-  private _head: null | LinkedListNode<T> = null;
-
-  /**
-   * Last element of the list
-   * @internal
-   */
-  private _tail: null | LinkedListNode<T> = null;
-
-  /**
-   * Node count in the list
-   * @internal
-   */
-  private _length: number = 0;
-
-  /**
-   * LinkedList Identifier
-   * @internal
-   */
-  private _id = Symbol();
-
-  /**
-   * Create new LinkedList instance
-   *  * // instantiate new linked list without initial set-up
-   * const list = new LinkedList();
-   *
-   * // instantiate new linked list with initial values
-   * const list2 = new LinkedList([1, 2, 3, 4, 5]);
-   */
-  constructor();
-  /**
-   * Create new LinkedList instance
-   * @param initialValue initial value of LinkedList.
-   */
-  constructor(initialValue: T[]);
-  constructor(private initialValue?: T[]) {
-    super();
-    if (this.initialValue) {
-      for (const data of this.initialValue) {
-        this.append(data);
-      }
-    }
-  }
-
-  /**
-   * @internal
-   */
-  *iterator(): IterableIterator<T> {
-    let currentItem = this._head;
-
-    while (currentItem) {
-      yield currentItem.value;
-      currentItem = currentItem.next;
-    }
-  }
-
+export class LinkedList<ValueType = any> extends AbstractSequentialList<
+  ValueType,
+  LinkedListNode<ValueType>
+> {
   /**
    * Checks if argument is `LinkedListNode` or not
    * @param x an argument to check if it is `LinkedListNode`
@@ -79,57 +23,6 @@ export class LinkedList<T = any> extends AbstractCollection<T> {
    */
   private isLinkedListNode(x: any): x is LinkedListNode {
     return x instanceof LinkedListNode;
-  }
-
-  /**
-   * Gets the first node of the `LinkedList<T>`.
-   * @example
-   * ```typescript
-   * const list = new LinkedList<number>([1, 2, 3, 4]);
-   *
-   * list.first // => LinkListNode(1)
-   * ```
-   * @returns The first `LinkedListNode<T>` of the `LinkedList<T>`
-   * @remarks
-   * If the `LinkedList<T>` is empty, the _first_ and _last_ properties contain `null`.
-   * Retrieving the value of this property is an **O(1)** operation.
-   */
-  get first() {
-    return this._head;
-  }
-
-  /**
-   * Gets the last node of the `LinkedList<T>`.
-   * @example
-   * ```typescript
-   * const list = new LinkedList<number>([1, 2, 3, 4]);
-   *
-   * list.last // => LinkListNode(4)
-   * ```
-   * @returns The last `LinkedListNode<T>` of the `LinkedList<T>`.
-   * @remarks
-   * If the `LinkedList<T>` is empty, the _first_ and _last_ properties contain `null`.
-   *
-   * Retrieving the value of this property is an **O(1)** operation.
-   */
-  get last() {
-    return this._tail;
-  }
-
-  /**
-   * Gets the number of nodes actually contained in the `LinkedList<T>`.
-   * @example
-   * ```typescript
-   * const list = new LinkedList<number>([1, 2, 3, 4]);
-   *
-   * list.length // => 4
-   * ```
-   * @returns number of nodes in the `LinkedList<T>`.
-   * @remarks
-   * Retrieving the value of this property is an **O(1)** operation.
-   */
-  get length() {
-    return this._length;
   }
 
   /**
@@ -146,8 +39,8 @@ export class LinkedList<T = any> extends AbstractCollection<T> {
    * ```
    * @remarks This method is an **O(1)** operation.
    */
-  append(value: T): void {
-    const newNode = new LinkedListNode<T>(value, null, this._id);
+  append(value: ValueType): void {
+    const newNode = new LinkedListNode<ValueType>(value, null, this._id);
 
     if (!this._head) {
       this._head = newNode;
@@ -159,23 +52,6 @@ export class LinkedList<T = any> extends AbstractCollection<T> {
 
     this._tail = newNode;
     this._length++;
-  }
-
-  /**
-   * Removes all nodes from the `LinkedList<T>`.
-   * @example
-   * ```typescript
-   * const list = new LinkedList<number>([1, 2, 3, 4]);
-   *
-   * list.length // => 4
-   * list.clear();
-   * list.length // => 0
-   * ```
-   */
-  clear() {
-    this._head = null;
-    this._tail = null;
-    this._length = 0;
   }
 
   /**
@@ -194,7 +70,7 @@ export class LinkedList<T = any> extends AbstractCollection<T> {
    *
    * @remarks This method is an **O(n)** operation.
    */
-  delete(node: LinkedListNode<T>): void;
+  delete(node: LinkedListNode<ValueType>): void;
   /**
    * Removes the first occurrence of the specified value from the `LinkedList<T>`.
    * @param value The value to remove from the `LinkedList<T>`.
@@ -210,7 +86,7 @@ export class LinkedList<T = any> extends AbstractCollection<T> {
    * ```
    * @remarks This method is an **O(n)** operation.
    */
-  delete(value: T): boolean;
+  delete(value: ValueType): boolean;
   /**
    * Removes the first occurrence of a node or value from the `LinkedList<T>`.
    * @example
@@ -224,7 +100,7 @@ export class LinkedList<T = any> extends AbstractCollection<T> {
    * ```
    * @remarks This method is an **O(n)** operation.
    */
-  delete(value: T | LinkedListNode<T>): void | boolean {
+  delete(value: ValueType | LinkedListNode<ValueType>): void | boolean {
     if (this.isLinkedListNode(value)) {
       if (!this._head || !value || value.listId !== this._id) {
         throw new Error(
@@ -314,77 +190,20 @@ export class LinkedList<T = any> extends AbstractCollection<T> {
   }
 
   /**
-   * Finds the first node that contains the specified value.
-   * @param value value of the node we want to find
-   * @returns `LinkedListNode` if there is a value otherwise `null`
-   * @example
-   * ```typescript
-   * const list = new LinkedList<number>([1, 2, 3, 4]);
-   *
-   * const item = list.find(2)
-   *
-   * const nullItem = list.find(10) // => null
-   * ```
-   * @remarks This method is an **O(n)** operation.
-   */
-  find(value: T): LinkedListNode<T> | null {
-    if (!this._head) {
-      return null;
-    }
-
-    let currentNode: null | LinkedListNode<T> = this._head;
-    while (currentNode) {
-      if (currentNode.value === value) {
-        return currentNode;
-      }
-      currentNode = currentNode.next;
-    }
-
-    return null;
-  }
-
-  /**
-   * Returns Node at the specified _index_
-   * @param index index of the Node **starts from 0**
-   * @returns `LinkedListNode` of the specified index, if index is less than length; otherwise, `null`.
-   * @example
-   * ```typescript
-   * const list = new LinkedList<number>([1, 2, 3, 4]);
-   *
-   * const item = list.get(2)
-   *
-   * const nullItem = list.get(10) // => null
-   * ```
-   * @remarks This method is an **O(n)** operation.
-   */
-  get(index: number): LinkedListNode<T> | null {
-    if (!this._head || index < 0 || index >= this.length) {
-      return null;
-    }
-
-    let currentNode: null | LinkedListNode<T> = this._head;
-    for (let i = 0; i < index; i++) {
-      if (!currentNode) {
-        return null;
-      }
-      currentNode = currentNode.next;
-    }
-
-    return currentNode;
-  }
-
-  /**
    * Adds a new _value_ after an existing _node_ in the LinkedList<T>.
    * @param node The `LinkedListNode<T>` after which to insert `newNode`.
    * @param newNode The new `value` to add to the `LinkedList<T>`.
    */
-  insertAfter(node: LinkedListNode<T>, newNode: T): void;
+  insertAfter(node: LinkedListNode<ValueType>, newNode: ValueType): void;
   /**
    * Adds a new _node_ or after an existing _node_ in the LinkedList<T>.
    * @param node The `LinkedListNode<T>` after which to insert `newNode`.
    * @param newNode The new `LinkedListNode<T>` or `value` to add to the `LinkedList<T>`.
    */
-  insertAfter(node: LinkedListNode<T>, newNode: LinkedListNode<T>): void;
+  insertAfter(
+    node: LinkedListNode<ValueType>,
+    newNode: LinkedListNode<ValueType>
+  ): void;
   /**
    * Adds a new _node_ or _value_ after an existing _node_ in the `LinkedList<T>`.
    * @example
@@ -405,7 +224,10 @@ export class LinkedList<T = any> extends AbstractCollection<T> {
    * When the _node_ is not in the current `LinkedList<T>` or _newNode_ belongs to another `LinkedList<T>`.
    * @remarks This method is an **O(1)** operation.
    */
-  insertAfter(node: LinkedListNode<T>, newNode: LinkedListNode<T> | T): void {
+  insertAfter(
+    node: LinkedListNode<ValueType>,
+    newNode: LinkedListNode<ValueType> | ValueType
+  ): void {
     if (!node || !newNode) {
       throw new Error('ArgumentNullException');
     }
@@ -427,7 +249,11 @@ export class LinkedList<T = any> extends AbstractCollection<T> {
       newNode.next = node.next;
       node.next = newNode;
     } else {
-      const newNodeObject = new LinkedListNode<T>(newNode, node.next, this._id);
+      const newNodeObject = new LinkedListNode<ValueType>(
+        newNode,
+        node.next,
+        this._id
+      );
       node.next = newNodeObject;
     }
 
@@ -448,8 +274,8 @@ export class LinkedList<T = any> extends AbstractCollection<T> {
    * ```
    * @remarks This method is an **O(1)** operation.
    */
-  prepend(value: T): void {
-    const newNode = new LinkedListNode<T>(value, this._head, this._id);
+  prepend(value: ValueType): void {
+    const newNode = new LinkedListNode<ValueType>(value, this._head, this._id);
     this._head = newNode;
 
     if (!this._tail) {

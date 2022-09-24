@@ -35,7 +35,7 @@ export abstract class AbstractCollection<E> implements Collection<E> {
   /**
    * This implementation iterates over the elements in the collection,
    * checking each element in turn for equality with the specified element.
-   *
+   * @returns `true` if this collection contains the specified element
    */
   public includes(o: E): boolean {
     const it: Iterator<E> = this[Symbol.iterator]();
@@ -59,6 +59,8 @@ export abstract class AbstractCollection<E> implements Collection<E> {
    * concurrent modification during iteration. The `length` property is
    * called only as an optimization hint; the correct result is returned
    * even if the iterator returns a different number of elements.
+   * 
+   * @returns an array containing all of the elements in this collection
    */
   public toArray(): Array<E> {
     const result: Array<E> = [];

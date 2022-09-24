@@ -1,4 +1,4 @@
-import { AbstractCollection } from '../AbstractCollection';
+import { AbstractCollection } from '../Collection/AbstractCollection';
 import { StackNode } from './StackNode';
 
 /**

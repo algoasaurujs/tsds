@@ -1,4 +1,6 @@
-export class LinkedListNode<T = any> {
+import { SequentialListNode } from "../SequentialList/SequentialListNode";
+
+export class LinkedListNode<T = any> implements SequentialListNode<T, LinkedListNode<T>> {
   private _id: Symbol;
 
   constructor(
