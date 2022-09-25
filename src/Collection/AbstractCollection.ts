@@ -59,7 +59,7 @@ export abstract class AbstractCollection<E> implements Collection<E> {
    * concurrent modification during iteration. The `length` property is
    * called only as an optimization hint; the correct result is returned
    * even if the iterator returns a different number of elements.
-   * 
+   *
    * @returns an array containing all of the elements in this collection
    */
   public toArray(): Array<E> {

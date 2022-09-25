@@ -7,7 +7,6 @@ export abstract class AbstractSequentialList<
   NodeType extends SequentialListNode<ValueType, NodeType>
 > extends AbstractCollection<ValueType>
   implements SequentialList<ValueType, NodeType> {
-
   /**
    * Adds a new node or value at the end of the `SequentialListNode`.
    * @param value value of the new node.
