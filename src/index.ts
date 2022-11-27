@@ -1,5 +1,4 @@
-import { LinkedList, LinkedListNode } from './LinkedList/index';
-import { Stack } from './Stack/index';
-import { Queue } from './Queue/index';
-
-export { LinkedList, LinkedListNode, Stack, Queue };
+export { LinkedList, LinkedListNode } from './LinkedList/index';
+export { Stack } from './Stack/index';
+export { Queue } from './Queue/index';
+export { Graph } from './Graph/index';
