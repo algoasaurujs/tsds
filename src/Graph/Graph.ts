@@ -30,7 +30,7 @@ export class Graph {
   protected _edgeWeights: Map<EncodedEdge, EdgeWeight> = new Map();
 
   get vertices(): VertexKey[] {
-    return Object.keys(this._vertices);
+    return Array.from(this._vertices.keys());
   }
 
   protected _adjacent(vertex: VertexKey): VertexKey[] {
@@ -130,4 +130,39 @@ export class Graph {
       this._vertices.set(vertex1, adjacent);
     }
   }
+
+  depthFirstSearch(
+    sourceNodes?: VertexKey[],
+    includeSourceNodes: boolean = true
+  ) {
+    if (!sourceNodes) {
+      sourceNodes = this.vertices;
+    }
+
+    const visited: Record<VertexKey, boolean> = {};
+    const nodeList: VertexKey[] = [];
+
+    const DFSVisit = (vertex: VertexKey) => {
+      if (!visited[vertex]) {
+        visited[vertex] = true;
+        nodeList.push(vertex);
+        this._adjacent(vertex).forEach(DFSVisit);
+      }
+    };
+
+    if (includeSourceNodes) {
+      sourceNodes.forEach(DFSVisit);
+    } else {
+      sourceNodes.forEach(node => {
+        visited[node] = true;
+      });
+      sourceNodes.forEach(node => {
+        this._adjacent(node).forEach(DFSVisit);
+      });
+    }
+
+    return nodeList;
+  }
+
+  
 }
