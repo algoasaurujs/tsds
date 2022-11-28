@@ -35,6 +35,15 @@ export class Queue<T = any> extends AbstractCollection<T> {
    */
   private _length = 0;
 
+  constructor(queue?: T[]) {
+    super();
+    if (queue) {
+      for (const item of queue) {
+        this.enqueue(item);
+      }
+    }
+  }
+
   *iterator(): IterableIterator<T> {
     let currentItem = this._first;
 
