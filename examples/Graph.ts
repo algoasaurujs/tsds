@@ -2,23 +2,34 @@ import { Graph } from './../src';
 
 const data = {
   nodes: [
-    { id: 'ehsan' },
-    { id: 'mohsen' },
-    { id: 'hassan' },
-    { id: 'jafar' },
-    { id: 'mojtaba' },
+    { id: 'A' },
+    { id: 'B' },
+    { id: 'C' },
+    { id: 'D' },
+    { id: 'E' },
+    { id: 'F' },
   ],
   links: [
-    { source: 'ehsan', target: 'mojtaba', weight: 5 },
-    { source: 'mohsen', target: 'mojtaba', weight: 1 },
-    { source: 'hassan', target: 'ehsan', weight: 1 },
-    { source: 'hassan', target: 'jafar', weight: 1 },
-    { source: 'jafar', target: 'ehsan', weight: 1 },
-    { source: 'jafar', target: 'hassan', weight: 1 },
+    { source: 'A', target: 'B', weight: 1 },
+    { source: 'A', target: 'A', weight: 1 },
+    { source: 'B', target: 'A', weight: 1 },
+    { source: 'A', target: 'C', weight: 1 },
+    { source: 'C', target: 'A', weight: 1 },
+    { source: 'B', target: 'D', weight: 1 },
+    { source: 'D', target: 'B', weight: 1 },
+    { source: 'D', target: 'D', weight: 1 },
+    { source: 'C', target: 'E', weight: 1 },
+    { source: 'E', target: 'C', weight: 1 },
+    { source: 'D', target: 'E', weight: 1 },
+    { source: 'E', target: 'D', weight: 1 },
+    { source: 'D', target: 'F', weight: 1 },
+    { source: 'F', target: 'D', weight: 1 },
+    { source: 'E', target: 'F', weight: 1 },
+    { source: 'F', target: 'E', weight: 1 },
   ],
 };
 
 const graph = new Graph(data);
 
 
-console.log(graph.serialize());
+console.log(graph.breadthFirstSearch());

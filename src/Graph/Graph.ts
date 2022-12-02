@@ -1,3 +1,5 @@
+import { Queue } from "../Queue";
+
 type VertexKey = string;
 type EncodedEdge = string;
 type EdgeWeight = number;
@@ -164,5 +166,33 @@ export class Graph {
     return nodeList;
   }
 
-  
+  breadthFirstSearch(sourceNodes?: VertexKey[]) {
+    if (!sourceNodes) {
+      sourceNodes = this.vertices;
+    }
+
+    const queue = new Queue<VertexKey>(sourceNodes);
+
+    const visited: Record<VertexKey, boolean> = {};
+    const nodeList: VertexKey[] = [];
+
+    const BFSVisit = (neighbor: VertexKey) => {
+      if (!visited[neighbor]) {
+        queue.enqueue(neighbor);
+      }
+    };
+
+    let currentVertex: VertexKey;
+
+    while (queue.length) {
+      currentVertex = queue.dequeue();
+      if (!visited[currentVertex]) {
+        visited[currentVertex] = true;
+        nodeList.push(currentVertex);
+      }
+      this._adjacent(currentVertex).forEach(BFSVisit);
+    }
+
+    return nodeList;
+  }
 }
