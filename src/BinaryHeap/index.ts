@@ -60,7 +60,7 @@ export class BinaryHeap<T = any> {
    * }
    * ```
    */
-   public [Symbol.iterator](): Iterator<T> {
+  public [Symbol.iterator](): Iterator<T> {
     return this.iterator();
   }
 
