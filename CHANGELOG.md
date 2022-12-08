@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/samavati/tsds/compare/v1.7.2...v1.8.0) (2022-12-08)
+
+
+### Features
+
+* **AbstractCollection:** abstract collection added to make extend out of it ([979f452](https://github.com/samavati/tsds/commit/979f452391420fff80f642b769adfe4b75cf40ff))
+* **AbstractCollection:** all collections are extending AbstractCollection now ([8fa4000](https://github.com/samavati/tsds/commit/8fa40001afbec9547582bf9b888b14cd22cfd8b1))
+* automatic prepare docs and deno folder and commit them ([2594842](https://github.com/samavati/tsds/commit/25948420e895670f9bf91e56178d818fd12cc8b8))
+* **BinaryHeap:** :sparkles: BinaryHeap added into datastructures ([1868f3c](https://github.com/samavati/tsds/commit/1868f3c75bb7b091731dee62af5c055742d4518b))
+* **Collection:** abstract collection added ([2b36dc1](https://github.com/samavati/tsds/commit/2b36dc124f307614b95eeff10e67682d3f3931f9))
+* **scripts:** :fire: automatic readme generator improved ([4619e1b](https://github.com/samavati/tsds/commit/4619e1ba4a902ac695f5d14733cd2fdd28dd87f9))
+* **scripts:parse-TSDocs:** custom [@constructor](https://github.com/constructor) block parser added ([5484c6c](https://github.com/samavati/tsds/commit/5484c6cbf0cdd9567dd262ad32f030f4646046e2))
+* **scripts:** use ts-node to run scripts ([3ddefe5](https://github.com/samavati/tsds/commit/3ddefe59d7a490541722eaa74ce7359a9e3deb66))
+* **website:** new website doc created ([0aead07](https://github.com/samavati/tsds/commit/0aead073d498b3aeea8a67b26c902c797ea5031c))
+
+
+### Bug Fixes
+
+* eddit path to right location ([e30277c](https://github.com/samavati/tsds/commit/e30277cb77e9d7c94f027b1154833d6f1a098e91))
+* **Linter:** fix linter errors ([8579f33](https://github.com/samavati/tsds/commit/8579f33e329cfbbf0871c2ac6fb94cd53cce3e13))
+* **lint:** fix linter errors ([3a26f68](https://github.com/samavati/tsds/commit/3a26f687f11a2c0ab2cc53f5ecef0fd8e2f19035))
+* **lint:** linter error fixed ([e167091](https://github.com/samavati/tsds/commit/e167091a77d9aa5a170462d77c0647d02571508d))
+* **scripts:parse-TSDocs:** added end of line after rendering overloads ([a1ca608](https://github.com/samavati/tsds/commit/a1ca608a04fe3322657a2cfa08961699a14d89b1))
+* **scripts:parse-TSDocs:** correct location of logo image added ([0b42ad0](https://github.com/samavati/tsds/commit/0b42ad0e73af27534c04cdb1891e3f62b804eef3))
+* **scripts:parse-TSDocs:** remove returns type when it is void ([dadde2b](https://github.com/samavati/tsds/commit/dadde2b1fec9ce164110c5e3448e409885300f34))
+* **scripts:parse-TSDocs:** wront tabel of content link fixed ([2979c1c](https://github.com/samavati/tsds/commit/2979c1c7cd835552c3d49db93fcb6d93c5199465))
+
 ### [1.7.3](https://github.com/samavati/tsds/compare/v1.7.2...v1.7.3) (2022-08-21)
 
 ### [1.7.2](https://github.com/samavati/tsds/compare/v1.7.1...v1.7.2) (2022-08-20)
