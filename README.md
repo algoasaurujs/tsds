@@ -25,6 +25,15 @@ The `Map` is builtin in javascript but, There are lots of other useful Data Str
 - [Introduction](#introduction)
 - [Installation](#installation)
 - [APIs](#apis)    
+    - [BinaryHeap](#binaryheap)
+        - [BinaryHeap.Properties](#binaryheapproperties)
+            - [BinaryHeap.size](#binaryheapsize)
+        - [BinaryHeap.Methods](#binaryheapmethods)
+            - [BinaryHeap.clear](#binaryheapclear)
+            - [BinaryHeap.isEmpty](#binaryheapisempty)
+            - [BinaryHeap.peek](#binaryheappeek)
+            - [BinaryHeap.pop](#binaryheappop)
+            - [BinaryHeap.push](#binaryheappush)
     - [LinkedList](#linkedlist)
         - [LinkedList.Properties](#linkedlistproperties)
             - [LinkedList.first](#linkedlistfirst)
@@ -85,6 +94,252 @@ To install and save in your `package.json`dependencies, run:
 ```bash
 npm install @samavati/tsds
 ```
+
+## ****BinaryHeap****
+
+A Binary Heap is a specialized tree-based data structure which is essentially an almost complete tree that satisfies the Binary Heap property
+
+### **BinaryHeap.Properties**
+
+### **BinaryHeap.size**
+
+**Definition**
+
+Gets the number of elements contained in the `BinaryHeap<T>`.
+
+**Property Value**
+
+`number`
+
+**Example**
+
+```typescript
+const heap = new BinaryHeap<number>();
+
+heap.push(1);
+heap.push(2);
+heap.push(3);
+
+heap.size // => 3
+```
+
+**Remarks**
+
+Retrieving the value of this property is an O(1) operation.
+
+### **BinaryHeap.Methods**
+
+### **BinaryHeap._bubbleDown**
+
+**Definition**
+
+Recursively bubbles down a node if it's in a wrong position
+
+**Parameters**
+
+**startIndex`number`**: 
+
+### **BinaryHeap._bubbleUp**
+
+**Definition**
+
+Recursively bubbles up a node if it's in a wrong position
+
+**Parameters**
+
+**startIndex`number`**: 
+
+### **BinaryHeap._compareAt**
+
+**Definition**
+
+compares two element at index i and j with provided comparator
+
+**Parameters**
+
+**i`number`**: 
+
+**j`number`**: 
+
+### **BinaryHeap._compareChildrenOf**
+
+**Definition**
+
+Compares children of a parent
+
+**Parameters**
+
+**parentIndex`number`**: 
+
+### **BinaryHeap._getLetChildIndex**
+
+**Definition**
+
+Retrieves the lest child index of the provided parent index
+
+**Parameters**
+
+**index`number`**: The index of the parent.
+
+### **BinaryHeap._getParentIndex**
+
+**Definition**
+
+Retrieves the parent index of the provided child index
+
+**Parameters**
+
+**index`number`**: The index of the children.
+
+### **BinaryHeap._getRightChildIndex**
+
+**Definition**
+
+Retrieves the right child index of the provided parent index
+
+**Parameters**
+
+**index`number`**: The index of the parent.
+
+### **BinaryHeap._hasLeftChild**
+
+**Definition**
+
+Checks if a parent has a left child
+
+**Parameters**
+
+**parentIndex`number`**: 
+
+### **BinaryHeap._hasRightChild**
+
+**Definition**
+
+Checks if a parent has a right child
+
+**Parameters**
+
+**parentIndex`number`**: 
+
+### **BinaryHeap._shouldSwap**
+
+**Definition**
+
+Checks if parent and child should be swapped
+
+**Parameters**
+
+**parentIndex`number`**: 
+
+**childIndex`number`**: 
+
+### **BinaryHeap._swap**
+
+**Definition**
+
+Swaps two nodes in the BinaryHeap
+
+**Parameters**
+
+**i`number`**: 
+
+**j`number`**: 
+
+### **BinaryHeap.clear**
+
+**Definition**
+
+Clears `BinaryHeap<T>`.
+
+**Example**
+
+```typescript
+const heap = new BinaryHeap<number>([10, 15, 20]);
+
+heap.clear();
+heap.isEmpty // => true
+```
+
+**Remarks**
+
+This method is an O(1) operation.
+
+### **BinaryHeap.isEmpty**
+
+**Definition**
+
+Checks if the `BinaryHeap<T>` is empty
+
+**Example**
+
+```typescript
+const heap = new BinaryHeap<number>();
+
+heap.isEmpty // => true
+```
+
+**Remarks**
+
+This method is an O(1) operation.
+
+### **BinaryHeap.peek**
+
+**Definition**
+
+Returns the root node in the BinaryHeap
+
+**Example**
+
+```typescript
+const heap = new BinaryHeap<number>([10, 15, 20]);
+
+heap.peek() // => 20
+```
+
+**Remarks**
+
+This method is an O(1) operation.
+
+### **BinaryHeap.pop**
+
+**Definition**
+
+Removes and returns the root node in the BinaryHeap
+
+**Example**
+
+```typescript
+const heap = new BinaryHeap<number>([10, 15, 20]);
+
+heap.pop() // => 20
+```
+
+**Remarks**
+
+This method is an O(log n) operation.
+
+### **BinaryHeap.push**
+
+**Definition**
+
+Inserts a new value into the BinaryHeap
+
+**Parameters**
+
+**value`T`**: The value that you want to insert into the BinaryHeap
+
+**Example**
+
+```typescript
+const heap = new BinaryHeap<number>([10, 15, 20]);
+
+heap.push(40)
+heap.peek() => // 40
+```
+
+**Remarks**
+
+This method is an O(log n) operation.
 
 ## ****LinkedList****
 
