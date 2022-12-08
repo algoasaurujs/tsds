@@ -1,10 +1,20 @@
 type CompareFn<U> = (a: U, b: U) => number;
+
 /**
  * A Binary Heap is a specialized tree-based data structure which is essentially an almost complete tree that satisfies the Binary Heap property
+ *
+ * @typeParam T - Specifies the type of elements in the BinaryHeap.
+ * @example
+ * ```typescript
+ * import { BinaryHeap } from  '@samavati/tsds';
+ *
+ * // instantiate new BinaryHeap
+ *
+ * const queue = new BinaryHeap();
+ * ```
  */
 export class BinaryHeap<T = any> {
   /**
-   *
    * @internal
    */
   private _nodes: T[] = [];
@@ -29,6 +39,29 @@ export class BinaryHeap<T = any> {
         this.push(value);
       }
     }
+  }
+
+  *iterator(): IterableIterator<T> {
+    const iterator = this._nodes[Symbol.iterator]();
+    let next = iterator.next();
+    while (!next.done) {
+      yield next.value;
+      next = iterator.next();
+    }
+  }
+
+  /**
+   * Returns an iterator over the elements contained in this collection.
+   * With iterator protocols you are allowed it to be used with the `for...of`
+   * @example
+   * ```typescript
+   * for (const item of collection) {
+   * 	// You have access to the item
+   * }
+   * ```
+   */
+   public [Symbol.iterator](): Iterator<T> {
+    return this.iterator();
   }
 
   /**
