@@ -29,8 +29,10 @@ The `Map` is builtin in javascript but, There are lots of other useful Data Str
         - [BinaryHeap.Properties](#binaryheapproperties)
             - [BinaryHeap.size](#binaryheapsize)
         - [BinaryHeap.Methods](#binaryheapmethods)
+            - [BinaryHeap.[iterator]](#binaryheap[iterator])
             - [BinaryHeap.clear](#binaryheapclear)
             - [BinaryHeap.isEmpty](#binaryheapisempty)
+            - [BinaryHeap.iterator](#binaryheapiterator)
             - [BinaryHeap.peek](#binaryheappeek)
             - [BinaryHeap.pop](#binaryheappop)
             - [BinaryHeap.push](#binaryheappush)
@@ -56,6 +58,19 @@ The `Map` is builtin in javascript but, There are lots of other useful Data Str
     - [LinkedListNode](#linkedlistnode)
         - [LinkedListNode.Methods](#linkedlistnodemethods)
             - [LinkedListNode.isEqual](#linkedlistnodeisequal)
+    - [PriorityQueue](#priorityqueue)
+        - [PriorityQueue.Properties](#priorityqueueproperties)
+            - [PriorityQueue.length](#priorityqueuelength)
+        - [PriorityQueue.Methods](#priorityqueuemethods)
+            - [PriorityQueue.[iterator]](#priorityqueue[iterator])
+            - [PriorityQueue.clear](#priorityqueueclear)
+            - [PriorityQueue.dequeue](#priorityqueuedequeue)
+            - [PriorityQueue.enqueue](#priorityqueueenqueue)
+            - [PriorityQueue.includes](#priorityqueueincludes)
+            - [PriorityQueue.isEmpty](#priorityqueueisempty)
+            - [PriorityQueue.iterator](#priorityqueueiterator)
+            - [PriorityQueue.peek](#priorityqueuepeek)
+            - [PriorityQueue.toArray](#priorityqueuetoarray)
     - [Queue](#queue)
         - [Queue.Properties](#queueproperties)
             - [Queue.length](#queuelength)
@@ -99,6 +114,16 @@ npm install @samavati/tsds
 
 A Binary Heap is a specialized tree-based data structure which is essentially an almost complete tree that satisfies the Binary Heap property
 
+**Usage**
+
+```typescript
+import { BinaryHeap } from  '@samavati/tsds';
+
+// instantiate new BinaryHeap
+
+const queue = new BinaryHeap();
+```
+
 ### **BinaryHeap.Properties**
 
 ### **BinaryHeap.size**
@@ -128,6 +153,21 @@ heap.size // => 3
 Retrieving the value of this property is an O(1) operation.
 
 ### **BinaryHeap.Methods**
+
+### **BinaryHeap.[iterator]**
+
+**Definition**
+
+Returns an iterator over the elements contained in this collection.
+With iterator protocols you are allowed it to be used with the `for...of`
+
+**Example**
+
+```typescript
+for (const item of collection) {
+	// You have access to the item
+}
+```
 
 ### **BinaryHeap._bubbleDown**
 
@@ -281,6 +321,8 @@ heap.isEmpty // => true
 **Remarks**
 
 This method is an O(1) operation.
+
+### **BinaryHeap.iterator**
 
 ### **BinaryHeap.peek**
 
@@ -747,6 +789,205 @@ even if the iterator returns a different number of elements.
 **Parameters**
 
 **node`LinkedListNode<any>`**: 
+
+## ****PriorityQueue****
+
+A priority queue is an abstract data-type similar to a regular queue or stack data structure in which each element additionally has a priority associated with it.
+In a priority queue, an element with high priority is served before an element with low priority.
+In this implementation if two elements have the same priority, ordering of elements with the same priority remains undefined.
+
+The operation of adding an element to the rear of the queue is known as enqueue, and the operation of removing an element from the front is known as _dequeue_.
+
+**Usage**
+
+```typescript
+import { PriorityQueue } from  '@samavati/tsds';
+
+// instantiate new PriorityQueue
+
+const queue = new PriorityQueue();
+```
+
+### **PriorityQueue.Properties**
+
+### **PriorityQueue.length**
+
+**Definition**
+
+Gets the number of elements contained in the `PriorityQueue<T>`.
+
+**Property Value**
+
+`number`
+
+**Example**
+
+```typescript
+const queue = new PriorityQueue<number>();
+
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(3);
+
+queue.length // => 3
+```
+
+**Remarks**
+
+Retrieving the value of this property is an O(1) operation.
+
+### **PriorityQueue.Methods**
+
+### **PriorityQueue.[iterator]**
+
+**Definition**
+
+Returns an iterator over the elements contained in this collection.
+With iterator protocols you are allowed it to be used with the `for...of`
+
+**Example**
+
+```typescript
+for (const item of collection) {
+	// You have access to the item
+}
+```
+
+### **PriorityQueue.clear**
+
+**Definition**
+
+Removes all objects from the `PriorityQueue<T>`.
+
+**Example**
+
+```typescript
+const queue = new PriorityQueue<number>();
+
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(3);
+
+queue.length // => 3
+queue.clear()
+queue.length // => 0
+```
+
+### **PriorityQueue.dequeue**
+
+**Definition**
+
+Removes and returns the object at the beginning of the `PriorityQueue<T>`.
+
+**Returns**
+
+`T`
+
+The object that is removed from the beginning of the `PriorityQueue<T>`.
+
+**Example**
+
+```typescript
+const queue = new PriorityQueue<number>();
+
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(3);
+
+queue.dequeue() // => 3
+queue.length // => 2
+```
+
+**Remarks**
+
+This method is an **O(1)** operation.
+
+### **PriorityQueue.enqueue**
+
+**Definition**
+
+Adds an object to the end of the `PriorityQueue<T>`.
+
+**Parameters**
+
+**value`T`**: The object to add to the `PriorityQueue<T>`
+
+**Example**
+
+```typescript
+const queue = new PriorityQueue<number>();
+
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(3);
+
+queue.length // => 3
+```
+
+**Remarks**
+
+This method is an **O(1)** operation.
+
+### **PriorityQueue.includes**
+
+**Definition**
+
+This implementation iterates over the elements in the collection,
+checking each element in turn for equality with the specified element.
+
+**Parameters**
+
+**o`T`**: 
+
+### **PriorityQueue.isEmpty**
+
+**Definition**
+
+This implementation returns `length === 0`.
+
+### **PriorityQueue.iterator**
+
+### **PriorityQueue.peek**
+
+**Definition**
+
+Returns the object at the beginning of the `PriorityQueue<T>` without removing it.
+
+**Returns**
+
+`T`
+
+The object at the beginning of the `PriorityQueue<T>`.
+
+**Example**
+
+```typescript
+const queue = new PriorityQueue<number>();
+
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(3);
+
+queue.peek() // => 3
+```
+
+**Remarks**
+
+This method is an **O(1)** operation.
+
+### **PriorityQueue.toArray**
+
+**Definition**
+
+This implementation returns an array containing all the elements
+returned by this collection's iterator, in the same order, stored in
+consecutive elements of the array, starting with index `0`.
+The length of the returned array is equal to the number of elements
+returned by the iterator, even if the size of this collection changes
+during iteration, as might happen if the collection permits
+concurrent modification during iteration. The `length` property is
+called only as an optimization hint; the correct result is returned
+even if the iterator returns a different number of elements.
 
 ## ****Queue****
 
