@@ -233,4 +233,49 @@ export class Graph {
 
     return nodeList;
   }
+
+  dijkstra(start: VertexKey, finish: VertexKey) {
+    const nodes = new PriorityQueue<{ vertex: VertexKey; priority: number }>(
+      [],
+      (a, b) => a.priority - b.priority
+    );
+    const distances: Record<VertexKey, number> = {};
+    const previous: Record<VertexKey, VertexKey | null> = {};
+    let smallest: VertexKey;
+
+    // build up initial state
+    for (const [vertex] of this._vertices) {
+      if (vertex === start) {
+        distances[vertex] = 0;
+        nodes.enqueue({ vertex, priority: 0 });
+      } else {
+        distances[vertex] = Infinity;
+        nodes.enqueue({ vertex, priority: Infinity });
+      }
+      previous[vertex] = null;
+    }
+
+    while (nodes.length) {
+      smallest = nodes.dequeue().vertex;
+      if (smallest === finish) {
+        console.log(distances);
+        console.log(previous);
+        // We are done
+        // we need to Build up the path at end
+      }
+      const neighbors = this._vertices.get(smallest);
+      if (neighbors && distances[smallest] !== Infinity) {
+        for (const neighbor of neighbors) {
+          // Calculate new distance to neighbor node
+          let neighborWeight = this._getWeight(smallest, neighbor) || 0;
+          let candidate = distances[smallest] + neighborWeight;
+          if (candidate < distances[neighbor]) {
+            distances[neighbor] = candidate;
+            previous[neighbor] = smallest;
+            nodes.enqueue({ vertex: neighbor, priority: candidate });
+          }
+        }
+      }
+    }
+  }
 }
