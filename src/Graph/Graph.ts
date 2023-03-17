@@ -1,4 +1,11 @@
-import { Queue } from "../Queue";
+import { PriorityQueue } from '../PriorityQueue';
+import { Queue } from '../Queue';
+
+class CycleError extends Error {
+  constructor(public message: string) {
+    super(message);
+  }
+}
 
 type VertexKey = string;
 type EncodedEdge = string;
@@ -135,20 +142,27 @@ export class Graph {
 
   depthFirstSearch(
     sourceNodes?: VertexKey[],
-    includeSourceNodes: boolean = true
+    includeSourceNodes: boolean = true,
+    errorOnCycle = false
   ) {
     if (!sourceNodes) {
       sourceNodes = this.vertices;
     }
 
     const visited: Record<VertexKey, boolean> = {};
+    const visiting: Record<VertexKey, boolean> = {};
     const nodeList: VertexKey[] = [];
 
     const DFSVisit = (vertex: VertexKey) => {
+      if (visiting[vertex] && errorOnCycle) {
+        throw new CycleError('Cycle found');
+      }
       if (!visited[vertex]) {
         visited[vertex] = true;
-        nodeList.push(vertex);
+        visiting[vertex] = true;
         this._adjacent(vertex).forEach(DFSVisit);
+        visiting[vertex] = false;
+        nodeList.push(vertex);
       }
     };
 
@@ -164,6 +178,30 @@ export class Graph {
     }
 
     return nodeList;
+  }
+
+  hasCycle() {
+    try {
+      this.depthFirstSearch(undefined, true, true);
+      return false;
+    } catch (error) {
+      if (error instanceof CycleError) {
+        return true;
+      } else {
+        throw error;
+      }
+    }
+  }
+
+  topologicalSort(
+    sourceNodes?: VertexKey[],
+    includeSourceNodes: boolean = true
+  ) {
+    return this.depthFirstSearch(
+      sourceNodes,
+      includeSourceNodes,
+      true
+    ).reverse();
   }
 
   breadthFirstSearch(sourceNodes?: VertexKey[]) {
