@@ -82,6 +82,29 @@ export class Graph {
     return serialized;
   }
 
+  clone(): Graph {
+    const serialized = this.serialize();
+    return new Graph(serialized);
+  }
+
+  transpose() {
+    const _originalVertices = this._vertices;
+    const _originalWeights = this._edgeWeights;
+    this._vertices = new Map();
+    this._edgeWeights = new Map();
+    for (const [vertex, neighbors] of _originalVertices) {
+      for (const neighbor of neighbors) {
+        this.addVertex(neighbor);
+        this.addEdge(neighbor, vertex);
+      }
+    }
+
+    for (const [edge, weight] of _originalWeights) {
+      const [source, target] = edge.split('|');
+      this._setWeight(target, source, weight);
+    }
+  }
+
   /**
    * Returns `true` if there is a vertex with provided name.
    * @param name the name of the vertex that we want to search for.
