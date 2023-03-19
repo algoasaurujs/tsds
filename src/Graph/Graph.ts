@@ -1,5 +1,7 @@
+import difference from 'lodash/difference';
 import { PriorityQueue } from '../PriorityQueue';
 import { Queue } from '../Queue';
+import { Stack } from '../Stack';
 
 class CycleError extends Error {
   constructor(public message: string) {
@@ -42,7 +44,7 @@ export class Graph {
     return Array.from(this._vertices.keys());
   }
 
-  protected _adjacent(vertex: VertexKey): VertexKey[] {
+  public adjacent(vertex: VertexKey): VertexKey[] {
     return this._vertices.get(vertex) || [];
   }
 
@@ -119,7 +121,7 @@ export class Graph {
    * @param name The name of the vertex that you to add into the Graph.
    */
   addVertex(name: VertexKey) {
-    this._vertices.set(name, this._adjacent(name));
+    this._vertices.set(name, this.adjacent(name));
   }
 
   removeVertex(vertex: VertexKey) {
@@ -133,7 +135,7 @@ export class Graph {
   }
 
   hasEdge(vertex1: VertexKey, vertex2: VertexKey): boolean {
-    return this._adjacent(vertex1).includes(vertex2);
+    return this.adjacent(vertex1).includes(vertex2);
   }
 
   /**
@@ -148,7 +150,7 @@ export class Graph {
     this.addVertex(vertex2);
 
     if (!this.hasEdge(vertex1, vertex2)) {
-      const adjacent = this._adjacent(vertex1);
+      const adjacent = this.adjacent(vertex1);
       adjacent.push(vertex2);
       this._vertices.set(vertex1, adjacent);
       this._setWeight(vertex1, vertex2, weight);
@@ -157,7 +159,7 @@ export class Graph {
 
   removeEdge(vertex1: VertexKey, vertex2: VertexKey) {
     if (this.hasVertex(vertex1)) {
-      const adjacent = this._adjacent(vertex1).filter(v => v !== vertex2);
+      const adjacent = this.adjacent(vertex1).filter(v => v !== vertex2);
       this._edgeWeights.delete(this._encodeEdge(vertex1, vertex2));
       this._vertices.set(vertex1, adjacent);
     }
@@ -166,7 +168,8 @@ export class Graph {
   depthFirstSearch(
     sourceNodes?: VertexKey[],
     includeSourceNodes: boolean = true,
-    errorOnCycle = false
+    errorOnCycle = false,
+    finishStack?: Stack<VertexKey>
   ) {
     if (!sourceNodes) {
       sourceNodes = this.vertices;
@@ -175,15 +178,23 @@ export class Graph {
     const visited: Record<VertexKey, boolean> = {};
     const visiting: Record<VertexKey, boolean> = {};
     const nodeList: VertexKey[] = [];
-
+    const isNotVisited = (vertex: VertexKey) => {
+      return !visited[vertex];
+    };
     const DFSVisit = (vertex: VertexKey) => {
       if (visiting[vertex] && errorOnCycle) {
         throw new CycleError('Cycle found');
       }
-      if (!visited[vertex]) {
+      if (isNotVisited(vertex)) {
         visited[vertex] = true;
         visiting[vertex] = true;
-        this._adjacent(vertex).forEach(DFSVisit);
+        const notVisitedAdjacent = this.adjacent(vertex).filter(isNotVisited);
+        if (finishStack) {
+          if (notVisitedAdjacent.length === 0) {
+            finishStack.push(vertex);
+          }
+        }
+        notVisitedAdjacent.forEach(DFSVisit);
         visiting[vertex] = false;
         nodeList.push(vertex);
       }
@@ -196,7 +207,7 @@ export class Graph {
         visited[node] = true;
       });
       sourceNodes.forEach(node => {
-        this._adjacent(node).forEach(DFSVisit);
+        this.adjacent(node).forEach(DFSVisit);
       });
     }
 
@@ -251,11 +262,49 @@ export class Graph {
         visited[currentVertex] = true;
         nodeList.push(currentVertex);
       }
-      this._adjacent(currentVertex).forEach(BFSVisit);
+      this.adjacent(currentVertex).forEach(BFSVisit);
     }
 
     return nodeList;
   }
+
+  scc = () => {
+    const sccNodes: VertexKey[][] = [];
+    const finishStack = new Stack<VertexKey>();
+    const visited: Record<VertexKey, boolean> = {};
+
+    const transposed = this.clone();
+    transposed.transpose();
+
+    this.depthFirstSearch(undefined, true, false, finishStack);
+    const finishedOrder = finishStack.toArray();
+
+    const loopBack = (vertex: VertexKey) => {
+      const adjacent = transposed.adjacent(vertex);
+      for (const adj of adjacent) {
+        if (!finishStack.includes(adj)) {
+          finishStack.push(adj);
+          loopBack(adj);
+        }
+      }
+    };
+
+    for (const item of finishedOrder) {
+      loopBack(item);
+    }
+
+    while (!finishStack.isEmpty()) {
+      const vertex = finishStack.pop();
+      if (!visited[vertex]) {
+        visited[vertex] = true;
+        const nodes = transposed.depthFirstSearch([vertex]);
+        sccNodes.push(difference(nodes, sccNodes.flat()));
+        for (const node of nodes) {
+          visited[node] = true;
+        }
+      }
+    }
+  };
 
   dijkstra(start: VertexKey, finish: VertexKey) {
     const nodes = new PriorityQueue<{ vertex: VertexKey; priority: number }>(

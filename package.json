@@ -68,6 +68,7 @@
     "devDependencies": {
         "@size-limit/preset-small-lib": "^7.0.8",
         "@types/fs-extra": "^9.0.13",
+        "@types/lodash": "^4.14.191",
         "@types/markdown-table": "^2.0.0",
         "fs-extra": "^10.1.0",
         "gh-pages": "^3.2.3",
@@ -80,5 +81,8 @@
         "tslib": "^2.3.1",
         "typedoc": "^0.23.14",
         "typescript": "4.9.3"
+    },
+    "dependencies": {
+        "lodash": "^4.17.21"
     }
 }
