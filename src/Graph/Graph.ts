@@ -9,7 +9,7 @@ class CycleError extends Error {
   }
 }
 
-type VertexKey = string;
+type VertexKey = string | number;
 type EncodedEdge = string;
 type EdgeWeight = number;
 
@@ -105,6 +105,7 @@ export class Graph {
       const [source, target] = edge.split('|');
       this._setWeight(target, source, weight);
     }
+    return this;
   }
 
   /**
@@ -122,6 +123,7 @@ export class Graph {
    */
   addVertex(name: VertexKey) {
     this._vertices.set(name, this.adjacent(name));
+    return this;
   }
 
   removeVertex(vertex: VertexKey) {
@@ -132,6 +134,7 @@ export class Graph {
 
       this._vertices.delete(vertex);
     }
+    return this;
   }
 
   hasEdge(vertex1: VertexKey, vertex2: VertexKey): boolean {
@@ -155,6 +158,8 @@ export class Graph {
       this._vertices.set(vertex1, adjacent);
       this._setWeight(vertex1, vertex2, weight);
     }
+
+    return this;
   }
 
   removeEdge(vertex1: VertexKey, vertex2: VertexKey) {
@@ -163,6 +168,8 @@ export class Graph {
       this._edgeWeights.delete(this._encodeEdge(vertex1, vertex2));
       this._vertices.set(vertex1, adjacent);
     }
+
+    return this;
   }
 
   depthFirstSearch(
@@ -304,15 +311,17 @@ export class Graph {
         }
       }
     }
+    return sccNodes;
   };
 
   dijkstra(start: VertexKey, finish: VertexKey) {
+    type PathObj = Record<VertexKey, VertexKey | null>;
     const nodes = new PriorityQueue<{ vertex: VertexKey; priority: number }>(
       [],
       (a, b) => a.priority - b.priority
     );
     const distances: Record<VertexKey, number> = {};
-    const previous: Record<VertexKey, VertexKey | null> = {};
+    const previous: PathObj = {};
     let smallest: VertexKey;
 
     // build up initial state
@@ -327,16 +336,26 @@ export class Graph {
       previous[vertex] = null;
     }
 
+    const buildPath = (path: PathObj, target: VertexKey): VertexKey[] => {
+      const res: VertexKey[] = [];
+      let prev: VertexKey | null = target;
+      while (prev) {
+        res.push(prev)
+        prev = path[prev];
+      }
+      return res.reverse();
+    }
+
     while (nodes.length) {
       smallest = nodes.dequeue().vertex;
       if (smallest === finish) {
-        console.log(distances);
-        console.log(previous);
-        // We are done
-        // we need to Build up the path at end
+        return {
+          path: buildPath(previous, finish),
+          distance: distances[finish]
+        }
       }
-      const neighbors = this._vertices.get(smallest);
-      if (neighbors && distances[smallest] !== Infinity) {
+      const neighbors = this.adjacent(smallest);
+      if (distances[smallest] !== Infinity) {
         for (const neighbor of neighbors) {
           // Calculate new distance to neighbor node
           let neighborWeight = this._getWeight(smallest, neighbor) || 0;
@@ -349,5 +368,6 @@ export class Graph {
         }
       }
     }
+    return null
   }
 }
