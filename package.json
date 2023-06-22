@@ -22,9 +22,10 @@
     "analyze": "size-limit --why",
     "release": "standard-version",
     "deploy": "gh-pages -d docs/dist",
-    "typedoc": "typedoc",
+    "typedoc": "typedoc --plugin typedoc-plugin-markdown",
     "make:readme": "ts-node scripts/makeReadme/index.ts",
     "make:deno": "ts-node scripts/makeDeno/index.ts",
+    "docs:test": "ts-node scripts/test/index.ts",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
@@ -40,13 +41,13 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "@samavati/tsds",
+  "name": "@algoasaurujs/tsds",
   "author": "Ehsan Samavati",
   "description": "TypeScript Data Structures that you need!",
-  "homepage": "https://samavati.github.io/tsds",
+  "homepage": "https://algoasaurujs.github.io/tsds",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/samavati/tsds.git"
+    "url": "git+https://github.com/algoasaurujs/tsds.git"
   },
   "keywords": [
     "typescript",
@@ -55,7 +56,7 @@
     "linkedlist"
   ],
   "bugs": {
-    "url": "https://github.com/samavati/tsds/issues"
+    "url": "https://github.com/algoasaurujs/tsds/issues"
   },
   "module": "dist/tsds.esm.js",
   "size-limit": [
@@ -83,7 +84,8 @@
     "ts-node": "^10.9.1",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
-    "typedoc": "^0.23.14",
+    "typedoc": "^0.24.8",
+    "typedoc-plugin-markdown": "^3.15.3",
     "typescript": "^4.8.2",
     "vitepress": "^1.0.0-beta.3",
     "vue": "^3.3.4"

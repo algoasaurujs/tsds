@@ -15,7 +15,7 @@ class Node<T = any> {
  * @example
  * ```typescript
  * // @ts-ignore
-import { Stack } from '@samavati/tsds.ts';
+import { Stack } from '@algoasaurujs/tsds.ts';
  * // instantiate new Stack
  * const stack = new Stack();
  * ```

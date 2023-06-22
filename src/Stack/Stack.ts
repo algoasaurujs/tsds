@@ -13,7 +13,7 @@ import { StackNode } from './StackNode';
  * @typeParam T - Specifies the type of elements in the stack.
  * @example
  * ```typescript
- * import { Stack } from '@samavati/tsds';
+ * import { Stack } from '@algoasaurujs/tsds';
  * // instantiate new Stack
  * const stack = new Stack();
  * ```

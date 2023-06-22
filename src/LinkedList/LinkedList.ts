@@ -8,7 +8,7 @@ import { LinkedListNode } from './LinkedListNode';
  * @typeParam T - Specifies the type of elements in the LinkedList.
  * @example
  * ```typescript
- * import { LinkedList } from '@samavati/tsds';
+ * import { LinkedList } from '@algoasaurujs/tsds';
  * ```
  */
 export class LinkedList<T = any> extends AbstractCollection<T> {

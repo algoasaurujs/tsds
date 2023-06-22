@@ -13,7 +13,7 @@ type CompareFn<U> = (a: U, b: U) => number;
  * @typeParam T - Specifies the type of elements in the PriorityQueue.
  * @example
  * ```typescript
- * import { PriorityQueue } from  '@samavati/tsds';
+ * import { PriorityQueue } from  '@algoasaurujs/tsds';
  *
  * // instantiate new PriorityQueue
  *

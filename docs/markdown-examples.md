@@ -1,142 +1,115 @@
-<p align="center">
-  <img height="50" src="https://raw.githubusercontent.com/samavati/tsds/main/docs/src/assets/images/tsds-logo.png" />
-</p>
+[@algoasaurujs/tsds](../README.md) / [Exports](../modules.md) / BinaryHeap
 
-# <p align="center">TSDS</p>
-
-<p align="center">TypeScript Data Structures that you need!</p>
-
-![NPM](https://img.shields.io/npm/l/@samavati/tsds) ![npm (scoped)](https://img.shields.io/npm/v/@samavati/tsds) ![npm bundle size (scoped)](https://img.shields.io/bundlephobia/minzip/@samavati/tsds)
-
-[Doc Website](https://samavati.github.io/tsds/)
-
-# ****Introduction****
-
-A data structure is a way to store and organize data in order to facilitate access and modifications. No single data structure works well for all purposes, and so it is important to know the strengths and limitations of several of them.
-
-****Example:****
-
-You may have used `Map` before, The `Map` object holds key-value pairs and remembers the original insertion order of the keys. Any value (both objects and primitive values) may be used as either a key or a value.
-
-The `Map` is similar to `Object` But, The keys in `Map` are ordered in a simple, straightforward way: A `Map` object iterates entries, keys, and values in the order of entry insertion.
-
-The `Map` is builtin in javascript but, There are lots of other useful Data Structures that are not implemented in JavaScript or TypeScript. We attempt to implement them in this library.
-
-- [Introduction](#introduction)
-- [Installation](#installation)
-- [APIs](#apis)    
-    - [BinaryHeap](#binaryheap)
-        - [BinaryHeap.Properties](#binaryheapproperties)
-            - [BinaryHeap.size](#binaryheapsize)
-        - [BinaryHeap.Methods](#binaryheapmethods)
-            - [BinaryHeap.[iterator]](#binaryheap[iterator])
-            - [BinaryHeap.clear](#binaryheapclear)
-            - [BinaryHeap.isEmpty](#binaryheapisempty)
-            - [BinaryHeap.iterator](#binaryheapiterator)
-            - [BinaryHeap.peek](#binaryheappeek)
-            - [BinaryHeap.pop](#binaryheappop)
-            - [BinaryHeap.push](#binaryheappush)
-    - [LinkedList](#linkedlist)
-        - [LinkedList.Properties](#linkedlistproperties)
-            - [LinkedList.first](#linkedlistfirst)
-            - [LinkedList.last](#linkedlistlast)
-            - [LinkedList.length](#linkedlistlength)
-        - [LinkedList.Methods](#linkedlistmethods)
-            - [LinkedList.[iterator]](#linkedlist[iterator])
-            - [LinkedList.append](#linkedlistappend)
-            - [LinkedList.clear](#linkedlistclear)
-            - [LinkedList.delete](#linkedlistdelete)
-            - [LinkedList.deleteFirst](#linkedlistdeletefirst)
-            - [LinkedList.find](#linkedlistfind)
-            - [LinkedList.get](#linkedlistget)
-            - [LinkedList.includes](#linkedlistincludes)
-            - [LinkedList.insertAfter](#linkedlistinsertafter)
-            - [LinkedList.isEmpty](#linkedlistisempty)
-            - [LinkedList.iterator](#linkedlistiterator)
-            - [LinkedList.prepend](#linkedlistprepend)
-            - [LinkedList.toArray](#linkedlisttoarray)
-    - [LinkedListNode](#linkedlistnode)
-        - [LinkedListNode.Methods](#linkedlistnodemethods)
-            - [LinkedListNode.isEqual](#linkedlistnodeisequal)
-    - [PriorityQueue](#priorityqueue)
-        - [PriorityQueue.Properties](#priorityqueueproperties)
-            - [PriorityQueue.length](#priorityqueuelength)
-        - [PriorityQueue.Methods](#priorityqueuemethods)
-            - [PriorityQueue.[iterator]](#priorityqueue[iterator])
-            - [PriorityQueue.clear](#priorityqueueclear)
-            - [PriorityQueue.dequeue](#priorityqueuedequeue)
-            - [PriorityQueue.enqueue](#priorityqueueenqueue)
-            - [PriorityQueue.includes](#priorityqueueincludes)
-            - [PriorityQueue.isEmpty](#priorityqueueisempty)
-            - [PriorityQueue.iterator](#priorityqueueiterator)
-            - [PriorityQueue.peek](#priorityqueuepeek)
-            - [PriorityQueue.toArray](#priorityqueuetoarray)
-    - [Queue](#queue)
-        - [Queue.Properties](#queueproperties)
-            - [Queue.length](#queuelength)
-        - [Queue.Methods](#queuemethods)
-            - [Queue.[iterator]](#queue[iterator])
-            - [Queue.clear](#queueclear)
-            - [Queue.dequeue](#queuedequeue)
-            - [Queue.enqueue](#queueenqueue)
-            - [Queue.includes](#queueincludes)
-            - [Queue.isEmpty](#queueisempty)
-            - [Queue.iterator](#queueiterator)
-            - [Queue.peek](#queuepeek)
-            - [Queue.toArray](#queuetoarray)
-    - [Stack](#stack)
-        - [Stack.Properties](#stackproperties)
-            - [Stack.length](#stacklength)
-        - [Stack.Methods](#stackmethods)
-            - [Stack.[iterator]](#stack[iterator])
-            - [Stack.clear](#stackclear)
-            - [Stack.includes](#stackincludes)
-            - [Stack.isEmpty](#stackisempty)
-            - [Stack.iterator](#stackiterator)
-            - [Stack.peek](#stackpeek)
-            - [Stack.pop](#stackpop)
-            - [Stack.push](#stackpush)
-            - [Stack.toArray](#stacktoarray)
-- [Contributing](#contributing)
-- [Versioning](#versioning)
-- [Authors](#authors)
-- [License](#license)
-
-## ****Installation****
-
-To install and save in your `package.json`dependencies, run:
-
-```bash
-npm install @samavati/tsds
-```
-
-## ****BinaryHeap****
+# Class: BinaryHeap<T\>
 
 A Binary Heap is a specialized tree-based data structure which is essentially an almost complete tree that satisfies the Binary Heap property
 
-**Usage**
+**`Example`**
 
 ```typescript
-import { BinaryHeap } from  '@samavati/tsds';
+import { BinaryHeap } from  '@algoasaurujs/tsds';
 
 // instantiate new BinaryHeap
 
 const queue = new BinaryHeap();
 ```
 
-### **BinaryHeap.Properties**
+## Type parameters
 
-### **BinaryHeap.size**
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `T` | `any` | Specifies the type of elements in the BinaryHeap. |
 
-**Definition**
+## Table of contents
+
+### Constructors
+
+- [constructor](BinaryHeap.md#constructor)
+
+### Properties
+
+- [\_comparator](BinaryHeap.md#_comparator)
+- [\_nodes](BinaryHeap.md#_nodes)
+
+### Accessors
+
+- [size](BinaryHeap.md#size)
+
+### Methods
+
+- [[iterator]](BinaryHeap.md#[iterator])
+- [\_bubbleDown](BinaryHeap.md#_bubbledown)
+- [\_bubbleUp](BinaryHeap.md#_bubbleup)
+- [\_compareAt](BinaryHeap.md#_compareat)
+- [\_compareChildrenOf](BinaryHeap.md#_comparechildrenof)
+- [\_getLetChildIndex](BinaryHeap.md#_getletchildindex)
+- [\_getParentIndex](BinaryHeap.md#_getparentindex)
+- [\_getRightChildIndex](BinaryHeap.md#_getrightchildindex)
+- [\_hasLeftChild](BinaryHeap.md#_hasleftchild)
+- [\_hasRightChild](BinaryHeap.md#_hasrightchild)
+- [\_shouldSwap](BinaryHeap.md#_shouldswap)
+- [\_swap](BinaryHeap.md#_swap)
+- [clear](BinaryHeap.md#clear)
+- [isEmpty](BinaryHeap.md#isempty)
+- [iterator](BinaryHeap.md#iterator)
+- [peek](BinaryHeap.md#peek)
+- [pop](BinaryHeap.md#pop)
+- [push](BinaryHeap.md#push)
+
+## Constructors
+
+### constructor
+
+• **new BinaryHeap**<`T`\>(`initialValue?`, `comparator?`)
+
+Creates a BinaryHeap collection.
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | `any` |
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `initialValue?` | `T`[] | You can pass an array as initialValue to the constructor |
+| `comparator?` | `CompareFn`<`T`\> | Function used to determine the order of the elements. It is expected to return a negative value if the first argument is less than the second argument, zero if they're equal, and a positive value otherwise. if omitted, the default comparator would create a max binary heap. |
+
+#### Defined in
+
+[BinaryHeap/index.ts:33](https://github.com/algoasaurujs/tsds/blob/5b83950/src/BinaryHeap/index.ts#L33)
+
+## Properties
+
+### \_comparator
+
+• `Private` **\_comparator**: `CompareFn`<`T`\>
+
+#### Defined in
+
+[BinaryHeap/index.ts:24](https://github.com/algoasaurujs/tsds/blob/5b83950/src/BinaryHeap/index.ts#L24)
+
+___
+
+### \_nodes
+
+• `Private` **\_nodes**: `T`[] = `[]`
+
+#### Defined in
+
+[BinaryHeap/index.ts:20](https://github.com/algoasaurujs/tsds/blob/5b83950/src/BinaryHeap/index.ts#L20)
+
+## Accessors
+
+### size
+
+• `get` **size**(): `number`
 
 Gets the number of elements contained in the `BinaryHeap<T>`.
 
-**Property Value**
-
-`number`
-
-**Example**
+**`Example`**
 
 ```typescript
 const heap = new BinaryHeap<number>();
@@ -148,20 +121,28 @@ heap.push(3);
 heap.size // => 3
 ```
 
-**Remarks**
+**`Remarks`**
 
 Retrieving the value of this property is an O(1) operation.
 
-### **BinaryHeap.Methods**
+#### Returns
 
-### **BinaryHeap.[iterator]**
+`number`
 
-**Definition**
+#### Defined in
+
+[BinaryHeap/index.ts:81](https://github.com/algoasaurujs/tsds/blob/5b83950/src/BinaryHeap/index.ts#L81)
+
+## Methods
+
+### [iterator]
+
+▸ **[iterator]**(): `Iterator`<`T`, `any`, `undefined`\>
 
 Returns an iterator over the elements contained in this collection.
 With iterator protocols you are allowed it to be used with the `for...of`
 
-**Example**
+**`Example`**
 
 ```typescript
 for (const item of collection) {
@@ -169,129 +150,268 @@ for (const item of collection) {
 }
 ```
 
-### **BinaryHeap._bubbleDown**
+#### Returns
 
-**Definition**
+`Iterator`<`T`, `any`, `undefined`\>
+
+#### Defined in
+
+[BinaryHeap/index.ts:63](https://github.com/algoasaurujs/tsds/blob/5b83950/src/BinaryHeap/index.ts#L63)
+
+___
+
+### \_bubbleDown
+
+▸ `Private` **_bubbleDown**(`startIndex`): `void`
 
 Recursively bubbles down a node if it's in a wrong position
 
-**Parameters**
+#### Parameters
 
-**startIndex`number`**: 
+| Name | Type |
+| :------ | :------ |
+| `startIndex` | `number` |
 
-### **BinaryHeap._bubbleUp**
+#### Returns
 
-**Definition**
+`void`
+
+#### Defined in
+
+[BinaryHeap/index.ts:210](https://github.com/algoasaurujs/tsds/blob/5b83950/src/BinaryHeap/index.ts#L210)
+
+___
+
+### \_bubbleUp
+
+▸ `Private` **_bubbleUp**(`startIndex`): `void`
 
 Recursively bubbles up a node if it's in a wrong position
 
-**Parameters**
+#### Parameters
 
-**startIndex`number`**: 
+| Name | Type |
+| :------ | :------ |
+| `startIndex` | `number` |
 
-### **BinaryHeap._compareAt**
+#### Returns
 
-**Definition**
+`void`
+
+#### Defined in
+
+[BinaryHeap/index.ts:195](https://github.com/algoasaurujs/tsds/blob/5b83950/src/BinaryHeap/index.ts#L195)
+
+___
+
+### \_compareAt
+
+▸ `Private` **_compareAt**(`i`, `j`): `number`
 
 compares two element at index i and j with provided comparator
 
-**Parameters**
+#### Parameters
 
-**i`number`**: 
+| Name | Type |
+| :------ | :------ |
+| `i` | `number` |
+| `j` | `number` |
 
-**j`number`**: 
+#### Returns
 
-### **BinaryHeap._compareChildrenOf**
+`number`
 
-**Definition**
+#### Defined in
+
+[BinaryHeap/index.ts:115](https://github.com/algoasaurujs/tsds/blob/5b83950/src/BinaryHeap/index.ts#L115)
+
+___
+
+### \_compareChildrenOf
+
+▸ `Private` **_compareChildrenOf**(`parentIndex`): `number`
 
 Compares children of a parent
 
-**Parameters**
+#### Parameters
 
-**parentIndex`number`**: 
+| Name | Type |
+| :------ | :------ |
+| `parentIndex` | `number` |
 
-### **BinaryHeap._getLetChildIndex**
+#### Returns
 
-**Definition**
+`number`
+
+#### Defined in
+
+[BinaryHeap/index.ts:168](https://github.com/algoasaurujs/tsds/blob/5b83950/src/BinaryHeap/index.ts#L168)
+
+___
+
+### \_getLetChildIndex
+
+▸ `Private` **_getLetChildIndex**(`index`): `number`
 
 Retrieves the lest child index of the provided parent index
 
-**Parameters**
+#### Parameters
 
-**index`number`**: The index of the parent.
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `index` | `number` | The index of the parent. |
 
-### **BinaryHeap._getParentIndex**
+#### Returns
 
-**Definition**
+`number`
+
+#### Defined in
+
+[BinaryHeap/index.ts:133](https://github.com/algoasaurujs/tsds/blob/5b83950/src/BinaryHeap/index.ts#L133)
+
+___
+
+### \_getParentIndex
+
+▸ `Private` **_getParentIndex**(`index`): `number`
 
 Retrieves the parent index of the provided child index
 
-**Parameters**
+#### Parameters
 
-**index`number`**: The index of the children.
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `index` | `number` | The index of the children. |
 
-### **BinaryHeap._getRightChildIndex**
+#### Returns
 
-**Definition**
+`number`
+
+#### Defined in
+
+[BinaryHeap/index.ts:124](https://github.com/algoasaurujs/tsds/blob/5b83950/src/BinaryHeap/index.ts#L124)
+
+___
+
+### \_getRightChildIndex
+
+▸ `Private` **_getRightChildIndex**(`index`): `number`
 
 Retrieves the right child index of the provided parent index
 
-**Parameters**
+#### Parameters
 
-**index`number`**: The index of the parent.
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `index` | `number` | The index of the parent. |
 
-### **BinaryHeap._hasLeftChild**
+#### Returns
 
-**Definition**
+`number`
+
+#### Defined in
+
+[BinaryHeap/index.ts:142](https://github.com/algoasaurujs/tsds/blob/5b83950/src/BinaryHeap/index.ts#L142)
+
+___
+
+### \_hasLeftChild
+
+▸ `Private` **_hasLeftChild**(`parentIndex`): `boolean`
 
 Checks if a parent has a left child
 
-**Parameters**
+#### Parameters
 
-**parentIndex`number`**: 
+| Name | Type |
+| :------ | :------ |
+| `parentIndex` | `number` |
 
-### **BinaryHeap._hasRightChild**
+#### Returns
 
-**Definition**
+`boolean`
+
+#### Defined in
+
+[BinaryHeap/index.ts:150](https://github.com/algoasaurujs/tsds/blob/5b83950/src/BinaryHeap/index.ts#L150)
+
+___
+
+### \_hasRightChild
+
+▸ `Private` **_hasRightChild**(`parentIndex`): `boolean`
 
 Checks if a parent has a right child
 
-**Parameters**
+#### Parameters
 
-**parentIndex`number`**: 
+| Name | Type |
+| :------ | :------ |
+| `parentIndex` | `number` |
 
-### **BinaryHeap._shouldSwap**
+#### Returns
 
-**Definition**
+`boolean`
+
+#### Defined in
+
+[BinaryHeap/index.ts:159](https://github.com/algoasaurujs/tsds/blob/5b83950/src/BinaryHeap/index.ts#L159)
+
+___
+
+### \_shouldSwap
+
+▸ `Private` **_shouldSwap**(`parentIndex`, `childIndex`): `boolean`
 
 Checks if parent and child should be swapped
 
-**Parameters**
+#### Parameters
 
-**parentIndex`number`**: 
+| Name | Type |
+| :------ | :------ |
+| `parentIndex` | `number` |
+| `childIndex` | `number` |
 
-**childIndex`number`**: 
+#### Returns
 
-### **BinaryHeap._swap**
+`boolean`
 
-**Definition**
+#### Defined in
+
+[BinaryHeap/index.ts:99](https://github.com/algoasaurujs/tsds/blob/5b83950/src/BinaryHeap/index.ts#L99)
+
+___
+
+### \_swap
+
+▸ `Private` **_swap**(`i`, `j`): `void`
 
 Swaps two nodes in the BinaryHeap
 
-**Parameters**
+#### Parameters
 
-**i`number`**: 
+| Name | Type |
+| :------ | :------ |
+| `i` | `number` |
+| `j` | `number` |
 
-**j`number`**: 
+#### Returns
 
-### **BinaryHeap.clear**
+`void`
 
-**Definition**
+#### Defined in
+
+[BinaryHeap/index.ts:89](https://github.com/algoasaurujs/tsds/blob/5b83950/src/BinaryHeap/index.ts#L89)
+
+___
+
+### clear
+
+▸ **clear**(): `void`
 
 Clears `BinaryHeap<T>`.
 
-**Example**
+**`Example`**
 
 ```typescript
 const heap = new BinaryHeap<number>([10, 15, 20]);
@@ -300,17 +420,27 @@ heap.clear();
 heap.isEmpty // => true
 ```
 
-**Remarks**
+**`Remarks`**
 
 This method is an O(1) operation.
 
-### **BinaryHeap.isEmpty**
+#### Returns
 
-**Definition**
+`void`
+
+#### Defined in
+
+[BinaryHeap/index.ts:246](https://github.com/algoasaurujs/tsds/blob/5b83950/src/BinaryHeap/index.ts#L246)
+
+___
+
+### isEmpty
+
+▸ **isEmpty**(): `boolean`
 
 Checks if the `BinaryHeap<T>` is empty
 
-**Example**
+**`Example`**
 
 ```typescript
 const heap = new BinaryHeap<number>();
@@ -318,19 +448,41 @@ const heap = new BinaryHeap<number>();
 heap.isEmpty // => true
 ```
 
-**Remarks**
+**`Remarks`**
 
 This method is an O(1) operation.
 
-### **BinaryHeap.iterator**
+#### Returns
 
-### **BinaryHeap.peek**
+`boolean`
 
-**Definition**
+#### Defined in
+
+[BinaryHeap/index.ts:231](https://github.com/algoasaurujs/tsds/blob/5b83950/src/BinaryHeap/index.ts#L231)
+
+___
+
+### iterator
+
+▸ **iterator**(): `IterableIterator`<`T`\>
+
+#### Returns
+
+`IterableIterator`<`T`\>
+
+#### Defined in
+
+[BinaryHeap/index.ts:44](https://github.com/algoasaurujs/tsds/blob/5b83950/src/BinaryHeap/index.ts#L44)
+
+___
+
+### peek
+
+▸ **peek**(): `T`
 
 Returns the root node in the BinaryHeap
 
-**Example**
+**`Example`**
 
 ```typescript
 const heap = new BinaryHeap<number>([10, 15, 20]);
@@ -338,17 +490,31 @@ const heap = new BinaryHeap<number>([10, 15, 20]);
 heap.peek() // => 20
 ```
 
-**Remarks**
+**`Throws`**
+
+when there is no item inside the collection.
+
+**`Remarks`**
 
 This method is an O(1) operation.
 
-### **BinaryHeap.pop**
+#### Returns
 
-**Definition**
+`T`
+
+#### Defined in
+
+[BinaryHeap/index.ts:261](https://github.com/algoasaurujs/tsds/blob/5b83950/src/BinaryHeap/index.ts#L261)
+
+___
+
+### pop
+
+▸ **pop**(): `T`
 
 Removes and returns the root node in the BinaryHeap
 
-**Example**
+**`Example`**
 
 ```typescript
 const heap = new BinaryHeap<number>([10, 15, 20]);
@@ -356,21 +522,31 @@ const heap = new BinaryHeap<number>([10, 15, 20]);
 heap.pop() // => 20
 ```
 
-**Remarks**
+**`Throws`**
+
+when there is no item inside the collection.
+
+**`Remarks`**
 
 This method is an O(log n) operation.
 
-### **BinaryHeap.push**
+#### Returns
 
-**Definition**
+`T`
+
+#### Defined in
+
+[BinaryHeap/index.ts:297](https://github.com/algoasaurujs/tsds/blob/5b83950/src/BinaryHeap/index.ts#L297)
+
+___
+
+### push
+
+▸ **push**(`value`): `void`
 
 Inserts a new value into the BinaryHeap
 
-**Parameters**
-
-**value`T`**: The value that you want to insert into the BinaryHeap
-
-**Example**
+**`Example`**
 
 ```typescript
 const heap = new BinaryHeap<number>([10, 15, 20]);
@@ -379,7 +555,20 @@ heap.push(40)
 heap.peek() => // 40
 ```
 
-**Remarks**
+**`Remarks`**
 
 This method is an O(log n) operation.
 
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value` | `T` | The value that you want to insert into the BinaryHeap |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[BinaryHeap/index.ts:281](https://github.com/algoasaurujs/tsds/blob/5b83950/src/BinaryHeap/index.ts#L281)

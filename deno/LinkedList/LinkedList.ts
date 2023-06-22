@@ -9,7 +9,7 @@ import { LinkedListNode } from './LinkedListNode.ts';
  * @example
  * ```typescript
  * // @ts-ignore
-import { LinkedList } from '@samavati/tsds.ts';
+import { LinkedList } from '@algoasaurujs/tsds.ts';
  * ```
  */
 export class LinkedList<T = any> {
