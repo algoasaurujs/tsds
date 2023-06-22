@@ -10,3 +10,5 @@ yarn.lock
 TODO
 out
 website
+/docs/.vitepress/cache
+/docs/.vitepress/dist
