@@ -1,0 +1,52 @@
+---
+outline: deep
+---
+
+# ****Stack&lt;T&gt;****
+
+Represents a variable size last-in-first-out (LIFO) collection of instances of the same specified type.
+
+A stack is an abstract data type that serves as a collection of elements, with two main principal operations:
+- Push, which adds an element to the collection, and
+- Pop, which removes the most recently added element that was not yet removed.
+
+The order in which elements come off a stack gives rise to its alternative name, LIFO (last in, first out). Additionally, a peek operation may give access to the top without modifying the stack.
+
+**Usage**
+
+```typescript
+import { Stack } from '@algoasaurujs/tsds';
+// instantiate new Stack
+const stack = new Stack();
+```
+
+## **Properties**
+
+| Name   | Description                                              |
+| ------ | -------------------------------------------------------- |
+| length | Gets the number of elements contained in the `Stack<T>`. |
+
+## **Methods**
+
+| Name       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [iterator] | Returns an iterator over the elements contained in this collection.
+With iterator protocols you are allowed it to be used with the `for...of`                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| clear      | Removes all objects from the `Stack<T>`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| includes   | This implementation iterates over the elements in the collection,
+checking each element in turn for equality with the specified element.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| isEmpty    | This implementation returns `length === 0`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| iterator   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| peek       | Returns the object at the top of the `Stack<T>` without removing it.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| pop        | Removes and returns the object at the top of the `Stack<T>`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| push       | Inserts an object at the top of the `Stack<T>`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| toArray    | This implementation returns an array containing all the elements
+returned by this collection's iterator, in the same order, stored in
+consecutive elements of the array, starting with index `0`.
+The length of the returned array is equal to the number of elements
+returned by the iterator, even if the size of this collection changes
+during iteration, as might happen if the collection permits
+concurrent modification during iteration. The `length` property is
+called only as an optimization hint; the correct result is returned
+even if the iterator returns a different number of elements. |
+

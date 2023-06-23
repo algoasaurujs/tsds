@@ -9,7 +9,6 @@ const renderSignatureReflection = (signature: SignatureReflection): string => {
 
     const summary = signature.comment?.summary;
     if (summary) {
-        result += new Renderer('Definition').b2().toString() + EOL + EOL;
         result += Renderer.renderCommentPart(summary).toString() + EOL + EOL;
     }
 
@@ -50,7 +49,7 @@ export const renderMethodAPI = (method: DeclarationReflection): string => {
         return '';
     }
 
-    result += new Renderer(method.getFullName()).b2().h3().toString() + EOL + EOL;
+    result += new Renderer(method.name).b2().h3().toString() + EOL + EOL;
 
     if (signatures.length > 1) {
         result += new Renderer('Overloads').b2().toString() + EOL + EOL;

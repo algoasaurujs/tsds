@@ -8,11 +8,8 @@ hero:
   tagline: TypeScript Data Structures that you need!
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
-    - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Get Started
+      link: /data-structures/LinkedList/LinkedList
 
 features:
   - title: Feature A
