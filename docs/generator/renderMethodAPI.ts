@@ -66,14 +66,14 @@ export const renderMethodAPI = (method: DeclarationReflection, outDir: string) =
             markdownTable([
                 ['Variant', 'Definition'],
                 ...signatures.map(signature =>
-                    [Renderer.renderMethodSignature(signature).anchorLink(
-                        hashCode(Renderer.renderMethodSignature(signature).toString()).toString()
+                    [MethodRenderer.renderSignature(signature).anchorLink(
+                        hashCode(MethodRenderer.renderSignature(signature).toString()).toString()
                     ).toString(),
                     Renderer.renderCommentPart(signature.comment?.summary).toString()]
                 )]) + EOL + EOL;
 
         for (const signature of signatures) {
-            const renderedMethodSignature = Renderer.renderMethodSignature(signature);
+            const renderedMethodSignature = MethodRenderer.renderSignature(signature);
             result += renderedMethodSignature.anchor(hashCode(renderedMethodSignature.toString()).toString()).h4().toString() + EOL + EOL;
             result += renderSignatureReflection(signature);
         }

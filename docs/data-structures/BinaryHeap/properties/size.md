@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# ****size****
+# ****BinaryHeap&lt;T&gt;.size****
 
 Gets the number of elements contained in the `BinaryHeap<T>`.
 

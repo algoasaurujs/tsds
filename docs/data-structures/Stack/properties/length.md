@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# ****length****
+# ****Stack&lt;T&gt;.length****
 
 Gets the number of elements contained in the `Stack<T>`.
 

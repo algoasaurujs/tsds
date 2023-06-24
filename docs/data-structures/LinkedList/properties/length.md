@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# ****length****
+# ****LinkedList&lt;T&gt;.length****
 
 Gets the number of nodes actually contained in the `LinkedList<T>`.
 

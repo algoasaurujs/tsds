@@ -1,29 +1,12 @@
 import {
   DeclarationReflection,
   ReflectionKind,
-  SignatureReflection,
 } from 'typedoc';
-import {encode} from 'html-entities';
 import { Renderer } from './Renderer';
 import { ClassRenderer } from './ClassRenderer';
 
-export class MethodRenderer {
+export class PropertyRenderer {
   constructor(private input: DeclarationReflection) {}
-
-  static renderSignature(signature: SignatureReflection) {
-    let result = '';
-    const renderedParam = signature.parameters
-      ?.map(p => [p.name, p.type?.toString()].join(': '))
-      .join(', ');
-    result +=
-      signature.name +
-      '(' +
-      renderedParam +
-      ')' +
-      ': ' +
-      signature.type?.toString();
-    return new Renderer(encode(result, {level:'all', mode:'extensive'}));
-  }
 
   getFullName() {
     const parent = this.input.parent;

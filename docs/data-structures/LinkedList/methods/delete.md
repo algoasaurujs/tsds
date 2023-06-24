@@ -6,12 +6,12 @@ outline: deep
 
 ## ****Overloads****
 
-| Variant                                             | Definition                                                                    |
-| --------------------------------------------------- | ----------------------------------------------------------------------------- |
-| [delete(node: LinkedListNode<T>): void](1425238619) | Removes the first occurrence of a node from the `LinkedList<T>`.              |
-| [delete(value: T): boolean](-1089209997)            | Removes the first occurrence of the specified value from the `LinkedList<T>`. |
+| Variant                                                                      | Definition                                                                    |
+| ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| [delete&lpar;node&colon; LinkedListNode&lt;T&gt;&rpar;&colon; void](6773571) | Removes the first occurrence of a node from the `LinkedList<T>`.              |
+| [delete&lpar;value&colon; T&rpar;&colon; boolean](1427141428)                | Removes the first occurrence of the specified value from the `LinkedList<T>`. |
 
-#### <a name="1425238619"></a>delete(node: LinkedListNode<T>): void
+#### <a name="6773571"></a>delete&lpar;node&colon; LinkedListNode&lt;T&gt;&rpar;&colon; void
 
 Removes the first occurrence of a node from the `LinkedList<T>`.
 
@@ -34,7 +34,7 @@ list.last // => LinkListNode(3)
 
 This method is an **O(n)** operation.
 
-#### <a name="-1089209997"></a>delete(value: T): boolean
+#### <a name="1427141428"></a>delete&lpar;value&colon; T&rpar;&colon; boolean
 
 Removes the first occurrence of the specified value from the `LinkedList<T>`.
 

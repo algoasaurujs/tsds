@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# ****last****
+# ****LinkedList&lt;T&gt;.last****
 
 Gets the last node of the `LinkedList<T>`.
 

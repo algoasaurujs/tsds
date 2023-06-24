@@ -6,12 +6,12 @@ outline: deep
 
 ## ****Overloads****
 
-| Variant                                                                              | Definition                                                            |
-| ------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
-| [insertAfter(node: LinkedListNode<T>, newNode: T): void](1906757379)                 | Adds a new _value_ after an existing _node_ in the `LinkedList<T>`.   |
-| [insertAfter(node: LinkedListNode<T>, newNode: LinkedListNode<T>): void](1865363786) | Adds a new _node_ or after an existing _node_ in the `LinkedList<T>`. |
+| Variant                                                                                                                            | Definition                                                            |
+| ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| [insertAfter&lpar;node&colon; LinkedListNode&lt;T&gt;&comma; newNode&colon; T&rpar;&colon; void](-1337917229)                      | Adds a new _value_ after an existing _node_ in the `LinkedList<T>`.   |
+| [insertAfter&lpar;node&colon; LinkedListNode&lt;T&gt;&comma; newNode&colon; LinkedListNode&lt;T&gt;&rpar;&colon; void](-256611467) | Adds a new _node_ or after an existing _node_ in the `LinkedList<T>`. |
 
-#### <a name="1906757379"></a>insertAfter(node: LinkedListNode<T>, newNode: T): void
+#### <a name="-1337917229"></a>insertAfter&lpar;node&colon; LinkedListNode&lt;T&gt;&comma; newNode&colon; T&rpar;&colon; void
 
 Adds a new _value_ after an existing _node_ in the `LinkedList<T>`.
 
@@ -21,7 +21,7 @@ Adds a new _value_ after an existing _node_ in the `LinkedList<T>`.
 
 **newNode`T`**: The new `value` to add to the `LinkedList<T>`.
 
-#### <a name="1865363786"></a>insertAfter(node: LinkedListNode<T>, newNode: LinkedListNode<T>): void
+#### <a name="-256611467"></a>insertAfter&lpar;node&colon; LinkedListNode&lt;T&gt;&comma; newNode&colon; LinkedListNode&lt;T&gt;&rpar;&colon; void
 
 Adds a new _node_ or after an existing _node_ in the `LinkedList<T>`.
 

@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# ****length****
+# ****PriorityQueue&lt;T&gt;.length****
 
 Gets the number of elements contained in the `PriorityQueue<T>`.
 

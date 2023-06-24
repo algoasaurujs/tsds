@@ -1,5 +1,6 @@
 import { DeclarationReflection } from 'typedoc';
 import { Renderer } from './Renderer';
+import { encode } from 'html-entities';
 
 export class ClassRenderer {
   constructor(private input: DeclarationReflection) {}
@@ -9,9 +10,9 @@ export class ClassRenderer {
   }
 
   private _renderTypeParams() {
-    return (
-      '&lt;' + this.input.typeParameters?.map(t => t.name).join(', ') + '&gt;'
-    );
+    return encode(
+      '<' + this.input.typeParameters?.map(t => t.name).join(', ') + '>'
+    ,{mode:'extensive'});
   }
 
   getFullName() {

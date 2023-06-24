@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# ****length****
+# ****Queue&lt;T&gt;.length****
 
 Gets the number of elements contained in the `Queue<T>`.
 

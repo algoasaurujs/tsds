@@ -14,6 +14,7 @@ import { Renderer } from './shared/Renderer';
 import { writeFileSync } from './shared/writeFileSync';
 import { createMethodLink, createPropertyLink, createSidebarItem } from './createSidebarItem';
 import { ClassRenderer } from './shared/ClassRenderer';
+import { MethodRenderer } from './shared/MethodRenderer';
 
 const renderClassAPI = (classObj: DeclarationReflection, outDir: string) => {
   const SIDEBAR_PROPERTIES = createSidebarItem('Properties');
@@ -107,7 +108,7 @@ const renderClassAPI = (classObj: DeclarationReflection, outDir: string) => {
         ...(methods
           .map(method =>
             method.signatures?.map(signature => [
-              new Renderer(signature.name).anchorLink(createMethodLink(classObj, method)).toString(),
+              MethodRenderer.renderSignature(signature).anchorLink(createMethodLink(classObj, method)).toString(),
               Renderer.renderCommentPart(signature.comment?.summary).toString().replace(/\n/g, " "),
             ])
           )

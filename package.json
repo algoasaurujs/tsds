@@ -76,6 +76,7 @@
     "fs-extra": "^10.1.0",
     "gh-pages": "^3.2.3",
     "gray-matter": "^4.0.3",
+    "html-entities": "^2.3.6",
     "husky": "^7.0.4",
     "markdown-table": "^2.0.0",
     "size-limit": "^7.0.8",

@@ -4,6 +4,7 @@ import { DeclarationReflection } from 'typedoc';
 import { Renderer } from './shared/Renderer';
 import { writeFileSync } from './shared/writeFileSync';
 import matter from 'gray-matter';
+import { PropertyRenderer } from './shared/PropertyRenderer';
 
 export const renderPropertyAPI = (
   property: DeclarationReflection,
@@ -16,7 +17,8 @@ export const renderPropertyAPI = (
   result += frontmatter;
 
   result +=
-    new Renderer(property.name)
+    new PropertyRenderer(property)
+      .getFullName()
       .b1()
       .h1()
       .toString() +

@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# ****first****
+# ****LinkedList&lt;T&gt;.first****
 
 Gets the first node of the `LinkedList<T>`.
 
