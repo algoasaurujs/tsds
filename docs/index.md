@@ -12,6 +12,24 @@ hero:
       link: /data-structures/LinkedList/LinkedList
 
 features:
+  - icon:
+      dark: /linkedlist-white.png
+      light: /linkedlist-dark.png
+    title: LinkedList
+    details: A collection of nodes which together represent a sequence.
+    link: /data-structures/LinkedList/LinkedList
+  - icon:
+      dark: /queue.png
+      light: /queue.png
+    title: Queue
+    details: first-in-first-out (FIFO)
+    link: /data-structures/Queue/Queue
+  - icon:
+      dark: /stack.png
+      light: /stack.png
+    title: Stack
+    details: last-in-first-out (LIFO)
+    link: /data-structures/Stack/Stack
   - title: Feature A
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
   - title: Feature B
