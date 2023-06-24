@@ -1,3 +1,5 @@
+import { DeclarationReflection } from 'typedoc';
+
 type SidebarItem = {
   text: string;
   collapsed: boolean;
@@ -9,4 +11,18 @@ export const createSidebarItem = (text: string): SidebarItem => {
     collapsed: true,
     items: [],
   };
+};
+
+export const createMethodLink = (
+  parent: DeclarationReflection,
+  method: DeclarationReflection
+) => {
+  return `/data-structures/${parent.name}/methods/${method.name}`;
+};
+
+export const createPropertyLink = (
+  parent: DeclarationReflection,
+  method: DeclarationReflection
+) => {
+  return `/data-structures/${parent.name}/properties/${method.name}`;
 };

@@ -12,7 +12,7 @@ import { renderPropertyAPI } from './renderPropertyAPI';
 import { comparator } from './shared/comparator';
 import { Renderer } from './shared/Renderer';
 import { writeFileSync } from './shared/writeFileSync';
-import { createSidebarItem } from './createSidebarItem';
+import { createMethodLink, createPropertyLink, createSidebarItem } from './createSidebarItem';
 import { ClassRenderer } from './shared/ClassRenderer';
 
 const renderClassAPI = (classObj: DeclarationReflection, outDir: string) => {
@@ -63,7 +63,7 @@ const renderClassAPI = (classObj: DeclarationReflection, outDir: string) => {
     for (const property of properties) {
       SIDEBAR_PROPERTIES.items.push({
         text: property.name,
-        link: `/data-structures/${classObj.name}/properties/${property.name}`,
+        link: createPropertyLink(classObj, property),
       });
       renderPropertyAPI(property, baseOutDir);
     }
@@ -71,7 +71,7 @@ const renderClassAPI = (classObj: DeclarationReflection, outDir: string) => {
       markdownTable([
         ['Name', 'Description'],
         ...properties.map(property => [
-          new Renderer(property.name).toString(),
+          new Renderer(property.name).anchorLink(createPropertyLink(classObj, property)).toString(),
           Renderer.renderCommentPart(
             property?.getSignature?.comment?.summary
           ).toString(),
@@ -96,18 +96,19 @@ const renderClassAPI = (classObj: DeclarationReflection, outDir: string) => {
     for (const method of methods) {
       SIDEBAR_METHODS.items.push({
         text: method.name,
-        link: `/data-structures/${classObj.name}/methods/${method.name}`,
+        link: createMethodLink(classObj, method),
       });
       renderMethodAPI(method, baseOutDir);
     }
+
     result +=
       markdownTable([
         ['Name', 'Description'],
         ...(methods
           .map(method =>
             method.signatures?.map(signature => [
-              new Renderer(signature.name).toString(),
-              Renderer.renderCommentPart(signature.comment?.summary).toString(),
+              new Renderer(signature.name).anchorLink(createMethodLink(classObj, method)).toString(),
+              Renderer.renderCommentPart(signature.comment?.summary).toString().replace(/\n/g, " "),
             ])
           )
           .flat() as any),

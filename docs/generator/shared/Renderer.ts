@@ -59,7 +59,7 @@ export class Renderer {
     }
 
     anchorLink(name: string) {
-        return new Renderer(`[${this.text}](#${name})`)
+        return new Renderer(`[${this.text}](${name})`)
     }
 
     code() {

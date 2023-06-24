@@ -6,7 +6,7 @@ outline: deep
 
 ## **Methods**
 
-| Name    | Description |
-| ------- | ----------- |
-| isEqual |             |
+| Name                                                       | Description |
+| ---------------------------------------------------------- | ----------- |
+| [isEqual](/data-structures/LinkedListNode/methods/isEqual) |             |
 

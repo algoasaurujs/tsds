@@ -25,8 +25,8 @@
     "typedoc": "typedoc",
     "make:readme": "ts-node scripts/makeReadme/index.ts",
     "make:deno": "ts-node scripts/makeDeno/index.ts",
-    "docs:dev": "ts-node docs/generator/index.ts && vitepress dev docs",
-    "docs:build": "vitepress build docs",
+    "docs:dev": "concurrently --kill-others \"ts-node docs/generator/index.ts --watch=true\" \"vitepress dev docs\"",
+    "docs:build": "ts-node docs/generator/index.ts && vitepress build docs",
     "docs:preview": "vitepress preview docs"
   },
   "husky": {
@@ -72,6 +72,7 @@
     "@size-limit/preset-small-lib": "^7.0.8",
     "@types/fs-extra": "^9.0.13",
     "@types/markdown-table": "^2.0.0",
+    "concurrently": "^8.2.0",
     "fs-extra": "^10.1.0",
     "gh-pages": "^3.2.3",
     "gray-matter": "^4.0.3",

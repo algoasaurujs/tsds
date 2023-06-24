@@ -6,10 +6,10 @@ outline: deep
 
 ## ****Overloads****
 
-| Variant                                                                               | Definition                                                            |
-| ------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| [insertAfter(node: LinkedListNode<T>, newNode: T): void](#1906757379)                 | Adds a new _value_ after an existing _node_ in the `LinkedList<T>`.   |
-| [insertAfter(node: LinkedListNode<T>, newNode: LinkedListNode<T>): void](#1865363786) | Adds a new _node_ or after an existing _node_ in the `LinkedList<T>`. |
+| Variant                                                                              | Definition                                                            |
+| ------------------------------------------------------------------------------------ | --------------------------------------------------------------------- |
+| [insertAfter(node: LinkedListNode<T>, newNode: T): void](1906757379)                 | Adds a new _value_ after an existing _node_ in the `LinkedList<T>`.   |
+| [insertAfter(node: LinkedListNode<T>, newNode: LinkedListNode<T>): void](1865363786) | Adds a new _node_ or after an existing _node_ in the `LinkedList<T>`. |
 
 #### <a name="1906757379"></a>insertAfter(node: LinkedListNode<T>, newNode: T): void
 
