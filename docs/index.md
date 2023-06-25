@@ -19,6 +19,18 @@ features:
     details: A collection of nodes which together represent a sequence.
     link: /data-structures/LinkedList/LinkedList
   - icon:
+      dark: /binary-heap-white.png
+      light: /binary-heap-dark.png
+    title: BinaryHeap
+    details: Binary tree-based priority queue implementation.
+    link: /data-structures/BinaryHeap/BinaryHeap
+  - icon:
+      dark: /queue.png
+      light: /queue.png
+    title: PriorityQueue
+    details: Ordered collection with priority-based access.
+    link: /data-structures/PriorityQueue/PriorityQueue
+  - icon:
       dark: /queue.png
       light: /queue.png
     title: Queue
@@ -30,10 +42,4 @@ features:
     title: Stack
     details: last-in-first-out (LIFO)
     link: /data-structures/Stack/Stack
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
