@@ -4,7 +4,6 @@ import matter from 'gray-matter';
 import { DeclarationReflection, SignatureReflection } from "typedoc";
 import { Renderer } from './shared/Renderer';
 import markdownTable from 'markdown-table';
-import { hashCode } from './shared/utlis';
 import { writeFileSync } from './shared/writeFileSync';
 import { MethodRenderer } from './shared/MethodRenderer';
 
@@ -66,15 +65,13 @@ export const renderMethodAPI = (method: DeclarationReflection, outDir: string) =
             markdownTable([
                 ['Variant', 'Definition'],
                 ...signatures.map(signature =>
-                    [MethodRenderer.renderSignature(signature).anchorLink(
-                        hashCode(MethodRenderer.renderSignature(signature).toString()).toString()
-                    ).toString(),
+                    [MethodRenderer.renderSignature(signature).toString(),
                     Renderer.renderCommentPart(signature.comment?.summary).toString()]
                 )]) + EOL + EOL;
 
         for (const signature of signatures) {
             const renderedMethodSignature = MethodRenderer.renderSignature(signature);
-            result += renderedMethodSignature.anchor(hashCode(renderedMethodSignature.toString()).toString()).h4().toString() + EOL + EOL;
+            result += renderedMethodSignature.h4().toString() + EOL + EOL;
             result += renderSignatureReflection(signature);
         }
     } else {
