@@ -6,7 +6,7 @@
 
 <p align="center">TypeScript Data Structures that you need!</p>
 
-![NPM](https://img.shields.io/npm/l/@algoasaurujs/tsds) ![npm (scoped)](https://img.shields.io/npm/v/@algoasaurujs/tsds) ![npm bundle size (scoped)](https://img.shields.io/bundlephobia/minzip/@algoasaurujs/tsds)
+![npm (scoped)](https://img.shields.io/npm/v/@algoasaurujs/tsds) ![npm bundle size (scoped)](https://img.shields.io/bundlephobia/minzip/@algoasaurujs/tsds)
 
 [Doc Website](https://algoasaurujs.github.io/tsds/)
 
