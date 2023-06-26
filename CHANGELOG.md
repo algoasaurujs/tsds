@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.0](https://github.com/algoasaurujs/tsds/compare/v1.8.0...v1.9.0) (2023-06-26)
+
+
+### Features
+
+* **BinaryHeap:** :sparkles: iterator function added to make iteration possible ([000f802](https://github.com/algoasaurujs/tsds/commit/000f802ce02e0d81992c223c588c5a9a559d293a))
+* **Docs:** new docs page added ([5b83950](https://github.com/algoasaurujs/tsds/commit/5b83950988690d90650aed560c9078f62f869725))
+* **PriorityQueue:** :sparkles: PriorityQueue added ([765eb1e](https://github.com/algoasaurujs/tsds/commit/765eb1e53bf5e338072ace16046a5240faf0374e))
+
+
+### Bug Fixes
+
+* **linter:** :bug: linter error fixed ([13978ba](https://github.com/algoasaurujs/tsds/commit/13978baed5cd1ac4687ed72b66ac6512b1941e6e))
+
 ## [1.8.0](https://github.com/algoasaurujs/tsds/compare/v1.7.2...v1.8.0) (2022-12-08)
 
 
