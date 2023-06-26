@@ -13,7 +13,7 @@ import { StackNode } from './StackNode';
  * @typeParam T - Specifies the type of elements in the stack.
  * @example
  * ```typescript
- * import { Stack } from '@samavati/tsds';
+ * import { Stack } from '@algoasaurujs/tsds';
  * // instantiate new Stack
  * const stack = new Stack();
  * ```
@@ -63,7 +63,7 @@ export class Stack<T = any> extends AbstractCollection<T> {
   }
 
   /**
-   * Removes all objects from the Stack<T>.
+   * Removes all objects from the `Stack<T>`.
    * @example
    * ```typescript
    * const stack = new Stack<number>();
@@ -84,8 +84,8 @@ export class Stack<T = any> extends AbstractCollection<T> {
   }
 
   /**
-   * Returns the object at the top of the Stack<T> without removing it.
-   * @returns The object at the top of the Stack<T>.
+   * Returns the object at the top of the `Stack<T>` without removing it.
+   * @returns The object at the top of the `Stack<T>`.
    * @example
    * ```typescript
    * const stack = new Stack<number>();
@@ -107,8 +107,8 @@ export class Stack<T = any> extends AbstractCollection<T> {
   }
 
   /**
-   * Removes and returns the object at the top of the Stack<T>.
-   * @returns The object removed from the top of the Stack<T>.
+   * Removes and returns the object at the top of the `Stack<T>`.
+   * @returns The object removed from the top of the `Stack<T>`.
    * @example
    * ```typescript
    * const stack = new Stack<number>();
@@ -138,8 +138,8 @@ export class Stack<T = any> extends AbstractCollection<T> {
   }
 
   /**
-   * Inserts an object at the top of the Stack<T>.
-   * @param value The object to push onto the Stack<T>
+   * Inserts an object at the top of the `Stack<T>`.
+   * @param value The object to push onto the `Stack<T>`.
    * @example
    * ```typescript
    * const stack = new Stack<number>();

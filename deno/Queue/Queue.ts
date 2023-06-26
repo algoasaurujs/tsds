@@ -12,7 +12,7 @@ class Node<T = any> {
  * @typeParam T - Specifies the type of elements in the Queue.
  * @example
  * ```typescript
- * import { Queue } from  '@samavati/tsds';
+ * import { Queue } from  '@algoasaurujs/tsds';
  *
  * // instantiate new Queue
  *

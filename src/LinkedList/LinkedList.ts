@@ -8,7 +8,7 @@ import { LinkedListNode } from './LinkedListNode';
  * @typeParam T - Specifies the type of elements in the LinkedList.
  * @example
  * ```typescript
- * import { LinkedList } from '@samavati/tsds';
+ * import { LinkedList } from '@algoasaurujs/tsds';
  * ```
  */
 export class LinkedList<T = any> extends AbstractCollection<T> {
@@ -180,7 +180,7 @@ export class LinkedList<T = any> extends AbstractCollection<T> {
 
   /**
    * Removes the first occurrence of a node from the `LinkedList<T>`.
-   * @param node The `LinkedListNode<T>` to remove from the LinkedList<T>`.
+   * @param node The `LinkedListNode<T>` to remove from the `LinkedList<T>`.
    * @example
    * ```typescript
    * const list = new LinkedList<number>([1, 2, 3, 4]);
@@ -374,13 +374,13 @@ export class LinkedList<T = any> extends AbstractCollection<T> {
   }
 
   /**
-   * Adds a new _value_ after an existing _node_ in the LinkedList<T>.
+   * Adds a new _value_ after an existing _node_ in the `LinkedList<T>`.
    * @param node The `LinkedListNode<T>` after which to insert `newNode`.
    * @param newNode The new `value` to add to the `LinkedList<T>`.
    */
   insertAfter(node: LinkedListNode<T>, newNode: T): void;
   /**
-   * Adds a new _node_ or after an existing _node_ in the LinkedList<T>.
+   * Adds a new _node_ or after an existing _node_ in the `LinkedList<T>`.
    * @param node The `LinkedListNode<T>` after which to insert `newNode`.
    * @param newNode The new `LinkedListNode<T>` or `value` to add to the `LinkedList<T>`.
    */

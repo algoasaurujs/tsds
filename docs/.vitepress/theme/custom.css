@@ -1,0 +1,17 @@
+:root {
+  --vp-c-brand: #646cff;
+  --vp-c-brand-light: #747bff;
+  --vp-c-brand-lighter: #9398ff;
+  --vp-c-brand-dark: #5056cc;
+  --vp-c-brand-darker: #323680;
+}
+
+.VPFeature img.VPImage {
+  width: 100px !important;
+  height: 48px;
+  margin-bottom: 12px !important;
+}
+
+.VPImage.logo {
+  height: 45px;
+}

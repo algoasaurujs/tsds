@@ -3,7 +3,7 @@
   "name": "tsds",
   "entry": "./deno/index.ts",
   "description": "Future TypeScript Data Structure",
-  "homepage": "https://github.com/samavati/tsds",
+  "homepage": "https://github.com/algoasaurujs/tsds",
   "version": "1.7.3",
   "releaseType": null,
   "unstable": true,

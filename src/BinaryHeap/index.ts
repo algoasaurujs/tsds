@@ -6,7 +6,7 @@ type CompareFn<U> = (a: U, b: U) => number;
  * @typeParam T - Specifies the type of elements in the BinaryHeap.
  * @example
  * ```typescript
- * import { BinaryHeap } from  '@samavati/tsds';
+ * import { BinaryHeap } from  '@algoasaurujs/tsds';
  *
  * // instantiate new BinaryHeap
  *

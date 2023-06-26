@@ -5,11 +5,10 @@ import { Renderer } from './shared/Renderer';
 export const renderPropertyAPI = (property: DeclarationReflection): string => {
     let result = '';
 
-    result += '### **' + property.getFullName() + '**' + EOL + EOL;
+    result += '### **' + property.name + '**' + EOL + EOL;
 
     const summary = property.getSignature?.comment?.summary
     if (summary) {
-        result += '**Definition**' + EOL + EOL;
         result += Renderer.renderCommentPart(summary).toString() + EOL + EOL;
     }
 

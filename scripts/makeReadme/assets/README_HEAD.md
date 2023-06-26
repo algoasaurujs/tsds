@@ -1,14 +1,14 @@
 <p align="center">
-  <img height="50" src="https://raw.githubusercontent.com/samavati/tsds/main/docs/src/assets/images/tsds-logo.png" />
+  <img height="50" src="https://raw.githubusercontent.com/algoasaurujs/tsds/main/docs/src/assets/images/tsds-logo.png" />
 </p>
 
 # <p align="center">TSDS</p>
 
 <p align="center">TypeScript Data Structures that you need!</p>
 
-![NPM](https://img.shields.io/npm/l/@samavati/tsds) ![npm (scoped)](https://img.shields.io/npm/v/@samavati/tsds) ![npm bundle size (scoped)](https://img.shields.io/bundlephobia/minzip/@samavati/tsds)
+![NPM](https://img.shields.io/npm/l/@algoasaurujs/tsds) ![npm (scoped)](https://img.shields.io/npm/v/@algoasaurujs/tsds) ![npm bundle size (scoped)](https://img.shields.io/bundlephobia/minzip/@algoasaurujs/tsds)
 
-[Doc Website](https://samavati.github.io/tsds/)
+[Doc Website](https://algoasaurujs.github.io/tsds/)
 
 # ****Introduction****
 

@@ -1,84 +1,94 @@
 {
-    "version": "1.8.0",
-    "license": "MIT",
-    "main": "dist/index.js",
-    "typings": "dist/index.d.ts",
-    "files": [
-        "dist",
-        "src"
-    ],
-    "engines": {
-        "node": ">=10"
-    },
-    "scripts": {
-        "start": "tsdx watch",
-        "build": "tsdx build",
-        "test": "tsdx test",
-        "test:watch": "tsdx test --watch",
-        "test:coverage": "tsdx test --coverage",
-        "lint": "tsdx lint",
-        "prepare": "tsdx build",
-        "size": "size-limit",
-        "analyze": "size-limit --why",
-        "release": "standard-version",
-        "deploy": "gh-pages -d docs/dist",
-        "typedoc": "typedoc",
-        "make:readme": "ts-node scripts/makeReadme/index.ts",
-        "make:deno": "ts-node scripts/makeDeno/index.ts"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "tsdx lint"
-        }
-    },
-    "prettier": {
-        "printWidth": 80,
-        "semi": true,
-        "singleQuote": true,
-        "trailingComma": "es5"
-    },
-    "name": "@samavati/tsds",
-    "author": "Ehsan Samavati",
-    "description": "TypeScript Data Structures that you need!",
-    "homepage": "https://samavati.github.io/tsds",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/samavati/tsds.git"
-    },
-    "keywords": [
-        "typescript",
-        "javascript",
-        "data-structure",
-        "linkedlist"
-    ],
-    "bugs": {
-        "url": "https://github.com/samavati/tsds/issues"
-    },
-    "module": "dist/tsds.esm.js",
-    "size-limit": [
-        {
-            "path": "dist/tsds.cjs.production.min.js",
-            "limit": "10 KB"
-        },
-        {
-            "path": "dist/tsds.esm.js",
-            "limit": "10 KB"
-        }
-    ],
-    "devDependencies": {
-        "@size-limit/preset-small-lib": "^7.0.8",
-        "@types/fs-extra": "^9.0.13",
-        "@types/markdown-table": "^2.0.0",
-        "fs-extra": "^10.1.0",
-        "gh-pages": "^3.2.3",
-        "husky": "^7.0.4",
-        "markdown-table": "^2.0.0",
-        "size-limit": "^7.0.8",
-        "standard-version": "^9.3.2",
-        "ts-node": "^10.9.1",
-        "tsdx": "^0.14.1",
-        "tslib": "^2.3.1",
-        "typedoc": "^0.23.14",
-        "typescript": "^4.8.2"
+  "version": "1.8.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "test:watch": "tsdx test --watch",
+    "test:coverage": "tsdx test --coverage",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
+    "release": "standard-version",
+    "deploy": "gh-pages -d docs/.vitepress/dist",
+    "typedoc": "typedoc",
+    "make:readme": "ts-node scripts/makeReadme/index.ts",
+    "make:deno": "ts-node scripts/makeDeno/index.ts",
+    "docs:dev": "concurrently --kill-others \"ts-node docs/generator/index.ts --watch=true\" \"vitepress dev docs\"",
+    "docs:build": "ts-node docs/generator/index.ts && vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
     }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "@algoasaurujs/tsds",
+  "author": "Ehsan Samavati",
+  "description": "TypeScript Data Structures that you need!",
+  "homepage": "https://algoasaurujs.github.io/tsds",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/algoasaurujs/tsds.git"
+  },
+  "keywords": [
+    "typescript",
+    "javascript",
+    "data-structure",
+    "linkedlist"
+  ],
+  "bugs": {
+    "url": "https://github.com/algoasaurujs/tsds/issues"
+  },
+  "module": "dist/tsds.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/tsds.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/tsds.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^7.0.8",
+    "@types/fs-extra": "^9.0.13",
+    "@types/markdown-table": "^2.0.0",
+    "concurrently": "^8.2.0",
+    "fs-extra": "^10.1.0",
+    "gh-pages": "^3.2.3",
+    "gray-matter": "^4.0.3",
+    "html-entities": "^2.3.6",
+    "husky": "^7.0.4",
+    "markdown-table": "^2.0.0",
+    "size-limit": "^7.0.8",
+    "standard-version": "^9.3.2",
+    "three": "^0.134.0",
+    "troisjs": "^0.3.4",
+    "ts-node": "^10.9.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.3.1",
+    "typedoc": "^0.24.8",
+    "typescript": "^4.8.2",
+    "vitepress": "^1.0.0-beta.3",
+    "vue": "^3.3.4"
+  }
 }

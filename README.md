@@ -1,14 +1,14 @@
 <p align="center">
-  <img height="50" src="https://raw.githubusercontent.com/samavati/tsds/main/docs/src/assets/images/tsds-logo.png" />
+  <img height="50" src="https://github.com/algoasaurujs/tsds/blob/docs/public/logo.png" />
 </p>
 
 # <p align="center">TSDS</p>
 
 <p align="center">TypeScript Data Structures that you need!</p>
 
-![NPM](https://img.shields.io/npm/l/@samavati/tsds) ![npm (scoped)](https://img.shields.io/npm/v/@samavati/tsds) ![npm bundle size (scoped)](https://img.shields.io/bundlephobia/minzip/@samavati/tsds)
+![NPM](https://img.shields.io/npm/l/@algoasaurujs/tsds) ![npm (scoped)](https://img.shields.io/npm/v/@algoasaurujs/tsds) ![npm bundle size (scoped)](https://img.shields.io/bundlephobia/minzip/@algoasaurujs/tsds)
 
-[Doc Website](https://samavati.github.io/tsds/)
+[Doc Website](https://algoasaurujs.github.io/tsds/)
 
 # ****Introduction****
 
@@ -107,7 +107,7 @@ The `Map` is builtin in javascript but, There are lots of other useful Data Str
 To install and save in your `package.json`dependencies, run:
 
 ```bash
-npm install @samavati/tsds
+npm install @algoasaurujs/tsds
 ```
 
 ## ****BinaryHeap****
@@ -117,7 +117,7 @@ A Binary Heap is a specialized tree-based data structure which is essentially an
 **Usage**
 
 ```typescript
-import { BinaryHeap } from  '@samavati/tsds';
+import { BinaryHeap } from  '@algoasaurujs/tsds';
 
 // instantiate new BinaryHeap
 
@@ -392,7 +392,7 @@ It is a data structure consisting of a collection of nodes which together repres
 **Usage**
 
 ```typescript
-import { LinkedList } from '@samavati/tsds';
+import { LinkedList } from '@algoasaurujs/tsds';
 ```
 
 ### **LinkedList.Properties**
@@ -801,7 +801,7 @@ The operation of adding an element to the rear of the queue is known as enqueue,
 **Usage**
 
 ```typescript
-import { PriorityQueue } from  '@samavati/tsds';
+import { PriorityQueue } from  '@algoasaurujs/tsds';
 
 // instantiate new PriorityQueue
 
@@ -1000,7 +1000,7 @@ The operation of adding an element to the rear of the queue is known as enqueue,
 **Usage**
 
 ```typescript
-import { Queue } from  '@samavati/tsds';
+import { Queue } from  '@algoasaurujs/tsds';
 
 // instantiate new Queue
 
@@ -1201,7 +1201,7 @@ The order in which elements come off a stack gives rise to its alternative name,
 **Usage**
 
 ```typescript
-import { Stack } from '@samavati/tsds';
+import { Stack } from '@algoasaurujs/tsds';
 // instantiate new Stack
 const stack = new Stack();
 ```
@@ -1397,12 +1397,12 @@ Please do not hesitate to contact me and contribute on this project.
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/samavati/tsds/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/algoasaurujs/tsds/tags). 
 
 ## Authors
 
-* [Ehsan Samavati](https://github.com/samavati)
+* [Ehsan algoasaurujs](https://github.com/algoasaurujs)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/samavati/tsds/blob/main/LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/algoasaurujs/tsds/blob/main/LICENSE) file for details
