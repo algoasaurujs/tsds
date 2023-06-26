@@ -41,6 +41,9 @@ export class BinaryHeap<T = any> {
     }
   }
 
+  /**
+   * @internal
+   */
   *iterator(): IterableIterator<T> {
     const iterator = this._nodes[Symbol.iterator]();
     let next = iterator.next();
@@ -59,6 +62,7 @@ export class BinaryHeap<T = any> {
    * 	// You have access to the item
    * }
    * ```
+   * @internal
    */
   public [Symbol.iterator](): Iterator<T> {
     return this.iterator();

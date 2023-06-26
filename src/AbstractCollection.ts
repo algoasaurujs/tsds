@@ -20,6 +20,7 @@ export abstract class AbstractCollection<E> implements Collection<E> {
    * 	// You have access to the item
    * }
    * ```
+   * @internal
    */
   public [Symbol.iterator](): Iterator<E> {
     return this.iterator();
