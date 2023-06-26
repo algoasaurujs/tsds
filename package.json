@@ -21,7 +21,7 @@
     "size": "size-limit",
     "analyze": "size-limit --why",
     "release": "standard-version",
-    "deploy": "gh-pages -d docs/dist",
+    "deploy": "gh-pages -d docs/.vitepress/dist",
     "typedoc": "typedoc",
     "make:readme": "ts-node scripts/makeReadme/index.ts",
     "make:deno": "ts-node scripts/makeDeno/index.ts",

@@ -7,6 +7,8 @@ import Stack from './sidebar/Stack.json';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  ignoreDeadLinks:true,
+  base:'/tsds/',
   title: 'TSDS',
   description: 'TypeScript Data Structures that you need!',
   head: [
