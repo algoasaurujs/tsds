@@ -1401,7 +1401,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* [Ehsan algoasaurujs](https://github.com/algoasaurujs)
+* [Ehsan Samavati](https://github.com/samavati)
 
 ## License
 
