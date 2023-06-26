@@ -1,5 +1,5 @@
 <p align="center">
-  <img height="50" src="https://github.com/algoasaurujs/tsds/blob/docs/public/logo.png" />
+  <img height="50" src="https://github.com/algoasaurujs/tsds/blob/main/docs/public/logo.png" />
 </p>
 
 # <p align="center">TSDS</p>
