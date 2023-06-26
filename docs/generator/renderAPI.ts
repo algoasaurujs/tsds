@@ -84,7 +84,7 @@ const renderClassAPI = (classObj: DeclarationReflection, outDir: string) => {
 
   const methods =
     classObj.children
-      ?.filter(child => child.kind === ReflectionKind.Method)
+      ?.filter(child => child.kind === ReflectionKind.Method && !child.signatures?.every(s=>s.comment?.hasModifier('@internal')))
       .sort(comparator) || [];
   if (methods.length) {
     result +=

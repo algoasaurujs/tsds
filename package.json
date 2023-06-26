@@ -21,12 +21,12 @@
     "size": "size-limit",
     "analyze": "size-limit --why",
     "release": "standard-version",
-    "deploy": "gh-pages -d docs/.vitepress/dist",
     "typedoc": "typedoc",
     "make:readme": "ts-node scripts/makeReadme/index.ts",
     "make:deno": "ts-node scripts/makeDeno/index.ts",
     "docs:dev": "concurrently --kill-others \"ts-node docs/generator/index.ts --watch=true\" \"vitepress dev docs\"",
     "docs:build": "ts-node docs/generator/index.ts && vitepress build docs",
+    "docs:publish": "gh-pages -d docs/.vitepress/dist",
     "docs:preview": "vitepress preview docs"
   },
   "husky": {

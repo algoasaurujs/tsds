@@ -9,7 +9,10 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /data-structures/LinkedList/LinkedList
+      link: /installation
+    - theme: alt
+      text: Introduction
+      link: /introduction
 
 features:
   - icon:
