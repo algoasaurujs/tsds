@@ -20,6 +20,12 @@ import { Queue } from  '@algoasaurujs/tsds';
 const queue = new Queue();
 ```
 
+## **Constructors**
+
+| Overload                                                                                        | Description |
+| ----------------------------------------------------------------------------------------------- | ----------- |
+| [new Queue&lpar;&rpar;&colon; Queue&lt;T&gt;](/data-structures/Queue/constructors/constructors) |             |
+
 ## **Properties**
 
 | Name                                               | Description                                              |

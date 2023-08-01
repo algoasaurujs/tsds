@@ -13,6 +13,10 @@ export const createSidebarItem = (text: string): SidebarItem => {
   };
 };
 
+export const createConstructorLink = (parent: DeclarationReflection) => {
+  return `/data-structures/${parent.name}/constructors/constructors`;
+};
+
 export const createMethodLink = (
   parent: DeclarationReflection,
   method: DeclarationReflection

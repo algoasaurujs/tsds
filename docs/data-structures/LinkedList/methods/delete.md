@@ -6,12 +6,12 @@ outline: deep
 
 ## ****Overloads****
 
-| Variant                                                           | Definition                                                                    |
-| ----------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| delete&lpar;node&colon; LinkedListNode&lt;T&gt;&rpar;&colon; void | Removes the first occurrence of a node from the `LinkedList<T>`.              |
-| delete&lpar;value&colon; T&rpar;&colon; boolean                   | Removes the first occurrence of the specified value from the `LinkedList<T>`. |
+| Variant                                                                              | Definition                                                                    |
+| ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------- |
+| delete&lpar;node&colon; LinkedListNode&lt;T&gt;&rpar;&colon; LinkedListNode&lt;T&gt; | Removes the first occurrence of a node from the `LinkedList<T>`.              |
+| delete&lpar;value&colon; T&rpar;&colon; LinkedListNode&lt;T&gt;                      | Removes the first occurrence of the specified value from the `LinkedList<T>`. |
 
-#### delete&lpar;node&colon; LinkedListNode&lt;T&gt;&rpar;&colon; void
+#### delete&lpar;node&colon; LinkedListNode&lt;T&gt;&rpar;&colon; LinkedListNode&lt;T&gt;
 
 Removes the first occurrence of a node from the `LinkedList<T>`.
 
@@ -32,9 +32,9 @@ list.last // => LinkListNode(3)
 
 ## ****Remarks****
 
-This method is an **O(n)** operation.
+This method is an **O(1)** operation.
 
-#### delete&lpar;value&colon; T&rpar;&colon; boolean
+#### delete&lpar;value&colon; T&rpar;&colon; LinkedListNode&lt;T&gt;
 
 Removes the first occurrence of the specified value from the `LinkedList<T>`.
 
@@ -44,7 +44,7 @@ Removes the first occurrence of the specified value from the `LinkedList<T>`.
 
 ## ****Returns****
 
-`boolean`
+`LinkedListNode<T>`
 
 `true` if the element containing value is successfully removed; otherwise, `false`. This method also returns `false` if value was not found in the original `LinkedList<T>`.
 
@@ -61,5 +61,5 @@ list.last // => LinkListNode(3)
 
 ## ****Remarks****
 
-This method is an **O(n)** operation.
+This method is an **O(1)** operation.
 

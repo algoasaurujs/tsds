@@ -20,6 +20,12 @@ import { PriorityQueue } from  '@algoasaurujs/tsds';
 const queue = new PriorityQueue();
 ```
 
+## **Constructors**
+
+| Overload                                                                                                                                                                                             | Description                         |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| [new PriorityQueue&lpar;initialValue&colon; T&lsqb;&rsqb;&comma; comparator&colon; CompareFn&lt;T&gt;&rpar;&colon; PriorityQueue&lt;T&gt;](/data-structures/PriorityQueue/constructors/constructors) | Creates a PriorityQueue collection. |
+
 ## **Properties**
 
 | Name                                                       | Description                                                      |

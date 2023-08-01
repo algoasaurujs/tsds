@@ -20,6 +20,12 @@ import { Stack } from '@algoasaurujs/tsds';
 const stack = new Stack();
 ```
 
+## **Constructors**
+
+| Overload                                                                                        | Description |
+| ----------------------------------------------------------------------------------------------- | ----------- |
+| [new Stack&lpar;&rpar;&colon; Stack&lt;T&gt;](/data-structures/Stack/constructors/constructors) |             |
+
 ## **Properties**
 
 | Name                                               | Description                                              |

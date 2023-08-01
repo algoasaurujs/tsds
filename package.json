@@ -26,7 +26,7 @@
     "make:deno": "ts-node scripts/makeDeno/index.ts",
     "docs:dev": "concurrently --kill-others \"ts-node docs/generator/index.ts --watch=true\" \"vitepress dev docs\"",
     "docs:build": "ts-node docs/generator/index.ts && vitepress build docs",
-    "docs:publish": "gh-pages -d docs/.vitepress/dist",
+    "docs:publish": "npm run docs:build && gh-pages -d docs/.vitepress/dist",
     "docs:preview": "vitepress preview docs"
   },
   "husky": {

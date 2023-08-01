@@ -12,13 +12,20 @@ import { renderPropertyAPI } from './renderPropertyAPI';
 import { comparator } from './shared/comparator';
 import { Renderer } from './shared/Renderer';
 import { writeFileSync } from './shared/writeFileSync';
-import { createMethodLink, createPropertyLink, createSidebarItem } from './createSidebarItem';
+import {
+  createConstructorLink,
+  createMethodLink,
+  createPropertyLink,
+  createSidebarItem,
+} from './createSidebarItem';
 import { ClassRenderer } from './shared/ClassRenderer';
 import { MethodRenderer } from './shared/MethodRenderer';
+import { default as formatConstructorTOC } from './constructor/formatTOC';
+import { default as renderConstructors } from './constructor/render';
 
 const renderClassAPI = (classObj: DeclarationReflection, outDir: string) => {
+  const SIDEBAR_ITEMS: any[] = [];
   const SIDEBAR_PROPERTIES = createSidebarItem('Properties');
-
   const SIDEBAR_METHODS = createSidebarItem('Methods');
 
   const baseOutDir = path.join(outDir, 'data-structures', classObj.name);
@@ -49,6 +56,25 @@ const renderClassAPI = (classObj: DeclarationReflection, outDir: string) => {
     result += Renderer.renderCommentPart(example).toString() + EOL + EOL;
   }
 
+  const constructor = classObj.children?.find(
+    child => child.kind === ReflectionKind.Constructor
+  );
+  if (constructor) {
+    result +=
+      new Renderer('Constructors')
+        .b2()
+        .h2()
+        .toString() +
+      EOL +
+      EOL;
+    result += formatConstructorTOC(constructor, classObj) + EOL + EOL;
+    renderConstructors(constructor, baseOutDir);
+    SIDEBAR_ITEMS.push({
+      text: 'Constructors',
+      link: createConstructorLink(classObj),
+    });
+  }
+
   const properties =
     classObj.children
       ?.filter(child => child.kind === ReflectionKind.Accessor)
@@ -72,7 +98,9 @@ const renderClassAPI = (classObj: DeclarationReflection, outDir: string) => {
       markdownTable([
         ['Name', 'Description'],
         ...properties.map(property => [
-          new Renderer(property.name).anchorLink(createPropertyLink(classObj, property)).toString(),
+          new Renderer(property.name)
+            .anchorLink(createPropertyLink(classObj, property))
+            .toString(),
           Renderer.renderCommentPart(
             property?.getSignature?.comment?.summary
           ).toString(),
@@ -84,7 +112,11 @@ const renderClassAPI = (classObj: DeclarationReflection, outDir: string) => {
 
   const methods =
     classObj.children
-      ?.filter(child => child.kind === ReflectionKind.Method && !child.signatures?.every(s=>s.comment?.hasModifier('@internal')))
+      ?.filter(
+        child =>
+          child.kind === ReflectionKind.Method &&
+          !child.signatures?.every(s => s.comment?.hasModifier('@internal'))
+      )
       .sort(comparator) || [];
   if (methods.length) {
     result +=
@@ -108,8 +140,12 @@ const renderClassAPI = (classObj: DeclarationReflection, outDir: string) => {
         ...(methods
           .map(method =>
             method.signatures?.map(signature => [
-              MethodRenderer.renderSignature(signature).anchorLink(createMethodLink(classObj, method)).toString(),
-              Renderer.renderCommentPart(signature.comment?.summary).toString().replace(/\n/g, " "),
+              MethodRenderer.renderSignature(signature)
+                .anchorLink(createMethodLink(classObj, method))
+                .toString(),
+              Renderer.renderCommentPart(signature.comment?.summary)
+                .toString()
+                .replace(/\n/g, ' '),
             ])
           )
           .flat() as any),
@@ -118,9 +154,16 @@ const renderClassAPI = (classObj: DeclarationReflection, outDir: string) => {
       EOL;
   }
   writeFileSync(path.join(baseOutDir, `${classObj.name}.md`), result);
+
+  if (SIDEBAR_PROPERTIES.items.length) {
+    SIDEBAR_ITEMS.push(SIDEBAR_PROPERTIES);
+  }
+  if (SIDEBAR_METHODS.items.length) {
+    SIDEBAR_ITEMS.push(SIDEBAR_METHODS);
+  }
   writeFileSync(
     path.join(outDir, './.vitepress/sidebar', `${classObj.name}.json`),
-    JSON.stringify([SIDEBAR_PROPERTIES, SIDEBAR_METHODS])
+    JSON.stringify(SIDEBAR_ITEMS)
   );
 };
 
