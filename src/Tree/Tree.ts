@@ -11,7 +11,7 @@ export type SerializedNode<T> = {
  * A tree data structure.
  */
 export class Tree<T = any> {
-  private _root = new TreeNode<T>(null as T, this);
+  private _root = new TreeNode<T>((null as unknown) as T, this);
 
   /**
    * Tree Identifier
