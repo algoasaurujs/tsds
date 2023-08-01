@@ -3,7 +3,7 @@ import { Stack } from './Stack/index';
 import { Queue } from './Queue/index';
 import { BinaryHeap } from './BinaryHeap/index';
 import { PriorityQueue } from './PriorityQueue/index';
-import { Tree, TreeNode } from './Tree/index';
+import { Tree, TreeNode, SerializedNode } from './Tree/index';
 
 export {
   LinkedList,
@@ -15,4 +15,5 @@ export {
   PriorityQueue,
   Tree,
   TreeNode,
+  SerializedNode,
 };

@@ -1,7 +1,6 @@
 import { LinkedList, LinkedListNode } from '../src';
 
 describe('LinkedList', () => {
-
   const checkList = (list: LinkedList<any>, values: any[]) => {
     expect(list.length).toBe(values.length);
     expect(list.toArray()).toEqual(values);
@@ -12,7 +11,7 @@ describe('LinkedList', () => {
       expect(list.first?.value).toBe(values[0]);
       expect(list.last?.value).toBe(values.at(-1));
     }
-  }
+  };
 
   it('LinkedList instantiate successfully', () => {
     const list = new LinkedList();
@@ -55,7 +54,7 @@ describe('LinkedList', () => {
 
   it('can export array from LinkedList', () => {
     const list = new LinkedList([1, 2, 3, 4]);
-    checkList(list, [1, 2, 3, 4])
+    checkList(list, [1, 2, 3, 4]);
   });
 
   it('can delete value from LinkedList', () => {
@@ -65,7 +64,7 @@ describe('LinkedList', () => {
     checkList(list, [2, 3, 4, 5]);
 
     list.delete(5);
-    checkList(list, [2, 3, 4])
+    checkList(list, [2, 3, 4]);
 
     list.delete(3);
     checkList(list, [2, 4]);
@@ -131,7 +130,7 @@ describe('LinkedList', () => {
       list.insertAfter(item, 'hello');
       checkList(list, [1, 2, 3, 'hello', 4, 5]);
 
-      const world = new LinkedListNode('world');
+      const world = new LinkedListNode('world', list);
       list.insertAfter(item, world);
       checkList(list, [1, 2, 3, 'world', 'hello', 4, 5]);
     }

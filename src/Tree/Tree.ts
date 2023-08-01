@@ -11,19 +11,23 @@ export type SerializedNode<T> = {
  * A tree data structure.
  */
 export class Tree<T = any> {
-  private _root: TreeNode<T> | null = null;
+  private _root = new TreeNode<T>(null as T, this);
 
-  constructor() {}
+  /**
+   * Tree Identifier
+   * @internal
+   */
+  private _id = Symbol();
 
   /**
    * This method deserializes a serialized tree into a new Tree.
-   *
    * @param obj The serialized tree to deserialize.
    * @returns A new Tree that contains the same values and structure as the serialized tree.
    */
   static deserialize<T = any>(obj: SerializedNode<T>): Tree<T> {
+    const tree = new Tree<T>();
     const deserializeNode = (node: SerializedNode<T>) => {
-      const nodeInstance = new TreeNode<T>(node.value);
+      const nodeInstance = new TreeNode<T>(node.value, tree);
       for (const child of node.children) {
         const childNode = deserializeNode(child);
         childNode.parent = nodeInstance;
@@ -33,15 +37,14 @@ export class Tree<T = any> {
     };
     if (!obj) return new Tree<T>();
 
-    const tree = new Tree<T>();
-    tree.insert(deserializeNode(obj));
+    tree.insert(deserializeNode(obj), tree.root);
     return tree;
   }
 
   /**
    * Returns the root node of the tree.
    */
-  get root(): TreeNode<T> | null {
+  get root(): TreeNode<T> {
     return this._root;
   }
 
@@ -64,18 +67,12 @@ export class Tree<T = any> {
    * @param parent The parent node of the new node.
    * @returns The new node.
    */
-  insert(value: T | TreeNode<T>, parent?: TreeNode<T>): TreeNode<T> {
+  insert(value: T | TreeNode<T>, parent: TreeNode<T>): TreeNode<T> {
     let newNode: TreeNode<T>;
     if (this.isTreeNode(value)) {
       newNode = value;
     } else {
-      newNode = new TreeNode(value);
-    }
-
-    if (!parent) {
-      if (this._root) throw new Error('Root node already exists.');
-      this._root = newNode;
-      return newNode;
+      newNode = new TreeNode(value, this);
     }
 
     newNode.parent = parent;
@@ -83,9 +80,27 @@ export class Tree<T = any> {
     return newNode;
   }
 
+  /**
+   * Deletes a node from the tree.
+   * @param node The node to delete.
+   * @returns The deleted node.
+   */
+  delete(node: TreeNode<T>): TreeNode<T> {
+    if (!this._root) throw new Error('Tree is already empty.');
+    if (!node.hasEqualTree(this._id)) throw new Error('Node not in tree.');
+    if (node.isEqual(this._root)) throw new Error('Cannot delete root node.');
+    node.detach();
+    return node;
+  }
+
+  /**
+   * Traverses the tree using DFS.
+   * @param callback The callback function to execute on each node.
+   * @param startNode The node to start the traversal from.
+   */
   traverseDFS(
     callback: CallBackFn<T>,
-    startNode: TreeNode<T> | null = this._root
+    startNode: TreeNode<T> = this._root
   ): void {
     if (startNode) {
       callback(startNode);
@@ -95,6 +110,11 @@ export class Tree<T = any> {
     }
   }
 
+  /**
+   * Traverses the tree using BFS.
+   * @param callback The callback function to execute on each node.
+   * @returns The tree.
+   */
   traverseBFS(callback: CallBackFn<T>): void {
     if (!this._root) return;
 
@@ -122,15 +142,12 @@ export class Tree<T = any> {
    * This code serializes a node and its children into an object.
    * @param node The node to serialize.
    * @returns The serialized node.
+   * @internal
    */
-  private serializeNode(node: TreeNode<T> | null): SerializedNode<T> | null {
-    if (!node) return null;
-
-    const serializedNode: any = {
+  private serializeNode(node: TreeNode<T>): SerializedNode<T> {
+    return {
       value: node.value,
       children: node.children.map(childNode => this.serializeNode(childNode)),
     };
-
-    return serializedNode;
   }
 }

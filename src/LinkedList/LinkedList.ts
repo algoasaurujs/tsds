@@ -483,7 +483,7 @@ export class LinkedList<T = any> extends AbstractCollection<T> {
     if (this.isLinkedListNode(newNode)) {
       if (newNode.hasList())
         throw new Error('newNode belongs to a LinkedList.');
-      newNodeInstance = new LinkedListNode<T>(newNode.value, this);;
+      newNodeInstance = new LinkedListNode<T>(newNode.value, this);
     } else {
       newNodeInstance = new LinkedListNode<T>(newNode, this);
     }
