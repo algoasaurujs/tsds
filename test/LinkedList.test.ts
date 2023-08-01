@@ -1,6 +1,19 @@
 import { LinkedList, LinkedListNode } from '../src';
 
 describe('LinkedList', () => {
+
+  const checkList = (list: LinkedList<any>, values: any[]) => {
+    expect(list.length).toBe(values.length);
+    expect(list.toArray()).toEqual(values);
+    expect(list.toArrayReverse()).toEqual([...values].reverse());
+    if (values.length) {
+      expect(list.first).toBeTruthy();
+      expect(list.last).toBeTruthy();
+      expect(list.first?.value).toBe(values[0]);
+      expect(list.last?.value).toBe(values.at(-1));
+    }
+  }
+
   it('LinkedList instantiate successfully', () => {
     const list = new LinkedList();
     expect(list.length).toBe(0);
@@ -17,25 +30,19 @@ describe('LinkedList', () => {
 
   it('get first works', () => {
     const list = new LinkedList([1, 2, 3, 4]);
-    if (list.first) {
-      expect(list.first.value).toBe(1);
-    }
+    expect(list.first?.value).toBe(1);
   });
 
   it('get last works', () => {
     const list = new LinkedList([1, 2, 3, 4]);
-    if (list.last) {
-      expect(list.last.value).toBe(4);
-    }
+    expect(list.last?.value).toBe(4);
   });
 
   it('can append to the list', () => {
     const list = new LinkedList([1, 2, 3, 4]);
     list.append(5);
     expect(list.length).toBe(5);
-    if (list.last) {
-      expect(list.last.value).toBe(5);
-    }
+    expect(list.last?.value).toBe(5);
   });
 
   it('clear works', () => {
@@ -48,40 +55,30 @@ describe('LinkedList', () => {
 
   it('can export array from LinkedList', () => {
     const list = new LinkedList([1, 2, 3, 4]);
-    expect(list.toArray()).toEqual([1, 2, 3, 4]);
+    checkList(list, [1, 2, 3, 4])
   });
 
   it('can delete value from LinkedList', () => {
     const list = new LinkedList([1, 2, 3, 4, 5]);
 
     list.delete(1);
-    expect(list.toArray()).toEqual([2, 3, 4, 5]);
-    expect(list.length).toEqual(4);
+    checkList(list, [2, 3, 4, 5]);
 
     list.delete(5);
-    if (list.last) {
-      expect(list.last.value).toEqual(4);
-    }
-    expect(list.toArray()).toEqual([2, 3, 4]);
-    expect(list.length).toEqual(3);
+    checkList(list, [2, 3, 4])
 
     list.delete(3);
-    expect(list.toArray()).toEqual([2, 4]);
-    expect(list.length).toEqual(2);
+    checkList(list, [2, 4]);
   });
 
   it('can get a node from LinkedList', () => {
     const list = new LinkedList([1, 2, 3, 4, 5]);
 
     const node1 = list.get(2);
-    if (node1) {
-      expect(node1.value).toEqual(3);
-    }
+    expect(node1?.value).toEqual(3);
 
     const node2 = list.get(4);
-    if (node2) {
-      expect(node2.value).toEqual(5);
-    }
+    expect(node2?.value).toEqual(5);
   });
 
   it('can delete Node from LinkedList', () => {
@@ -89,34 +86,25 @@ describe('LinkedList', () => {
 
     if (list.first) {
       list.delete(list.first);
-      expect(list.first.value).toEqual(2);
-      expect(list.toArray()).toEqual([2, 3, 4, 5]);
-      expect(list.length).toEqual(4);
+      checkList(list, [2, 3, 4, 5]);
     }
 
     const middleNode = list.get(2);
     if (middleNode) {
       list.delete(middleNode);
-      expect(list.toArray()).toEqual([2, 3, 5]);
-      expect(list.length).toEqual(3);
+      checkList(list, [2, 3, 5]);
     }
 
     if (list.last) {
       list.delete(list.last);
-      expect(list.last.value).toEqual(3);
-      expect(list.toArray()).toEqual([2, 3]);
-      expect(list.length).toEqual(2);
+      checkList(list, [2, 3]);
     }
   });
 
   it('can delete first node from LinkedList', () => {
     const list = new LinkedList([1, 2, 3, 4, 5]);
     list.deleteFirst();
-    if (list.first) {
-      expect(list.first.value).toEqual(2);
-    }
-    expect(list.toArray()).toEqual([2, 3, 4, 5]);
-    expect(list.length).toEqual(4);
+    checkList(list, [2, 3, 4, 5]);
   });
 
   it('can search node in LinkedList', () => {
@@ -124,10 +112,7 @@ describe('LinkedList', () => {
     const item = list.find(2);
     const nullItem = list.find(10);
 
-    if (item) {
-      expect(item.value).toBe(2);
-    }
-
+    expect(item?.value).toBe(2);
     expect(nullItem).toBeNull();
   });
 
@@ -144,26 +129,22 @@ describe('LinkedList', () => {
     const item = list.get(2);
     if (item) {
       list.insertAfter(item, 'hello');
-      expect(list.toArray()).toEqual([1, 2, 3, 'hello', 4, 5]);
-      expect(list.length).toEqual(6);
+      checkList(list, [1, 2, 3, 'hello', 4, 5]);
 
       const world = new LinkedListNode('world');
       list.insertAfter(item, world);
-      expect(list.toArray()).toEqual([1, 2, 3, 'world', 'hello', 4, 5]);
-      expect(list.length).toEqual(7);
+      checkList(list, [1, 2, 3, 'world', 'hello', 4, 5]);
     }
   });
 
   it('can insert at the first of the list ', () => {
     const list = new LinkedList<any>([1, 2, 3, 4, 5]);
     list.prepend(0);
-    expect(list.toArray()).toEqual([0, 1, 2, 3, 4, 5]);
-    expect(list.length).toEqual(6);
+    checkList(list, [0, 1, 2, 3, 4, 5]);
 
     const list2 = new LinkedList();
     list2.prepend(0);
-    expect(list2.toArray()).toEqual([0]);
-    expect(list2.length).toEqual(1);
+    checkList(list2, [0]);
   });
 
   it('can iterate', () => {

@@ -16,6 +16,12 @@ import { BinaryHeap } from  '@algoasaurujs/tsds';
 const queue = new BinaryHeap();
 ```
 
+## **Constructors**
+
+| Overload                                                                                                                                                                                    | Description                      |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| [new BinaryHeap&lpar;initialValue&colon; T&lsqb;&rsqb;&comma; comparator&colon; CompareFn&lt;T&gt;&rpar;&colon; BinaryHeap&lt;T&gt;](/data-structures/BinaryHeap/constructors/constructors) | Creates a BinaryHeap collection. |
+
 ## **Properties**
 
 | Name                                                | Description                                                   |

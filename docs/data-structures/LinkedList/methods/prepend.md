@@ -8,7 +8,7 @@ Appends new Node at the beginning of the `LinkedList<T>`.
 
 ## ****Parameters****
 
-**value`T`**: value of the new node
+**value`T | LinkedListNode<T>`**: value of the new node
 
 ## ****Example****
 

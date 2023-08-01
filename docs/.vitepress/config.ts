@@ -1,9 +1,12 @@
 import { defineConfig } from 'vitepress';
 import LinkedList from './sidebar/LinkedList.json';
+import LinkedListNode from './sidebar/LinkedListNode.json';
 import BinaryHeap from './sidebar/BinaryHeap.json';
 import PriorityQueue from './sidebar/PriorityQueue.json';
 import Queue from './sidebar/Queue.json';
 import Stack from './sidebar/Stack.json';
+import Tree from './sidebar/Tree.json';
+import TreeNode from './sidebar/TreeNode.json';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -81,6 +84,12 @@ export default defineConfig({
             items: [...LinkedList],
           },
           {
+            text: 'LinkedListNode&lt;T&gt;',
+            link: '/data-structures/LinkedListNode/LinkedListNode',
+            collapsed: true,
+            items: [...LinkedListNode],
+          },
+          {
             text: 'BinaryHeap&lt;T&gt;',
             link: '/data-structures/BinaryHeap/BinaryHeap',
             collapsed: true,
@@ -103,6 +112,18 @@ export default defineConfig({
             link: '/data-structures/Stack/Stack',
             collapsed: true,
             items: [...Stack],
+          },
+          {
+            text: 'Tree&lt;T&gt;',
+            link: '/data-structures/Tree/Tree',
+            collapsed: true,
+            items: [...Tree],
+          },
+          {
+            text: 'TreeNode&lt;T&gt;',
+            link: '/data-structures/TreeNode/TreeNode',
+            collapsed: true,
+            items: [...TreeNode],
           },
         ],
       },

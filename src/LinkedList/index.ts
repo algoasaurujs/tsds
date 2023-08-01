@@ -1,4 +1,4 @@
-import { LinkedList } from './LinkedList';
+import { LinkedList, MapCallback } from './LinkedList';
 import { LinkedListNode } from './LinkedListNode';
 
-export { LinkedList, LinkedListNode };
+export { LinkedList, LinkedListNode, MapCallback };
