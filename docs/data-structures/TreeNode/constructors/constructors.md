@@ -8,5 +8,9 @@ outline: deep
 
 **value`T`**: 
 
+**_tree`Tree<T>`**: 
+
 **parent`null | TreeNode<T>`**: 
+
+**_treeId`null | Symbol`**: 
 

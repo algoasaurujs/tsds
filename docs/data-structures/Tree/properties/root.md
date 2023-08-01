@@ -8,5 +8,5 @@ Returns the root node of the tree.
 
 ## **Property Value**
 
-`null | TreeNode<T>`
+`TreeNode<T>`
 
